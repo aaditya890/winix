@@ -1,1 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind variants;
+
+:root {
+  /* ===== Base Colors ===== */
+  --color-primary: 0 0% 12%;           /* #1F1F1F - Main text */
+  --color-secondary: 0 0% 45%;         /* #737373 - Muted gray text */
+  --color-primary-surface: 0 0% 100%;  /* #FFFFFF - Card / header background */
+  --color-primary-dark: 240 6% 10%;    /* #18181B - Dark overlay */
+
+  /* ===== Accents ===== */
+  --accent-primary: 265 83% 55%;       /* #7C3AED - Purple core */
+  --accent-secondary: 265 85% 65%;     /* #9D6BFF - Softer purple hover */
+  --accent-tertiary: 220 82% 63%;      /* #3B82F6 - Blue alt (for balance) */
+  --accent-glow: 280 100% 72%;         /* #A855F7 - Neon purple highlight */
+
+  /* ===== Gradient Combos ===== */
+  --gradient-hero: linear-gradient(135deg, hsl(var(--accent-primary)) 0%, hsl(var(--accent-tertiary)) 100%);
+  --gradient-accent: linear-gradient(90deg, hsl(var(--accent-primary)), hsl(var(--accent-glow)));
+
+  /* ===== Utility Colors ===== */
+  --color-border: 0 0% 88%;            /* #E0E0E0 - Light neutral borders */
+  --color-muted: 0 0% 60%;             /* #999999 - Muted labels/text */
+  --color-overlay: 0 0% 0% / 55%;      /* rgba(0,0,0,0.55) - Overlays */
+}
 /* You can add global styles to this file, and also import other style files */
