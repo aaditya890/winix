@@ -118,3 +118,75 @@ video {
     background-position: -200% 0;
   }
 }
+
+
+@keyframes hero-progress { from { width: 0% } to { width: 100% } }
+.animate-hero-progress { animation: hero-progress 3s linear forwards; }
+
+
+// ----
+
+// Brand Store Component Styles
+
+// Ensure proper icon alignment and centering
+.h-12.w-12 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  svg {
+    flex-shrink: 0;
+    display: block;
+    margin: auto;
+  }
+}
+
+// Enhanced rounded corners
+.rounded-xl {
+  border-radius: 0.75rem;
+}
+
+// Video hover effects
+video {
+  transition: transform 0.3s ease;
+  
+  &:hover {
+    transform: scale(1.02);
+  }
+}
+
+// Feature grid responsive improvements
+.grid.grid-cols-1.sm\\:grid-cols-3 {
+  @media (max-width: 640px) {
+    gap: 1.5rem;
+  }
+}
+
+
+// Text alignment improvements
+.leading-tight {
+  .text-lg {
+    line-height: 1.2;
+  }
+  
+  .text-sm {
+    line-height: 1.3;
+  }
+}
+
+// Responsive text scaling
+@media (max-width: 768px) {
+  .text-4xl.md\\:text-6xl {
+    font-size: 2.5rem;
+    line-height: 1.1;
+  }
+}
+
+// Enhanced shadow and border effects
+.shadow-2xl {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.ring-1 {
+  box-shadow: 0 0 0 1px var(--ring-color);
+}

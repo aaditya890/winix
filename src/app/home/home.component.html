@@ -80,227 +80,181 @@
   </div>
 </section>
 
-<!-- Trending on Socials Section -->
-<section class="py-16 bg-gray-50">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="mb-12">
-      <h2 class="text-3xl font-bold text-gray-900 mb-2">Trending on socials</h2>
-      <p class="text-xl text-gray-600">right now</p>
-    </div>
-
-    <!-- Social Posts Grid -->
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-      <div 
-        *ngFor="let post of socialPosts.slice(socialScrollIndex, socialScrollIndex + 4); let i = index"
-        class="relative group cursor-pointer rounded-2xl overflow-hidden bg-white shadow-sm hover:shadow-lg transition-all duration-300">
-        
-        <!-- Post Image/Video -->
-        <div class="aspect-square relative overflow-hidden">
-          <img 
-            [src]="post.thumbnail" 
-            [alt]="post.title"
-            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-          
-          <!-- Video Play Button -->
-          <div *ngIf="post.type === 'video'" class="absolute inset-0 flex items-center justify-center">
-            <div class="w-12 h-12 bg-white bg-opacity-90 rounded-full flex items-center justify-center">
-              <svg class="w-6 h-6 text-gray-900 ml-1" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M8 5v14l11-7z"/>
-              </svg>
-            </div>
-          </div>
-
-          <!-- New Badge -->
-          <div *ngIf="post.isNew" class="absolute top-3 left-3">
-            <span class="bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full">NEW</span>
-          </div>
-
-          <!-- Likes -->
-          <div class="absolute bottom-3 right-3 bg-black bg-opacity-50 text-white text-xs px-2 py-1 rounded-full flex items-center space-x-1">
-            <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-            </svg>
-            <span>{{ post.likes }}</span>
-          </div>
-        </div>
-
-        <!-- Post Info -->
-        <div class="p-4">
-          <h3 class="font-semibold text-gray-900 text-sm mb-1 line-clamp-2">{{ post.title }}</h3>
-          <p class="text-gray-600 text-xs mb-2 line-clamp-2">{{ post.description }}</p>
-          <p class="text-gray-500 text-xs">{{ post.author }}</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- Product Finder Section -->
-<section class="py-16 bg-gradient-to-r from-red-500 to-pink-500 relative overflow-hidden">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-      <!-- Left Content -->
-      <div class="text-white">
-        <h2 class="text-4xl lg:text-5xl font-bold mb-6 leading-tight">
-          Not sure which WINIX<br>
-          fits your space?
-        </h2>
-        <button class="bg-white text-gray-900 px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transition-colors duration-300">
-          Product Finder
-        </button>
-      </div>
-
-      <!-- Right Illustration -->
-      <div class="relative">
-        <img 
-          src="/placeholder.svg?height=400&width=500&text=Air+Quality+Illustration" 
-          alt="Air Quality Illustration"
-          class="w-full h-auto">
-      </div>
-    </div>
-  </div>
-
-  <!-- Background Pattern -->
-  <div class="absolute inset-0 opacity-10">
-    <div class="absolute inset-0" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 40px 40px;"></div>
-  </div>
-</section>
-
-<!-- Best-sellers Section -->
+<!-- Features Section (icons replaced by images) -->
 <section class="py-16 bg-white">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="mb-12">
-      <h2 class="text-3xl font-bold text-gray-900 mb-2">Best-sellers this</h2>
-      <p class="text-xl text-gray-600">season</p>
-    </div>
-
-    <!-- Products Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-      <div 
-        *ngFor="let product of bestSellers"
-        class="group bg-white rounded-2xl border border-gray-100 hover:border-gray-200 hover:shadow-lg transition-all duration-300 overflow-hidden">
-        
-        <!-- Product Image -->
-        <div class="relative aspect-square p-6 bg-gray-50">
-          <img 
-            [src]="product.currentImage" 
-            [alt]="product.name"
-            class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
-          
-          <!-- Badge -->
-          <!-- <div *ngIf="product.badge" class="absolute top-3 left-3">
-            <span class="bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full">{{ product.badge }}</span>
-          </div> -->
-
-          <!-- New Badge -->
-          <!-- <div *ngIf="product.isNew" class="absolute top-3 right-3">
-            <span class="bg-green-500 text-white text-xs font-bold px-2 py-1 rounded-full">NEW</span>
-          </div> -->
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-10 text-center">
+      <div
+        *ngFor="let f of features"
+        class="group"
+      >
+        <div class="w-28 h-28 mx-auto mb-6 transition-transform duration-300 group-hover:scale-105">
+          <img [src]="f.img" [alt]="f.title" class="w-full h-full object-contain" loading="lazy" />
         </div>
 
-        <!-- Product Info -->
-        <div class="p-6">
-          <h3 class="font-semibold text-gray-900 mb-2 line-clamp-2">{{ product.shortName }}</h3>
-          <p class="text-gray-600 text-sm mb-3 line-clamp-2">{{ product.description }}</p>
-          
-          <!-- Rating -->
-          <div class="flex items-center mb-3">
-            <div class="flex text-yellow-400 mr-2">
-              <svg *ngFor="let star of getStars(product.rating)" class="w-4 h-4 fill-current" viewBox="0 0 20 20">
-                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-              </svg>
-            </div>
-            <span class="text-sm text-gray-600">({{ product.rating }})</span>
-          </div>
+        <h3 class="text-2xl font-semibold text-gray-900 mb-4">
+          {{ f.title }}
+        </h3>
 
-          <!-- Price -->
-          <div class="flex items-center justify-between mb-4">
-            <div class="flex items-center space-x-2">
-              <span class="text-xl font-bold text-gray-900">{{ product.price }}</span>
-              <span *ngIf="product.originalPrice" class="text-sm text-gray-500 line-through">{{ product.originalPrice }}</span>
-            </div>
-          </div>
-
-          <!-- Add to Cart Button -->
-          <!-- <button 
-            (click)="addToCart(product)"
-            class="w-full bg-gray-900 text-white py-3 px-4 rounded-xl font-semibold hover:bg-gray-800 transition-colors duration-300">
-            Add to Cart
-          </button> -->
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-
-<!-- Shop by Category Section -->
-<section class="py-16 bg-white">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center mb-12">
-      <h2 class="text-3xl font-bold text-gray-900 mb-2">Shop by Function</h2>
-      <p class="text-xl text-gray-600">and Category</p>
-    </div>
-
-    <!-- Categories Grid -->
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
-      <div 
-        *ngFor="let category of categories"
-        class="text-center group cursor-pointer">
-        
-        <!-- Category Icon -->
-        <div class="w-24 h-24 mx-auto mb-4 rounded-full flex items-center justify-center text-4xl transition-transform duration-300 group-hover:scale-110"
-             [ngClass]="category.color">
-          {{ category.icon }}
-        </div>
-
-        <!-- Category Info -->
-        <h3 class="font-semibold text-gray-900 mb-1">{{ category.name }}</h3>
-        <p class="text-sm text-gray-600">{{ category.productCount }} products</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- Community Section -->
-<section class="py-16 bg-white">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-      <!-- Left Content -->
-      <div>
-        <h2 class="text-4xl font-bold text-gray-900 mb-6 leading-tight">
-          Become<br>
-          a Winix<br>
-          <span class="bg-gray-900 text-white px-4 py-2 rounded-lg">Insider</span>
-        </h2>
-        <p class="text-gray-600 mb-8 text-lg">
-          Real Reviews. Real Results. Where our community shares their clean air journey.
+        <p class="text-gray-600 leading-7 max-w-xs mx-auto">
+          {{ f.desc }}
         </p>
-        <button class="bg-gray-900 text-white px-8 py-4 rounded-full font-semibold hover:bg-gray-800 transition-colors duration-300">
-          Join Community
-        </button>
-      </div>
-
-      <!-- Right User Generated Content Grid -->
-      <div class="grid grid-cols-3 gap-4">
-        <div class="space-y-4">
-          <img src="/placeholder.svg?height=150&width=150&text=User+Photo+1" alt="User Photo" class="w-full aspect-square object-cover rounded-2xl">
-          <img src="/placeholder.svg?height=200&width=150&text=User+Photo+2" alt="User Photo" class="w-full aspect-[3/4] object-cover rounded-2xl">
-        </div>
-        <div class="space-y-4">
-          <img src="/placeholder.svg?height=200&width=150&text=User+Photo+3" alt="User Photo" class="w-full aspect-[3/4] object-cover rounded-2xl">
-          <img src="/placeholder.svg?height=150&width=150&text=User+Photo+4" alt="User Photo" class="w-full aspect-square object-cover rounded-2xl">
-        </div>
-        <div class="space-y-4">
-          <img src="/placeholder.svg?height=150&width=150&text=User+Photo+5" alt="User Photo" class="w-full aspect-square object-cover rounded-2xl">
-          <img src="/placeholder.svg?height=200&width=150&text=User+Photo+6" alt="User Photo" class="w-full aspect-[3/4] object-cover rounded-2xl">
-        </div>
       </div>
     </div>
   </div>
 </section>
+
+
+<!-- Brand Store -->
+<section class="py-16 bg-surface">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+      
+      <!-- LEFT -->
+      <div>
+        <h2 class="text-4xl md:text-6xl font-extrabold leading-[1.05] text-primary">
+          Welcome to our<br />Brand Store
+        </h2>
+
+        <p class="mt-6 text-lg text-secondary max-w-prose">
+          The Winix air purifier for home features a True HEPA filter, PlasmaWave technology,
+          and an odor-reducing washable AOC carbon filter, effectively capturing allergens,
+          pollutants, and odors.
+        </p>
+<!-- Features (locked alignment) -->
+<div class="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-8">
+
+  <!-- Power Source -->
+  <div class="h-16 flex items-center gap-4">
+    <div class="h-12 w-12 shrink-0 rounded-xl2 flex items-center justify-center
+                bg-[hsl(var(--color-primary)/0.05)]
+                ring-1 ring-[hsl(var(--color-border)/0.6)]">
+      <!-- plug -->
+      <svg aria-hidden="true" class="h-6 w-6 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+        <path stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              d="M9 7V3m6 4V3M7 11h10v3a5 5 0 0 1-5 5 5 5 0 0 1-5-5v-3z"/>
+      </svg>
+    </div>
+    <div class="leading-tight">
+      <div class="text-lg font-semibold text-primary sm:whitespace-nowrap">Power Source</div>
+      <div class="text-sm text-secondary sm:whitespace-nowrap">Corded Electric</div>
+    </div>
+  </div>
+
+  <!-- Control -->
+  <div class="h-16 flex items-center gap-4">
+    <div class="h-12 w-12 shrink-0 rounded-xl2 flex items-center justify-center
+                bg-[hsl(var(--color-primary)/0.05)]
+                ring-1 ring-[hsl(var(--color-border)/0.6)]">
+      <!-- control -->
+      <svg aria-hidden="true" class="h-6 w-6 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+        <path stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              d="M6 9h12a3 3 0 0 1 3 3l-.3 3.3a4 4 0 0 1-4 3.5H7.3a4 4 0 0 1-4-3.5L3 12a3 3 0 0 1 3-3z"/>
+        <path stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              d="M7.5 12h3M9 10.5v3M16.75 12.25h.01M19 10.5h.01M19 13.5h.01"/>
+      </svg>
+    </div>
+    <div class="leading-tight">
+      <div class="text-lg font-semibold text-primary sm:whitespace-nowrap">Control</div>
+      <div class="text-sm text-secondary sm:whitespace-nowrap">Touch</div>
+    </div>
+  </div>
+
+  <!-- Filter Type -->
+  <div class="h-16 flex items-center gap-4">
+    <div class="h-12 w-12 shrink-0 rounded-xl2 flex items-center justify-center
+                bg-[hsl(var(--color-primary)/0.05)]
+                ring-1 ring-[hsl(var(--color-border)/0.6)]">
+      <!-- filter -->
+      <svg aria-hidden="true" class="h-6 w-6 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+        <path stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              d="M3 5h18l-7 8v5l-4 2v-7L3 5z"/>
+      </svg>
+    </div>
+    <div class="leading-tight">
+      <div class="text-lg font-semibold text-primary sm:whitespace-nowrap">Filter Type</div>
+      <div class="text-sm text-secondary sm:whitespace-nowrap">Activated Carbon</div>
+    </div>
+  </div>
+
+</div>
+
+
+      
+      </div>
+
+      <!-- RIGHT: video card -->
+      <div class="relative">
+        <div class="relative rounded-2xl overflow-hidden shadow-2xl
+                    ring-1 ring-[hsl(var(--color-border)/0.6)] bg-black">
+          <!-- Swap in your actual sources -->
+          <video class="block w-full h-full"
+                 [attr.poster]="videoPoster"
+                 [src]="brandVideo"
+                 controls
+                 playsinline>
+          </video>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+    <!-- Mobile-Fixed Footer -->
+    <footer class="bg-[#050518] text-white relative overflow-hidden">
+
+        <!-- Top Row -->
+        <div class="relative z-10 flex flex-col sm:flex-row justify-between items-center px-4 sm:px-6 py-4  text-sm">
+            <span class="text-white/70 tracking-wider">
+                Powered by <span class="font-semibold text-white underline cursor-pointer"><a
+                        href="https://octatech.in/" target="_blank">OctaTech</a></span>
+            </span>
+            <div class="flex gap-4 sm:gap-6 mt-2 sm:mt-0">
+                <a routerLink="/privacy-policy"
+                    class="hover:underline text-white/70 hover:text-white transition-colors duration-300">
+                    Privacy Policy
+                </a>
+                <a routerLink="/terms-and-conditions"
+                    class="hover:underline text-white/70 hover:text-white transition-colors duration-300">
+                    Terms & Conditions
+                </a>
+            </div>
+        </div>
+
+        <!-- Massive Text Section -->
+        <div class="relative footer-gradient">
+            <!-- Background decoration -->
+            <div class="absolute inset-0 bg-gradient-to-r from-purple-900/5 via-transparent to-blue-900/5"></div>
+
+            <!-- Subtle grid pattern -->
+            <div class="absolute inset-0 opacity-5">
+                <div class="w-full h-full"
+                    style="background-image: radial-gradient(circle, #ffffff 1px, transparent 1px); background-size: 50px 50px;">
+                </div>
+            </div>
+
+            <div class="relative z-10 px-2 sm:px-4" #footerImage data-lazy-id="footer-img">
+                <img src="assets/winix-footer1.png" class="w-full" alt="" loading="lazy" />
+            </div>
+            <!-- Bottom fade effect -->
+            <div class="absolute bottom-0 left-0 right-0 h-16 sm:h-20 bg-gradient-to-t from-black/30 to-transparent">
+            </div>
+        </div>
+    </footer>
+
+
+
+
+
+
+
+
+
+
+
+
 
 

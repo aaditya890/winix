@@ -1,28 +1,93 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@tailwind variants;
 
+/* ===== CSS Variables (Theme Tokens) ===== */
 :root {
-  /* ===== Base Colors ===== */
-  --color-primary: 0 0% 12%;           /* #1F1F1F - Main text */
-  --color-secondary: 0 0% 45%;         /* #737373 - Muted gray text */
-  --color-primary-surface: 0 0% 100%;  /* #FFFFFF - Card / header background */
-  --color-primary-dark: 240 6% 10%;    /* #18181B - Dark overlay */
+  /* Base */
+  --color-primary: 231 71% 18%;         /* #0E1B4C */
+  --color-secondary: 227 14% 41%;       /* #5B6178 */
+  --color-primary-surface: 220 20% 96%; /* #F4F5F7 */
+  --color-primary-dark: 233 74% 14%;    /* #0A1238 */
 
-  /* ===== Accents ===== */
-  --accent-primary: 265 83% 55%;       /* #7C3AED - Purple core */
-  --accent-secondary: 265 85% 65%;     /* #9D6BFF - Softer purple hover */
-  --accent-tertiary: 220 82% 63%;      /* #3B82F6 - Blue alt (for balance) */
-  --accent-glow: 280 100% 72%;         /* #A855F7 - Neon purple highlight */
+  /* Accents */
+  --accent-primary: 314 51% 36%;        /* #8C2D7A */
+  --accent-secondary: 315 38% 49%;      /* #B24BA1 */
+  --accent-tertiary: 228 64% 33%;       /* #1E3A8A */
+  --accent-glow: 311 61% 63%;           /* #D46BC7 */
 
-  /* ===== Gradient Combos ===== */
-  --gradient-hero: linear-gradient(135deg, hsl(var(--accent-primary)) 0%, hsl(var(--accent-tertiary)) 100%);
-  --gradient-accent: linear-gradient(90deg, hsl(var(--accent-primary)), hsl(var(--accent-glow)));
+  /* Gradients */
+  --gradient-hero: linear-gradient(
+    135deg,
+    hsl(var(--accent-primary)) 0%,
+    hsl(var(--accent-tertiary)) 100%
+  );
+  --gradient-accent: linear-gradient(
+    90deg,
+    hsl(var(--accent-primary)),
+    hsl(var(--accent-secondary))
+  );
 
-  /* ===== Utility Colors ===== */
-  --color-border: 0 0% 88%;            /* #E0E0E0 - Light neutral borders */
-  --color-muted: 0 0% 60%;             /* #999999 - Muted labels/text */
-  --color-overlay: 0 0% 0% / 55%;      /* rgba(0,0,0,0.55) - Overlays */
+  /* Utility */
+  --color-border: 220 14% 90%;          /* #E5E7EB */
+  --color-muted: 220 9% 65%;            /* #9CA3AF */
+  --color-overlay: 0 0% 0% / 60%;
 }
-/* You can add global styles to this file, and also import other style files */
+
+/* ===== Optional Dark Mode (toggle with [data-theme="dark"]) ===== */
+:root[data-theme="dark"] {
+  --color-primary: 220 20% 96%;
+  --color-secondary: 220 10% 70%;
+  --color-primary-surface: 233 74% 14%;
+  --color-primary-dark: 233 74% 10%;
+  /* keep accents similar; tweak if needed */
+  --accent-primary: 314 51% 40%;
+  --accent-secondary: 315 38% 56%;
+  --gradient-hero: linear-gradient(
+    135deg,
+    hsl(var(--accent-tertiary)) 0%,
+    hsl(var(--accent-primary)) 100%
+  );
+}
+
+/* ===== Handy Aliases (your preferred naming) ===== */
+/* text */
+.text-primary   { color: hsl(var(--color-primary)); }
+.text-secondary { color: hsl(var(--color-secondary)); }
+.text-surface   { color: hsl(var(--color-primary-surface)); }
+.text-dark      { color: hsl(var(--color-primary-dark)); }
+
+/* backgrounds */
+.bg-pri       { background-color: hsl(var(--accent-primary)); }
+.bg-pri-2     { background-color: hsl(var(--accent-secondary)); }
+.bg-surface   { background-color: hsl(var(--color-primary-surface)); }
+.bg-dark      { background-color: hsl(var(--color-primary-dark)); }
+
+/* gradients */
+.bg-hero      { background: var(--gradient-hero); }
+.bg-accent    { background: var(--gradient-accent); }
+
+/* borders */
+.border-muted { border-color: hsl(var(--color-border)); }
+
+/* shadows */
+.shadow-soft  { box-shadow: 0 8px 30px rgba(0,0,0,.06); }
+
+/* radius */
+.rounded-xl2  { border-radius: 14px; }
+
+/* utility helpers */
+.btn-primary {
+  @apply px-6 py-3 rounded-full font-semibold transition-colors duration-300;
+  background-color: hsl(var(--accent-primary));
+  color: hsl(var(--color-primary-surface));
+}
+.btn-primary:hover { background-color: hsl(var(--accent-secondary)); }
+
+/* (Optional) make headings use heading font */
+h1,h2,h3,h4,h5,h6 { 
+  font-family: theme('fontFamily.heading');
+  font-weight: 600;
+}
+body { font-family: theme('fontFamily.sans'); font-weight: 600; }
+
