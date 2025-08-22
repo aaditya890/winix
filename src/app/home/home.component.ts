@@ -81,7 +81,6 @@ features = [
       'PlasmaWave Technology purifies air by neutralizing pollutants, bacteria, and viruses.',
   },
 ];
-
 // component.ts
 featuresVideo = [
   { icon: 'plug',    title: 'Power Source', value: 'Corded Electric' },
@@ -92,5 +91,26 @@ featuresVideo = [
 // put your actual paths here
 brandVideo  = 'assets/video/brand.mp4';
 videoPoster = 'assets/video/brand-poster.jpg';
+
+// Announce bar config
+barTitle = 'Updates';
+messages = [
+  'No.1 Air Purifier Brand',
+  'Free shipping on orders over ₹999',
+  'True HEPA filters back in stock',
+];
+speed = 18; // seconds per full loop
+
+showBar = true;
+
+ngOnInit() {
+  this.showBar = localStorage.getItem('announce_dismissed') !== '1';
+}
+
+dismissBar() {
+  this.showBar = false;
+  localStorage.setItem('announce_dismissed', '1');
+}
+
 
 }
