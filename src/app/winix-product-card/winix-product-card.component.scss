@@ -1,0 +1,99 @@
+/* Compact scrollbar styling and smooth animations */
+[scrollbar-width="none"] {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+[scrollbar-width="none"]::-webkit-scrollbar {
+  display: none;
+}
+
+/* Unique gradient animations and enhanced hover effects */
+.group {
+  position: relative;
+  
+  &:hover {
+    img {
+      transform: scale(1.1);
+      transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    
+    .bg-gradient-to-br {
+      background: linear-gradient(135deg, #ffffff 0%, #f8fafc 50%, #e2e8f0 100%);
+      
+      @media (prefers-color-scheme: dark) {
+        background: linear-gradient(135deg, #1f2937 0%, #111827 50%, #000000 100%);
+      }
+    }
+  }
+}
+
+/* Smooth focus transitions with unique styling */
+article:focus-within {
+  transform: translateY(-4px) scale(1.02);
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  
+  .bg-gradient-to-br {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  }
+}
+
+/* Compact line clamping */
+.line-clamp-1 {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Optimized backdrop blur for performance */
+.backdrop-blur-sm {
+  backdrop-filter: blur(4px);
+}
+
+/* Enhanced color swatch animations */
+button[role="button"] {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  &:hover {
+    transform: scale(1.25);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  &:focus-visible {
+    transform: scale(1.25);
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5);
+  }
+}
+
+/* Unique floating CTA button animations */
+.group a[class*="absolute"] {
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  
+  &:hover {
+    transform: scale(1.1);
+    background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+    box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
+  }
+}
+
+/* Smooth star rating animations */
+svg[class*="text-amber-400"] {
+  transition: all 0.2s ease-out;
+  
+  &:hover {
+    transform: scale(1.1);
+    filter: drop-shadow(0 2px 4px rgba(245, 158, 11, 0.3));
+  }
+}
+
+/* Performance optimizations for mobile */
+@media (max-width: 768px) {
+  .group:hover img {
+    transform: scale(1.05); /* Reduced scale for mobile */
+  }
+  
+  article:focus-within {
+    transform: translateY(-2px); /* Reduced movement for mobile */
+  }
+}

@@ -1,116 +1,54 @@
-import { Component, OnInit, OnDestroy } from "@angular/core"
-import { CommonModule } from "@angular/common"
-import { RouterLink } from "@angular/router"
+import { Component, OnInit, OnDestroy, ViewChild, ElementRef } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
+import { NgOptimizedImage } from '@angular/common';
+import { WinixProductCardComponent } from "../winix-product-card/winix-product-card.component";
+import { ReviewCardsComponent } from "../review-cards/review-cards.component";
 
-interface Product {
-  id: number
-  name: string
-  shortName: string
-  slug: string
-  description: string
-  images: string[]
-  currentImage: string
-  rating: number
-  category: string
-  technology: string
-  keyFeatures: string[]
-  coverage: string
-  filterType: string
-  noiseLevel: string
-  isHovered: boolean
-  imageInterval?: any
-  price: string
-  originalPrice?: string
-  badge?: string
-  isAward?: boolean
-  awardType?: string
-  isNew?: boolean
-}
-
-interface SocialPost {
-  id: number
-  type: "video" | "image"
-  thumbnail: string
-  title: string
-  description: string
-  author: string
-  likes: number
-  isNew?: boolean
-}
-
-interface Category {
-  id: number
-  name: string
-  icon: string
-  productCount: number
-  color: string
+interface FeatureItem {
+  img: string; title: string; desc: string; w: number; h: number;
 }
 
 @Component({
-  selector: "app-home",
+  selector: 'app-home',
   standalone: true,
-  imports: [RouterLink, CommonModule],
-  templateUrl: "./home.component.html",
-  styleUrl: "./home.component.scss",
+  imports: [RouterLink, CommonModule, NgOptimizedImage, WinixProductCardComponent, ReviewCardsComponent],
+  templateUrl: './home.component.html',
+  styleUrl: './home.component.scss',
 })
-export class HomeComponent {
-  // component.ts
-features = [
-  {
-    img: 'assets/features/1.png',
-    title: 'warranty',
-    desc:
-      'Comprehensive 2 year warranty covers repairs, replacements, and reliable product protection.',
-  },
-  {
-    img: 'assets/features/2.png',
-    title: 'Carbon Filter',
-    desc:
-      'An activated carbon filter effectively removes impurities, and contaminants from water.',
-  },
-  {
-    img: 'assets/features/3.png',
-    title: 'True HEPA',
-    desc:
-      'The True HEPA filter captures 99.97% of airborne particles, ensuring cleaner air.',
-  },
-  {
-    img: 'assets/features/4.png',
-    title: 'PlasmaWave',
-    desc:
-      'PlasmaWave Technology purifies air by neutralizing pollutants, bacteria, and viruses.',
-  },
-];
-// component.ts
-featuresVideo = [
-  { icon: 'plug',    title: 'Power Source', value: 'Corded Electric' },
-  { icon: 'control', title: 'Control',      value: 'Touch' },
-  { icon: 'filter',  title: 'Filter Type',  value: 'Activated Carbon' },
-];
+export class HomeComponent  {
+  // ===== Announcement Bar =====
+  barTitle = 'Updates';
+  messages = ['No.1 Air Purifier Brand', 'Free shipping on orders over ₹999', 'True HEPA filters back in stock'];
+  speed = 20;
+  showBar = true;
 
-// put your actual paths here
-brandVideo  = 'assets/video/brand.mp4';
-videoPoster = 'assets/video/brand-poster.jpg';
+  // ===== Features =====
+  features: FeatureItem[] = [
+    { img: 'assets/features/1.png', title: 'warranty',      desc: 'Comprehensive 2 year warranty covers repairs, replacements, and reliable product protection.', w: 112, h: 112 },
+    { img: 'assets/features/2.png', title: 'Carbon Filter', desc: 'An activated carbon filter effectively removes impurities, and contaminants from water.',      w: 112, h: 112 },
+    { img: 'assets/features/3.png', title: 'True HEPA',     desc: 'The True HEPA filter captures 99.97% of airborne particles, ensuring cleaner air.',          w: 112, h: 112 },
+    { img: 'assets/features/4.png', title: 'PlasmaWave',    desc: 'PlasmaWave Technology purifies air by neutralizing pollutants, bacteria, and viruses.',       w: 112, h: 112 },
+  ];
+  featureSkeletonCount = Array(4);
+  trackByTitle(_: number, f: FeatureItem) { return f.title; }
 
-// Announce bar config
-barTitle = 'Updates';
-messages = [
-  'No.1 Air Purifier Brand',
-  'Free shipping on orders over ₹999',
-  'True HEPA filters back in stock',
-];
-speed = 18; // seconds per full loop
+  // ===== Insider Ticker =====
+  ugcSpeed = 22;
+  ugcTiles = [
+    { src: 'assets/section-right-scroll/1.webp', alt: 'WINIX at desk',        w: 600, h: 400 },
+    { src: 'assets/section-right-scroll/3.webp', alt: 'Reading nook',          w: 600, h: 400 },
+    { src: 'assets/section-right-scroll/4.webp', alt: 'Bedroom corner',        w: 600, h: 400 },
+    { src: 'assets/section-right-scroll/5.webp', alt: 'Pet friendly',          w: 600, h: 400 },
+    { src: 'assets/section-right-scroll/6.webp', alt: 'Minimal shelf',         w: 600, h: 400 },
+    { src: 'assets/section-right-scroll/7.webp', alt: 'Plants + purifier',     w: 600, h: 400 },
+    { src: 'assets/section-right-scroll/8.webp', alt: 'Cozy study',            w: 600, h: 400 },
+      { src: 'assets/section-right-scroll/2.webp', alt: 'Unboxing',              w: 600, h: 400 },
+  ];
 
-showBar = true;
-
-ngOnInit() {
-  this.showBar = localStorage.getItem('announce_dismissed') !== '1';
-}
-
-dismissBar() {
-  this.showBar = false;
-  localStorage.setItem('announce_dismissed', '1');
-}
-
+  dismissBar() {
+    this.showBar = false;
+    localStorage.setItem('announce_dismissed', '1');
+  }
 
 }

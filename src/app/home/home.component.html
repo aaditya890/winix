@@ -9,8 +9,7 @@
 
       <!-- Ticker -->
       <div class="relative flex-1 overflow-hidden group" aria-live="polite">
-        <div
-          class="flex items-center gap-12 whitespace-nowrap animate-ticker group-hover:[animation-play-state:paused]"
+        <div class="flex items-center gap-12 whitespace-nowrap animate-ticker group-hover:[animation-play-state:paused]"
           [style.animationDuration]="speed + 's'">
           <!-- duplicate track for seamless loop -->
           <ng-container *ngFor="let _ of [0,1]">
@@ -23,20 +22,15 @@
       </div>
 
       <!-- Close -->
-      <button
-        (click)="dismissBar()"
-        class="ml-auto p-1 rounded hover:bg-[hsl(var(--color-primary)/0.15)]"
+      <button (click)="dismissBar()" class="ml-auto p-1 rounded hover:bg-[hsl(var(--color-primary)/0.15)]"
         aria-label="Dismiss announcement">
         <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M6 18L18 6M6 6l12 12"/>
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
         </svg>
       </button>
     </div>
   </div>
 </section>
-
-
 <!-- Header -->
 <header class="bg-white border-b border-gray-100 sticky top-0 z-50">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -59,12 +53,14 @@
       <div class="flex items-center space-x-4">
         <button class="p-2 text-gray-700 hover:text-gray-900">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
           </svg>
         </button>
         <button class="p-2 text-gray-700 hover:text-gray-900">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
           </svg>
         </button>
       </div>
@@ -76,29 +72,15 @@
 <section class="relative h-screen overflow-hidden">
   <!-- Video Background (Desktop) -->
   <div class="hidden md:block absolute inset-0">
-    <video 
-      class="w-full h-full object-cover" 
-      [autoplay]="true" 
-      [muted]="true" 
-      [loop]="true" 
-      playsinline>
-      <source src="assets/v-full.mp4" type="video/mp4">
-      <!-- Fallback image -->
-      <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/screencapture-nuuk-in-2025-08-22-12_03_37.png-4pPitlSwHmeLHB0acHAOEviqcybZea.jpeg" alt="WINIX Air Purifier" class="w-full h-full object-cover">
+    <video class="w-full h-full object-cover" [autoplay]="true" [muted]="true" [loop]="true" playsinline>
+      <source src="assets/video/hero-video-full.mp4" type="video/mp4">
     </video>
   </div>
 
   <!-- Video Background (Mobile) -->
   <div class="md:hidden absolute inset-0">
-    <video 
-      class="w-full h-full object-cover" 
-      [autoplay]="true" 
-      [muted]="true" 
-      [loop]="true" 
-      playsinline>
-      <source src="assets/v-sm.mp4" type="video/mp4">
-      <!-- Fallback image -->
-      <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/screencapture-nuuk-in-2025-08-22-12_03_37.png-4pPitlSwHmeLHB0acHAOEviqcybZea.jpeg" alt="WINIX Air Purifier" class="w-full h-full object-cover">
+    <video class="w-full h-full object-cover" [autoplay]="true" [muted]="true" [loop]="true" playsinline>
+      <source src="assets/video/hero-video-sm.mp4" type="video/mp4">
     </video>
   </div>
 
@@ -112,7 +94,8 @@
         Breathe
         <span class="block font-bold">Pure Air</span>
       </h1>
-      <button class="bg-white text-gray-900 px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transition-colors duration-300 text-lg">
+      <button
+        class="bg-white text-gray-900 px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transition-colors duration-300 text-lg">
         SHOP NOW
       </button>
     </div>
@@ -120,15 +103,14 @@
 </section>
 
 <!-- Features Section (icons replaced by images) -->
-<section class="py-16 bg-white">
+@defer (on viewport) {
+<section class="py-24 bg-white">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="grid grid-cols-1 md:grid-cols-4 gap-10 text-center">
-      <div
-        *ngFor="let f of features"
-        class="group"
-      >
+      <div *ngFor="let f of features; trackBy: trackByTitle" class="group">
         <div class="w-28 h-28 mx-auto mb-6 transition-transform duration-300 group-hover:scale-105">
-          <img [src]="f.img" [alt]="f.title" class="w-full h-full object-contain" loading="lazy" />
+          <!-- NOTE: width/height add kiye so CLS nahi hoga; image lazy hi रहेगी -->
+          <img [ngSrc]="f.img" [alt]="f.title" [width]="f.w" [height]="f.h" class="w-full h-full object-contain" />
         </div>
 
         <h3 class="text-2xl font-semibold text-gray-900 mb-4">
@@ -142,13 +124,26 @@
     </div>
   </div>
 </section>
-
-
+} @placeholder {
+<!-- हल्का skeleton ताकि layout jump न हो -->
+<section class="py-16 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-10 text-center">
+      <div *ngFor="let _ of featureSkeletonCount" class="animate-pulse">
+        <div class="w-28 h-28 mx-auto mb-6 rounded-2xl bg-gray-200/70"></div>
+        <div class="h-6 w-40 mx-auto mb-3 rounded bg-gray-200/70"></div>
+        <div class="h-4 w-56 mx-auto rounded bg-gray-200/60"></div>
+      </div>
+    </div>
+  </div>
+</section>
+}
+<app-winix-product-card></app-winix-product-card>
+@defer (on viewport) {
 <!-- Brand Store -->
-<section class="py-16 bg-surface">
+<section class="py-24 bg-surface">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-      
       <!-- LEFT -->
       <div>
         <h2 class="text-4xl md:text-6xl font-extrabold leading-[1.05] text-primary">
@@ -160,140 +155,232 @@
           and an odor-reducing washable AOC carbon filter, effectively capturing allergens,
           pollutants, and odors.
         </p>
-<!-- Features (locked alignment) -->
-<div class="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-8">
 
-  <!-- Power Source -->
-  <div class="h-16 flex items-center gap-4">
-    <div class="h-12 w-12 shrink-0 rounded-xl2 flex items-center justify-center
-                bg-[hsl(var(--color-primary)/0.05)]
-                ring-1 ring-[hsl(var(--color-border)/0.6)]">
-      <!-- plug -->
-      <svg aria-hidden="true" class="h-6 w-6 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-        <path stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-              d="M9 7V3m6 4V3M7 11h10v3a5 5 0 0 1-5 5 5 5 0 0 1-5-5v-3z"/>
-      </svg>
-    </div>
-    <div class="leading-tight">
-      <div class="text-lg font-semibold text-primary sm:whitespace-nowrap">Power Source</div>
-      <div class="text-sm text-secondary sm:whitespace-nowrap">Corded Electric</div>
+        <!-- Features (locked alignment) -->
+        <div class="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-8">
+
+          <!-- Power Source -->
+          <div class="h-16 flex items-center gap-4">
+            <div class="h-12 w-12 shrink-0 rounded-xl2 flex items-center justify-center
+                          bg-[hsl(var(--color-primary)/0.05)]
+                          ring-1 ring-[hsl(var(--color-border)/0.6)]">
+              <svg aria-hidden="true" class="h-6 w-6 text-primary" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor">
+                <path stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  d="M9 7V3m6 4V3M7 11h10v3a5 5 0 0 1-5 5 5 5 0 0 1-5-5v-3z" />
+              </svg>
+            </div>
+            <div class="leading-tight">
+              <div class="text-lg font-semibold text-primary sm:whitespace-nowrap">Power Source</div>
+              <div class="text-sm text-secondary sm:whitespace-nowrap">Corded Electric</div>
+            </div>
+          </div>
+
+          <!-- Control (crisp buttons via filled circles) -->
+          <div class="h-16 flex items-center gap-4">
+            <div class="h-12 w-12 shrink-0 rounded-xl2 flex items-center justify-center
+                          bg-[hsl(var(--color-primary)/0.05)]
+                          ring-1 ring-[hsl(var(--color-border)/0.6)]">
+              <svg aria-hidden="true" class="h-6 w-6 text-primary" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor">
+                <path stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  d="M6 9h12a3 3 0 0 1 3 3l-.3 3.3a4 4 0 0 1-4 3.5H7.3a4 4 0 0 1-4-3.5L3 12a3 3 0 0 1 3-3z" />
+                <path stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M7.5 12h3m-1.5-1.5v3" />
+                <circle cx="16.5" cy="12" r="1" fill="currentColor" />
+                <circle cx="19" cy="10.5" r="1" fill="currentColor" />
+                <circle cx="19" cy="13.5" r="1" fill="currentColor" />
+              </svg>
+            </div>
+            <div class="leading-tight">
+              <div class="text-lg font-semibold text-primary sm:whitespace-nowrap">Control Units</div>
+              <div class="text-sm text-secondary sm:whitespace-nowrap">Touch</div>
+            </div>
+          </div>
+
+          <!-- Filter Type -->
+          <div class="h-16 flex items-center gap-4">
+            <div class="h-12 w-12 shrink-0 rounded-xl2 flex items-center justify-center
+                          bg-[hsl(var(--color-primary)/0.05)]
+                          ring-1 ring-[hsl(var(--color-border)/0.6)]">
+              <svg aria-hidden="true" class="h-6 w-6 text-primary" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor">
+                <path stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M3 5h18l-7 8v5l-4 2v-7L3 5z" />
+              </svg>
+            </div>
+            <div class="leading-tight">
+              <div class="text-lg font-semibold text-primary sm:whitespace-nowrap">Filter Type</div>
+              <div class="text-sm text-secondary sm:whitespace-nowrap">Activated Carbon</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+   <div class="relative">
+  <div class="relative rounded-2xl overflow-hidden shadow-2xl
+              ring-1 ring-[hsl(var(--color-border)/0.6)] bg-black">
+    <div class="relative" style="aspect-ratio:16/9;">>
+      <video class="absolute inset-0 w-full h-full block" [autoplay]="true" [muted]="true" [loop]="true" playsinline>
+      <source src="assets/video/section-video.webm" type="video/webm">
+    </video>
     </div>
   </div>
-
-  <!-- Control -->
-  <div class="h-16 flex items-center gap-4">
-    <div class="h-12 w-12 shrink-0 rounded-xl2 flex items-center justify-center
-                bg-[hsl(var(--color-primary)/0.05)]
-                ring-1 ring-[hsl(var(--color-border)/0.6)]">
-      <!-- control -->
-      <svg aria-hidden="true" class="h-6 w-6 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-        <path stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-              d="M6 9h12a3 3 0 0 1 3 3l-.3 3.3a4 4 0 0 1-4 3.5H7.3a4 4 0 0 1-4-3.5L3 12a3 3 0 0 1 3-3z"/>
-        <path stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-              d="M7.5 12h3M9 10.5v3M16.75 12.25h.01M19 10.5h.01M19 13.5h.01"/>
-      </svg>
-    </div>
-    <div class="leading-tight">
-      <div class="text-lg font-semibold text-primary sm:whitespace-nowrap">Control</div>
-      <div class="text-sm text-secondary sm:whitespace-nowrap">Touch</div>
-    </div>
-  </div>
-
-  <!-- Filter Type -->
-  <div class="h-16 flex items-center gap-4">
-    <div class="h-12 w-12 shrink-0 rounded-xl2 flex items-center justify-center
-                bg-[hsl(var(--color-primary)/0.05)]
-                ring-1 ring-[hsl(var(--color-border)/0.6)]">
-      <!-- filter -->
-      <svg aria-hidden="true" class="h-6 w-6 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-        <path stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-              d="M3 5h18l-7 8v5l-4 2v-7L3 5z"/>
-      </svg>
-    </div>
-    <div class="leading-tight">
-      <div class="text-lg font-semibold text-primary sm:whitespace-nowrap">Filter Type</div>
-      <div class="text-sm text-secondary sm:whitespace-nowrap">Activated Carbon</div>
-    </div>
-  </div>
-
 </div>
 
 
-      
+    </div>
+  </div>
+</section>
+} @placeholder {
+<!-- Skeleton while off-screen -->
+<section class="py-16 bg-surface">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+      <div class="space-y-4 animate-pulse">
+        <div class="h-10 w-64 bg-[hsl(var(--color-primary)/0.06)] rounded"></div>
+        <div class="h-4 w-80 bg-[hsl(var(--color-primary)/0.06)] rounded"></div>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 pt-6">
+          <div class="h-16 bg-[hsl(var(--color-primary)/0.06)] rounded-xl2"></div>
+          <div class="h-16 bg-[hsl(var(--color-primary)/0.06)] rounded-xl2"></div>
+          <div class="h-16 bg-[hsl(var(--color-primary)/0.06)] rounded-xl2"></div>
+        </div>
+      </div>
+      <div class="h-64 md:h-80 rounded-2xl bg-[hsl(var(--color-primary)/0.06)] animate-pulse"></div>
+    </div>
+  </div>
+</section>
+}
+
+<app-review-cards></app-review-cards>
+
+@defer (on viewport) {
+<!-- WINIX Insider – compact ticker -->
+<section class="py-24 bg-surface">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col lg:flex-row items-center gap-8">
+
+      <!-- LEFT: headline + chips -->
+      <div class="w-full lg:w-5/12">
+        <h2 class="text-3xl md:text-5xl font-extrabold leading-[1.05] text-primary">
+          Become a <span class="bg-accent bg-clip-text text-surface px-1">WINIX</span><br />
+          <span class="inline-block mt-2 px-5 py-1.5 rounded-full bg-pri text-surface shadow-soft">
+            Insider
+          </span>
+        </h2>
+
+        <p class="mt-4 text-base md:text-lg text-secondary">
+          Share your clean-air moments—tag us and get featured on our Instagram.
+        </p>
       </div>
 
-      <!-- RIGHT: video card -->
-      <div class="relative">
-        <div class="relative rounded-2xl overflow-hidden shadow-2xl
-                    ring-1 ring-[hsl(var(--color-border)/0.6)] bg-black">
-          <!-- Swap in your actual sources -->
-          <video class="block w-full h-full"
-                 [attr.poster]="videoPoster"
-                 [src]="brandVideo"
-                 controls
-                 playsinline>
-          </video>
+      <!-- RIGHT: compact UGC ticker -->
+      <div class="w-full lg:w-7/12">
+        <div class="group relative h-40 md:h-52 rounded-2xl overflow-hidden ring-1 ring-[hsl(var(--color-border)/0.7)]">
+          <!-- edge fades -->
+          <div class="pointer-events-none absolute inset-y-0 left-0 w-14
+                        bg-[linear-gradient(90deg,hsl(var(--color-primary-surface))_0%,transparent_100%)]"></div>
+          <div class="pointer-events-none absolute inset-y-0 right-0 w-14
+                        bg-[linear-gradient(270deg,hsl(var(--color-primary-surface))_0%,transparent_100%)]"></div>
+
+          <!-- track -->
+          <div class="absolute inset-0 overflow-hidden">
+            <div class="flex items-center gap-3 h-full
+                          animate-ugc-ticker group-hover:[animation-play-state:paused]"
+              [style.animationDuration]="ugcSpeed + 's'">
+              <!-- duplicate the set twice for seamless loop -->
+              <ng-container *ngFor="let _ of [0,1]">
+                <ng-container *ngFor="let p of ugcTiles">
+                  <figure class="shrink-0 w-36 md:w-48 h-[calc(100%-0.5rem)]
+                                   rounded-md overflow-hidden ring-1 ring-[hsl(var(--color-border)/0.6)]
+                                   bg-[hsl(var(--color-primary-surface))]">
+                    <!-- lazy image with NgOptimizedImage -->
+                    <img [ngSrc]="p.src" [alt]="p.alt" [width]="p.w" [height]="p.h"
+                      class="w-full h-full object-cover" />
+                  </figure>
+                </ng-container>
+              </ng-container>
+            </div>
+          </div>
         </div>
+
+        <!-- small helper text -->
+        <p class="mt-3 text-xs text-secondary/80">
+          Tip: posts with #WinixInsider have a higher chance to be featured.
+        </p>
       </div>
 
     </div>
   </div>
 </section>
 
+} @placeholder {
+<!-- Skeleton while off-screen -->
+<section class="py-10 bg-surface">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col lg:flex-row items-center gap-8">
+      <div class="w-full lg:w-5/12 space-y-3 animate-pulse">
+        <div class="h-8 w-64 bg-[hsl(var(--color-primary)/0.06)] rounded"></div>
+        <div class="h-4 w-72 bg-[hsl(var(--color-primary)/0.06)] rounded"></div>
+      </div>
+      <div class="w-full lg:w-7/12">
+        <div class="h-40 md:h-52 rounded-2xl bg-[hsl(var(--color-primary)/0.06)] animate-pulse"></div>
+        <div class="mt-3 h-3 w-48 bg-[hsl(var(--color-primary)/0.06)] rounded"></div>
+      </div>
+    </div>
+  </div>
+</section>
+}
 
 
-    <!-- Mobile-Fixed Footer -->
-    <footer class="bg-[#050518] text-white relative overflow-hidden">
+<!-- Full-width warning bar -->
+<section class="w-full bg-red-50 border-y border-red-300 py-6 mb-6">
+  <div class="max-w-7xl mx-auto px-4">
+    <div role="alert" aria-live="polite"
+         class="flex items-center justify-center gap-3 text-center">
+      <!-- warning icon -->
+      <svg class="h-6 w-6 sm:h-7 sm:w-7 text-red-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+        <path fill-rule="evenodd"
+              d="M8.257 3.099c.765-1.36 2.721-1.36 3.486 0l6.518 11.59c.73 1.298-.213 2.91-1.743 2.91H3.482c-1.53 0-2.473-1.612-1.743-2.91l6.518-11.59zM11 14a1 1 0 10-2 0 1 1 0 002 0zm-1-2a1 1 0 01-1-1V7a1 1 0 112 0v4a1 1 0 01-1 1z"
+              clip-rule="evenodd" />
+      </svg>
 
-        <!-- Top Row -->
-        <div class="relative z-10 flex flex-col sm:flex-row justify-between items-center px-4 sm:px-6 py-4  text-sm">
-            <span class="text-white/70 tracking-wider">
-                Powered by <span class="font-semibold text-white underline cursor-pointer"><a
-                        href="https://octatech.in/" target="_blank">OctaTech</a></span>
-            </span>
-            <div class="flex gap-4 sm:gap-6 mt-2 sm:mt-0">
-                <a routerLink="/privacy-policy"
-                    class="hover:underline text-white/70 hover:text-white transition-colors duration-300">
-                    Privacy Policy
-                </a>
-                <a routerLink="/terms-and-conditions"
-                    class="hover:underline text-white/70 hover:text-white transition-colors duration-300">
-                    Terms & Conditions
-                </a>
-            </div>
-        </div>
-
-        <!-- Massive Text Section -->
-        <div class="relative footer-gradient">
-            <!-- Background decoration -->
-            <div class="absolute inset-0 bg-gradient-to-r from-purple-900/5 via-transparent to-blue-900/5"></div>
-
-            <!-- Subtle grid pattern -->
-            <div class="absolute inset-0 opacity-5">
-                <div class="w-full h-full"
-                    style="background-image: radial-gradient(circle, #ffffff 1px, transparent 1px); background-size: 50px 50px;">
-                </div>
-            </div>
-
-            <div class="relative z-10 px-2 sm:px-4" #footerImage data-lazy-id="footer-img">
-                <img src="assets/winix-footer1.png" class="w-full" alt="" loading="lazy" />
-            </div>
-            <!-- Bottom fade effect -->
-            <div class="absolute bottom-0 left-0 right-0 h-16 sm:h-20 bg-gradient-to-t from-black/30 to-transparent">
-            </div>
-        </div>
-    </footer>
+      <span class="text-red-800 font-semibold uppercase tracking-wider
+                   text-xl sm:text-2xl lg:text-3xl">
+        /// Form Section In ///
+      </span>
+    </div>
+  </div>
+</section>
 
 
-
-
-
-
-
-
-
-
-
-
+@defer (on viewport) {
+<!-- Mobile-Fixed Footer -->
+<footer class="bg-[#050518] text-white relative overflow-hidden"> <!-- Top Row -->
+  <div class="relative z-10 flex flex-col sm:flex-row justify-between items-center px-4 sm:px-6 py-4 text-sm"> <span
+      class="text-white/70 tracking-wider"> Powered by <span
+        class="font-semibold text-white underline cursor-pointer"><a href="https://octatech.in/"
+          target="_blank">OctaTech</a></span> </span>
+    <div class="flex gap-4 sm:gap-6 mt-2 sm:mt-0"> <a routerLink="/privacy-policy"
+        class="hover:underline text-white/70 hover:text-white transition-colors duration-300"> Privacy Policy </a> <a
+        routerLink="/terms-and-conditions"
+        class="hover:underline text-white/70 hover:text-white transition-colors duration-300"> Terms & Conditions </a>
+    </div>
+  </div> <!-- Massive Text Section -->
+  <div class="relative footer-gradient"> <!-- Background decoration -->
+    <div class="absolute inset-0 bg-gradient-to-r from-purple-900/5 via-transparent to-blue-900/5"></div>
+    <!-- Subtle grid pattern -->
+    <div class="absolute inset-0 opacity-5">
+      <div class="w-full h-full"
+        style="background-image: radial-gradient(circle, #ffffff 1px, transparent 1px); background-size: 50px 50px;">
+      </div>
+    </div>
+    <div class="relative z-10 px-2 sm:px-4" #footerImage data-lazy-id="footer-img"> <img src="assets/winix-footer1.png"
+        class="w-full" alt="" loading="lazy" /> </div> <!-- Bottom fade effect -->
+    <div class="absolute bottom-0 left-0 right-0 h-16 sm:h-20 bg-gradient-to-t from-black/30 to-transparent"> </div>
+  </div>
+</footer>
+} @placeholder {
+  <div class="h-32 bg-transparent"></div> <!-- keeps layout smooth -->
+}
 
 

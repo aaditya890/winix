@@ -190,3 +190,10 @@ video {
 .ring-1 {
   box-shadow: 0 0 0 1px var(--ring-color);
 }
+
+
+@keyframes ugcTicker {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); } // because we duplicate the set
+}
+.animate-ugc-ticker { animation: ugcTicker linear infinite; }

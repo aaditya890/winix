@@ -1,0 +1,89 @@
+<!-- WINIX rail (full-width, single row, gradient billboards, brand tokens) -->
+<section id="winix-rail-root" class="w-full py-12">
+  <div class="w-full">
+    <header class="mb-6 px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl font-semibold text-primary">Explore WINIX</h2>
+      <p class="text-sm text-secondary mt-1">Premium HEPA purifiers</p>
+    </header>
+
+    <!-- Placeholder while IO hasn't fired -->
+    <div *ngIf="!inView"
+         class="flex overflow-x-auto gap-6 px-4 sm:px-6 lg:px-8 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
+      <div *ngFor="let _ of [1,2,3,4,5]"
+           class="flex-none w-72 h-[28rem] rounded-2xl border border-muted bg-surface shadow-soft p-4">
+        <div class="h-full w-full rounded-xl bg-[hsl(var(--color-border))] animate-pulse"></div>
+      </div>
+    </div>
+
+    <!-- Real rail -->
+    <div *ngIf="inView">
+      <div #railEl
+           class="flex overflow-x-auto gap-6 px-4 sm:px-6 lg:px-8 cursor-grab active:cursor-grabbing snap-x snap-mandatory
+                  [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+           role="list" aria-label="Product carousel (auto-scrolls, hover to pause)">
+
+        <!-- billboard card -->
+        <article *ngFor="let p of products; let i = index; trackBy: trackById"
+                 role="listitem"
+                 class="flex-none w-72 sm:w-80 snap-start outline-none group"
+                 tabindex="-1" [attr.aria-label]="p.title">
+
+          <div class="relative h-[28rem] overflow-hidden rounded-2xl shadow-soft border border-muted bg-hero
+                      transition-transform duration-300 ease-out will-change-transform
+                      focus-within:-translate-y-1 focus-within:shadow-xl text-surface">
+
+            <!-- top text -->
+            <div class="px-6 pt-6 text-center">
+              <p class="text-xs tracking-wide text-surface/90">
+                {{ p.tagline || p.shortSpec || 'Premium HEPA purifier' }}
+              </p>
+              <h3 class="mt-2 text-xl font-bold leading-snug">
+                {{ p.title }}
+              </h3>
+
+              <!-- Brand CTA (always visible) -->
+              <a [href]="p.href"
+                 [attr.aria-label]="'Learn more about ' + p.title"
+                 class="btn-primary mt-3 inline-flex items-center justify-center">
+                Learn more
+              </a>
+            </div>
+
+            <!-- product image (object-contain for billboard look) -->
+            <div class="relative mx-6 mt-4 h-[14rem] sm:h-[16rem] rounded-xl overflow-hidden bg-white/5">
+              <div class="absolute inset-0 animate-pulse bg-white/10"
+                   [class.hidden]="!imageLoading[i]" aria-hidden="true"></div>
+
+              <img
+                class="h-full w-full object-contain object-center transition-transform duration-500 ease-out
+                       group-hover:scale-[1.04] [transform:translateZ(0)]"
+                [class.opacity-0]="imageLoading[i]"
+                [src]="p.variants[selectedVariantIndex[i]].src"
+                [alt]="p.variants[selectedVariantIndex[i]].alt || p.title"
+                (load)="onImageLoad(i)"
+                loading="lazy" decoding="async"
+                [attr.fetchpriority]="i < 2 ? 'high' : 'low'"/>
+            </div>
+
+            <!-- bottom rating -->
+            <div class="absolute left-0 right-0 bottom-4 flex items-center justify-center">
+              <div class="flex items-center" [attr.aria-label]="ratingLabel(p.rating)" role="img">
+                <ng-container *ngFor="let s of [1,2,3,4,5]">
+                  <svg class="h-4 w-4"
+                       [ngClass]="starFilled(p.rating, s) ? 'text-[hsl(var(--accent-primary))]' : 'text-surface/60'"
+                       aria-hidden="true" viewBox="0 0 20 20" fill="currentColor">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.802 2.035a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.802-2.035a1 1 0 00-1.176 0l-2.802 2.035c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.88 8.72c-.783-.57-.38-1.81.588-1.81H6.93a1 1 0 00.95-.69l1.07-3.292z"/>
+                  </svg>
+                </ng-container>
+                <span class="ml-2 text-xs font-medium text-surface/90">
+                  {{ safeNumber(p.rating).toFixed(1) }}
+                </span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </div>
+</section>
