@@ -15,7 +15,7 @@ export class EnquiryBannerComponent {
   @Input() bgImage = 'assets/hero/winix-bg.jpg';
 
   /** ✅ Replace with your WhatsApp number (no +, no spaces), e.g. 919876543210 */
-  @Input() whatsappNumber = '919999999999';
+  @Input() whatsappNumber = '916267363477';
 
   isSubmitting = signal(false);
 
@@ -37,12 +37,12 @@ export class EnquiryBannerComponent {
 
     const { name, phone, email, message } = this.form.value;
     const lines = [
-      '*New WinixAir Enquiry*',
+      '*Hii, WinixAir!*',
       `Name: ${name}`,
       `Phone: ${phone}`,
       email ? `Email: ${email}` : '',
       message ? `Message: ${message}` : '',
-      `Source: ${location.href}`
+      // `Source: ${location.href}`
     ].filter(Boolean);
 
     const text = encodeURIComponent(lines.join('\n'));

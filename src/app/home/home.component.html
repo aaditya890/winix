@@ -33,30 +33,33 @@
 </section> -->
 
 
-<!-- Header --> 
+<!-- Header -->
 <header class="bg-white border-b border-gray-100 sticky top-0 z-50">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex justify-between items-center h-16">
-      
+
       <!-- Logo -->
       <div class="flex items-center">
-        <img src="assets/winix-logo.webp" class="h-6" alt="WINIX Logo">
+        <img src="assets/winix-logo.png" class="h-6" alt="WINIX Logo">
       </div>
 
       <!-- Right side: Navigation + Search -->
       <div class="flex items-center space-x-6">
         <!-- Desktop Navigation -->
         <nav class="hidden lg:flex items-center space-x-8">
-          <a href="#" class="text-gray-700 hover:text-gray-900">AIR PURIFIERS</a>
-          <a href="#" class="text-gray-700 hover:text-gray-900">TECHNOLOGY</a>
-          <a href="#" class="text-gray-700 hover:text-gray-900">SOLUTIONS</a>
-          <a href="#" class="text-gray-700 hover:text-gray-900">SUPPORT</a>
-          <a href="#" class="text-gray-700 hover:text-gray-900">ABOUT US</a>
+          <a href="#" class="text-[#74236C] font-bold text-sm underline">
+            AIR PURIFIERS
+          </a>
+          <a href="#" class="text-gray-700 hover:text-[#072F58] font-medium text-sm">TECHNOLOGY</a>
+          <a href="#" class="text-gray-700 hover:text-[#072F58] font-medium text-sm">SOLUTIONS</a>
+          <a href="#" class="text-gray-700 hover:text-[#072F58] font-medium text-sm">SUPPORT</a>
+          <a href="#" class="text-gray-700 hover:text-[#072F58] font-medium text-sm">BULK QUERIES</a>
         </nav>
+
 
         <!-- Search Icon -->
         <button class="p-2 text-gray-700 hover:text-gray-900">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg class="w-5 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
               d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
           </svg>
@@ -214,16 +217,17 @@
         </div>
       </div>
 
-   <div class="relative">
-  <div class="relative rounded-2xl overflow-hidden shadow-2xl
+      <div class="relative">
+        <div class="relative rounded-2xl overflow-hidden shadow-2xl
               ring-1 ring-[hsl(var(--color-border)/0.6)] bg-black">
-    <div class="relative" style="aspect-ratio:16/9;">>
-      <video class="absolute inset-0 w-full h-full block" [autoplay]="true" [muted]="true" [loop]="true" playsinline>
-      <source src="assets/video/section-video.webm" type="video/webm">
-    </video>
-    </div>
-  </div>
-</div>
+          <div class="relative" style="aspect-ratio:16/9;">>
+            <video class="absolute inset-0 w-full h-full block" [autoplay]="true" [muted]="true" [loop]="true"
+              playsinline>
+              <source src="assets/video/section-video.webm" type="video/webm">
+            </video>
+          </div>
+        </div>
+      </div>
 
 
     </div>
@@ -330,9 +334,7 @@
 }
 
 
-<app-enquiry-banner
-  [bgImage]="'assets/gpt.png'"
-  [whatsappNumber]="'916267363477'">
+<app-enquiry-banner [bgImage]="'assets/gpt.webp'" [whatsappNumber]="'916267363477'">
 </app-enquiry-banner>
 
 
@@ -341,9 +343,8 @@
 <!-- Mobile-Fixed Footer -->
 <footer class="bg-[#050518] text-white relative overflow-hidden"> <!-- Top Row -->
   <div class="relative z-10 flex flex-col sm:flex-row justify-between items-center px-4 sm:px-6 py-4 text-sm"> <span
-      class="text-white/70 tracking-wider"> Powered by <span
-        class="font-semibold text-white underline cursor-pointer"><a href="https://octatech.in/"
-          target="_blank">OctaTech</a></span> </span>
+      class="text-white/70 tracking-wider"> <span class="font-semibold text-white underline cursor-pointer"><a
+          href="https://octatech.in/" target="_blank"></a></span> </span>
     <div class="flex gap-4 sm:gap-6 mt-2 sm:mt-0"> <a routerLink="/privacy-policy"
         class="hover:underline text-white/70 hover:text-white transition-colors duration-300"> Privacy Policy </a> <a
         routerLink="/terms-and-conditions"
@@ -364,7 +365,5 @@
   </div>
 </footer>
 } @placeholder {
-  <div class="h-32 bg-transparent"></div> <!-- keeps layout smooth -->
+<div class="h-32 bg-transparent"></div> <!-- keeps layout smooth -->
 }
-
-
