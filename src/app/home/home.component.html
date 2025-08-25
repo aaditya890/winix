@@ -1,17 +1,17 @@
 <!-- Announcement Bar -->
-<section *ngIf="showBar" class="sticky top-0 z-50">
+<!-- <section *ngIf="showBar" class="sticky top-0 z-50">
   <div class="bg-[hsl(var(--color-primary-dark))] text-surface">
     <div class="max-w-7xl mx-auto h-10 md:h-11 px-3 sm:px-6 flex items-center gap-3">
-      <!-- (Optional) small title at left -->
+     
       <span class="hidden sm:inline text-xs md:text-sm font-semibold opacity-90">
         {{ barTitle }}
       </span>
 
-      <!-- Ticker -->
+    
       <div class="relative flex-1 overflow-hidden group" aria-live="polite">
         <div class="flex items-center gap-12 whitespace-nowrap animate-ticker group-hover:[animation-play-state:paused]"
           [style.animationDuration]="speed + 's'">
-          <!-- duplicate track for seamless loop -->
+          
           <ng-container *ngFor="let _ of [0,1]">
             <ng-container *ngFor="let m of messages; let last = last">
               <span class="text-xs md:text-sm">{{ m }}</span>
@@ -21,7 +21,7 @@
         </div>
       </div>
 
-      <!-- Close -->
+    
       <button (click)="dismissBar()" class="ml-auto p-1 rounded hover:bg-[hsl(var(--color-primary)/0.15)]"
         aria-label="Dismiss announcement">
         <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor">
@@ -30,37 +30,35 @@
       </button>
     </div>
   </div>
-</section>
-<!-- Header -->
+</section> -->
+
+
+<!-- Header --> 
 <header class="bg-white border-b border-gray-100 sticky top-0 z-50">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex justify-between items-center h-16">
+      
       <!-- Logo -->
       <div class="flex items-center">
         <img src="assets/winix-logo.webp" class="h-6" alt="WINIX Logo">
       </div>
 
-      <!-- Desktop Navigation -->
-      <nav class="hidden lg:flex items-center space-x-8">
-        <a href="#" class="text-gray-700 hover:text-gray-900 font-medium">AIR PURIFIERS</a>
-        <a href="#" class="text-gray-700 hover:text-gray-900 font-medium">TECHNOLOGY</a>
-        <a href="#" class="text-gray-700 hover:text-gray-900 font-medium">SOLUTIONS</a>
-        <a href="#" class="text-gray-700 hover:text-gray-900 font-medium">SUPPORT</a>
-        <a href="#" class="text-gray-700 hover:text-gray-900 font-medium">ABOUT US</a>
-      </nav>
+      <!-- Right side: Navigation + Search -->
+      <div class="flex items-center space-x-6">
+        <!-- Desktop Navigation -->
+        <nav class="hidden lg:flex items-center space-x-8">
+          <a href="#" class="text-gray-700 hover:text-gray-900">AIR PURIFIERS</a>
+          <a href="#" class="text-gray-700 hover:text-gray-900">TECHNOLOGY</a>
+          <a href="#" class="text-gray-700 hover:text-gray-900">SOLUTIONS</a>
+          <a href="#" class="text-gray-700 hover:text-gray-900">SUPPORT</a>
+          <a href="#" class="text-gray-700 hover:text-gray-900">ABOUT US</a>
+        </nav>
 
-      <!-- Right side icons -->
-      <div class="flex items-center space-x-4">
+        <!-- Search Icon -->
         <button class="p-2 text-gray-700 hover:text-gray-900">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
               d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-          </svg>
-        </button>
-        <button class="p-2 text-gray-700 hover:text-gray-900">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
           </svg>
         </button>
       </div>
@@ -263,7 +261,7 @@
       <div class="w-full lg:w-5/12">
         <h2 class="text-3xl md:text-5xl font-extrabold leading-[1.05] text-primary">
           Become a <span class="bg-accent bg-clip-text text-surface px-1">WINIX</span><br />
-          <span class="inline-block mt-2 px-5 py-1.5 rounded-full bg-pri text-surface shadow-soft">
+          <span class="inline-block mt-2 px-5 py-1.5 bg-pri text-surface shadow-soft">
             Insider
           </span>
         </h2>
@@ -332,7 +330,11 @@
 }
 
 
-<app-enquiry-banner></app-enquiry-banner>
+<app-enquiry-banner
+  [bgImage]="'assets/gpt.png'"
+  [whatsappNumber]="'916267363477'">
+</app-enquiry-banner>
+
 
 
 @defer (on viewport) {

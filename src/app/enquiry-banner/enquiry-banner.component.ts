@@ -9,6 +9,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
   templateUrl: './enquiry-banner.component.html',
   styleUrls: ['./enquiry-banner.component.scss']
 })
+
 export class EnquiryBannerComponent {
   /** ✅ Replace with your BG image (assets or URL) */
   @Input() bgImage = 'assets/hero/winix-bg.jpg';

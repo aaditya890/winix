@@ -1,73 +1,74 @@
-<section
-  class="relative w-full min-h-[420px] lg:min-h-[520px] flex items-center"
-  [style.background-image]="'url(' + bgImage + ')'"
-  style="background-size: cover; background-position: center;"
->
-  <!-- Overlay -->
-  <div class="absolute inset-0 bg-black/50"></div>
+<section class="relative w-full min-h-[420px] lg:min-h-[520px] flex items-center" [ngClass]="{'bg-gray-800': true}">
+    <!-- fallback bg color -->
+  <!-- Background image only for md+ screens -->
+  <div class="hidden md:block absolute inset-0 bg-cover bg-center"
+       [style.background-image]="'url(' + bgImage + ')'"></div>
 
-  <div class="relative z-10 mx-auto w-full max-w-6xl px-6">
+  <!-- Overlay -->
+  <div class="absolute inset-0 bg-black/60"></div>
+
+  <div class="relative z-10 mx-auto w-full max-w-6xl px-6 py-10 lg:py-16">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-      <!-- Copy -->
+
+      <!-- Left Copy + Logos -->
       <div class="text-white">
         <p class="uppercase tracking-wide text-sm opacity-80">Stay in the loop</p>
-        <h2 class="text-4xl lg:text-5xl font-semibold leading-tight mt-1">
-          Sign Up / Get in touch
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight mt-1">
+         We are Here to Help, Get in touch
         </h2>
-        <p class="mt-3 text-white/90 max-w-xl">
+        <p class="mt-3 text-white/90 max-w-xl text-base sm:text-lg">
           Subscribe or send us an enquiry—our team will reply on WhatsApp.
         </p>
+
+        <!-- Awards Logos -->
+        <div class="flex flex-wrap items-center gap-6 mt-5">
+          <img src="assets/awards/1.png" alt="Pinup Award" class="h-10" />
+          <img src="assets/awards/2.png" alt="Reddot Award" class="h-10" />
+          <img src="assets/awards/3.png" alt="Good Design Award" class="h-10" />
+          <img src="assets/awards/4.png" alt="IF Design Award" class="h-10" />
+        </div>
       </div>
 
       <!-- Form card -->
-      <div class="bg-white/95 backdrop-blur-sm rounded-2xl p-5 lg:p-6 shadow-xl">
-        <form [formGroup]="form" (ngSubmit)="submit()" class="space-y-3">
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+      <div class="bg-white/95 backdrop-blur-sm rounded-2xl p-6 sm:p-8 shadow-xl">
+        <form [formGroup]="form" (ngSubmit)="submit()" class="space-y-4">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
               <label class="block text-sm font-medium text-gray-700 mb-1">Name</label>
               <input formControlName="name" type="text"
-                     class="w-full rounded-xl border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                     class="w-full rounded-lg border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
                      placeholder="Your name"/>
-              <small *ngIf="form.get('name')?.touched && form.get('name')?.invalid" class="text-red-600">
-                Please enter your name
-              </small>
             </div>
 
             <div>
               <label class="block text-sm font-medium text-gray-700 mb-1">Phone</label>
               <input formControlName="phone" type="tel"
-                     class="w-full rounded-xl border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                     class="w-full rounded-lg border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
                      placeholder="+91 98765 43210"/>
-              <small *ngIf="form.get('phone')?.touched && form.get('phone')?.invalid" class="text-red-600">
-                Valid phone required
-              </small>
             </div>
           </div>
 
           <div>
             <label class="block text-sm font-medium text-gray-700 mb-1">Email (optional)</label>
             <input formControlName="email" type="email"
-                   class="w-full rounded-xl border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                   class="w-full rounded-lg border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
                    placeholder="you@example.com"/>
-            <small *ngIf="form.get('email')?.touched && form.get('email')?.invalid" class="text-red-600">
-              Invalid email
-            </small>
           </div>
 
           <div>
             <label class="block text-sm font-medium text-gray-700 mb-1">Message (optional)</label>
             <textarea formControlName="message" rows="3"
-                      class="w-full rounded-xl border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                      class="w-full rounded-lg border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
                       placeholder="Tell us what you’re looking for…"></textarea>
           </div>
 
           <div class="flex items-center gap-3">
             <button type="submit"
-                    class="inline-flex items-center justify-center rounded-xl px-5 py-2.5 bg-black text-white font-medium hover:opacity-90 transition"
+                    class="inline-flex items-center justify-center rounded-lg px-6 py-3 bg-black text-white font-medium hover:bg-gray-900 transition"
                     [disabled]="isSubmitting()">
               {{ isSubmitting() ? 'Opening WhatsApp…' : 'Send on WhatsApp' }}
             </button>
-            <span class="text-sm text-gray-500">We usually reply within minutes.</span>
+            <span class="text-sm text-gray-500 hidden sm:block">We usually reply within minutes.</span>
           </div>
         </form>
       </div>
