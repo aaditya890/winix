@@ -50,7 +50,7 @@ export class WinixProductCardComponent implements OnInit, AfterViewInit, OnDestr
       tagline: "True HEPA • PlasmaWave® • Odor Control",
       rating: 4.6,
       slug: "winix-5500-2-plasmawave-elite",
-      imageSrc: "/assets/products/card/P-5500-2.png",
+      imageSrc: "/assets/products/card/P-5500-2.webp",
     },
     {
       id: "5300-2",
@@ -58,7 +58,7 @@ export class WinixProductCardComponent implements OnInit, AfterViewInit, OnDestr
       tagline: "Kills Virus & Bacteria...",
       rating: 4.6,
       slug: "winix-5300-2-premium-4-stage-air-purifier",
-      imageSrc: "/assets/products/card/P-5300-2.png",
+      imageSrc: "/assets/products/card/P-5300-2.webp",
     },
     {
       id: "T810",
@@ -66,7 +66,7 @@ export class WinixProductCardComponent implements OnInit, AfterViewInit, OnDestr
       tagline: "Smart Wi-Fi, True HEPA...",
       rating: 4.4,
       slug: "t810",
-      imageSrc: "assets/products/card/P-T810.png",
+      imageSrc: "assets/products/card/P-T810.webp",
     },
     {
       id: "T500",
@@ -74,7 +74,7 @@ export class WinixProductCardComponent implements OnInit, AfterViewInit, OnDestr
       tagline: "Compact 360° suction...",
       rating: 4.5,
       slug: "t500",
-      imageSrc: "assets/products/card/P-T500.png",
+      imageSrc: "assets/products/card/P-T500.webp",
     },
     {
       id: "A231",
@@ -82,7 +82,7 @@ export class WinixProductCardComponent implements OnInit, AfterViewInit, OnDestr
       tagline: "Certified UK Allergy & ECARF",
       rating: 4.6,
       slug: "a231",
-      imageSrc: "assets/products/card/P-A231.png",
+      imageSrc: "assets/products/card/P-A231.webp",
     },
   ]
 

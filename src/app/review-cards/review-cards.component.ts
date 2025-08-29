@@ -29,7 +29,7 @@ reviews: Review[] = [
   {
     name: 'Priya Sharma',
     role: 'Homeowner',
-    avatar: 'assets/review-users/w-1.jpg',
+    avatar: 'assets/review-users/w-1.webp',
     content:
       'The WINIX air purifier noticeably reduces cooking smells and everyday dust. The filter indicator is helpful and upkeep is simple.',
     device: 'WINIX Air Purifier',
@@ -39,7 +39,7 @@ reviews: Review[] = [
   {
     name: 'Rahul Gupta',
     role: 'Allergy Sufferer',
-    avatar: 'assets/review-users/men-1.jpg',
+    avatar: 'assets/review-users/men-1.webp',
     content:
       'During pollen season the Auto mode reacts quickly. In Night mode it is whisper-quiet—sleep is never disturbed.',
     device: 'WINIX Purifier',
@@ -49,7 +49,7 @@ reviews: Review[] = [
   {
     name: 'Anita Patel',
     role: 'Apartment Living',
-    avatar: 'assets/review-users/w-2.jpg',
+    avatar: 'assets/review-users/w-2.webp',
     content:
       'Compact footprint with strong airflow. The room feels fresher in 15–20 minutes and the build quality is solid.',
     device: 'WINIX Air Purifier',
@@ -59,7 +59,7 @@ reviews: Review[] = [
   {
     name: 'Vikram Singh',
     role: 'Pet Parent',
-    avatar: 'assets/review-users/men-2.jpg',
+    avatar: 'assets/review-users/men-2.webp',
     content:
       'Helps with pet dander and odour. The washable pre-filter is easy to clean, so the running cost stays low.',
     device: 'WINIX Purifier',
@@ -69,7 +69,7 @@ reviews: Review[] = [
   {
     name: 'Meera Joshi',
     role: 'Working Professional',
-    avatar: 'assets/review-users/w-3.jpg',
+    avatar: 'assets/review-users/w-3.webp',
     content:
       'Perfect for my study/office space. With the light sensor the display dims at night—nice attention to detail.',
     device: 'WINIX Air Purifier',
@@ -79,7 +79,7 @@ reviews: Review[] = [
   {
     name: 'Arjun Reddy',
     role: 'Student',
-    avatar: 'assets/review-users/men-3.jpg',
+    avatar: 'assets/review-users/men-3.webp',
     content:
       'Paint/VOC smells cleared up quickly. Controls are straightforward and the timers/modes are clearly labeled.',
     device: 'WINIX Purifier',
@@ -89,7 +89,7 @@ reviews: Review[] = [
   {
     name: 'Kavya Nair',
     role: 'Fitness Trainer',
-    avatar: 'assets/review-users/w-4.jpg',
+    avatar: 'assets/review-users/w-4.webp',
     content:
       'The gym corner no longer feels stuffy. The carry handle and filter access are very convenient.',
     device: 'WINIX Air Purifier',
@@ -99,7 +99,7 @@ reviews: Review[] = [
   {
     name: 'Rohit Kumar',
     role: 'Entrepreneur',
-    avatar: 'assets/review-users/men-4.jpg',
+    avatar: 'assets/review-users/men-4.webp',
     content:
       'Great value. The air-quality indicator shows real-time changes and the fan ramps up quickly on Auto.',
     device: 'WINIX Purifier',
@@ -109,7 +109,7 @@ reviews: Review[] = [
   {
     name: 'Neha Rawat',
     role: 'Doctor',
-    avatar: 'assets/review-users/w-5.jpg',
+    avatar: 'assets/review-users/w-5.webp',
     content:
       'Low noise with a consistently fresh feel in the clinic waiting area. Easy installation and filters are easy to find.',
     device: 'WINIX Air Purifier',
@@ -119,7 +119,7 @@ reviews: Review[] = [
   {
     name: 'Ramesh Iyer',
     role: 'Retired Officer',
-    avatar: 'assets/review-users/men-8.jpg',
+    avatar: 'assets/review-users/men-8.webp',
     content:
       'Seasonal sneezing is clearly less frequent now. Even with continuous use, the power consumption feels reasonable.',
     device: 'WINIX Purifier',

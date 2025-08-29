@@ -1,0 +1,66 @@
+# ---------------------------
+# Angular SPA on Hostinger
+# ---------------------------
+RewriteEngine On
+
+# (A) Force HTTPS (comment this block out if you don't want it)
+RewriteCond %{HTTPS} !=on
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# (B) Choose ONE canonical host style
+
+# 1) Force non-www
+RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+RewriteRule ^ https://%1%{REQUEST_URI} [L,R=301]
+
+# 2) (Alternative) Force www
+#RewriteCond %{HTTP_HOST} !^www\. [NC]
+#RewriteRule ^ https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# (C) Serve compressed assets if available
+RewriteCond %{HTTP:Accept-encoding} br
+RewriteCond %{REQUEST_FILENAME}\.br -s
+RewriteRule ^(.+)\.(js|css)$ $1.$2.br [L]
+AddType application/javascript .js.br
+AddType text/css .css.br
+AddEncoding br .br
+
+RewriteCond %{HTTP:Accept-encoding} gzip
+RewriteCond %{REQUEST_FILENAME}\.gz -s
+RewriteRule ^(.+)\.(js|css)$ $1.$2.gz [L]
+AddType application/javascript .js.gz
+AddType text/css .css.gz
+AddEncoding gzip .gz
+
+# (D) MIME
+AddType image/svg+xml .svg .svgz
+AddType image/webp .webp
+AddType font/woff2 .woff2
+AddType application/manifest+json .webmanifest
+
+# (E) Caching: long for assets, no cache for html
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType font/woff2 "access plus 1 year"
+  ExpiresByType text/html "access plus 0 seconds"
+</IfModule>
+
+# (F) Security headers (optional)
+<IfModule mod_headers.c>
+  Header set X-Content-Type-Options "nosniff"
+  Header set X-Frame-Options "SAMEORIGIN"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+  Header set Permissions-Policy "camera=(), geolocation=(), microphone=()"
+</IfModule>
+
+# (G) Angular route fallback
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule . - [L]
+
+RewriteRule . /index.html [L]

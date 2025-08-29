@@ -1,11 +1,7 @@
-<!-- Key features -->
-        <section>
-          <h3 class="text-lg font-semibold text-gray-900 mb-3">Key features</h3>
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
-            <div *ngFor="let f of product.keyFeatures"
-                 class="flex items-center gap-3 p-3 rounded-lg border border-gray-200 bg-white">
-              <span class="size-1.5 rounded-full bg-blue-600"></span>
-              <span class="text-sm text-gray-900">{{ f }}</span>
-            </div>
-          </div>
-        </section>
+--- jo single video tha usi ko lagana hai 
+
+
+BULK-QUERIES
+TESTIMONIALS
+PRODUCTS
+TECHNOLOGY

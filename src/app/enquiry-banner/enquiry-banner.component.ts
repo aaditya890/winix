@@ -12,10 +12,10 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 
 export class EnquiryBannerComponent {
   /** ✅ Replace with your BG image (assets or URL) */
-  @Input() bgImage = 'assets/hero/winix-bg.jpg';
+  bgImage = 'assets/form-bg.webp';
 
   /** ✅ Replace with your WhatsApp number (no +, no spaces), e.g. 919876543210 */
-  @Input() whatsappNumber = '916267363477';
+  whatsappNumber = '916267363477';
 
   isSubmitting = signal(false);
 

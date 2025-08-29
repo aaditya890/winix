@@ -32,58 +32,154 @@
   </div>
 </section> -->
 
-
-<!-- Header -->
+<!-- ===================== HEADER ===================== -->
 <header class="bg-white border-b border-gray-100 sticky top-0 z-50">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex justify-between items-center h-16">
 
       <!-- Logo -->
-      <div class="flex items-center">
+      <button type="button" class="flex items-center" (click)="scrollTo('PRODUCTS')" aria-label="Go to top">
         <img src="assets/winix-logo.png" class="h-6" alt="WINIX Logo">
-      </div>
+      </button>
 
-      <!-- Right side: Navigation + Search -->
-      <div class="flex items-center space-x-6">
+      <!-- RIGHT: Desktop nav + Search + Mobile burger -->
+      <div class="flex items-center gap-2 sm:gap-4">
+
         <!-- Desktop Navigation -->
         <nav class="hidden lg:flex items-center space-x-8">
-          <a href="#" class="bg-[#74236C] text-white px-3 py-1 rounded-full font-bold text-[12px]">
+          <button type="button"
+                  (click)="scrollTo('PRODUCTS')"
+                  class="bg-[#74236C] text-white px-3 py-1 rounded-full font-bold text-[12px]">
             AIR PURIFIERS
-          </a>
-          <a href="#" class="text-gray-700 hover:text-[#072F58] font-bold text-[12px]">TECHNOLOGY</a>
-          <a href="#" class="text-gray-700 hover:text-[#072F58] font-bold text-[12px]">SOLUTIONS</a>
-          <a href="#" class="text-gray-700 hover:text-[#072F58] font-bold text-[12px]">SUPPORT</a>
-          <a href="#" class="text-gray-700 hover:text-[#072F58] font-bold text-[12px]">BULK QUERIES</a>
+          </button>
+
+          <button type="button" (click)="scrollTo('TECHNOLOGY')"
+                  class="text-gray-700 hover:text-[#072F58] font-bold text-[12px]">
+            TECHNOLOGY
+          </button>
+
+          <button type="button" (click)="scrollTo('PRODUCTS')"
+                  class="text-gray-700 hover:text-[#072F58] font-bold text-[12px]">
+            PRODUCTS
+          </button>
+
+          <button type="button" (click)="scrollTo('TESTIMONIALS')"
+                  class="text-gray-700 hover:text-[#072F58] font-bold text-[12px]">
+            TESTIMONIALS
+          </button>
+
+          <button type="button" (click)="scrollTo('BULK-QUERIES')"
+                  class="text-gray-700 hover:text-[#072F58] font-bold text-[12px]">
+            BULK QUERIES
+          </button>
         </nav>
 
-
-        <!-- Search Icon -->
-        <button class="p-2 text-gray-700 hover:text-gray-900">
-          <svg class="w-5 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <!-- Search (placeholder) -->
+        <button type="button" class="p-2 text-gray-700 hover:text-gray-900 hidden sm:inline-flex" aria-label="Search">
+          <svg class="w-5 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
           </svg>
         </button>
+
+        <!-- Mobile hamburger -->
+       <button
+  type="button"
+  class="lg:hidden inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:bg-gray-100"
+  (click)="toggleMobileMenu(true)"
+  [attr.aria-label]="'Open menu'"
+  aria-controls="mobile-menu"
+  [attr.aria-expanded]="isMobileOpen ? 'true' : 'false'">
+  <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M4 6h16M4 12h16M4 18h16"/>
+  </svg>
+</button>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ======= Mobile Drawer ======= -->
+  <div id="mobile-menu"
+       class="lg:hidden fixed inset-0 z-50"
+       *ngIf="isMobileOpen">
+    <!-- Backdrop -->
+    <div class="absolute inset-0 bg-black/40 backdrop-blur-[2px]" (click)="toggleMobileMenu(false)"></div>
+
+    <!-- Panel -->
+    <div class="absolute right-0 top-0 h-full w-11/12 max-w-xs bg-white shadow-xl
+                ring-1 ring-gray-200 translate-x-0"
+         role="dialog" aria-modal="true">
+
+      <!-- Header -->
+      <div class="flex items-center justify-between px-4 py-3 border-b">
+        <img src="assets/winix-logo.png" class="h-6" alt="WINIX">
+        <button type="button" class="p-2 rounded-md hover:bg-gray-100"
+                (click)="toggleMobileMenu(false)" aria-label="Close menu">
+          <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Links -->
+      <nav class="px-4 py-3 space-y-1">
+        <button type="button"
+                (click)="scrollTo('PRODUCTS')"
+                class="w-full text-left px-3 py-3 rounded-md bg-[#74236C] text-white font-semibold">
+          AIR PURIFIERS
+        </button>
+
+        <button type="button" (click)="scrollTo('TECHNOLOGY')"
+                class="w-full text-left px-3 py-3 rounded-md hover:bg-gray-100 font-semibold text-gray-800">
+          TECHNOLOGY
+        </button>
+
+        <button type="button" (click)="scrollTo('PRODUCTS')"
+                class="w-full text-left px-3 py-3 rounded-md hover:bg-gray-100 font-semibold text-gray-800">
+          PRODUCTS
+        </button>
+
+        <button type="button" (click)="scrollTo('TESTIMONIALS')"
+                class="w-full text-left px-3 py-3 rounded-md hover:bg-gray-100 font-semibold text-gray-800">
+          TESTIMONIALS
+        </button>
+
+        <button type="button" (click)="scrollTo('BULK-QUERIES')"
+                class="w-full text-left px-3 py-3 rounded-md hover:bg-gray-100 font-semibold text-gray-800">
+          BULK QUERIES
+        </button>
+      </nav>
+
+      <!-- Footer (optional) -->
+      <div class="px-4 py-4 border-t text-xs text-gray-500">
+        © WINIX India
       </div>
     </div>
   </div>
 </header>
 
-<!-- Hero Section with Video Background -->
+
+<!-- Fullscreen hero banner with autoplaying background video -->
 <section class="relative h-screen overflow-hidden">
-  <!-- Video Background (Desktop) -->
-  <div class="hidden md:block absolute inset-0">
-    <video class="w-full h-full object-cover" [autoplay]="true" [muted]="true" [loop]="true" playsinline>
-      <source src="assets/video/hero-video-full.mp4" type="video/mp4">
+  <!-- Desktop video -->
+  <div class="absolute inset-0">
+    <video class="w-full h-full object-cover" [autoplay]="true" [muted]="true" [loop]="true" playsinline
+      preload="metadata">
+      <source src="assets/video/hero-section-video.mp4" type="video/mp4">
     </video>
   </div>
 
-  <!-- Video Background (Mobile) -->
-  <div class="md:hidden absolute inset-0">
-    <video class="w-full h-full object-cover" [autoplay]="true" [muted]="true" [loop]="true" playsinline>
+  <!-- Mobile video -->
+  <!-- <div class="md:hidden absolute inset-0">
+    <video class="w-full h-full object-cover" [autoplay]="true" [muted]="true" [loop]="true" playsinline
+      preload="metadata" poster="assets/video/hero-poster-sm.webp">
       <source src="assets/video/hero-video-sm.mp4" type="video/mp4">
+      <track kind="captions" src="assets/captions/hero-en.vtt" srclang="en" label="English" default>
     </video>
-  </div>
+  </div> -->
 
   <!-- Overlay -->
   <div class="absolute inset-0 bg-black bg-opacity-20"></div>
@@ -91,26 +187,26 @@
   <!-- Content -->
   <div class="relative z-10 h-full flex items-center justify-center text-center">
     <div class="max-w-2xl mx-auto px-4">
-      <h1 class="text-5xl md:text-7xl font-light text-white mb-8 leading-tight">
+      <!-- <h1 class="text-5xl md:text-7xl font-light text-white mb-8 leading-tight">
         Breathe
         <span class="block font-bold">Pure Air</span>
-      </h1>
-      <button
+      </h1> -->
+      <!-- <button
         class="bg-white text-gray-900 px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transition-colors duration-300 text-lg">
         SHOP NOW
-      </button>
+      </button> -->
     </div>
   </div>
 </section>
 
-<!-- Features Section (icons replaced by images) -->
+<!-- Key feature highlights with images and descriptions -->
 @defer (on viewport) {
 <section class="py-24 bg-white">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="grid grid-cols-1 md:grid-cols-4 gap-10 text-center">
       <div *ngFor="let f of features; trackBy: trackByTitle" class="group">
         <div class="w-28 h-28 mx-auto mb-6 transition-transform duration-300 group-hover:scale-105">
-          <!-- NOTE: width/height add kiye so CLS nahi hoga; image lazy hi रहेगी -->
+
           <img [ngSrc]="f.img" [alt]="f.title" [width]="f.w" [height]="f.h" class="w-full h-full object-contain" />
         </div>
 
@@ -126,7 +222,6 @@
   </div>
 </section>
 } @placeholder {
-<!-- हल्का skeleton ताकि layout jump न हो -->
 <section class="py-16 bg-white">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="grid grid-cols-1 md:grid-cols-4 gap-10 text-center">
@@ -139,10 +234,31 @@
   </div>
 </section>
 }
+
+<!-- ===== PRODUCTS ===== -->
+<div id="PRODUCTS" class="h-0"></div>
+@defer (on viewport) {
 <app-winix-product-card></app-winix-product-card>
+} @placeholder {
+<!-- skeleton: same approx height as cards row -->
+<section class="py-24 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+      <div *ngFor="let _ of [1,2,3,4,5,6,7,8]" class="animate-pulse">
+        <div class="h-44 rounded-2xl bg-gray-200/70 mb-3"></div>
+        <div class="h-4 w-5/6 rounded bg-gray-200/70 mb-2"></div>
+        <div class="h-3 w-3/5 rounded bg-gray-200/60"></div>
+      </div>
+    </div>
+  </div>
+</section>
+}
+
+<!-- ===== TECHNOLOGY ===== -->
+<div id="TECHNOLOGY" class="h-0"></div>
 @defer (on viewport) {
 <!-- Brand Store -->
-<section class="py-24 bg-surface">
+<section  class="py-24 bg-surface">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
       <!-- LEFT -->
@@ -220,7 +336,7 @@
       <div class="relative">
         <div class="relative rounded-2xl overflow-hidden shadow-2xl
               ring-1 ring-[hsl(var(--color-border)/0.6)] bg-black">
-          <div class="relative" style="aspect-ratio:16/9;">>
+          <div class="relative" style="aspect-ratio:16/9;">
             <video class="absolute inset-0 w-full h-full block" [autoplay]="true" [muted]="true" [loop]="true"
               playsinline>
               <source src="assets/video/section-video.webm" type="video/webm">
@@ -253,8 +369,26 @@
 </section>
 }
 
+<!-- ===== TESTIMONIALS ===== -->
+<div id="TESTIMONIALS" class="h-0"></div>
+@defer (on viewport) {
 <app-review-cards></app-review-cards>
+} @placeholder {
+<section class="py-24 bg-surface">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div *ngFor="let _ of [1,2,3]" class="p-6 rounded-2xl ring-1 ring-gray-200 bg-white animate-pulse">
+        <div class="h-5 w-24 bg-gray-200/70 rounded mb-4"></div>
+        <div class="h-4 w-11/12 bg-gray-200/70 rounded mb-2"></div>
+        <div class="h-4 w-10/12 bg-gray-200/60 rounded mb-2"></div>
+        <div class="h-4 w-7/12 bg-gray-200/60 rounded"></div>
+      </div>
+    </div>
+  </div>
+</section>
+}
 
+<!-- Lifestyle / product image slider with smooth animation -->
 @defer (on viewport) {
 <!-- WINIX Insider – compact ticker -->
 <section class="py-24 bg-surface">
@@ -333,12 +467,20 @@
 </section>
 }
 
-
-<app-enquiry-banner [bgImage]="'assets/gpt.webp'" [whatsappNumber]="'916267363477'">
+<!-- ===== BULK QUERIES ===== -->
+<div id="BULK-QUERIES" class="h-0"></div>
+@defer (on viewport) {
+<app-enquiry-banner>
 </app-enquiry-banner>
+} @placeholder {
+<section class="py-20 bg-[hsl(var(--color-primary-surface))]">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="h-44 md:h-56 rounded-2xl bg-gray-200/60 animate-pulse"></div>
+  </div>
+</section>
+}
 
-
-
+<!-- Footer Section -->
 @defer (on viewport) {
 <!-- Mobile-Fixed Footer -->
 <footer class="bg-[#050518] text-white relative overflow-hidden"> <!-- Top Row -->
@@ -359,7 +501,7 @@
         style="background-image: radial-gradient(circle, #ffffff 1px, transparent 1px); background-size: 50px 50px;">
       </div>
     </div>
-    <div class="relative z-10 px-2 sm:px-4" #footerImage data-lazy-id="footer-img"> <img src="assets/winix-footer1.png"
+    <div class="relative z-10 px-2 sm:px-4" #footerImage data-lazy-id="footer-img"> <img src="assets/winix-footer1.webp"
         class="w-full" alt="" loading="lazy" /> </div> <!-- Bottom fade effect -->
     <div class="absolute bottom-0 left-0 right-0 h-16 sm:h-20 bg-gradient-to-t from-black/30 to-transparent"> </div>
   </div>
