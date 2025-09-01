@@ -1,291 +1,321 @@
-<div class="min-h-screen bg-gray-50" *ngIf="!isLoading && product">
-    <!-- Header -->
-    <header class="bg-white/95 backdrop-blur border-b border-gray-200 sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <div class="flex items-center gap-4">
-                    <button (click)="goBack()" class="flex items-center gap-2 text-gray-600 hover:text-blue-600">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7">
-                            </path>
-                        </svg>
-                        <span class="font-medium">Back to products</span>
-                    </button>
-                    <span class="h-5 w-px bg-gray-300"></span>
-                    <span class="text-xl font-bold text-gray-900">WINIX</span>
-                </div>
-
-                <span class="hidden md:inline px-3 py-1 rounded-full text-sm font-semibold
-                     bg-blue-50 text-blue-700 border border-blue-200">
-                    {{ product.category }}
-                </span>
+<div class="min-h-screen bg-[#f6f6f6]" *ngIf="!isLoading && product">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+  
+    <div class="grid grid-cols-1 lg:grid-cols-[1.05fr_.95fr] gap-8 lg:gap-10 items-start">
+       
+      <div class="space-y-3 lg:sticky lg:top-6">
+        <div class="relative aspect-[4/3] bg-white rounded-[16px] border border-gray-200 shadow-sm overflow-hidden">
+          <img [src]="product.images[currentImageIndex]" [alt]="product.name" class="w-full h-full object-contain p-6 sm:p-8" />
+          <div class="absolute bottom-4 left-1/2 -translate-x-1/2">
+            <div class="flex gap-2">
+              <button *ngFor="let _ of product.images; let i = index"
+                      (click)="selectImage(i)"
+                      class="h-2.5 w-6 rounded-full transition-colors"
+                      [class.bg-[#101A50]]="currentImageIndex === i"
+                      [class.bg-gray-300]="currentImageIndex !== i"></button>
             </div>
+          </div>
         </div>
-    </header>
 
-    <!-- Content -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div class="grid grid-cols-6 gap-2">
+          <button *ngFor="let img of product.images; let i = index"
+                  (click)="selectImage(i)"
+                  class="aspect-square rounded-[8px] overflow-hidden border transition-shadow hover:shadow"
+                  [class.border-[#101A50]]="currentImageIndex === i"
+                  [class.border-gray-200]="currentImageIndex !== i">
+            <img [src]="img" [alt]="'Image ' + (i+1)" class="w-full h-full object-contain p-2 bg-white" />
+          </button>
+        </div>
+      </div>
 
-        <!-- Breadcrumb -->
-        <nav class="mb-8 text-sm text-gray-600 flex items-center gap-2">
-            <a routerLink="/home" class="hover:text-blue-600">Home</a>
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-            </svg>
-            <a routerLink="/home" class="hover:text-blue-600">Products</a>
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-            </svg>
-            <span class="text-gray-900 font-medium">{{ product.shortName }}</span>
+      
+      <div class="space-y-6">
+       
+        <div class="flex items-center gap-2 flex-wrap">
+          <span class="px-2.5 py-1 rounded-[6px] text-[12px] font-extrabold uppercase tracking-wide border border-[#101A50]/30 text-[#101A50] bg-[#101A50]/10">
+            {{ product.category }}
+          </span>
+          <span *ngIf="product.badge" class="px-2.5 py-1 rounded-[6px] text-[12px] font-extrabold uppercase tracking-wide bg-[#101A50] text-white border border-[#101A50]">
+            {{ product.badge }}
+          </span>
+          <span *ngIf="product.isAward && product.awardType" class="px-2.5 py-1 rounded-[6px] text-[12px] font-extrabold uppercase tracking-wide border border-[#74236C]/30 text-[#74236C] bg-[#74236C]/10">
+            {{ product.awardType }}
+          </span>
+        </div>
+
+       
+        <h1 class="text-[30px] sm:text-[36px] leading-[1.05] font-black text-[#111]">{{ product.name }}</h1>
+
+       
+        <nav class="overflow-x-auto -mx-1">
+          <ul class="flex gap-2 px-1 text-[12px] font-extrabold uppercase tracking-wide">
+            <li><a href="#overview" class="inline-block px-3 py-2 rounded-md bg-white border border-gray-200 text-[#111] hover:border-[#101A50]">Overview</a></li>
+            <li><a href="#specs" class="inline-block px-3 py-2 rounded-md bg-white border border-gray-200 text-[#111] hover:border-[#101A50]">Specs</a></li>
+            <li><a href="#reviews" class="inline-block px-3 py-2 rounded-md bg-white border border-gray-200 text-[#111] hover:border-[#101A50]">Reviews</a></li>
+            <li><a href="#faq" class="inline-block px-3 py-2 rounded-md bg-white border border-gray-200 text-[#111] hover:border-[#101A50]">FAQs</a></li>
+          </ul>
         </nav>
 
-        <!-- Hero -->
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 mb-12">
-            <!-- Images -->
-            <div class="space-y-4">
-                <div
-                    class="relative aspect-[4/3] bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden">
-                    <img [src]="product.images[currentImageIndex]" [alt]="product.name"
-                        class="w-full h-full object-contain p-8">
-                    <!-- dots -->
-                    <div class="absolute bottom-4 left-1/2 -translate-x-1/2">
-                        <div class="flex gap-2">
-                            <button *ngFor="let _img of product.images; let i = index" (click)="selectImage(i)"
-                                class="size-2.5 rounded-full" [class.bg-blue-600]="currentImageIndex === i"
-                                [class.bg-gray-300]="currentImageIndex !== i"></button>
-                        </div>
-                    </div>
-                </div>
 
-                <!-- thumbs -->
-                <div class="grid grid-cols-5 gap-3">
-                    <button *ngFor="let img of product.images; let i = index" (click)="selectImage(i)"
-                        class="aspect-square rounded-lg overflow-hidden border transition-shadow"
-                        [class.border-blue-600]="currentImageIndex === i"
-                        [class.border-gray-200]="currentImageIndex !== i">
-                        <img [src]="img" [alt]="'Image ' + (i+1)" class="w-full h-full object-contain p-2 bg-white">
-                    </button>
+        <section id="overview" class="scroll-mt-24 space-y-5">
+        
+          <div class="flex items-center gap-3">
+            <div class="relative inline-block">
+              <div class="flex text-gray-300">
+                <svg *ngFor="let _ of [1,2,3,4,5]" class="w-6 h-6" viewBox="0 0 20 20" fill="currentColor">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.88 8.72c-.783-.57-.38-1.81.588-1.81H6.93a1 1 0 00.95-.69l1.07-3.292z"/>
+                </svg>
+              </div>
+              <div class="absolute inset-0 overflow-hidden" [style.width.%]="(averageRating/5)*100">
+                <div class="flex text-[#101A50]">
+                  <svg *ngFor="let _ of [1,2,3,4,5]" class="w-6 h-6" viewBox="0 0 20 20" fill="currentColor">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.88 8.72c-.783-.57-.38-1.81.588-1.81H6.93a1 1 0 00.95-.69l1.07-3.292z"/>
+                  </svg>
                 </div>
+              </div>
+            </div>
+            <span class="text-[18px] font-black text-[#111]">{{ averageRating }}/5</span>
+            <span class="text-gray-500 text-sm">({{ totalReviews }} reviews)</span>
+          </div>
+
+       
+          <div class="rounded-[12px] border border-gray-200 bg-white p-5">
+            <h3 class="text-[15px] font-extrabold text-[#111] mb-1">{{ product.technology }}</h3>
+            <p class="text-[14px] text-gray-800">{{ product.description }}</p>
+          </div>
+
+        
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <div class="space-x-2" *ngIf="product.price">
+                <span class="text-[24px] font-black text-[#111]">{{ product.price }}</span>
+                <span class="text-[13px] text-gray-500 line-through" *ngIf="product.mrp">{{ product.mrp }}</span>
+                <span *ngIf="discountPercent(product.price, product.mrp) as disc" class="ml-1 inline-flex items-center px-2 py-1 rounded-md bg-[#101A50]/10 text-[#101A50] text-[11px] font-extrabold">Save {{ disc }}%</span>
+              </div>
+             
             </div>
 
-            <!-- Right panel -->
-            <div class="space-y-6">
-                <div class="flex items-center gap-2">
-                    <span
-                        class="px-3 py-1 rounded-full text-sm font-medium bg-blue-50 text-blue-700 border border-blue-200">
-                        {{ product.category }}
-                    </span>
-                    <span *ngIf="product.badge"
-                        class="px-3 py-1 rounded-full text-sm font-medium bg-emerald-50 text-emerald-700 border border-emerald-200">
-                        {{ product.badge }}
-                    </span>
-                </div>
+            <button class="w-full h-12 rounded-[10px] bg-[#111] text-white font-black uppercase tracking-wide hover:bg-black transition-colors">BUY NOW</button>
+            <button class="w-full h-11 rounded-[10px] bg-[#74236C] text-white font-extrabold uppercase tracking-wide hover:brightness-95 transition">WATCH Demo</button>
+          </div>
 
-                <h1 class="text-3xl sm:text-4xl font-semibold text-gray-900 leading-tight">
-                    {{ product.name }}
-                </h1>
+         
+          <div class="flex flex-wrap gap-2">
+            <span *ngFor="let f of product.keyFeatures" class="px-3 py-2 text-[12px] font-extrabold tracking-wide rounded-[8px] border border-[#111]/30 bg-white text-[#111]">
+              {{ f }}
+            </span>
+          </div>
 
-                <div class="flex items-center gap-3">
-                    <div class="flex text-amber-400">
-                        <svg *ngFor="let _ of getStars(product.rating)" class="w-5 h-5" viewBox="0 0 20 20"
-                            fill="currentColor">
-                            <path
-                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.88 8.72c-.783-.57-.38-1.81.588-1.81H6.93a1 1 0 00.95-.69l1.07-3.292z" />
-                        </svg>
-                    </div>
-                    <span class="text-gray-900 font-semibold">{{ product.rating }}/5</span>
-                    <span class="text-gray-400">•</span>
-                    <span class="text-sm text-gray-600">Verified customer reviews</span>
-                </div>
-
-                <!-- Technology -->
-                <div class="rounded-2xl border border-gray-200 bg-white p-5">
-                    <h3 class="text-base font-semibold text-gray-900 mb-1">{{ product.technology }}</h3>
-                    <p class="text-gray-700">{{ product.description }}</p>
-                </div>
-
-                <!-- Quick Specs - Smaller & Uniform -->
-                <div class="grid grid-cols-3 gap-3">
-                    <div class="text-center p-2.5 bg-gray-50 rounded-lg border border-gray-200 shadow-sm">
-                        <div class="text-sm font-semibold text-gray-900 leading-snug">
-                            {{ product.coverage }}
-                        </div>
-                        <div class="text-xs text-gray-500 mt-0.5">Coverage Area</div>
-                    </div>
-                    <div class="text-center p-2.5 bg-gray-50 rounded-lg border border-gray-200 shadow-sm">
-                        <div class="text-sm font-semibold text-gray-900 leading-snug">
-                            {{ product.noiseLevel }}
-                        </div>
-                        <div class="text-xs text-gray-500 mt-0.5">Noise Level</div>
-                    </div>
-                    <div class="text-center p-2.5 bg-gray-50 rounded-lg border border-gray-200 shadow-sm">
-                        <div class="text-sm font-semibold text-gray-900 leading-snug">
-                            {{ product.filterType }}
-                        </div>
-                        <div class="text-xs text-gray-500 mt-0.5">Filter Type</div>
-                    </div>
-                </div>
-
-
-
+        
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            <div class="flex flex-col items-center justify-center rounded-xl bg-white border border-gray-200 p-4">
+              <div class="h-10 w-10 rounded-full bg-[#101A50]/10 text-[#101A50] grid place-content-center font-black">🔒</div>
+              <div class="mt-2 text-center text-[12px] font-extrabold text-[#111] leading-tight">1 Year + 6 Month Warranty</div>
             </div>
-        </div>
-
-        <!-- Tabs -->
-        <div class="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden">
-            <div class="border-b border-gray-200">
-                <nav class="flex gap-6 px-6 sm:px-8">
-                    <button (click)="selectTab('features')" class="py-3 font-medium"
-                        [class.text-blue-600]="isActive('features')" [class.border-b-2]="isActive('features')"
-                        [class.border-blue-600]="isActive('features')">
-                        Detailed Features
-                    </button>
-                    <button (click)="selectTab('tech')" class="py-3 font-medium"
-                        [class.text-blue-600]="isActive('tech')" [class.border-b-2]="isActive('tech')"
-                        [class.border-blue-600]="isActive('tech')">
-                        Technical Specifications
-                    </button>
-                    <button (click)="selectTab('specs')" class="py-3 font-medium"
-                        [class.text-blue-600]="isActive('specs')" [class.border-b-2]="isActive('specs')"
-                        [class.border-blue-600]="isActive('specs')">
-                        Product Specifications
-                    </button>
-                </nav>
+            <div class="flex flex-col items-center justify-center rounded-xl bg-white border border-gray-200 p-4">
+              <div class="h-10 w-10 rounded-full bg-[#101A50]/10 text-[#101A50] grid place-content-center font-black">↩️</div>
+              <div class="mt-2 text-center text-[12px] font-extrabold text-[#111] leading-tight">7 Day Return (Unused)</div>
             </div>
-
-            <!-- Tab panels -->
-            <div class="p-6 sm:p-8">
-                <!-- FEATURES -->
-                <div *ngIf="isActive('features')" class="space-y-6">
-                    <h3 class="text-xl font-semibold text-gray-900">Complete feature set</h3>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div *ngFor="let item of product.detailedFeatures"
-                            class="flex items-start gap-3 p-4 rounded-xl bg-gray-50">
-                            <span class="mt-0.5 inline-flex items-center justify-center
-                           size-6 rounded-full bg-blue-600 text-white">
-                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
-                                        d="M5 13l4 4L19 7" />
-                                </svg>
-                            </span>
-                            <div class="text-sm text-gray-900">{{ item }}</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- TECHNICAL SPECS -->
-                <div *ngIf="isActive('tech')" class="space-y-8">
-                    <h3 class="text-xl font-semibold text-gray-900">Technical specifications</h3>
-
-                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                        <!-- Performance -->
-                        <div>
-                            <h4 class="text-sm font-semibold text-gray-700 mb-3">Performance</h4>
-                            <ul class="divide-y divide-gray-100 rounded-xl border border-gray-200 bg-white">
-                                <li class="flex justify-between gap-4 px-4 py-3">
-                                    <span class="text-gray-700">CADR rating</span>
-                                    <span class="text-gray-900">{{ product.technicalDetails?.cadr }}</span>
-                                </li>
-                                <li class="flex justify-between gap-4 px-4 py-3">
-                                    <span class="text-gray-700">Air changes / hour</span>
-                                    <span class="text-gray-900">{{ product.technicalDetails?.airChangesPerHour }}</span>
-                                </li>
-                                <li class="flex justify-between gap-4 px-4 py-3">
-                                    <span class="text-gray-700">Recommended room size</span>
-                                    <span class="text-gray-900">{{ product.technicalDetails?.roomSizeRecommended
-                                        }}</span>
-                                </li>
-                                <li class="flex justify-between gap-4 px-4 py-3">
-                                    <span class="text-gray-700">Fan speeds</span>
-                                    <span class="text-gray-900">{{ product.technicalDetails?.fanSpeeds }}</span>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <!-- Physical -->
-                        <div>
-                            <h4 class="text-sm font-semibold text-gray-700 mb-3">Physical</h4>
-                            <ul class="divide-y divide-gray-100 rounded-xl border border-gray-200 bg-white">
-                                <li class="flex justify-between gap-4 px-4 py-3">
-                                    <span class="text-gray-700">Dimensions</span>
-                                    <span class="text-gray-900">{{ product.detailedSpecs?.dimensions }}</span>
-                                </li>
-                                <li class="flex justify-between gap-4 px-4 py-3">
-                                    <span class="text-gray-700">Weight</span>
-                                    <span class="text-gray-900">{{ product.detailedSpecs?.weight }}</span>
-                                </li>
-                                <li class="flex justify-between gap-4 px-4 py-3">
-                                    <span class="text-gray-700">Power consumption</span>
-                                    <span class="text-gray-900">{{ product.detailedSpecs?.powerConsumption }}</span>
-                                </li>
-                                <li class="flex justify-between gap-4 px-4 py-3">
-                                    <span class="text-gray-700">Control type</span>
-                                    <span class="text-gray-900">{{ product.technicalDetails?.controlType }}</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Certs / Warranty -->
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div>
-                            <h4 class="text-sm font-semibold text-gray-700 mb-3">Certifications</h4>
-                            <div class="flex flex-wrap gap-2">
-                                <span *ngFor="let c of product.detailedSpecs?.certifications" class="px-3 py-1 rounded-full border text-sm
-                             bg-green-50 text-green-700 border-green-200">
-                                    {{ c }}
-                                </span>
-                            </div>
-                        </div>
-                        <div>
-                            <h4 class="text-sm font-semibold text-gray-700 mb-3">Warranty & support</h4>
-                            <div class="space-y-1.5 text-sm text-gray-900">
-                                <div>Warranty: {{ product.detailedSpecs?.warranty }}</div>
-                                <div>Filter life: {{ product.detailedSpecs?.filterLife }}</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- PRODUCT SPECS (simple recap — feel free to tailor) -->
-                <div *ngIf="isActive('specs')" class="space-y-6">
-                    <h3 class="text-xl font-semibold text-gray-900">Product specifications</h3>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div class="rounded-xl border border-gray-200 bg-white p-4">
-                            <div class="text-xs text-gray-500">Coverage</div>
-                            <div class="text-gray-900 font-medium">{{ product.coverage }}</div>
-                        </div>
-                        <div class="rounded-xl border border-gray-200 bg-white p-4">
-                            <div class="text-xs text-gray-500">Noise level</div>
-                            <div class="text-gray-900 font-medium">{{ product.noiseLevel }}</div>
-                        </div>
-                        <div class="rounded-xl border border-gray-200 bg-white p-4">
-                            <div class="text-xs text-gray-500">Filter type</div>
-                            <div class="text-gray-900 font-medium">{{ product.filterType }}</div>
-                        </div>
-                        <div class="rounded-xl border border-gray-200 bg-white p-4">
-                            <div class="text-xs text-gray-500">Technology</div>
-                            <div class="text-gray-900 font-medium">{{ product.technology }}</div>
-                        </div>
-                    </div>
-                </div>
+            <div class="flex flex-col items-center justify-center rounded-xl bg-white border border-gray-200 p-4">
+              <div class="h-10 w-10 rounded-full bg-[#101A50]/10 text-[#101A50] grid place-content-center font-black">✅</div>
+              <div class="mt-2 text-center text-[12px] font-extrabold text-[#111] leading-tight">Quality Verified</div>
             </div>
-        </div>
+            <div class="flex flex-col items-center justify-center rounded-xl bg-white border border-gray-200 p-4">
+              <div class="h-10 w-10 rounded-full bg-[#101A50]/10 text-[#101A50] grid place-content-center font-black">🚚</div>
+              <div class="mt-2 text-center text-[12px] font-extrabold text-[#111] leading-tight">Free Shipping</div>
+            </div>
+          </div>
 
-        <!-- Back button -->
-        <div class="mt-10 text-center">
-            <button (click)="goBack()"
-                class="bg-blue-600 text-white font-semibold py-3 px-6 rounded-lg hover:bg-blue-700">
-                ← Back to all products
-            </button>
-        </div>
+    
+          <div class="grid grid-cols-3 gap-3">
+            <div class="text-center p-3 bg-white rounded-[10px] border border-gray-200 shadow-sm">
+              <div class="text-[13px] font-black text-[#111]">{{ product.coverage }}</div>
+              <div class="text-[11px] text-gray-600 mt-0.5 uppercase tracking-wide">Coverage</div>
+            </div>
+            <div class="text-center p-3 bg-white rounded-[10px] border border-gray-200 shadow-sm">
+              <div class="text-[13px] font-black text-[#111]">{{ product.noiseLevel }}</div>
+              <div class="text-[11px] text-gray-600 mt-0.5 uppercase tracking-wide">Noise</div>
+            </div>
+            <div class="text-center p-3 bg-white rounded-[10px] border border-gray-200 shadow-sm">
+              <div class="text-[13px] font-black text-[#111]">{{ product.filterType }}</div>
+              <div class="text-[11px] text-gray-600 mt-0.5 uppercase tracking-wide">Filter</div>
+            </div>
+          </div>
+        </section>
+
+       
+        <section id="specs" class="scroll-mt-24 space-y-2">
+          <button class="w-full flex items-center justify-between px-4 py-3 rounded-[12px] bg-white border border-gray-200 font-extrabold text-[#111] hover:border-gray-300 transition"
+                  (click)="toggleSection('details')">
+            <span>Product Details</span>
+            <span class="inline-flex items-center justify-center w-7 h-7 rounded-full bg-[#101A50]/10 text-[#101A50] transition-transform" [class.rotate-45]="sectionsOpen.details">+</span>
+          </button>
+          <div *ngIf="sectionsOpen.details" class="mt-2 rounded-[12px] border border-dashed border-[#101A50]/30 bg-white p-4 text-sm text-[#111]">
+            <ul class="list-disc pl-5 space-y-1">
+              <li *ngFor="let item of product.detailedFeatures">{{ item }}</li>
+            </ul>
+          </div>
+
+          <button class="w-full flex items-center justify-between px-4 py-3 rounded-[12px] bg-white border border-gray-200 font-extrabold text-[#111] hover:border-gray-300 transition"
+                  (click)="toggleSection('techSpecs')">
+            <span>Technical Specifications</span>
+            <span class="inline-flex items-center justify-center w-7 h-7 rounded-full bg-[#101A50]/10 text-[#101A50] transition-transform" [class.rotate-45]="sectionsOpen.techSpecs">+</span>
+          </button>
+          <div *ngIf="sectionsOpen.techSpecs" class="mt-2 grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div class="rounded-[12px] border border-gray-200 bg-white p-3 text-sm"><div class="text-[11px] uppercase tracking-wide text-gray-600">CADR</div><div class="font-bold text-[#111]">{{ product.technicalDetails?.cadr }}</div></div>
+            <div class="rounded-[12px] border border-gray-200 bg-white p-3 text-sm"><div class="text-[11px] uppercase tracking-wide text-gray-600">Air changes/hour</div><div class="font-bold text-[#111]">{{ product.technicalDetails?.airChangesPerHour }}</div></div>
+            <div class="rounded-[12px] border border-gray-200 bg-white p-3 text-sm"><div class="text-[11px] uppercase tracking-wide text-gray-600">Recommended room</div><div class="font-bold text-[#111]">{{ product.technicalDetails?.roomSizeRecommended }}</div></div>
+            <div class="rounded-[12px] border border-gray-200 bg-white p-3 text-sm"><div class="text-[11px] uppercase tracking-wide text-gray-600">Fan speeds</div><div class="font-bold text-[#111]">{{ product.technicalDetails?.fanSpeeds }}</div></div>
+            <div class="rounded-[12px] border border-gray-200 bg-white p-3 text-sm sm:col-span-2"><div class="text-[11px] uppercase tracking-wide text-gray-600">Control type</div><div class="font-bold text-[#111]">{{ product.technicalDetails?.controlType }}</div></div>
+          </div>
+
+          <button class="w-full flex items-center justify-between px-4 py-3 rounded-[12px] bg-white border border-gray-200 font-extrabold text-[#111] hover:border-gray-300 transition"
+                  (click)="toggleSection('care')">
+            <span>Material and Care</span>
+            <span class="inline-flex items-center justify-center w-7 h-7 rounded-full bg-[#101A50]/10 text-[#101A50] transition-transform" [class.rotate-45]="sectionsOpen.care">+</span>
+          </button>
+          <div *ngIf="sectionsOpen.care" class="mt-2 rounded-[12px] border border-dashed border-[#101A50]/30 bg-white p-4 text-sm text-[#111]">
+            Filter life: {{ product.detailedSpecs?.filterLife }}
+          </div>
+
+          <button class="w-full flex items-center justify-between px-4 py-3 rounded-[12px] bg-white border border-gray-200 font-extrabold text-[#111] hover:border-gray-300 transition"
+                  (click)="toggleSection('inBox')">
+            <span>In the Box</span>
+            <span class="inline-flex items-center justify-center w-7 h-7 rounded-full bg-[#101A50]/10 text-[#101A50] transition-transform" [class.rotate-45]="sectionsOpen.inBox">+</span>
+          </button>
+          <div *ngIf="sectionsOpen.inBox" class="mt-2 rounded-[12px] border border-dashed border-[#101A50]/30 bg-white p-4 text-sm text-[#111]">
+            Includes purifier, filters, documentation. Configure per product.
+          </div>
+
+          <button class="w-full flex items-center justify-between px-4 py-3 rounded-[12px] bg-white border border-gray-200 font-extrabold text-[#111] hover:border-gray-300 transition"
+                  (click)="toggleSection('tests')">
+            <span>Product Test Reports</span>
+            <span class="inline-flex items-center justify-center w-7 h-7 rounded-full bg-[#101A50]/10 text-[#101A50] transition-transform" [class.rotate-45]="sectionsOpen.tests">+</span>
+          </button>
+          <div *ngIf="sectionsOpen.tests" class="mt-2 rounded-[12px] border border-dashed border-[#101A50]/30 bg-white p-4 text-sm text-[#111]">
+          
+          </div>
+        </section>
+      </div>
     </div>
+
+    
+    <section id="banner" class="mt-10">
+      <div class="rounded-[16px] border border-gray-200 bg-white overflow-hidden">
+        <ng-container *ngIf="bottomBannerSrc; else bannerPlaceholder">
+          <img [src]="bottomBannerSrc!" alt="Product banner" class="w-full h-auto object-cover" />
+        </ng-container>
+        <ng-template #bannerPlaceholder>
+          <div class="h-52 sm:h-64 md:h-80 w-full flex items-center justify-center bg-[#101a50]">
+            <div class="text-center px-4">
+              <p class="text-2xl text-gray-200">Bottom banner placeholder</p>
+              <p class="text-xs text-gray-100">Per product banner will appear here.</p>
+            </div>
+          </div>
+        </ng-template>
+      </div>
+    </section>
+
+    <section id="reviews" class="scroll-mt-24 mt-8 space-y-6">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        
+        <div class="rounded-[16px] border border-gray-200 bg-white p-5">
+          <div class="text-[40px] font-black leading-none text-[#111]">{{ averageRating }}</div>
+          <div class="mt-1 text-sm text-gray-600">{{ totalReviews }} reviews</div>
+          <div class="mt-3 space-y-2">
+            <div *ngFor="let s of [5,4,3,2,1]" class="flex items-center gap-3">
+              <span class="w-8 text-[12px] font-extrabold text-[#111]">{{ s }}★</span>
+              <div class="flex-1 h-2 rounded bg-gray-200 overflow-hidden">
+                <div class="h-2 bg-[#101A50]" [style.width.%]="percentFor(s)"></div>
+              </div>
+              <span class="w-10 text-right text-[12px] text-gray-600">{{ percentFor(s) }}%</span>
+            </div>
+          </div>
+        </div>
+
+      
+        <div class="lg:col-span-2 space-y-4">
+          <article *ngFor="let r of reviews" class="rounded-[14px] border border-gray-200 bg-white p-4">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <div class="relative inline-block">
+                  <div class="flex text-gray-300">
+                    <svg *ngFor="let _ of [1,2,3,4,5]" class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.88 8.72c-.783-.57-.38-1.81.588-1.81H6.93a1 1 0 00.95-.69l1.07-3.292z"/>
+                    </svg>
+                  </div>
+                  <div class="absolute inset-0 overflow-hidden" [style.width.%]="(r.rating/5)*100">
+                    <div class="flex text-[#101A50]">
+                      <svg *ngFor="let _ of [1,2,3,4,5]" class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.88 8.72c-.783-.57-.38-1.81.588-1.81H6.93a1 1 0 00.95-.69l1.07-3.292z"/>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+                <span class="text-[12px] font-bold text-[#111]">{{ r.rating }}</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span *ngIf="r.verified" class="inline-flex items-center gap-1 px-2 py-1 rounded bg-[#101A50]/10 text-[#101A50] text-[11px] font-extrabold">
+                  ✓ Verified
+                </span>
+                <span class="text-[11px] text-gray-500">{{ formatDate(r.date) }}</span>
+              </div>
+            </div>
+            <h4 class="mt-2 text-[15px] font-black text-[#111]">{{ r.title }}</h4>
+            <p class="mt-1 text-[13px] text-[#222] leading-relaxed">{{ r.body }}</p>
+
+            
+            <div *ngIf="r.images?.length" class="mt-3 grid grid-cols-3 gap-2">
+              <img *ngFor="let img of r.images"
+                   [src]="img"
+                   alt="Review image"
+                   class="h-24 w-full object-cover rounded-md border border-gray-200" />
+            </div>
+
+            <div class="mt-3 flex items-center justify-between">
+              <div class="text-[12px] text-gray-700">by <span class="font-semibold text-[#111]">{{ r.author }}</span></div>
+              <button (click)="helpful(r.id)" class="text-[12px] font-extrabold text-[#101A50] hover:underline">Helpful ({{ r.helpful }})</button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    
+    <section id="faq" class="scroll-mt-24 mt-8">
+      <h3 class="text-[18px] font-black text-[#111] mb-3">FAQs</h3>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div *ngFor="let f of faqs; let i = index" class="rounded-[16px] border border-gray-200 bg-white overflow-hidden">
+          <button (click)="toggleFaq(i)" class="w-full flex items-center justify-between gap-4 p-4">
+            <div class="text-left">
+              <div class="text-[15px] font-black text-[#111]">{{ f.q }}</div>
+              <p *ngIf="f.open" class="mt-1 text-[13px] text-[#222]">{{ f.a }}</p>
+            </div>
+            <span class="inline-flex items-center justify-center w-7 h-7 rounded-full bg-[#101A50]/10 text-[#101A50] font-bold"
+                  [class.rotate-45]="f.open">+</span>
+          </button>
+          <div class="px-4 pb-4" *ngIf="f.open">
+            <div class="rounded-[12px] bg-[#101A50]/5 border border-[#101A50]/20 p-3 text-[12px] text-[#111]">
+              Tip: For best performance, run Auto mode and keep doors/windows closed.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+   
+    <div class="mt-10 text-center">
+      <button (click)="goBack()" class="inline-flex items-center justify-center px-5 h-11 rounded-[10px] border-2 border-[#101A50] text-[#101A50] font-extrabold hover:bg-[#101A50]/10">
+        ← Back to all products
+      </button>
+    </div>
+  </div>
 </div>
 
-<!-- Loading -->
-<div class="min-h-screen bg-gray-50 flex items-center justify-center" *ngIf="isLoading">
-    <div class="text-center space-y-3">
-        <div class="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-600 mx-auto"></div>
-        <p class="text-gray-600 font-medium">Loading product details…</p>
-    </div>
+
+<div class="min-h-[50vh] bg-[#f6f6f6] flex items-center justify-center" *ngIf="isLoading">
+  <div class="text-center space-y-3">
+    <div class="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#101A50] mx-auto"></div>
+    <p class="text-gray-800 font-semibold">Loading product details…</p>
+  </div>
 </div>
