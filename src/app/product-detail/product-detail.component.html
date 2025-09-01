@@ -127,7 +127,7 @@
           </div>
 
     
-          <div class="grid grid-cols-3 gap-3">
+          <!-- <div class="grid grid-cols-3 gap-3">
             <div class="text-center p-3 bg-white rounded-[10px] border border-gray-200 shadow-sm">
               <div class="text-[13px] font-black text-[#111]">{{ product.coverage }}</div>
               <div class="text-[11px] text-gray-600 mt-0.5 uppercase tracking-wide">Coverage</div>
@@ -140,7 +140,7 @@
               <div class="text-[13px] font-black text-[#111]">{{ product.filterType }}</div>
               <div class="text-[11px] text-gray-600 mt-0.5 uppercase tracking-wide">Filter</div>
             </div>
-          </div>
+          </div> -->
         </section>
 
        
@@ -200,21 +200,49 @@
     </div>
 
     
-    <section id="banner" class="mt-10">
-      <div class="rounded-[16px] border border-gray-200 bg-white overflow-hidden">
-        <ng-container *ngIf="bottomBannerSrc; else bannerPlaceholder">
-          <img [src]="bottomBannerSrc!" alt="Product banner" class="w-full h-auto object-cover" />
-        </ng-container>
-        <ng-template #bannerPlaceholder>
-          <div class="h-52 sm:h-64 md:h-80 w-full flex items-center justify-center bg-[#101a50]">
-            <div class="text-center px-4">
-              <p class="text-2xl text-gray-200">Bottom banner placeholder</p>
-              <p class="text-xs text-gray-100">Per product banner will appear here.</p>
-            </div>
-          </div>
-        </ng-template>
+ <section id="banner" class="mt-10">
+  <div class="rounded-[16px] overflow-hidden">
+    <div
+      class="overflow-x-auto snap-x snap-mandatory scroll-smooth
+             [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+    >
+      <!-- no padding, no gaps -->
+      <div class="flex gap-0 w-full">
+        <!-- Slide 1 (dynamic/fallback) -->
+        <figure class="shrink-0 w-full snap-start">
+           <!-- [src]="bottomBannerSrc || 'assets/banners/bottom-1.jpg'" -->
+          <img
+           src="https://static.vecteezy.com/system/resources/previews/003/085/046/non_2x/colorful-abstract-banner-template-with-dummy-text-hand-drawn-doodle-vector.jpg"
+            alt="Product banner 1"
+            class="block w-full h-52 sm:h-64 md:h-80 object-cover"
+            loading="lazy"
+          />
+        </figure>
+
+        <!-- Slide 2 -->
+        <figure class="shrink-0 w-full snap-start">
+          <img
+            src="https://static.vecteezy.com/system/resources/previews/003/085/046/non_2x/colorful-abstract-banner-template-with-dummy-text-hand-drawn-doodle-vector.jpg"
+            alt="Product banner 2"
+            class="block w-full h-52 sm:h-64 md:h-80 object-cover"
+            loading="lazy"
+          />
+        </figure>
+
+        <!-- Slide 3 -->
+        <figure class="shrink-0 w-full snap-start">
+          <img
+            src="https://dummyimage.com/1630x430/000/fff"
+            alt="Product banner 3"
+            class="block w-full h-52 sm:h-64 md:h-80 object-cover"
+            loading="lazy"
+          />
+        </figure>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
+
 
     <section id="reviews" class="scroll-mt-24 mt-8 space-y-6">
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
