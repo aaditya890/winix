@@ -1,7 +1,25 @@
 --- jo single video tha usi ko lagana hai 
 
 
-BULK-QUERIES
-TESTIMONIALS
-PRODUCTS
-TECHNOLOGY
+
+<!-- ===== TESTIMONIALS ===== -->
+<div id="TESTIMONIALS" class="h-0"></div>
+@defer (on viewport) {
+<app-review-cards></app-review-cards>
+} @placeholder {
+<section class="py-24 bg-surface">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div *ngFor="let _ of [1,2,3]" class="p-6 rounded-2xl ring-1 ring-gray-200 bg-white animate-pulse">
+        <div class="h-5 w-24 bg-gray-200/70 rounded mb-4"></div>
+        <div class="h-4 w-11/12 bg-gray-200/70 rounded mb-2"></div>
+        <div class="h-4 w-10/12 bg-gray-200/60 rounded mb-2"></div>
+        <div class="h-4 w-7/12 bg-gray-200/60 rounded"></div>
+      </div>
+    </div>
+  </div>
+</section>
+}
+
+
+video section overflow kr rha hai 

@@ -5,6 +5,7 @@ import { NgOptimizedImage } from '@angular/common';
 import { WinixProductCardComponent } from "../winix-product-card/winix-product-card.component";
 import { ReviewCardsComponent } from "../review-cards/review-cards.component";
 import { EnquiryBannerComponent } from "../enquiry-banner/enquiry-banner.component";
+import { VideoShowcaseComponent } from "../video-showcase/video-showcase.component";
 
 interface FeatureItem {
   img: string; title: string; desc: string; w: number; h: number;
@@ -13,7 +14,7 @@ interface FeatureItem {
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [RouterLink, CommonModule, NgOptimizedImage, WinixProductCardComponent, ReviewCardsComponent, EnquiryBannerComponent],
+  imports: [RouterLink, CommonModule, NgOptimizedImage, WinixProductCardComponent, ReviewCardsComponent, EnquiryBannerComponent, VideoShowcaseComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
@@ -79,6 +80,7 @@ export class HomeComponent {
 
   window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
 }
+
 
 
 }

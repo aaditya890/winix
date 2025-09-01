@@ -1,0 +1,88 @@
+<section class="py-24 overflow-x-clip">
+
+  
+
+<div class="px-4 sm:px-6 group">
+  <h2 class="font-extrabold leading-tight tracking-tight text-2xl sm:text-3xl md:text-5xl text-[#0e1649]">
+    <span>Trending on</span>
+    <span class="ml-2 inline-flex items-center rounded-md  bg-gradient-to-r from-[#6a1b6e]/12 to-[#b21e6b]/12 ring-1 ring-inset ring-[#6a1b6e]/25">
+      <!-- <span class="bg-clip-text text-transparent bg-gradient-to-r from-[#6a1b6e] to-[#b21e6b]">Reels</span> -->
+             <span class="text-white bg-gradient-to-r from-[#74236C] to-[#74236C] px-2 py-0.5">Reels</span>
+    </span>
+
+    <br class="hidden sm:block" />
+
+    <span class="mt-2 inline-flex items-center gap-2 text-base sm:text-lg font-semibold">
+      <span class="relative flex h-2.5 w-2.5">
+        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#6a1b6e]/35"></span>
+        <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#6a1b6e]"></span>
+      </span>
+      <span class="inline-flex items-center rounded-full bg-white/60 px-3 py-1 border border-[#0e1649]/15 text-[#0e1649] backdrop-blur-sm hover:bg-white/80 transition">
+        Tap to Shop
+      </span>
+    </span>
+  </h2>
+</div>
+  <!-- edge-to-edge scroller without 100vw hack -->
+  <div class="relative -mx-4 sm:-mx-6 lg:-mx-8">
+    <!-- track -->
+    <div
+      #trackRef
+      class="no-scrollbar mt-4 flex gap-3 md:gap-4 overflow-x-auto snap-x snap-mandatory
+             scroll-smooth select-none touch-pan-x cursor-grab
+             px-4 sm:px-6 lg:px-8
+             [scroll-padding-inline:1rem] sm:[scroll-padding-inline:1.5rem] lg:[scroll-padding-inline:2rem]"
+      (wheel)="onWheel($event)"
+      (pointerdown)="onPointerDown($event)"
+      (pointermove)="onPointerMove($event)"
+      (pointerup)="onPointerUp($event)"
+      (pointercancel)="onPointerUp($event)"
+      (mouseleave)="onPointerUp($event)"
+      tabindex="0"
+      role="list"
+      aria-label="Social videos"
+    >
+
+      <!-- COMPACT CARD -->
+      <article
+        *ngFor="let v of items"
+        role="listitem"
+        class="relative shrink-0 snap-start
+               w-[64vw] xs:w-[58vw] sm:w-[48vw] md:w-[36vw]
+               lg:w-[240px] xl:w-[260px] 2xl:w-[280px]
+               rounded-2xl overflow-hidden bg-white shadow-lg"
+      >
+        <!-- 9:16 aspect -->
+        <div class="relative aspect-[9/16] bg-gray-100">
+          <video
+            #videoEl
+            class="absolute inset-0 w-full h-full object-cover"
+            [poster]="v.poster || ''"
+            [src]="v.src"
+            preload="metadata"
+            playsinline
+            muted
+            loop
+          ></video>
+
+          <!-- FULL-WIDTH BRAND OVERLAY (no side gaps) -->
+          <div class="pointer-events-none absolute inset-0">
+            <!-- gradient layer -->
+            <div
+              class="absolute inset-x-0 bottom-0 h-16 md:h-20
+                     bg-gradient-to-b from-transparent via-[#1B1E5E]/80 to-[#792C82]/90">
+            </div>
+            <!-- text layer with padding -->
+            <div class="absolute bottom-2 left-3 right-3">
+              <div class="text-white font-extrabold text-sm sm:text-base drop-shadow">
+                {{ v.title }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+      <!-- /card -->
+
+    </div>
+  </div>
+</section>

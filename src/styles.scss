@@ -36,19 +36,22 @@
 
 /* ===== Optional Dark Mode (toggle with [data-theme="dark"]) ===== */
 :root[data-theme="dark"] {
-  --color-primary: 220 20% 96%;
-  --color-secondary: 220 10% 70%;
-  --color-primary-surface: 233 74% 14%;
-  --color-primary-dark: 233 74% 10%;
-  /* keep accents similar; tweak if needed */
-  --accent-primary: 314 51% 40%;
-  --accent-secondary: 315 38% 56%;
+  --color-primary: 0 0% 95%;         /* Light text on dark bg */
+  --color-secondary: 0 0% 70%;       /* Secondary text */
+  --color-primary-surface: 0 70% 12%;/* Dark red background */
+  --color-primary-dark: 0 80% 8%;    /* Even darker red bg */
+
+  /* Red accents */
+  --accent-primary: 0 75% 40%;       /* Strong dark red */
+  --accent-secondary: 0 65% 55%;     /* Softer red accent */
+
   --gradient-hero: linear-gradient(
     135deg,
-    hsl(var(--accent-tertiary)) 0%,
+    hsl(var(--accent-secondary)) 0%,
     hsl(var(--accent-primary)) 100%
   );
 }
+
 
 /* ===== Handy Aliases (your preferred naming) ===== */
 /* text */
@@ -87,8 +90,8 @@
 /* (Optional) make headings use heading font */
 h1,h2,h3,h4,h5,h6 { 
   font-family: theme('fontFamily.heading');
-  font-weight: 800;
+
 }
-body { font-family: theme('fontFamily.sans'); font-weight: 800; }
+body { font-family: theme('fontFamily.sans'); }
 html { scroll-behavior: smooth; }
 

@@ -1,214 +1,120 @@
-import {
-  Component,
-  OnInit,
-  AfterViewInit,
-  OnDestroy,
-  ElementRef,
-  ViewChild,
-  NgZone,
-} from "@angular/core"
-import { CommonModule } from "@angular/common"
-import { RouterLink } from "@angular/router"
+import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 type Product = {
-  id: string
-  title: string
-  tagline?: string
-  rating: number
-  slug: string
-  imageSrc: string
-}
+  id: string;
+  title: string;
+  tagline?: string;
+  description?: string;
+  rating: number;
+  ratingCount?: string;
+  slug: string;
+  imageSrc: string;
+  hoverImageSrc?: string;
+  badges?: string[];
+  price: number;
+  mrp?: number;
+  colors?: string[];
+};
 
 @Component({
-  selector: "app-winix-product-card",
+  selector: 'app-winix-product-card',
   standalone: true,
   imports: [CommonModule, RouterLink],
-  templateUrl: "./winix-product-card.component.html",
-  styleUrl: "./winix-product-card.component.scss",
+  templateUrl: './winix-product-card.component.html',
 })
-export class WinixProductCardComponent implements OnInit, AfterViewInit, OnDestroy {
-  inView = false
-  private io?: IntersectionObserver
+export class WinixProductCardComponent {
+  hovered: Record<string, boolean> = {};
+  imageLoading: boolean[] = [];
 
-  @ViewChild("railEl") railRef!: ElementRef<HTMLDivElement>
-
-  /** Enhanced continuous scrolling */
-  continuous = true
-  paused = false
-
-  private rafId: number | null = null
-  private lastTs = 0
-  private mounted = false
-
-  /** Enhanced speed control */
-  private speedPxPerSec = 25 // Slightly faster for better visual effect
-
-  products: Product[] = [
-    {
-      id: "5500-2",
-      title: "WINIX 5500-2 PlasmaWave Elite",
-      tagline: "True HEPA • PlasmaWave® • Odor Control",
-      rating: 4.6,
-      slug: "winix-5500-2-plasmawave-elite",
-      imageSrc: "/assets/products/card/P-5500-2.webp",
-    },
-    {
-      id: "5300-2",
-      title: "Winix 5300-2 Premium 4 Stage Air Purifier",
-      tagline: "Kills Virus & Bacteria...",
-      rating: 4.6,
-      slug: "winix-5300-2-premium-4-stage-air-purifier",
-      imageSrc: "/assets/products/card/P-5300-2.webp",
-    },
-    {
-      id: "T810",
-      title: "WINIX T810 Air Purifier for Large Rooms",
-      tagline: "Smart Wi-Fi, True HEPA...",
-      rating: 4.4,
-      slug: "t810",
-      imageSrc: "assets/products/card/P-T810.webp",
-    },
-    {
-      id: "T500",
-      title: "WINIX T500 Promises Effective Air Purifier",
-      tagline: "Compact 360° suction...",
-      rating: 4.5,
-      slug: "t500",
-      imageSrc: "assets/products/card/P-T500.webp",
-    },
-    {
-      id: "A231",
-      title: "Winix A231 Compact Air Purifier",
-      tagline: "Certified UK Allergy & ECARF",
-      rating: 4.6,
-      slug: "a231",
-      imageSrc: "assets/products/card/P-A231.webp",
-    },
-  ]
-
-  // Double the imageLoading array to handle duplicates
-  imageLoading: boolean[] = Array(this.products.length * 2).fill(true)
-
-  constructor(private zone: NgZone) {}
-
-  ngOnInit(): void {
-    const host = document.querySelector<HTMLElement>("#winix-rail-root")
-    if (!host) {
-      this.inView = true
-      queueMicrotask(() => this.mountWhenReady())
-      return
-    }
-
-    this.io = new IntersectionObserver(
-      (entries) => {
-        if (entries.some((e) => e.isIntersecting)) {
-          this.inView = true
-          this.io?.disconnect()
-          queueMicrotask(() => this.mountWhenReady())
-        }
-      },
-      { rootMargin: "200px 0px" },
-    )
-    this.io.observe(host)
-
-    document.addEventListener("visibilitychange", this.onVisibility, { passive: true })
+products: Product[] = [
+  {
+    id: "5500-2",
+    title: "5500-2",
+    tagline: "WINIX 5500-2 PlasmaWave®",
+    description:
+      "Captures 99.97% particles with True HEPA and tackles VOCs using AOC™ carbon filter.",
+    rating: 4.6,
+    ratingCount: '39K',
+    slug: "winix-5500-2-plasmawave-elite",
+    imageSrc: "/assets/products/card/P-5500-2.webp ",
+    hoverImageSrc: "/assets/products/5500-2/product-2.jpg",
+    badges: ["POPULAR"],
+    price: 16149,
+    mrp: 22990,
+    colors: ["#111111", "#f5f5f5"] // black, white
+  },
+  {
+    id: "5300-2",
+    title: "5300-2",
+    tagline: "WINIX 5300-2 Premium Air",
+    description:
+      "4-stage filtration with True HEPA, deodorization, auto mode and quiet sleep mode.",
+    rating: 4.6,
+    ratingCount: '39K',
+    slug: "winix-5300-2-premium-4-stage-air-purifier",
+    imageSrc: "/assets/products/card/P-5300-2.webp",
+    badges: ["POPULAR"],
+    price: 15199,
+    mrp: 23990,
+    colors: ["#c9c9c9", "#111111"]
+  },
+  {
+    id: "T810",
+    title: "T810",
+    tagline: "WINIX T810 Large Room Air",
+    description:
+      "High CADR for large rooms with H13 True HEPA, real-time air quality and app control.",
+    rating: 4.4,
+    ratingCount: '165',
+    slug: "t810",
+    imageSrc: "assets/products/card/P-T810.webp",
+    badges: ["NEW"],
+    price: 17499,
+    mrp: 21999,
+    colors: ["#f5f5f5", "#3b3b3b"]
+  },
+  {
+    id: "T500",
+    title: "T500",
+    tagline: "WINIX T500 Compact Air",
+    description:
+      "Compact design with 360° suction, multi-stage filtration and whisper-quiet night mode.",
+    rating: 4.5,
+    ratingCount: '249',
+    slug: "t500",
+    imageSrc: "assets/products/card/P-T500.webp",
+    badges: ["VALUE PICK"],
+    price: 12999,
+    mrp: 16999,
+    colors: ["#ffffff", "#111111"]
+  },
+  {
+    id: "A231",
+    title: "A231",
+    tagline: "WINIX A231 Compact Air",
+    description:
+      "Allergy-certified compact purifier, ideal for study, kids’ rooms and small spaces.",
+    rating: 4.6,
+    ratingCount: '36K',
+    slug: "a231",
+    imageSrc: "assets/products/card/P-A231.webp",
+    badges: ["ALLERGY SAFE"],
+    price: 9999,
+    mrp: 18990,
+    colors: ["#f2f2f2", "#111111"]
   }
+];
 
-  ngAfterViewInit(): void {
-    this.mountWhenReady()
-  }
 
-  ngOnDestroy(): void {
-    this.io?.disconnect()
-    document.removeEventListener("visibilitychange", this.onVisibility as any)
-    this.stopRAF()
-  }
 
-  // Enhanced mount function
-  private mountWhenReady() {
-    if (!this.inView || !this.railRef?.nativeElement || this.mounted) return
-    this.mounted = true
+  // helpers
+  trackById = (_: number, p: Product) => p.id;
+  safeNumber(v: any) { const n = Number(v); return Number.isFinite(n) ? n : 0; }
+  formatINR(n?: number) { return Number.isFinite(n) ? `Rs. ${Math.round(n!).toLocaleString('en-IN')}` : ''; }
 
-    // Start continuous scrolling immediately
-    this.startRAF(true)
-  }
-
-  // Enhanced pause/resume functions
-  pauseScroll(): void {
-    this.paused = true
-  }
-
-  resumeScroll(): void {
-    this.paused = false
-  }
-
-  // Enhanced RAF loop with better seamless scrolling
-  private loop = (ts: number) => {
-    const rail = this.railRef?.nativeElement
-    if (!rail) return
-
-    const dt = this.lastTs ? ts - this.lastTs : 16
-    this.lastTs = ts
-
-    if (this.continuous && !this.paused && !document.hidden) {
-      const scrollAmount = (this.speedPxPerSec * dt) / 1000
-      rail.scrollLeft += scrollAmount
-
-      // Calculate when to reset - when we've scrolled past the first set
-      const cardWidth = 320 // w-72 sm:w-80 average
-      const gap = 24 // gap-6
-      const singleSetWidth = this.products.length * (cardWidth + gap)
-
-      // Reset to beginning when we've scrolled past the first complete set
-      if (rail.scrollLeft >= singleSetWidth) {
-        rail.scrollLeft = 0
-      }
-    }
-
-    this.rafId = requestAnimationFrame(this.loop)
-  }
-
-  private startRAF(reset = false) {
-    if (reset) this.lastTs = 0
-    this.stopRAF()
-    this.zone.runOutsideAngular(() => {
-      this.rafId = requestAnimationFrame(this.loop)
-    })
-  }
-
-  private stopRAF() {
-    if (this.rafId != null) {
-      cancelAnimationFrame(this.rafId)
-      this.rafId = null
-    }
-  }
-
-  private onVisibility = () => {
-    // Pause when tab is hidden, resume when visible
-    if (document.hidden) {
-      this.paused = true
-    } else {
-      this.paused = false
-    }
-  }
-
-  // Helper functions
-  ratingLabel(r: number) {
-    return `${this.safeNumber(r).toFixed(1)} out of 5 stars`
-  }
-
-  starFilled(r: number, s: number) {
-    return s <= Math.round(this.safeNumber(r))
-  }
-
-  safeNumber(v: any) {
-    const n = Number(v)
-    return Number.isFinite(n) ? n : 0
-  }
-
-  onImageLoad(i: number) {
-    this.imageLoading[i] = false
-  }
-
-  trackById = (_: number, p: Product) => p.id
+  onCardEnter(id: string) { this.hovered[id] = true; }
+  onCardLeave(id: string) { this.hovered[id] = false; }
+  onImageLoad(i: number) { this.imageLoading[i] = false; }
 }
