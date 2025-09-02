@@ -22,4 +22,46 @@
 }
 
 
+
+
+feature points --
+
+<!-- <app-video-showcase></app-video-showcase> -->
+<!-- Key feature highlights with images and descriptions -->
+<!-- @defer (on viewport) {
+<section class="py-24 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-10 text-center">
+      <div *ngFor="let f of features; trackBy: trackByTitle" class="group">
+        <div class="w-28 h-28 mx-auto mb-6 transition-transform duration-300 group-hover:scale-105">
+
+          <img [ngSrc]="f.img" [alt]="f.title" [width]="f.w" [height]="f.h" class="w-full h-full object-contain" />
+        </div>
+
+        <h3 class="text-2xl font-semibold text-gray-900 mb-4">
+          {{ f.title }}
+        </h3>
+
+        <p class="text-gray-600 leading-7 max-w-xs mx-auto">
+          {{ f.desc }}
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+} @placeholder {
+<section class="py-16 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-10 text-center">
+      <div *ngFor="let _ of featureSkeletonCount" class="animate-pulse">
+        <div class="w-28 h-28 mx-auto mb-6 rounded-2xl bg-gray-200/70"></div>
+        <div class="h-6 w-40 mx-auto mb-3 rounded bg-gray-200/70"></div>
+        <div class="h-4 w-56 mx-auto rounded bg-gray-200/60"></div>
+      </div>
+    </div>
+  </div>
+</section>
+} -->
+
+
 video section overflow kr rha hai 
