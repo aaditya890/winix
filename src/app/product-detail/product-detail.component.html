@@ -352,11 +352,11 @@
               {{ r.body }}
             </p>
 
-
+<!-- 
             <div *ngIf="r.images?.length" class="mt-3 grid grid-cols-3 gap-2">
               <img *ngFor="let img of r.images" [src]="img" alt="Review image"
                 class="h-24 w-full object-cover rounded-md border border-gray-200" />
-            </div>
+            </div> -->
 
             <div class="mt-3 flex items-center justify-between">
               <div class="text-[12px] text-gray-700">by <span class="font-semibold text-[#111]">{{ r.author }}</span>
@@ -375,7 +375,7 @@
         class="text-3xl ml-2 md:ml-1 md:text-4xl font-bold text-neutral-800 bg-gray-50 px-2 py-1 w-fit rounded-sm mb-3">
         FAQs</h3>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
-        <div *ngFor="let f of faqs; let i = index"
+        <div *ngFor="let f of product.faqs; let i = index"
           class="rounded-[16px] border border-gray-200 bg-white overflow-hidden">
           <!-- Header -->
           <button (click)="toggleFaq(i)"

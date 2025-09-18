@@ -42,6 +42,8 @@ interface Product {
     indicators: string[]
   }
   productReviews: Review[],
+  highlightImages:string[],
+  faqs: FAQ[]
 }
 
 type SectionKey = "details" | "techSpecs" | "care" | "inBox" | "tests" | "additional"
@@ -97,52 +99,16 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
     additional: false,
   }
 
-  // Text-only FAQs (no images)
-  faqs: FAQ[] = [
-    {
-      q: "How often should I replace the HEPA and carbon filters?",
-      a: "HEPA filters typically last up to 12 months depending on usage and air quality, while AOC carbon filters may need replacement every 3–6 months. Use the filter indicator for accurate timing.",
-      open: false,
-    },
-    {
-      q: "Does PlasmaWave produce ozone?",
-      a: "WINIX PlasmaWave technology is certified ozone-free when used as instructed. It neutralizes pollutants at a molecular level without harmful by-products.",
-      open: false,
-    },
-    {
-      q: "What room size is best for this model?",
-      a: "The 5500-2 is recommended for rooms up to 360 sq ft. For larger rooms, consider higher CADR/coverage models.",
-      open: false,
-    },
-    {
-      q: "Is it quiet enough for bedrooms?",
-      a: "Yes. On Sleep mode it operates at a very low noise level suitable for undisturbed sleep.",
-      open: false,
-    },
-  ]
-
   // Toggle logic: ek time pe sirf ek hi open ho
   toggleFaq(index: number) {
-    this.faqs = this.faqs.map((faq, i) => ({
+    if (!this.product) return;
+    this.product.faqs = this.product.faqs.map((faq, i) => ({
       ...faq,
       open: i === index ? !faq.open : false
     }));
   }
 
-  reviews: Review[] = [
-    {
-      id: "r1",
-      author: "Ananya",
-      rating: 5,
-      title: "Air feels fresh in minutes",
-      body: "After cooking, smells vanish quickly. Auto mode reacts fast and it’s quiet at night.",
-      date: "2025-08-01",
-      verified: true,
-      helpful: 18,
-      images: ["/review-kitchen-fresh-air.png", "/air-quality-led.png"],
-    },
-  ]
-  private products: Product[] = [
+  products: Product[] = [
     {
       id: 1,
       slug: "a231",
@@ -205,17 +171,133 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       },
       productReviews: [
         {
-          id: "r1",
-          author: "Ananya",
+          id: "a231-r1",
+          author: "Sofia",
           rating: 5,
-          title: "Air feels fresh in minutes",
-          body: "After cooking, smells vanish quickly. Auto mode reacts fast and it’s quiet at night.",
-          date: "2025-08-01",
+          title: "Tiny size, big performance",
+          body: "Desk pe rakho aur bhool jao—low pe bilkul quiet. Dust aur mild odors jaldi clear karta hai. Perfect for WFH.",
+          date: "2025-07-15",
           verified: true,
-          helpful: 18,
-          images: ["/review-kitchen-fresh-air.png", "/air-quality-led.png"],
+          helpful: 11,
+          images: ["/review-desk.png"],
+        },
+        {
+          id: "a231-r2",
+          author: "Arun",
+          rating: 4,
+          title: "Great for bedside",
+          body: "Bedside table pe fit ho jata hai. Filter chhota hai to jaldi fill hota—pre-filter clean karke life badh jaati hai.",
+          date: "2025-08-03",
+          verified: true,
+          helpful: 6,
+          images: [],
+        },
+        {
+          id: "a231-r3",
+          author: "Linda",
+          rating: 5,
+          title: "Kitchen corner hero",
+          body: "Oil smell 15 minute me normal. Lightweight, easily portable. Filters affordable aur change karna 2-minute job.",
+          date: "2025-06-28",
+          verified: true,
+          helpful: 13,
+          images: ["/review-kitchen.png"],
+        },
+        {
+          id: "a231-r4",
+          author: "Nikhil",
+          rating: 5,
+          title: "Allergy control in study",
+          body: "Spring me sneezing thamma. Compact aur distraction-free. Chhote rooms ke liye ideal.",
+          date: "2025-04-19",
+          verified: true,
+          helpful: 15,
+          images: [],
+        },
+        {
+          id: "a231-r5",
+          author: "Hannah",
+          rating: 3,
+          title: "Not for big rooms",
+          body: "Small bedrooms/office me great. Large living room me effect kam dikhta. Manage expectations and you’ll like it.",
+          date: "2025-05-22",
+          verified: true,
+          helpful: 5,
+          images: [],
+        },
+        {
+          id: "a231-r6",
+          author: "Dev",
+          rating: 5,
+          title: "Looks good, works better",
+          body: "Modern design blend ho jata hai. 4-stage filtration noticeable difference deti hai; workspace me dust low.",
+          date: "2025-03-11",
+          verified: true,
+          helpful: 12,
+          images: ["/review-style.png"],
+        },
+        {
+          id: "a231-r7",
+          author: "Grace",
+          rating: 4,
+          title: "Quiet nursery companion",
+          body: "Noise almost nil. Filter light thoda early aata—pre-filter clean karo to extend ho jata. Fresh air for the baby!",
+          date: "2025-02-14",
+          verified: true,
+          helpful: 9,
+          images: [],
+        },
+        {
+          id: "a231-r8",
+          author: "Ravi",
+          rating: 5,
+          title: "Value pick for small spaces",
+          body: "Smoke, pet odors, fine dust sab handle karta hai. Light, simple controls, aur filter prices reasonable. Solid buy.",
+          date: "2025-08-09",
+          verified: true,
+          helpful: 19,
+          images: ["/review-pets.png"],
         },
       ],
+      highlightImages: [
+        "assets/winix-product-images/a231/a231-1.webp",
+        "assets/winix-product-images/a231/a231-2.webp",
+        "assets/winix-product-images/a231/a231-3.webp",
+        "assets/winix-product-images/a231/a231-4.webp",
+        "assets/winix-product-images/a231/a231-5.webp",
+      ],
+      faqs: [
+        {
+          q: "Is the A231 suitable for large rooms?",
+          a: "No. It is designed for small spaces up to around 200 sq. ft., like bedrooms or offices.",
+          open: false,
+        },
+        {
+          q: "Does it run quietly?",
+          a: "Yes. The A231 is very quiet on low and Sleep mode, making it ideal for night use.",
+          open: false,
+        },
+        {
+          q: "What filters are included?",
+          a: "It comes with a 4-stage filtration system including a true HEPA filter, carbon filter, and pre-filter.",
+          open: false,
+        },
+        {
+          q: "How often should the filter be changed?",
+          a: "About every 12 months depending on usage. The pre-filter can be cleaned to extend life.",
+          open: false,
+        },
+        {
+          q: "Does it have auto mode?",
+          a: "No. The A231 is simple with manual fan speed controls but provides strong performance for its size.",
+          open: false,
+        },
+        {
+          q: "Is it easy to carry?",
+          a: "Yes. The compact and lightweight design makes it easy to move between rooms.",
+          open: false,
+        },
+      ]
     },
     {
       id: 2,
@@ -276,7 +358,135 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         controlType: "Touch + Button Control",
         indicators: ["Air Quality LED", "Filter Replacement", "Mode Status"],
       },
-      productReviews: [],
+      productReviews: [
+        {
+          id: "r1",
+          author: "Inez",
+          rating: 5,
+          title: "Fresh home in days",
+          body: "Two dogs, lots of cooking. Odors used to linger; now they don’t. True HEPA catches fur and fine dust. Quiet on sleep mode. Money well spent.",
+          date: "2024-11-08",
+          verified: true,
+          helpful: 8,
+          images: ["/review-dogs.png"],
+        },
+        {
+          id: "r2",
+          author: "Simon",
+          rating: 5,
+          title: "Dust catcher extraordinaire",
+          body: "The pre-filter turns gray fast—gross but satisfying. Night breathing feels easier. I run it 24/7 on low and use turbo for quick cleanups. Solid machine.",
+          date: "2020-05-18",
+          verified: true,
+          helpful: 15,
+          images: ["/review-filterdust.png"],
+        },
+        {
+          id: "r3",
+          author: "Malibu",
+          rating: 4,
+          title: "Wildfire helper",
+          body: "During smoke alerts, this beat fans by a mile. Air smelled normal by morning. High is loud, low is gentle. Filters every ~3 months worked for me.",
+          date: "2025-03-17",
+          verified: true,
+          helpful: 10,
+          images: ["/review-wildfire.png"],
+        },
+        {
+          id: "r4",
+          author: "JD",
+          rating: 4,
+          title: "Great unit—buy new if you can",
+          body: "Secondhand one arrived with funky filter odors. New filters fixed it and performance is excellent. Lesson learned: the purifier rocks, but don’t cheap out on used filters.",
+          date: "2023-08-30",
+          verified: true,
+          helpful: 7,
+          images: [],
+        },
+        {
+          id: "r5",
+          author: "Carol",
+          rating: 5,
+          title: "Perfect for a 300 sq ft office",
+          body: "Real-time bumps when someone heats lunch, then settles within minutes. Sleep mode is library-quiet. Simple controls. Great balance of price and performance.",
+          date: "2025-02-15",
+          verified: true,
+          helpful: 13,
+          images: ["/review-office.png"],
+        },
+        {
+          id: "r6",
+          author: "George L",
+          rating: 4,
+          title: "Effective, filters add to cost",
+          body: "Allergies improved. Replacements aren’t the cheapest if your air is dirty and you swap often. Still beats pricier brands for raw cleaning power.",
+          date: "2025-05-01",
+          verified: true,
+          helpful: 8,
+          images: [],
+        },
+        {
+          id: "r7",
+          author: "Rachel",
+          rating: 5,
+          title: "Pet odors gone",
+          body: "Small apartment + three cats = constant smell—until this. Friends notice the difference. Easy filter changes and a not-too-big footprint.",
+          date: "2025-06-20",
+          verified: true,
+          helpful: 19,
+          images: ["/review-cats.png"],
+        },
+        {
+          id: "r8",
+          author: "David",
+          rating: 5,
+          title: "Reliable long-term",
+          body: "Running daily over a year. Dust and pollen control are excellent. Medium speed is my sweet spot: quiet but effective. Hard to beat at this price.",
+          date: "2025-04-11",
+          verified: true,
+          helpful: 11,
+          images: [],
+        },
+      ],
+      highlightImages: [
+        "assets/winix-product-images/t5300-2/t5300-1.webp",
+        "assets/winix-product-images/t5300-2/t5300-2.webp",
+        "assets/winix-product-images/t5300-2/t5300-3.webp",
+        "assets/winix-product-images/t5300-2/t5300-4.webp",
+        "assets/winix-product-images/t5300-2/t5300-5.webp",
+      ],
+      faqs: [
+        {
+          q: "Is it quiet enough for night use?",
+          a: "Yes. On low or sleep mode the fan noise is minimal, making it fine for bedrooms.",
+          open: false,
+        },
+        {
+          q: "Does it come with a remote control?",
+          a: "No. The 5300-2 does not include a remote, but controls on the panel are simple to use.",
+          open: false,
+        },
+        {
+          q: "What type of filters does it use?",
+          a: "It uses a true HEPA filter, a carbon filter, and a washable pre-filter for capturing dust and odors.",
+          open: false,
+        },
+        {
+          q: "How large of a room can it handle?",
+          a: "It is recommended for rooms up to 360 sq. ft., similar to a bedroom or medium living room.",
+          open: false,
+        },
+        {
+          q: "Is the filter replacement costly?",
+          a: "Filter packs are moderately priced and usually last 12 months under normal conditions.",
+          open: false,
+        },
+        {
+          q: "Does it automatically adjust speed?",
+          a: "Yes. The Auto mode changes fan speed based on the air quality sensor readings.",
+          open: false,
+        },
+      ]
     },
     {
       id: 3,
@@ -337,7 +547,135 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         controlType: "Touch Panel",
         indicators: ["Air Quality LED", "Filter Replacement", "PlasmaWave Status"],
       },
-      productReviews: [],
+      productReviews: [
+        {
+          id: "r1",
+          author: "Richard G.",
+          rating: 5,
+          title: "Meter says it works",
+          body: "PM2.5 dropped from 58 to under 8 in about 20 minutes on high. Turbo is loud but effective. For smoke and pollen, this is the real deal.",
+          date: "2023-10-22",
+          verified: true,
+          helpful: 24,
+          images: ["/review-meter-drop.png"],
+        },
+        {
+          id: "r2",
+          author: "E L",
+          rating: 4,
+          title: "Great purifier, a few quirks",
+          body: "Cleans air fast and the filter gets dirty quickly—good sign. Occasionally jumps to high for no obvious reason and the LED bar is a bit bright at night. Still a win.",
+          date: "2025-03-27",
+          verified: true,
+          helpful: 8,
+          images: ["/review-tvremote.png"],
+        },
+        {
+          id: "r3",
+          author: "Michel F",
+          rating: 5,
+          title: "Solid for medium rooms",
+          body: "Owned for a year. Dust on furniture is way down, kitchen smells clear in 30–40 minutes, and sleep mode is practically silent. Filter swaps are simple. Not flashy, just dependable performance.",
+          date: "2024-10-20",
+          verified: true,
+          helpful: 12,
+          images: ["/review-bedroom.png"],
+        },
+        {
+          id: "r4",
+          author: "Nick S",
+          rating: 5,
+          title: "Better sleep, easier breathing",
+          body: "Allergy season used to wreck me. With the 5500-2 in the bedroom, morning congestion is rare. Auto reacts quickly to cooking or candles. Build feels sturdy and the washable pre-filter saves money.",
+          date: "2025-07-12",
+          verified: true,
+          helpful: 17,
+          images: ["/review-sleepmode.png"],
+        },
+        {
+          id: "r5",
+          author: "Malibu",
+          rating: 4,
+          title: "Handles smoke like a champ",
+          body: "Wildfire week test: smell gone by the evening. Turbo is noisy—expected—but low and medium are fine. It’s a little bulky for a small studio, yet performance justifies the footprint.",
+          date: "2025-03-17",
+          verified: true,
+          helpful: 11,
+          images: ["/review-smoketest.png"],
+        },
+        {
+          id: "r6",
+          author: "Anna P",
+          rating: 5,
+          title: "Pets? No problem",
+          body: "Two cats + one large dog. Dander and lingering litter box odors are noticeably reduced. I vacuum less and guests comment that the house smells neutral. Filters aren’t cheap, but worth it.",
+          date: "2025-01-29",
+          verified: true,
+          helpful: 14,
+          images: ["/review-pets.png"],
+        },
+        {
+          id: "r7",
+          author: "Carlos",
+          rating: 5,
+          title: "Top value at this price",
+          body: "True HEPA + real carbon = results. Auto kick-in during frying is instant. If you want performance over fancy looks, get this. Easy recommendation.",
+          date: "2025-02-10",
+          verified: true,
+          helpful: 16,
+          images: ["/review-cooking.png"],
+        },
+        {
+          id: "r8",
+          author: "Sophie",
+          rating: 4,
+          title: "Clean air, minor noise",
+          body: "House smells fresher within hours. Color indicator helps. Turbo can drown the TV, so I use medium most of the time. Overall very satisfied.",
+          date: "2025-06-08",
+          verified: true,
+          helpful: 9,
+          images: ["/review-livingroom.png"],
+        },
+      ],
+      highlightImages: [
+        "assets/winix-product-images/t5500-2/t5500-1.webp",
+        "assets/winix-product-images/t5500-2/t5500-2.webp",
+        "assets/winix-product-images/t5500-2/t5500-3.webp",
+        "assets/winix-product-images/t5500-2/t5500-4.webp",
+        "assets/winix-product-images/t5500-2/t5500-5.webp",
+      ],
+      faqs: [
+        {
+          q: "Is it quiet enough for bedrooms?",
+          a: "Yes. On Sleep mode it operates at a very low noise level suitable for undisturbed sleep.",
+          open: false,
+        },
+        {
+          q: "Does it remove cooking odors and smoke?",
+          a: "The 5500-2 includes a true HEPA filter and an activated carbon filter that capture smoke, VOCs, and common cooking odors effectively.",
+          open: false,
+        },
+        {
+          q: "How often do I need to replace the filters?",
+          a: "On average every 12 months, but it may vary depending on usage and air quality. The pre-filter is washable for extended life.",
+          open: false,
+        },
+        {
+          q: "What room size is it rated for?",
+          a: "It is suitable for medium to large rooms up to around 360 sq. ft. in size.",
+          open: false,
+        },
+        {
+          q: "Does it have an auto mode?",
+          a: "Yes. The built-in sensor detects air quality and adjusts the fan speed automatically.",
+          open: false,
+        },
+        {
+          q: "Can PlasmaWave be turned off?",
+          a: "Yes. PlasmaWave technology can be enabled or disabled with a button on the unit.",
+          open: false,
+        },
+      ]
     },
     {
       id: 4,
@@ -413,7 +751,135 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         controlType: "Touch + Wi-Fi App Control",
         indicators: ["Air Quality LED", "Filter Replacement"],
       },
-      productReviews: [],
+      productReviews: [
+        {
+          id: "t810-r1",
+          author: "Ananya",
+          rating: 5,
+          title: "Air feels fresh fast",
+          body: "Cooking ke baad 10–15 min me hi smell gayab. Auto mode smartly speed badha deta hai. Night me bilkul shaant.",
+          date: "2025-08-01",
+          verified: true,
+          helpful: 18,
+          images: ["/review-kitchen.png", "/review-airquality.png"],
+        },
+        {
+          id: "t810-r2",
+          author: "Nick",
+          rating: 5,
+          title: "Quiet power for big rooms",
+          body: "Large living room me bhi hawa noticeably light lagti hai. High pe thoda sunai deta hai, par need bhi tabhi hoti hai. App control convenient.",
+          date: "2025-08-08",
+          verified: true,
+          helpful: 6,
+          images: ["/review-livingroom.png"],
+        },
+        {
+          id: "t810-r3",
+          author: "Cody",
+          rating: 4,
+          title: "Buttons need backlight",
+          body: "Performance excellent, par buttons dark me dikhte nahi. Sleep mode super quiet. Overall fresh air ka effect clear hai.",
+          date: "2024-02-01",
+          verified: true,
+          helpful: 5,
+          images: [],
+        },
+        {
+          id: "t810-r4",
+          author: "Lina",
+          rating: 5,
+          title: "Allergy relief within days",
+          body: "Seasonal sneezing me clear drop. Dust kam settle hota hai. Filters replace karna easy, indicator time pe remind karta hai.",
+          date: "2025-03-22",
+          verified: true,
+          helpful: 14,
+          images: ["/review-bedroom.png"],
+        },
+        {
+          id: "t810-r5",
+          author: "Samir",
+          rating: 4,
+          title: "Great filtration, basic app",
+          body: "T810 ki cleaning power bohot strong hai—pollen aur cooking VOCs handle ho jaate hain. App ka UI thoda basic hai par kaam kar deta hai.",
+          date: "2025-05-10",
+          verified: true,
+          helpful: 7,
+          images: [],
+        },
+        {
+          id: "t810-r6",
+          author: "Olivia",
+          rating: 5,
+          title: "Smart adjustments that you notice",
+          body: "Frying start hotey hi fan ramp up; 20 minutes me room neutral smell. Long filters life, UI straightforward. Set-and-forget product.",
+          date: "2025-04-30",
+          verified: true,
+          helpful: 11,
+          images: ["/review-appcontrol.png"],
+        },
+        {
+          id: "t810-r7",
+          author: "Rahul",
+          rating: 4,
+          title: "Bulky but worth it",
+          body: "Size thoda bada hai to rooms switch karna mushkil. Par jab chalta hai to large space me bhi noticeable difference aata hai.",
+          date: "2025-07-18",
+          verified: true,
+          helpful: 6,
+          images: [],
+        },
+        {
+          id: "t810-r8",
+          author: "Meera",
+          rating: 5,
+          title: "Night mode FTW",
+          body: "Light sleeper hoon; night mode me koi noise nahi. Morning congestion almost gone. Best upgrade for our home.",
+          date: "2025-08-09",
+          verified: true,
+          helpful: 13,
+          images: [],
+        },
+      ],
+      highlightImages: [
+        "assets/winix-product-images/t800/t800-1.webp",
+        "assets/winix-product-images/t800/t800-2.webp",
+        "assets/winix-product-images/t800/t800-3.webp",
+        "assets/winix-product-images/t800/t800-4.webp",
+        "assets/winix-product-images/t800/t800-5.webp",
+      ],
+      faqs: [
+        {
+          q: "Does it support Wi-Fi or app control?",
+          a: "Yes. The T810 can connect to Wi-Fi and be controlled through the Winix Smart app.",
+          open: false,
+        },
+        {
+          q: "How noisy is it on high speed?",
+          a: "On turbo it is audible but not disruptive. Lower modes are very quiet, including Sleep mode.",
+          open: false,
+        },
+        {
+          q: "What room size is this model for?",
+          a: "It is designed for larger rooms, up to 800 sq. ft., making it suitable for living rooms and open spaces.",
+          open: false,
+        },
+        {
+          q: "Are the filters easy to change?",
+          a: "Yes. The unit has a front-loading panel and filter replacement is straightforward.",
+          open: false,
+        },
+        {
+          q: "Does the display show real-time air quality?",
+          a: "Yes. The LED indicator and digital display show current air quality and fan adjustments.",
+          open: false,
+        },
+        {
+          q: "Is PlasmaWave included?",
+          a: "Yes. PlasmaWave technology is included and can be turned on or off as preferred.",
+          open: false,
+        },
+      ]
     },
     {
       id: 5,
@@ -483,7 +949,135 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         controlType: "Touch + WiFi App Control",
         indicators: ["Air Quality LED (4-color)", "Filter Replacement"],
       },
-      productReviews: [],
+      productReviews: [
+        {
+          id: "t500-r1",
+          author: "Emily",
+          rating: 5,
+          title: "Small size, big impact",
+          body: "200 sq ft office me perfect. 360° intake useful lagta hai aur sleep mode me literally whisper. Easy to move.",
+          date: "2025-08-12",
+          verified: true,
+          helpful: 10,
+          images: ["/review-office.png"],
+        },
+        {
+          id: "t500-r2",
+          author: "Marcus",
+          rating: 4,
+          title: "Great for bedrooms",
+          body: "Dust/pollen clearly kam. High pe hum sunai deta hai—medium pe raho to balance accha milta hai. Worth it.",
+          date: "2025-07-05",
+          verified: true,
+          helpful: 6,
+          images: [],
+        },
+        {
+          id: "t500-r3",
+          author: "Sana",
+          rating: 5,
+          title: "Whisper-quiet nights",
+          body: "Sleep mode me almost inaudible. Filter change straightforward, design clean. Light sleepers ke liye badiya.",
+          date: "2025-06-20",
+          verified: true,
+          helpful: 12,
+          images: ["/review-bedroom.png"],
+        },
+        {
+          id: "t500-r4",
+          author: "David",
+          rating: 4,
+          title: "Compact, limited coverage",
+          body: "Chhote rooms me champion; large living room me struggle karta hai. Expectation sahi set karo to disappoint nahi karega.",
+          date: "2025-05-08",
+          verified: true,
+          helpful: 7,
+          images: [],
+        },
+        {
+          id: "t500-r5",
+          author: "Priya",
+          rating: 5,
+          title: "Odors vanish quickly",
+          body: "Cooking smell 10 minute me neutral. Light, portable, aur controls simple. Day-to-day use me hassle-free.",
+          date: "2025-04-14",
+          verified: true,
+          helpful: 15,
+          images: ["/review-kitchen.png"],
+        },
+        {
+          id: "t500-r6",
+          author: "Daniel",
+          rating: 3,
+          title: "Works, filters cost more",
+          body: "Performance theek-thaak; replacement filters thode mehange lagte hain. Agar budget allow karta hai to good pick.",
+          date: "2025-03-02",
+          verified: true,
+          helpful: 5,
+          images: [],
+        },
+        {
+          id: "t500-r7",
+          author: "Meera",
+          rating: 5,
+          title: "Allergy season savior",
+          body: "Sneezing notably kam. Room me dust settle slow ho gaya. Size chhota, maintenance easy—no complaints.",
+          date: "2025-08-01",
+          verified: true,
+          helpful: 16,
+          images: ["/review-allergy.png"],
+        },
+        {
+          id: "t500-r8",
+          author: "John",
+          rating: 4,
+          title: "Ideal for studios",
+          body: "Pet hair aur dust handle karta hai. Open-plan bade area ke liye nahi bana, par studio me kaafi effective.",
+          date: "2025-02-18",
+          verified: true,
+          helpful: 8,
+          images: [],
+        },
+      ],
+      highlightImages: [
+        "assets/winix-product-images/t500/t500-1.webp",
+        "assets/winix-product-images/t500/t500-2.webp",
+        "assets/winix-product-images/t500/t500-3.webp",
+        "assets/winix-product-images/t500/t500-4.webp",
+        "assets/winix-product-images/t500/t500-5.webp",
+      ],
+      faqs: [
+        {
+          q: "What is the recommended room size?",
+          a: "The T500 is best for smaller spaces such as bedrooms, nurseries, and offices up to 200 sq. ft.",
+          open: false,
+        },
+        {
+          q: "Is it portable?",
+          a: "Yes. Its lightweight, slim design makes it easy to move from one room to another.",
+          open: false,
+        },
+        {
+          q: "Does it use a true HEPA filter?",
+          a: "Yes. It uses a true HEPA filter along with carbon filtration for odors.",
+          open: false,
+        },
+        {
+          q: "How quiet is it at night?",
+          a: "In Sleep mode it runs very quietly and is suitable for bedside use.",
+          open: false,
+        },
+        {
+          q: "Are replacement filters expensive?",
+          a: "Filters are moderately priced, but because of the smaller size, they may need more frequent replacement.",
+          open: false,
+        },
+        {
+          q: "Does it have auto or smart sensors?",
+          a: "No. The T500 is more of a manual model with adjustable fan speeds but no auto-sensing mode.",
+          open: false,
+        },
+      ]
     },
   ]
 
@@ -539,22 +1133,25 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
 
   // Reviews
   get totalReviews(): number {
-    return this.reviews.length
+    return this.product?.productReviews?.length ?? 0
   }
   get averageRating(): number {
-    if (!this.reviews.length) return this.product?.rating ?? 0
-    const sum = this.reviews.reduce((a, r) => a + (Number.isFinite(r.rating) ? r.rating : 0), 0)
-    return Math.round((sum / this.reviews.length) * 10) / 10
+    if (!this.product?.productReviews) return this.product?.rating ?? 0
+    const reviews = this.product?.productReviews ?? []
+    const sum = reviews.reduce((a, r) => a + (Number.isFinite(r.rating) ? r.rating : 0), 0)
+    return reviews.length ? Math.round((sum / reviews.length) * 10) / 10 : 0
   }
   countFor(star: number): number {
-    return this.reviews.filter((r) => Math.round(r.rating) === star).length
+    const reviews = this.product?.productReviews ?? []
+    return reviews.filter((r) => Math.round(r.rating) === star).length
   }
   percentFor(star: number): number {
     if (!this.totalReviews) return 0
     return Math.round((this.countFor(star) / this.totalReviews) * 100)
   }
   helpful(id: string) {
-    const r = this.reviews.find((x) => x.id === id)
+    const reviews = this.product?.productReviews ?? []
+    const r = reviews.find((x) => x.id === id)
     if (r) r.helpful += 1
   }
 
