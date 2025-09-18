@@ -41,6 +41,7 @@ interface Product {
     controlType: string
     indicators: string[]
   }
+  productReviews: Review[],
 }
 
 type SectionKey = "details" | "techSpecs" | "care" | "inBox" | "tests" | "additional"
@@ -78,7 +79,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
   bottomBannerSrc: string | null = null
 
 
-    hideButton = false;
+  hideButton = false;
 
   // Listen for scroll event
   @HostListener('window:scroll', [])
@@ -120,7 +121,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
     },
   ]
 
-   // Toggle logic: ek time pe sirf ek hi open ho
+  // Toggle logic: ek time pe sirf ek hi open ho
   toggleFaq(index: number) {
     this.faqs = this.faqs.map((faq, i) => ({
       ...faq,
@@ -128,7 +129,6 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
     }));
   }
 
-  // Reviews include optional images
   reviews: Review[] = [
     {
       id: "r1",
@@ -141,30 +141,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       helpful: 18,
       images: ["/review-kitchen-fresh-air.png", "/air-quality-led.png"],
     },
-    {
-      id: "r2",
-      author: "Rahul",
-      rating: 4,
-      title: "Solid performer, great filters",
-      body: "HEPA + carbon combo works well for dust and pet odours. Build feels premium.",
-      date: "2025-07-18",
-      verified: true,
-      helpful: 11,
-      images: ["/filter-closeup.png"],
-    },
-    {
-      id: "r3",
-      author: "Maya",
-      rating: 5,
-      title: "Perfect for bedroom",
-      body: "Super quiet on sleep mode. Air Quality LED is useful and not too bright.",
-      date: "2025-06-29",
-      verified: true,
-      helpful: 7,
-      images: [],
-    },
   ]
-
   private products: Product[] = [
     {
       id: 1,
@@ -226,6 +203,19 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         controlType: "Touch Panel + Remote",
         indicators: ["Air Quality LED", "Filter Replacement"],
       },
+      productReviews: [
+        {
+          id: "r1",
+          author: "Ananya",
+          rating: 5,
+          title: "Air feels fresh in minutes",
+          body: "After cooking, smells vanish quickly. Auto mode reacts fast and it’s quiet at night.",
+          date: "2025-08-01",
+          verified: true,
+          helpful: 18,
+          images: ["/review-kitchen-fresh-air.png", "/air-quality-led.png"],
+        },
+      ],
     },
     {
       id: 2,
@@ -286,6 +276,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         controlType: "Touch + Button Control",
         indicators: ["Air Quality LED", "Filter Replacement", "Mode Status"],
       },
+      productReviews: [],
     },
     {
       id: 3,
@@ -346,6 +337,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         controlType: "Touch Panel",
         indicators: ["Air Quality LED", "Filter Replacement", "PlasmaWave Status"],
       },
+      productReviews: [],
     },
     {
       id: 4,
@@ -421,6 +413,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         controlType: "Touch + Wi-Fi App Control",
         indicators: ["Air Quality LED", "Filter Replacement"],
       },
+      productReviews: [],
     },
     {
       id: 5,
@@ -490,6 +483,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         controlType: "Touch + WiFi App Control",
         indicators: ["Air Quality LED (4-color)", "Filter Replacement"],
       },
+      productReviews: [],
     },
   ]
 
