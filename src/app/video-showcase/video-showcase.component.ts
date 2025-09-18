@@ -83,24 +83,32 @@ export class VideoShowcaseComponent implements AfterViewInit, OnDestroy {
     if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) el.scrollLeft += e.deltaY;
   }
 
-  // pointer drag
-  onPointerDown(e: PointerEvent) {
-    const el = this.trackRef.nativeElement;
-    this.isDown = true;
-    this.startX = e.clientX;
-    this.startLeft = el.scrollLeft;
-    el.setPointerCapture(e.pointerId);
-    el.classList.add('grabbing');
-  }
-  onPointerMove(e: PointerEvent) {
-    if (!this.isDown) return;
-    const el = this.trackRef.nativeElement;
-    el.scrollLeft = this.startLeft - (e.clientX - this.startX);
-  }
-  onPointerUp(e: any) {
-    const el = this.trackRef.nativeElement;
-    this.isDown = false;
+  onPointerDown(e: PointerEvent | TouchEvent) {
+  const el = this.trackRef.nativeElement;
+  this.isDown = true;
+
+  // support both touch and mouse
+  this.startX = 'touches' in e ? e.touches[0].clientX : e.clientX;
+  this.startLeft = el.scrollLeft;
+
+  if ('pointerId' in e) el.setPointerCapture(e.pointerId);
+  el.classList.add('grabbing');
+}
+
+onPointerMove(e: PointerEvent | TouchEvent) {
+  if (!this.isDown) return;
+  const el = this.trackRef.nativeElement;
+  const clientX = 'touches' in e ? e.touches[0].clientX : e.clientX;
+  el.scrollLeft = this.startLeft - (clientX - this.startX);
+}
+
+onPointerUp(e?: any) {
+  const el = this.trackRef.nativeElement;
+  this.isDown = false;
+
+  if (e && 'pointerId' in e) {
     try { el.releasePointerCapture(e.pointerId); } catch {}
-    el.classList.remove('grabbing');
   }
+  el.classList.remove('grabbing');
+}
 }

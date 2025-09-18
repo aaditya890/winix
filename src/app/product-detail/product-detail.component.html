@@ -1,132 +1,174 @@
-<div class="min-h-screen bg-[#f6f6f6]" *ngIf="!isLoading && product">
+<div class="min-h-screen bg-white relative" *ngIf="!isLoading && product">
+  <!-- Breadcrumbs -->
   <div class="max-w-full px-4 sm:px-6 lg:px-8 py-8">
-  
     <div class="grid grid-cols-1 lg:grid-cols-[1.05fr_.95fr] gap-8 lg:gap-10 items-start">
-       
       <div class="space-y-3 lg:sticky lg:top-6">
         <div class="relative aspect-[4/3] bg-white rounded-[16px] border border-gray-200 shadow-sm overflow-hidden">
-          <img [src]="product.images[currentImageIndex]" [alt]="product.name" class="w-full h-full object-contain p-6 sm:p-8" />
+          <img [src]="product.images[currentImageIndex]" [alt]="product.name"
+            class="w-full h-full object-contain p-6 sm:p-8" />
           <div class="absolute bottom-4 left-1/2 -translate-x-1/2">
             <div class="flex gap-2">
-              <button *ngFor="let _ of product.images; let i = index"
-                      (click)="selectImage(i)"
-                      class="h-2.5 w-6 rounded-full transition-colors"
-                      [class.bg-[#101A50]]="currentImageIndex === i"
-                      [class.bg-gray-300]="currentImageIndex !== i"></button>
+              <button *ngFor="let _ of product.images; let i = index" (click)="selectImage(i)"
+                class="h-2.5 w-6 rounded-full transition-colors" [class.bg-[#101A50]]="currentImageIndex === i"
+                [class.bg-gray-300]="currentImageIndex !== i"></button>
             </div>
           </div>
         </div>
 
         <div class="grid grid-cols-6 gap-2">
-          <button *ngFor="let img of product.images; let i = index"
-                  (click)="selectImage(i)"
-                  class="aspect-square rounded-[8px] overflow-hidden border transition-shadow hover:shadow"
-                  [class.border-[#101A50]]="currentImageIndex === i"
-                  [class.border-gray-200]="currentImageIndex !== i">
+          <button *ngFor="let img of product.images; let i = index" (click)="selectImage(i)"
+            class="aspect-square rounded-[8px] overflow-hidden border transition-shadow hover:shadow"
+            [class.border-[#101A50]]="currentImageIndex === i" [class.border-gray-200]="currentImageIndex !== i">
             <img [src]="img" [alt]="'Image ' + (i+1)" class="w-full h-full object-contain p-2 bg-white" />
           </button>
         </div>
       </div>
 
-      
-      <div class="space-y-6">
-       
-        <div class="flex items-center gap-2 flex-wrap">
-          <span class="px-2.5 py-1 rounded-[6px] text-[12px] font-extrabold uppercase tracking-wide border border-[#101A50]/30 text-[#101A50] bg-[#101A50]/10">
-            {{ product.category }}
-          </span>
-          <span *ngIf="product.badge" class="px-2.5 py-1 rounded-[6px] text-[12px] font-extrabold uppercase tracking-wide bg-[#101A50] text-white border border-[#101A50]">
-            {{ product.badge }}
-          </span>
-          <span *ngIf="product.isAward && product.awardType" class="px-2.5 py-1 rounded-[6px] text-[12px] font-extrabold uppercase tracking-wide border border-[#74236C]/30 text-[#74236C] bg-[#74236C]/10">
-            {{ product.awardType }}
+
+      <div class="space-y-1">
+
+        <div class="flex flex-col gap-2 uppercase">
+          <div class="flex items-center gap-2">
+            <h1 class="text-[30px] flex items-center gap-1 sm:text-[36px] leading-[1.05] font-black text-neutral-700">{{
+              product.shortName }}
+            </h1>
+            <span
+              class="px-[10px] tracking-tighter py-px rounded-md text-white font-bold text-[12px] md:text-md bg-[#74236C]">Special
+              Price</span>
+          </div>
+          <span class="text-neutral-300 text-[28px] tracking-tighter font-extrabold leading-[26px]">{{product.name}}
           </span>
         </div>
 
-       
-        <h1 class="text-[30px] sm:text-[36px] leading-[1.05] font-black text-[#111]">{{ product.name }}</h1>
-
-       
-        <nav class="overflow-x-auto -mx-1">
-          <ul class="flex gap-2 px-1 text-[12px] font-extrabold uppercase tracking-wide">
-            <li><a href="#overview" class="inline-block px-3 py-2 rounded-md bg-white border border-gray-200 text-[#111] hover:border-[#101A50]">Overview</a></li>
-            <li><a href="#specs" class="inline-block px-3 py-2 rounded-md bg-white border border-gray-200 text-[#111] hover:border-[#101A50]">Specs</a></li>
-            <li><a href="#reviews" class="inline-block px-3 py-2 rounded-md bg-white border border-gray-200 text-[#111] hover:border-[#101A50]">Reviews</a></li>
-            <li><a href="#faq" class="inline-block px-3 py-2 rounded-md bg-white border border-gray-200 text-[#111] hover:border-[#101A50]">FAQs</a></li>
-          </ul>
-        </nav>
-
-
-        <section id="overview" class="scroll-mt-24 space-y-5">
-        
-          <div class="flex items-center gap-3">
-            <div class="relative inline-block">
-              <div class="flex text-gray-300">
-                <svg *ngFor="let _ of [1,2,3,4,5]" class="w-6 h-6" viewBox="0 0 20 20" fill="currentColor">
-                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.88 8.72c-.783-.57-.38-1.81.588-1.81H6.93a1 1 0 00.95-.69l1.07-3.292z"/>
-                </svg>
-              </div>
-              <div class="absolute inset-0 overflow-hidden" [style.width.%]="(averageRating/5)*100">
-                <div class="flex text-[#101A50]">
-                  <svg *ngFor="let _ of [1,2,3,4,5]" class="w-6 h-6" viewBox="0 0 20 20" fill="currentColor">
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.88 8.72c-.783-.57-.38-1.81.588-1.81H6.93a1 1 0 00.95-.69l1.07-3.292z"/>
-                  </svg>
-                </div>
-              </div>
+        <section id="overview" class="scroll-mt-24">
+          <!-- Rating Badge -->
+          <div class="inline-flex items-center gap-1 my-2">
+            <!-- Rating box -->
+            <div class="flex items-center  bg-green-500 text-black px-2.5 py-1 rounded-md text-sm font-bold">
+              <!-- Star Icon -->
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 fill-black" viewBox="0 0 20 20">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 
+        1.371 1.24.588 1.81l-2.802 2.035a1 1 0 
+        00-.364 1.118l1.07 3.292c.3.921-.755 
+        1.688-1.54 1.118l-2.802-2.035a1 1 0 
+        00-1.176 0l-2.802 2.035c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 
+        00-.364-1.118L2.88 8.72c-.783-.57-.38-1.81.588-1.81H6.93a1 1 0 
+        00.95-.69l1.07-3.292z" />
+              </svg>
+              {{ averageRating }}
             </div>
-            <span class="text-[18px] font-black text-[#111]">{{ averageRating }}/5</span>
-            <span class="text-gray-500 text-sm">({{ totalReviews }} reviews)</span>
+
+            <!-- Reviews Count -->
+            <span class="text-gray-700 text-sm font-medium">
+              ({{ totalReviews }})
+            </span>
           </div>
 
-       
-          <div class="rounded-[12px] border border-gray-200 bg-white p-5">
+          <!-- True HEPA + PlasmaWave + Washable AOC Carbon -->
+          <div class="leading-4 mb-5 mt-2 bg-neutral-100">
             <h3 class="text-[15px] font-extrabold text-[#111] mb-1">{{ product.technology }}</h3>
             <p class="text-[14px] text-gray-800">{{ product.description }}</p>
           </div>
 
-        
-          <div class="space-y-3">
-            <div class="flex items-center justify-between">
-              <div class="space-x-2" *ngIf="product.price">
-                <span class="text-[24px] font-black text-[#111]">{{ product.price }}</span>
-                <span class="text-[13px] text-gray-500 line-through" *ngIf="product.mrp">{{ product.mrp }}</span>
-                <span *ngIf="discountPercent(product.price, product.mrp) as disc" class="ml-1 inline-flex items-center px-2 py-1 rounded-md bg-[#101A50]/10 text-[#101A50] text-[11px] font-extrabold">Save {{ disc }}%</span>
-              </div>
-             
-            </div>
+          <!-- nav -->
+          <!-- <div class="overflow-x-auto mb-1">
+            <ul class="flex gap-2 px-1 text-[12px] font-extrabold uppercase tracking-wide">
+              <li><a href="#overview"
+                  class="inline-block px-3 py-2 rounded-md bg-gray-100 text-[#111] hover:border-[#101A50]">Overview</a>
+              </li>
+              <li><a href="#specs"
+                  class="inline-block px-3 py-2 rounded-md bg-gray-100 text-[#111] hover:border-[#101A50]">Specs</a>
+              </li>
+              <li><a href="#reviews"
+                  class="inline-block px-3 py-2 rounded-md bg-gray-100 text-[#111] hover:border-[#101A50]">Reviews</a>
+              </li>
+              <li><a href="#faq"
+                  class="inline-block px-3 py-2 rounded-md bg-gray-100 text-[#111] hover:border-[#101A50]">FAQs</a>
+              </li>
+            </ul>
+          </div> -->
+          <!-- nav-end -->
 
-            <button class="w-full h-12 rounded-[10px] bg-[#111] text-white font-black uppercase tracking-wide hover:bg-black transition-colors">BUY NOW</button>
-            <button class="w-full h-11 rounded-[10px] bg-[#74236C] text-white font-extrabold uppercase tracking-wide hover:brightness-95 transition">WATCH Demo</button>
-          </div>
-
-         
+          <!-- Key Features -->
           <div class="flex flex-wrap gap-2">
-            <span *ngFor="let f of product.keyFeatures" class="px-3 py-2 text-[12px] font-extrabold tracking-wide rounded-[8px] border border-[#111]/30 bg-white text-[#111]">
+            <span *ngFor="let f of product.keyFeatures"
+              class="px-3 py-1 text-sm md:text-md font-semibold tracking-wide rounded-[8px] bg-neutral-200 text-neutral-800">
               {{ f }}
             </span>
           </div>
 
-        
-          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
-            <div class="flex flex-col items-center justify-center rounded-xl bg-white border border-gray-200 p-4">
-              <div class="h-10 w-10 rounded-full bg-[#101A50]/10 text-[#101A50] grid place-content-center font-black">🔒</div>
-              <div class="mt-2 text-center text-[12px] font-extrabold text-[#111] leading-tight">2 Year + 1 On Registration</div>
+          <div class="space-y-3 mb-2">
+            <div class="flex items-center justify-between">
+              <div class="space-x-2 mt-2" *ngIf="product.price">
+                <span class="text-2xl font-black text-neutral-800">{{ product.price }}</span>
+                <span class="text-md font-semibold text-neutral-400 line-through" *ngIf="product.mrp">{{ product.mrp
+                  }}</span>
+                <span *ngIf="discountPercent(product.price, product.mrp) as disc"
+                  class="ml-1 mb-2 inline-flex items-center px-2 rounded-md bg-[#101A50]/10 text-neutral-700 text-[11px] font-bold">Save
+                  {{ disc }}%</span>
+              </div>
+
             </div>
-            <div class="flex flex-col items-center justify-center rounded-xl bg-white border border-gray-200 p-4">
-              <div class="h-10 w-10 rounded-full bg-[#101A50]/10 text-[#101A50] grid place-content-center font-black">↩️</div>
-              <div class="mt-2 text-center text-[12px] font-extrabold text-[#111] leading-tight">10 Days Replacement</div>
+
+            <button
+              class="w-full h-9 rounded-[10px] bg-[#111] text-white font-black uppercase tracking-wide hover:bg-black transition-colors">BUY
+              NOW</button>
+            <button
+              class="w-full h-12 rounded-[10px] bg-[#74236C] text-white font-extrabold uppercase tracking-wide hover:brightness-95 transition">WATCH
+              Demo</button>
+          </div>
+
+          <!-- Features Grid -->
+          <div class="grid grid-cols-4 sm:grid-cols-4 gap-2 md:gap-3 my-2 md:py-4">
+            <div class="flex flex-col items-center justify-center rounded-xl bg-white p-4">
+              <div class="h-10 w-10 text-[#74236C] grid place-content-center font-black">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                  stroke="currentColor" class="size-7 md:size-14">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z" />
+                </svg>
+
+              </div>
+              <div class="mt-2 text-center text-sm font-semibold text-[#111] leading-4">2+1 Year Warranty</div>
             </div>
-            <div class="flex flex-col items-center justify-center rounded-xl bg-white border border-gray-200 p-4">
-              <div class="h-10 w-10 rounded-full bg-[#101A50]/10 text-[#101A50] grid place-content-center font-black">✅</div>
-              <div class="mt-2 text-center text-[12px] font-extrabold text-[#111] leading-tight">Tested & Quality Verified</div>
+            <div class="flex flex-col items-center justify-center p-4">
+              <div class="h-10 w-10 text-[#74236C]  grid place-content-center font-black">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                  stroke="currentColor" class="size-7 md:size-14">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M19.5 12c0-1.232-.046-2.453-.138-3.662a4.006 4.006 0 0 0-3.7-3.7 48.678 48.678 0 0 0-7.324 0 4.006 4.006 0 0 0-3.7 3.7c-.017.22-.032.441-.046.662M19.5 12l3-3m-3 3-3-3m-12 3c0 1.232.046 2.453.138 3.662a4.006 4.006 0 0 0 3.7 3.7 48.656 48.656 0 0 0 7.324 0 4.006 4.006 0 0 0 3.7-3.7c.017-.22.032-.441.046-.662M4.5 12l3 3m-3-3-3 3" />
+                </svg>
+
+              </div>
+              <div class="mt-2 text-center text-sm font-semibold text-[#111] leading-1 md:leading-4">10Days Replace
+              </div>
             </div>
-            <div class="flex flex-col items-center justify-center rounded-xl bg-white border border-gray-200 p-4">
-              <div class="h-10 w-10 rounded-full bg-[#101A50]/10 text-[#101A50] grid place-content-center font-black">🚚</div>
-              <div class="mt-2 text-center text-[12px] font-extrabold text-[#111] leading-tight">Free & Fast Shipping</div>
+            <div class="flex flex-col items-center justify-center rounded-xl bg-white p-4">
+              <div class="h-10 w-10 text-[#74236C] grid place-content-center font-black">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                  stroke="currentColor" class="size-7 md:size-14">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M9 12.75 11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 0 1-1.043 3.296 3.745 3.745 0 0 1-3.296 1.043A3.745 3.745 0 0 1 12 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 0 1-3.296-1.043 3.745 3.745 0 0 1-1.043-3.296A3.745 3.745 0 0 1 3 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 0 1 1.043-3.296 3.746 3.746 0 0 1 3.296-1.043A3.746 3.746 0 0 1 12 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 0 1 3.296 1.043 3.746 3.746 0 0 1 1.043 3.296A3.745 3.745 0 0 1 21 12Z" />
+                </svg>
+
+              </div>
+              <div class="mt-2 text-center text-sm font-semibold leading-tight">Verified Quality</div>
+            </div>
+            <div class="flex flex-col items-center justify-center rounded-xl bg-white p-4">
+              <div class="h-10 w-10 text-[#74236C] grid place-content-center font-black">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                  stroke="currentColor" class="size-7 md:size-14">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M8.25 18.75a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 0 1-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 0 0-3.213-9.193 2.056 2.056 0 0 0-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 0 0-10.026 0 1.106 1.106 0 0 0-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12" />
+                </svg>
+
+              </div>
+              <div class="mt-2 text-center text-sm font-semibold text-[#111] leading-4">Quick Delivery
+              </div>
             </div>
           </div>
 
-    
+
           <!-- <div class="grid grid-cols-3 gap-3">
             <div class="text-center p-3 bg-white rounded-[10px] border border-gray-200 shadow-sm">
               <div class="text-[13px] font-black text-[#111]">{{ product.coverage }}</div>
@@ -143,144 +185,167 @@
           </div> -->
         </section>
 
-       
         <section id="specs" class="scroll-mt-24 space-y-2">
-          <button class="w-full flex items-center justify-between px-4 py-3 rounded-[12px] bg-white border border-gray-200 font-extrabold text-[#111] hover:border-gray-300 transition"
-                  (click)="toggleSection('details')">
-            <span>Product Details</span>
-            <span class="inline-flex items-center justify-center w-7 h-7 rounded-full bg-[#101A50]/10 text-[#101A50] transition-transform" [class.rotate-45]="sectionsOpen.details">+</span>
+          <button
+            class="w-full flex items-center justify-between px-4 py-3 rounded-[12px] bg-gray-100 border border-gray-200 font-extrabold text-[#111] hover:border-gray-300 transition"
+            (click)="toggleSection('details')">
+            <span class="text-neutral-700 font-semibold text-xl">Product Details</span>
+            <span
+              class="inline-flex items-center justify-center w-7 h-7 rounded-full bg-[#101A50]/10 text-[#101A50] transition-transform"
+              [class.rotate-45]="sectionsOpen.details">+</span>
           </button>
-          <div *ngIf="sectionsOpen.details" class="mt-2 rounded-[12px] border border-dashed border-[#101A50]/30 bg-white p-4 text-sm text-[#111]">
+          <div *ngIf="sectionsOpen.details"
+            class="mt-2 rounded-[12px] border border-dashed border-[#101A50]/30 bg-white p-4 text-sm text-[#111]">
             <ul class="list-disc pl-5 space-y-1">
-              <li *ngFor="let item of product.detailedFeatures">{{ item }}</li>
+              <li *ngFor="let item of product.detailedFeatures"
+                class="text-md md:text-lg text-neutral-500 font-semibold leading-5">{{ item
+                }}</li>
             </ul>
           </div>
 
-          <button class="w-full flex items-center justify-between px-4 py-3 rounded-[12px] bg-white border border-gray-200 font-extrabold text-[#111] hover:border-gray-300 transition"
-                  (click)="toggleSection('techSpecs')">
-            <span>Technical Specifications</span>
-            <span class="inline-flex items-center justify-center w-7 h-7 rounded-full bg-[#101A50]/10 text-[#101A50] transition-transform" [class.rotate-45]="sectionsOpen.techSpecs">+</span>
+          <button
+            class="w-full flex items-center justify-between px-4 py-3 rounded-[12px] bg-gray-100  border border-gray-200 font-extrabold text-[#111] hover:border-gray-300 transition"
+            (click)="toggleSection('techSpecs')">
+            <span class="text-neutral-700 font-semibold text-xl">Technical Specifications</span>
+            <span
+              class="inline-flex items-center justify-center w-7 h-7 rounded-full bg-[#101A50]/10 text-[#101A50] transition-transform"
+              [class.rotate-45]="sectionsOpen.techSpecs">+</span>
           </button>
           <div *ngIf="sectionsOpen.techSpecs" class="mt-2 grid grid-cols-1 sm:grid-cols-2 gap-3">
-            <div class="rounded-[12px] border border-gray-200 bg-white p-3 text-sm"><div class="text-[11px] uppercase tracking-wide text-gray-600">CADR</div><div class="font-bold text-[#111]">{{ product.technicalDetails?.cadr }}</div></div>
-            <div class="rounded-[12px] border border-gray-200 bg-white p-3 text-sm"><div class="text-[11px] uppercase tracking-wide text-gray-600">Air changes/hour</div><div class="font-bold text-[#111]">{{ product.technicalDetails?.airChangesPerHour }}</div></div>
-            <div class="rounded-[12px] border border-gray-200 bg-white p-3 text-sm"><div class="text-[11px] uppercase tracking-wide text-gray-600">Recommended room</div><div class="font-bold text-[#111]">{{ product.technicalDetails?.roomSizeRecommended }}</div></div>
-            <div class="rounded-[12px] border border-gray-200 bg-white p-3 text-sm"><div class="text-[11px] uppercase tracking-wide text-gray-600">Fan speeds</div><div class="font-bold text-[#111]">{{ product.technicalDetails?.fanSpeeds }}</div></div>
-            <div class="rounded-[12px] border border-gray-200 bg-white p-3 text-sm sm:col-span-2"><div class="text-[11px] uppercase tracking-wide text-gray-600">Control type</div><div class="font-bold text-[#111]">{{ product.technicalDetails?.controlType }}</div></div>
+            <div class="rounded-[12px] border border-gray-200 bg-white p-3 text-sm">
+              <div class="text-lg font-bold uppercase tracking-wide text-neutral-600">CADR</div>
+              <div class="font-bold text-neutral-500 text-md">{{ product.technicalDetails?.cadr }}</div>
+            </div>
+            <div class="rounded-[12px] border border-gray-200 bg-white p-3 text-sm">
+              <div class="text-lg font-bold uppercase tracking-wide text-neutral-600">Air changes/hour</div>
+              <div class="font-bold text-neutral-500 text-md">{{ product.technicalDetails?.airChangesPerHour }}</div>
+            </div>
+            <div class="rounded-[12px] border border-gray-200 bg-white p-3 text-sm">
+              <div class="text-lg font-bold uppercase tracking-wide text-neutral-600">Recommended room</div>
+              <div class="font-bold text-neutral-500 text-md">{{ product.technicalDetails?.roomSizeRecommended }}</div>
+            </div>
+            <div class="rounded-[12px] border border-gray-200 bg-white p-3 text-sm">
+              <div class="text-lg font-bold uppercase tracking-wide text-neutral-600">Fan speeds</div>
+              <div class="font-bold text-neutral-500 text-md">{{ product.technicalDetails?.fanSpeeds }}</div>
+            </div>
+            <div class="rounded-[12px] border border-gray-200 bg-white p-3 text-sm sm:col-span-2">
+              <div class="text-lg font-bold uppercase tracking-wide text-neutral-600">Control type</div>
+              <div class="font-bold text-neutral-500 text-md">{{ product.technicalDetails?.controlType }}</div>
+            </div>
           </div>
 
-          <button class="w-full flex items-center justify-between px-4 py-3 rounded-[12px] bg-white border border-gray-200 font-extrabold text-[#111] hover:border-gray-300 transition"
-                  (click)="toggleSection('care')">
-            <span>Material and Care</span>
-            <span class="inline-flex items-center justify-center w-7 h-7 rounded-full bg-[#101A50]/10 text-[#101A50] transition-transform" [class.rotate-45]="sectionsOpen.care">+</span>
+          <button class="w-full flex items-center justify-between px-4 py-3 rounded-[12px] bg-gray-100 nsition"
+            (click)="toggleSection('care')">
+            <span class="text-neutral-700 font-semibold text-xl">Material and Care</span>
+            <span
+              class="inline-flex items-center justify-center w-7 h-7 rounded-full bg-[#101A50]/10 text-[#101A50] transition-transform"
+              [class.rotate-45]="sectionsOpen.care">+</span>
           </button>
-          <div *ngIf="sectionsOpen.care" class="mt-2 rounded-[12px] border border-dashed border-[#101A50]/30 bg-white p-4 text-sm text-[#111]">
+          <div *ngIf="sectionsOpen.care"
+            class="mt-2 rounded-[12px] border text-md font-semibold bg-white p-4 text-neutral-500">
             Filter life: {{ product.detailedSpecs?.filterLife }}
           </div>
 
-          <button class="w-full flex items-center justify-between px-4 py-3 rounded-[12px] bg-white border border-gray-200 font-extrabold text-[#111] hover:border-gray-300 transition"
-                  (click)="toggleSection('inBox')">
-            <span>In the Box</span>
-            <span class="inline-flex items-center justify-center w-7 h-7 rounded-full bg-[#101A50]/10 text-[#101A50] transition-transform" [class.rotate-45]="sectionsOpen.inBox">+</span>
+          <button
+            class="w-full flex items-center justify-between px-4 py-3 rounded-[12px] bg-gray-100 border border-gray-200 font-extrabold text-[#111] hover:border-gray-300 transition"
+            (click)="toggleSection('inBox')">
+            <span class="text-neutral-700 font-semibold text-xl">In the Box</span>
+            <span
+              class="inline-flex items-center justify-center w-7 h-7 rounded-full bg-[#101A50]/10 text-[#101A50] transition-transform"
+              [class.rotate-45]="sectionsOpen.inBox">+</span>
           </button>
-          <div *ngIf="sectionsOpen.inBox" class="mt-2 rounded-[12px] border border-dashed border-[#101A50]/30 bg-white p-4 text-sm text-[#111]">
+          <div *ngIf="sectionsOpen.inBox"
+            class="mt-2 rounded-[12px] border text-md font-semibold bg-white p-4 text-neutral-500">
             Includes purifier, filters, documentation. Configure per product.
           </div>
 
-          <button class="w-full flex items-center justify-between px-4 py-3 rounded-[12px] bg-white border border-gray-200 font-extrabold text-[#111] hover:border-gray-300 transition"
-                  (click)="toggleSection('tests')">
-            <span>Product Test Reports</span>
-            <span class="inline-flex items-center justify-center w-7 h-7 rounded-full bg-[#101A50]/10 text-[#101A50] transition-transform" [class.rotate-45]="sectionsOpen.tests">+</span>
+          <button
+            class="w-full flex items-center justify-between px-4 py-3 rounded-[12px] bg-gray-100 border border-gray-200 font-extrabold text-[#111] hover:border-gray-300 transition"
+            (click)="toggleSection('tests')">
+            <span class="text-neutral-700 font-semibold text-xl">Product Test Reports</span>
+            <span
+              class="inline-flex items-center justify-center w-7 h-7 rounded-full bg-[#101A50]/10 text-[#101A50] transition-transform"
+              [class.rotate-45]="sectionsOpen.tests">+</span>
           </button>
-          <div *ngIf="sectionsOpen.tests" class="mt-2 rounded-[12px] border border-dashed border-[#101A50]/30 bg-white p-4 text-sm text-[#111]">
-          
+          <div *ngIf="sectionsOpen.tests"
+            class="mt-2 rounded-[12px] border border-dashed border-[#101A50]/30 bg-white p-4 text-sm text-[#111]">
+
           </div>
         </section>
       </div>
     </div>
 
-    
-<!-- Peeking 3-slide banner -->
-<section id="banner" class="mt-16">
-  <div
-    class="overflow-x-auto snap-x snap-mandatory scroll-smooth
-           [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
-  >
-    <!-- track: gap rakho taaki next slide peek ho -->
-    <div class="flex items-stretch gap-4 px-4">
-      <!-- optional left spacer so first card left se chipke nahin -->
-      <div class="shrink-0 basis-1 sm:basis-2"></div>
 
-      <!-- Slide 1 (dynamic / fallback) -->
-      <figure class="shrink-0 snap-start basis-[88%] sm:basis-[86%] md:basis-[80%] lg:basis-[76%]">
-        <!-- [src]="bottomBannerSrc || 'assets/banners/bottom-1.jpg'" -->
-        <img
-          src="https://static.vecteezy.com/system/resources/previews/003/085/046/non_2x/colorful-abstract-banner-template-with-dummy-text-hand-drawn-doodle-vector.jpg"
-          alt="Product banner 1"
-          class="block w-full h-full object-cover rounded-2xl shadow-md"
-          loading="lazy"
-        />
-      </figure>
+    <!-- Peeking 3-slide banner -->
+    <section id="banner" class="mt-16">
+      <div class="overflow-x-auto snap-x snap-mandatory scroll-smooth
+           [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
+        <!-- track: gap rakho taaki next slide peek ho -->
+        <div class="flex items-stretch gap-4 px-4">
+          <!-- optional left spacer so first card left se chipke nahin -->
+          <div class="shrink-0 basis-1 sm:basis-2"></div>
 
-      <!-- Slide 2 -->
-      <figure class="shrink-0 snap-start basis-[88%] sm:basis-[86%] md:basis-[80%] lg:basis-[76%]">
-        <img
-          src="https://as1.ftcdn.net/jpg/03/25/36/08/1000_F_325360843_cnLuBFHCwjhrg9ZDhjtvPlnSGvVBHflk.jpg"
-          alt="Product banner 2"
-          class="block w-full h-full object-cover rounded-2xl shadow-md"
-          loading="lazy"
-        />
-      </figure>
+          <!-- Slide 1 (dynamic / fallback) -->
+          <figure class="shrink-0 snap-start basis-[88%] sm:basis-[86%] md:basis-[80%] lg:basis-[76%]">
+            <!-- [src]="bottomBannerSrc || 'assets/banners/bottom-1.jpg'" -->
+            <img
+              src="https://static.vecteezy.com/system/resources/previews/003/085/046/non_2x/colorful-abstract-banner-template-with-dummy-text-hand-drawn-doodle-vector.jpg"
+              alt="Product banner 1" class="block w-full h-full object-cover rounded-2xl shadow-md" loading="lazy" />
+          </figure>
 
-      <!-- Slide 3 -->
-      <figure class="shrink-0 snap-start basis-[88%] sm:basis-[86%] md:basis-[80%] lg:basis-[76%]">
-        <img
-          src="https://static.vecteezy.com/system/resources/previews/003/085/046/non_2x/colorful-abstract-banner-template-with-dummy-text-hand-drawn-doodle-vector.jpg"
-          alt="Product banner 3"
-          class="block w-full h-full object-cover rounded-2xl shadow-md"
-          loading="lazy"
-        />
-      </figure>
+          <!-- Slide 2 -->
+          <figure class="shrink-0 snap-start basis-[88%] sm:basis-[86%] md:basis-[80%] lg:basis-[76%]">
+            <img src="https://as1.ftcdn.net/jpg/03/25/36/08/1000_F_325360843_cnLuBFHCwjhrg9ZDhjtvPlnSGvVBHflk.jpg"
+              alt="Product banner 2" class="block w-full h-full object-cover rounded-2xl shadow-md" loading="lazy" />
+          </figure>
 
-      <!-- optional right spacer so last card bhi ache se dikhe -->
-      <div class="shrink-0 basis-1 sm:basis-2"></div>
-    </div>
-  </div>
-</section>
+          <!-- Slide 3 -->
+          <figure class="shrink-0 snap-start basis-[88%] sm:basis-[86%] md:basis-[80%] lg:basis-[76%]">
+            <img
+              src="https://static.vecteezy.com/system/resources/previews/003/085/046/non_2x/colorful-abstract-banner-template-with-dummy-text-hand-drawn-doodle-vector.jpg"
+              alt="Product banner 3" class="block w-full h-full object-cover rounded-2xl shadow-md" loading="lazy" />
+          </figure>
 
-<section class="mt-10">
-  <div class="rounded-3xl border border-black overflow-hidden flex justify-center items-center">
-    <img
-      src="https://nuuk.in/cdn/shop/files/3_6b2b2e9e-2284-44b3-b302-5f7185e35554.jpg?v=1744643675"  
-      alt="Section banner 1"
-      loading="lazy" decoding="async"
-      class="block w-full h-full object-cover"
-    />
-   <!-- <p class="text-xl text-red-600 font-bold">We can add Banner/Showcase images here with our preferred height and width</p> -->
-  </div>
-</section>
+          <!-- optional right spacer so last card bhi ache se dikhe -->
+          <div class="shrink-0 basis-1 sm:basis-2"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mt-10">
+      <div class="rounded-3xl border border-black overflow-hidden flex justify-center items-center">
+        <img src="https://nuuk.in/cdn/shop/files/3_6b2b2e9e-2284-44b3-b302-5f7185e35554.jpg?v=1744643675"
+          alt="Section banner 1" loading="lazy" decoding="async" class="block w-full h-full object-cover" />
+        <!-- <p class="text-xl text-red-600 font-bold">We can add Banner/Showcase images here with our preferred height and width</p> -->
+      </div>
+    </section>
 
 
 
 
     <section id="reviews" class="scroll-mt-24 mt-8 space-y-6">
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        
-        <div class="rounded-[16px] border border-gray-200 bg-white p-5">
-          <div class="text-[40px] font-black leading-none text-[#111]">{{ averageRating }}</div>
-          <div class="mt-1 text-sm text-gray-600">{{ totalReviews }} reviews</div>
-          <div class="mt-3 space-y-2">
+
+        <div class="rounded-[16px] border border-gray-200 bg-white p-5 shadow-sm">
+          <!-- Average Rating -->
+          <div class="text-[48px] font-extrabold text-[#101A50] leading-none">{{ averageRating }}</div>
+          <div clas s="mt-1 text-sm text-gray-500">{{ totalReviews }} reviews</div>
+
+          <!-- Rating Bars -->
+          <div class="mt-4 space-y-2">
             <div *ngFor="let s of [5,4,3,2,1]" class="flex items-center gap-3">
-              <span class="w-8 text-[12px] font-extrabold text-[#111]">{{ s }}★</span>
-              <div class="flex-1 h-2 rounded bg-gray-200 overflow-hidden">
-                <div class="h-2 bg-[#101A50]" [style.width.%]="percentFor(s)"></div>
+              <span class="w-6 text-[12px] font-bold text-[#111]">{{ s }}★</span>
+
+              <div class="flex-1 h-3 rounded-full bg-gray-200 overflow-hidden">
+                <div class="h-3 bg-[#101A50] rounded-full transition-all duration-500" [style.width.%]="percentFor(s)">
+                </div>
               </div>
-              <span class="w-10 text-right text-[12px] text-gray-600">{{ percentFor(s) }}%</span>
+
+              <span class="w-10 text-right text-[12px] text-gray-500">{{ percentFor(s) }}%</span>
             </div>
           </div>
         </div>
 
-      
         <div class="lg:col-span-2 space-y-4">
           <article *ngFor="let r of reviews" class="rounded-[14px] border border-gray-200 bg-white p-4">
             <div class="flex items-center justify-between">
@@ -288,74 +353,108 @@
                 <div class="relative inline-block">
                   <div class="flex text-gray-300">
                     <svg *ngFor="let _ of [1,2,3,4,5]" class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.88 8.72c-.783-.57-.38-1.81.588-1.81H6.93a1 1 0 00.95-.69l1.07-3.292z"/>
+                      <path
+                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.88 8.72c-.783-.57-.38-1.81.588-1.81H6.93a1 1 0 00.95-.69l1.07-3.292z" />
                     </svg>
                   </div>
                   <div class="absolute inset-0 overflow-hidden" [style.width.%]="(r.rating/5)*100">
                     <div class="flex text-[#101A50]">
                       <svg *ngFor="let _ of [1,2,3,4,5]" class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
-                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.88 8.72c-.783-.57-.38-1.81.588-1.81H6.93a1 1 0 00.95-.69l1.07-3.292z"/>
+                        <path
+                          d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.88 8.72c-.783-.57-.38-1.81.588-1.81H6.93a1 1 0 00.95-.69l1.07-3.292z" />
                       </svg>
                     </div>
                   </div>
                 </div>
-                <span class="text-[12px] font-bold text-[#111]">{{ r.rating }}</span>
+                <span class="text-[17px] font-bold text-[#111]">{{ r.rating }}</span>
               </div>
-              <div class="flex items-center gap-2">
-                <span *ngIf="r.verified" class="inline-flex items-center gap-1 px-2 py-1 rounded bg-[#101A50]/10 text-[#101A50] text-[11px] font-extrabold">
-                  ✓ Verified
+              <div class="flex items-center gap-2 sm:gap-3">
+                <span *ngIf="r.verified"
+                  class="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-full bg-[#101A50]/10 text-[#101A50] text-xs font-bold font-heading transition-all duration-200 hover:bg-[#101A50]/15 focus:outline-none focus:ring-2 focus:ring-[#101A50]/20"
+                  role="status" aria-label="Verified content">
+                  <svg class="w-3.5 h-3.5 text-[#101A50]" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd"
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      clip-rule="evenodd"></path>
+                  </svg>
+                  Verified
                 </span>
-                <span class="text-[11px] text-gray-500">{{ formatDate(r.date) }}</span>
+                <span class="text-xs text-gray-500 font-sans whitespace-nowrap">
+                  {{ formatDate(r.date) }}
+                </span>
               </div>
             </div>
-            <h4 class="mt-2 text-[15px] font-black text-[#111]">{{ r.title }}</h4>
-            <p class="mt-1 text-[13px] text-[#222] leading-relaxed">{{ r.body }}</p>
+            <h4 class="mt-2 text-lg md:text-xl font-semibold md:font-bold text-neutral-800 font-heading tracking-tight">
+              {{ r.title }}
+            </h4>
+            <p class="mt-0.5 md:mt-1.5 text-sm sm:text-md text-neutral-600 leading-4 md:leading-relaxed font-sans">
+              {{ r.body }}
+            </p>
 
-            
+
             <div *ngIf="r.images?.length" class="mt-3 grid grid-cols-3 gap-2">
-              <img *ngFor="let img of r.images"
-                   [src]="img"
-                   alt="Review image"
-                   class="h-24 w-full object-cover rounded-md border border-gray-200" />
+              <img *ngFor="let img of r.images" [src]="img" alt="Review image"
+                class="h-24 w-full object-cover rounded-md border border-gray-200" />
             </div>
 
             <div class="mt-3 flex items-center justify-between">
-              <div class="text-[12px] text-gray-700">by <span class="font-semibold text-[#111]">{{ r.author }}</span></div>
-              <button (click)="helpful(r.id)" class="text-[12px] font-extrabold text-[#101A50] hover:underline">Helpful ({{ r.helpful }})</button>
+              <div class="text-[12px] text-gray-700">by <span class="font-semibold text-[#111]">{{ r.author }}</span>
+              </div>
+              <button (click)="helpful(r.id)" class="text-[12px] font-extrabold text-[#101A50] hover:underline">Helpful
+                ({{ r.helpful }})</button>
             </div>
           </article>
         </div>
       </div>
     </section>
 
-    
+
     <section id="faq" class="scroll-mt-24 mt-8">
-      <h3 class="text-[18px] font-black text-[#111] mb-3">FAQs</h3>
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <div *ngFor="let f of faqs; let i = index" class="rounded-[16px] border border-gray-200 bg-white overflow-hidden">
-          <button (click)="toggleFaq(i)" class="w-full flex items-center justify-between gap-4 p-4">
-            <div class="text-left">
-              <div class="text-[15px] font-black text-[#111]">{{ f.q }}</div>
-              <p *ngIf="f.open" class="mt-1 text-[13px] text-[#222]">{{ f.a }}</p>
+      <h3
+        class="text-3xl ml-2 md:ml-1 md:text-4xl font-bold text-neutral-800 bg-gray-50 px-2 py-1 w-fit rounded-sm mb-3">
+        FAQs</h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
+        <div *ngFor="let f of faqs; let i = index"
+          class="rounded-[16px] border border-gray-200 bg-white overflow-hidden">
+          <!-- Header -->
+          <button (click)="toggleFaq(i)"
+            class="w-full flex items-center justify-between gap-4 pt-2 pl-3 md:pt-3 md:pb-0 md:pl-5">
+            <div class="text-left text-[14px] md:text-[18px] font-bold text-neutral-800">
+              {{ f.q }}
             </div>
-            <span class="inline-flex items-center justify-center w-7 h-7 rounded-full bg-[#101A50]/10 text-[#101A50] font-bold"
-                  [class.rotate-45]="f.open">+</span>
+            <span class="inline-flex items-center text-2xl md:text-3xl justify-center w-7 h-7 
+                   rounded-full text-neutral-500 font-medium 
+                   transition-transform duration-300" [class.rotate-45]="f.open">+</span>
           </button>
-          <div class="px-4 pb-4" *ngIf="f.open">
-            <div class="rounded-[12px] bg-[#101A50]/5 border border-[#101A50]/20 p-3 text-[12px] text-[#111]">
+
+          <!-- Body -->
+          <div [ngClass]="f.open ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'"
+            class="px-4 pb-4 overflow-hidden transition-all duration-500 ease-in-out">
+            <p class="mt-1 text-[12px] md:text-[16px] leading-tight font-semibold md:font-bold text-neutral-600">
+              {{ f.a }}
+            </p>
+            <!-- <div class="rounded-[12px] bg-gray-50 border px-3 py-1 md:p-3 text-[10px] md:text-[12px] text-[#111] mt-2">
               Tip: For best performance, run Auto mode and keep doors/windows closed.
-            </div>
+            </div> -->
           </div>
         </div>
       </div>
+
     </section>
 
-   
-    <div class="mt-10 text-center">
-      <button (click)="goBack()" class="inline-flex items-center justify-center px-5 h-11 rounded-[10px] border-2 border-[#101A50] text-[#101A50] font-extrabold hover:bg-[#101A50]/10">
-        ← Back to all products
+
+    <div class="mt-10 text-start">
+      <button (click)="goBack()"
+        class="inline-flex items-center justify-center gap-2 px-6 h-12 rounded-lg border-2 border-[#74236C] text-[#43183f] font-extrabold text-sm transition-all duration-300 ease-in-out hover:bg-[#101A50]/10 hover:scale-105 active:scale-95">
+        <span class="text-lg">←</span> Back to Products
       </button>
     </div>
+
+    <div *ngIf="!hideButton"
+      class="floating-demoBTN md:hidden mx-auto lg:hidden fixed top-[64px] left-0 leading-0 right-0 w-[100%] text-white">
+      <button class="bg-[#74236C] w-full rounded-2xl p-2 text-xl">Live Demo</button>
+    </div>
+
   </div>
 </div>
 

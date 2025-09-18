@@ -1,8 +1,172 @@
+<div class="relative w-full bg-pri text-white py-px md:py-1 overflow-hidden group" role="marquee" aria-label="Promotional announcements">
+  <!-- Marquee Container -->
+  <div class="flex animate-marquee whitespace-nowrap">
+    <!-- Marquee Items -->
+    <div class="flex items-center gap-8 px-4 uppercase">
+      <div class="flex justify-evenly items-center gap-10">
+        <span class="text-sm md:text-md font-sans font-bold"> Award-Winning Excellence: Awwwards Winner 2025! </span>
+        <span class="text-2xl mb-1">•</span>
+      </div>
+      <div class="flex items-center gap-8 justify-between">
+        <span class="text-sm md:text-md font-sans font-bold"> Get in Touch via WhatsApp for Instant Support! </span>
+        <span class="text-2xl mb-1">•</span>
+      </div>
+      <div class="flex gap-8 justify-between items-center">
+        <span class="text-sm md:text-md font-sans font-bold"> Recognized by CSSDA & Webby Awards </span>
+        <span class="text-2xl mb-1">•</span>
+      </div>
+      <div class="flex items-center gap-8 justify-between">
+        <span class="text-sm md:text-md font-sans font-bold"> Explore Our Latest Air Purification Solutions!</span>
+        <span class="text-2xl mb-1">•</span>
+      </div>
+    </div>
+    <!-- Duplicate for Seamless Loop -->
+    <div class="flex items-center gap-8 px-4 uppercase">
+      <div class="flex justify-evenly items-center gap-10">
+        <span class="text-sm md:text-md font-sans font-bold"> Award-Winning Excellence: Awwwards Winner 2025! </span>
+        <span class="text-2xl mb-1">•</span>
+      </div>
+      <div class="flex items-center gap-8 justify-between">
+        <span class="text-sm md:text-md font-sans font-bold"> Get in Touch via WhatsApp for Instant Support! </span>
+        <span class="text-2xl mb-1">•</span>
+      </div>
+      <div class="flex gap-8 justify-between items-center">
+        <span class="text-sm md:text-md font-sans font-bold"> Recognized by CSSDA & Webby Awards </span>
+        <span class="text-2xl mb-1">•</span>
+      </div>
+      <div class="flex items-center gap-8 justify-between">
+        <span class="text-sm md:text-md font-sans font-bold"> Explore Our Latest Air Purification Solutions!</span>
+        <span class="text-2xl mb-1">•</span>
+      </div>
+    </div>
+  </div>
+  <!-- Hover Glow Effect -->
+  <!-- <div class="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-in-out"></div> -->
+  <!-- Hover Pause -->
+  <div class="absolute inset-0 group-hover:animate-none"></div>
+</div>
+
+
+<!-- ===================== HEADER ===================== -->
+<header class="bg-white border-b border-gray-100 sticky top-0 z-50">
+  <div class="max-w-8xl mx-auto px-4 sm:px-6 ">
+    <div class="flex justify-between items-center h-16">
+
+      <button type="button" class="flex items-center" (click)="scrollTo('PRODUCTS')" aria-label="Go to top">
+        <img src="assets/winix-logo.png" class="h-6" alt="WINIX Logo">
+      </button>
+
+      <div class="flex items-center gap-2 sm:gap-4">
+
+
+        <nav class="hidden lg:flex items-center space-x-8">
+          <button type="button" (click)="scrollTo('PRODUCTS')"
+            class="bg-[#b21e6b] text-white px-3 py-1 rounded-full font-bold text-[12px]">
+            AIR PURIFIERS
+          </button>
+
+          <button type="button" (click)="scrollTo('TECHNOLOGY')"
+            class="text-gray-700 hover:text-[#072F58] font-bold text-[12px]">
+            TECHNOLOGY
+          </button>
+
+          <button type="button" (click)="scrollTo('PRODUCTS')"
+            class="text-gray-700 hover:text-[#072F58] font-bold text-[12px]">
+            PRODUCTS
+          </button>
+
+          <button type="button" (click)="scrollTo('TESTIMONIALS')"
+            class="text-gray-700 hover:text-[#072F58] font-bold text-[12px]">
+            TESTIMONIALS
+          </button>
+
+          <button type="button" (click)="scrollTo('BULK-QUERIES')"
+            class="text-gray-700 hover:text-[#072F58] font-bold text-[12px]">
+            BULK QUERIES
+          </button>
+        </nav>
+
+
+        <button type="button" class="p-2 text-gray-700 hover:text-gray-900 hidden sm:inline-flex" aria-label="Search">
+          <svg class="w-5 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"
+            focusable="false">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+          </svg>
+        </button>
+
+
+        <button type="button"
+          class="lg:hidden inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:bg-gray-100"
+          (click)="toggleMobileMenu(true)" [attr.aria-label]="'Open menu'" aria-controls="mobile-menu"
+          [attr.aria-expanded]="isMobileOpen ? 'true' : 'false'">
+          <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+
+      </div>
+    </div>
+  </div>
+
+  @if (isMobileOpen) {
+    <div id="mobile-menu" class="lg:hidden fixed inset-0 z-50">
+
+    <div class="absolute inset-0 bg-black/40 backdrop-blur-[2px]" (click)="toggleMobileMenu(false)"></div>
+
+
+    <div class="absolute right-0 top-0 h-full w-11/12 max-w-xs bg-white shadow-xl
+                ring-1 ring-gray-200 translate-x-0" role="dialog" aria-modal="true">
+
+
+      <div class="flex items-center justify-between px-4 py-3 border-b">
+        <img src="assets/winix-logo.png" class="h-6" alt="WINIX">
+        <button type="button" class="p-2 rounded-md hover:bg-gray-100" (click)="toggleMobileMenu(false)"
+          aria-label="Close menu">
+          <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+
+
+      <nav class="px-4 py-3 space-y-1">
+        <button type="button" (click)="scrollTo('PRODUCTS')"
+          class="w-full text-left px-3 py-3 rounded-md bg-[#74236C] text-white font-semibold">
+          AIR PURIFIERS
+        </button>
+
+        <button type="button" (click)="scrollTo('TECHNOLOGY')"
+          class="w-full text-left px-3 py-3 rounded-md hover:bg-gray-100 font-semibold text-gray-800">
+          TECHNOLOGY
+        </button>
+
+        <button type="button" (click)="scrollTo('PRODUCTS')"
+          class="w-full text-left px-3 py-3 rounded-md hover:bg-gray-100 font-semibold text-gray-800">
+          PRODUCTS
+        </button>
+
+        <button type="button" (click)="scrollTo('TESTIMONIALS')"
+          class="w-full text-left px-3 py-3 rounded-md hover:bg-gray-100 font-semibold text-gray-800">
+          TESTIMONIALS
+        </button>
+
+        <button type="button" (click)="scrollTo('BULK-QUERIES')"
+          class="w-full text-left px-3 py-3 rounded-md hover:bg-gray-100 font-semibold text-gray-800">
+          BULK QUERIES
+        </button>
+      </nav>
+
+
+      <div class="px-4 py-4 border-t text-xs text-gray-500">
+        © WINIX India
+      </div>
+    </div>
+  </div>
+  }
+</header>
 <!-- router-outlet -->
 <router-outlet></router-outlet>
-
-<router-outlet></router-outlet>
-
 <!-- Floating WhatsApp Button -->
 <button (click)="openWhatsApp()"
    class="fixed bottom-6 right-6 z-50 bg-[#25D366] hover:bg-[#1DA851] text-white p-3 rounded-full shadow-lg transition transform hover:scale-110">

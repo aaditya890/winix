@@ -17,7 +17,7 @@ export class EnquiryBannerComponent {
   /** ✅ Replace with your WhatsApp number (no +, no spaces), e.g. 919876543210 */
   whatsappNumber = '916267363477';
 
-  isSubmitting = signal(false);
+  isSubmitting:any = signal(false);
 
   form: FormGroup = this.fb.group({
     name: ['', [Validators.required, Validators.minLength(2)]],

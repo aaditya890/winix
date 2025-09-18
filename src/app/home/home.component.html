@@ -31,134 +31,6 @@
     </div>
   </div>
 </section> -->
-
-<!-- ===================== HEADER ===================== -->
-<header class="bg-white border-b border-gray-100 sticky top-0 z-50">
-  <div class="max-w-8xl mx-auto px-4 sm:px-6 ">
-    <div class="flex justify-between items-center h-16">
-
-      <button type="button" class="flex items-center" (click)="scrollTo('PRODUCTS')" aria-label="Go to top">
-        <img src="assets/winix-logo.png" class="h-6" alt="WINIX Logo">
-      </button>
-
-      <div class="flex items-center gap-2 sm:gap-4">
-
-    
-        <nav class="hidden lg:flex items-center space-x-8">
-          <button type="button"
-                  (click)="scrollTo('PRODUCTS')"
-                  class="bg-[#74236C] text-white px-3 py-1 rounded-full font-bold text-[12px]">
-            AIR PURIFIERS
-          </button>
-
-          <button type="button" (click)="scrollTo('TECHNOLOGY')"
-                  class="text-gray-700 hover:text-[#072F58] font-bold text-[12px]">
-            TECHNOLOGY
-          </button>
-
-          <button type="button" (click)="scrollTo('PRODUCTS')"
-                  class="text-gray-700 hover:text-[#072F58] font-bold text-[12px]">
-            PRODUCTS
-          </button>
-
-          <button type="button" (click)="scrollTo('TESTIMONIALS')"
-                  class="text-gray-700 hover:text-[#072F58] font-bold text-[12px]">
-            TESTIMONIALS
-          </button>
-
-          <button type="button" (click)="scrollTo('BULK-QUERIES')"
-                  class="text-gray-700 hover:text-[#072F58] font-bold text-[12px]">
-            BULK QUERIES
-          </button>
-        </nav>
-
-       
-        <button type="button" class="p-2 text-gray-700 hover:text-gray-900 hidden sm:inline-flex" aria-label="Search">
-          <svg class="w-5 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-          </svg>
-        </button>
-
-   
-       <button
-  type="button"
-  class="lg:hidden inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:bg-gray-100"
-  (click)="toggleMobileMenu(true)"
-  [attr.aria-label]="'Open menu'"
-  aria-controls="mobile-menu"
-  [attr.aria-expanded]="isMobileOpen ? 'true' : 'false'">
-  <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-          d="M4 6h16M4 12h16M4 18h16"/>
-  </svg>
-</button>
-
-      </div>
-    </div>
-  </div>
-
-
-  <div id="mobile-menu"
-       class="lg:hidden fixed inset-0 z-50"
-       *ngIf="isMobileOpen">
-  
-    <div class="absolute inset-0 bg-black/40 backdrop-blur-[2px]" (click)="toggleMobileMenu(false)"></div>
-
-
-    <div class="absolute right-0 top-0 h-full w-11/12 max-w-xs bg-white shadow-xl
-                ring-1 ring-gray-200 translate-x-0"
-         role="dialog" aria-modal="true">
-
-     
-      <div class="flex items-center justify-between px-4 py-3 border-b">
-        <img src="assets/winix-logo.png" class="h-6" alt="WINIX">
-        <button type="button" class="p-2 rounded-md hover:bg-gray-100"
-                (click)="toggleMobileMenu(false)" aria-label="Close menu">
-          <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M6 18L18 6M6 6l12 12"/>
-          </svg>
-        </button>
-      </div>
-
-    
-      <nav class="px-4 py-3 space-y-1">
-        <button type="button"
-                (click)="scrollTo('PRODUCTS')"
-                class="w-full text-left px-3 py-3 rounded-md bg-[#74236C] text-white font-semibold">
-          AIR PURIFIERS
-        </button>
-
-        <button type="button" (click)="scrollTo('TECHNOLOGY')"
-                class="w-full text-left px-3 py-3 rounded-md hover:bg-gray-100 font-semibold text-gray-800">
-          TECHNOLOGY
-        </button>
-
-        <button type="button" (click)="scrollTo('PRODUCTS')"
-                class="w-full text-left px-3 py-3 rounded-md hover:bg-gray-100 font-semibold text-gray-800">
-          PRODUCTS
-        </button>
-
-        <button type="button" (click)="scrollTo('TESTIMONIALS')"
-                class="w-full text-left px-3 py-3 rounded-md hover:bg-gray-100 font-semibold text-gray-800">
-          TESTIMONIALS
-        </button>
-
-        <button type="button" (click)="scrollTo('BULK-QUERIES')"
-                class="w-full text-left px-3 py-3 rounded-md hover:bg-gray-100 font-semibold text-gray-800">
-          BULK QUERIES
-        </button>
-      </nav>
-
-     
-      <div class="px-4 py-4 border-t text-xs text-gray-500">
-        © WINIX India
-      </div>
-    </div>
-  </div>
-</header>
-
 <!-- Fullscreen hero banner with autoplaying background video -->
 <section class="relative h-screen overflow-hidden">
   <div class="absolute inset-0">
@@ -195,22 +67,27 @@
 <app-video-showcase></app-video-showcase>
 
 
-<section class="relative overflow-hidden bg-white py-24">
-  <div class="pointer-events-none absolute -top-24 -right-16 h-56 w-56 rounded-full bg-gradient-to-br from-[#6a1b6e]/20 to-[#b21e6b]/20 blur-3xl"></div>
-  <div class="pointer-events-none absolute -bottom-24 -left-24 h-72 w-72 rounded-full bg-gradient-to-tr from-[#0e1649]/15 to-[#6a1b6e]/15 blur-3xl"></div>
+<section class="relative overflow-hidden bg-white py-6 md:py-14">
+  <div
+    class="pointer-events-none absolute -top-24 -right-16 h-56 w-56 rounded-full bg-gradient-to-br from-[#6a1b6e]/20 to-[#b21e6b]/20 blur-3xl">
+  </div>
+  <div
+    class="pointer-events-none absolute -bottom-24 -left-24 h-72 w-72 rounded-full bg-gradient-to-tr from-[#0e1649]/15 to-[#6a1b6e]/15 blur-3xl">
+  </div>
 
   <svg aria-hidden="true" class="pointer-events-none absolute right-0 top-0 h-full w-[50%] opacity-15"
-       viewBox="0 0 500 800" fill="none">
-    <path d="M30 100 C220 120, 220 220, 30 240" stroke="#0e1649" stroke-opacity=".25" stroke-width="2"/>
-    <path d="M60 260 C250 280, 250 380, 60 400" stroke="#6a1b6e" stroke-opacity=".25" stroke-width="2"/>
-    <path d="M90 420 C280 440, 280 540, 90 560" stroke="#b21e6b" stroke-opacity=".25" stroke-width="2"/>
+    viewBox="0 0 500 800" fill="none">
+    <path d="M30 100 C220 120, 220 220, 30 240" stroke="#0e1649" stroke-opacity=".25" stroke-width="2" />
+    <path d="M60 260 C250 280, 250 380, 60 400" stroke="#6a1b6e" stroke-opacity=".25" stroke-width="2" />
+    <path d="M90 420 C280 440, 280 540, 90 560" stroke="#b21e6b" stroke-opacity=".25" stroke-width="2" />
   </svg>
 
   <div class="relative z-10 max-w-8xl mx-auto grid items-center gap-10 px-6 md:grid-cols-2 md:px-12">
-     
+
     <div class="text-left">
-      
-      <span class="inline-flex items-center gap-2 rounded-full border border-[#0e1649]/15 bg-[#0e1649]/5 px-3 py-1 text-xs font-semibold text-[#0e1649]">
+
+      <span
+        class="inline-flex items-center gap-2 rounded-full border border-[#0e1649]/15 bg-[#0e1649]/5 px-3 py-1 text-xs font-semibold text-[#0e1649]">
         New 2025
         <span class="h-1.5 w-1.5 rounded-full bg-[#b21e6b]"></span>
       </span>
@@ -219,8 +96,9 @@
         Breathe Easy with
         <span class="relative inline-block ml-2">
           <span class="bg-clip-text text-transparent bg-gradient-to-r from-[#6a1b6e] to-[#b21e6b] ml-[-2] ">WINIX</span>
-           Underline sweep 
-          <span class="pointer-events-none absolute left-0 -bottom-1 h-[3px] w-0 rounded-full bg-gradient-to-r from-[#6a1b6e] to-[#b21e6b] transition-[width] duration-500 ease-out group-hover:w-full"></span>
+          Underline sweep
+          <span
+            class="pointer-events-none absolute left-0 -bottom-1 h-[3px] w-0 rounded-full bg-gradient-to-r from-[#6a1b6e] to-[#b21e6b] transition-[width] duration-500 ease-out group-hover:w-full"></span>
         </span>
       </h2>
 
@@ -229,26 +107,24 @@
       </p>
 
       <div class="mt-6 flex flex-wrap items-center gap-3">
-        <button
-          type="button"
-          class="group inline-flex items-center gap-2 rounded-full bg-[#74236C] px-6 py-3 text-sm font-semibold text-white shadow-lg transition-transform hover:scale-[1.04]"
-        >
+        <button type="button"
+          class="group inline-flex items-center gap-2 rounded-full bg-[#74236C] px-6 py-3 text-sm font-semibold text-white shadow-lg transition-transform hover:scale-[1.04]">
           Discover More
           <span class="grid place-items-center rounded-full bg-white/15 p-1">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" class="opacity-90">
-              <path d="M5 12h14M13 5l7 7-7 7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M5 12h14M13 5l7 7-7 7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
           </span>
         </button>
         <a href="#compare"
-           class="inline-flex items-center gap-2 rounded-full border border-[#0e1649]/20 bg-white px-5 py-3 text-sm font-semibold text-[#0e1649] shadow-sm transition hover:border-[#0e1649]/30">
+          class="inline-flex items-center gap-2 rounded-full border border-[#0e1649]/20 bg-white px-5 py-3 text-sm font-semibold text-[#0e1649] shadow-sm transition hover:border-[#0e1649]/30">
           Compare Models
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-            <path d="M9 18l6-6-6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M9 18l6-6-6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
           </svg>
         </a>
       </div>
- 
+
       <div class="mt-4 flex items-center gap-4 text-xs text-gray-500">
         <div class="flex items-center gap-2">
           <span class="h-2 w-2 rounded-full bg-[#6a1b6e]"></span> HEPA Filtration
@@ -261,16 +137,18 @@
         </div>
       </div>
     </div>
-    <div class="relative">  
+    <div class="relative">
       <div class="pointer-events-none absolute inset-0 -z-10 grid place-items-center">
         <div class="h-64 w-64 rounded-full ring-1 ring-[#0e1649]/10"></div>
         <div class="absolute h-80 w-80 rounded-full border border-[#6a1b6e]/15"></div>
-        <div class="absolute h-96 w-96 rounded-full border border-[#b21e6b]/15 animate-[pulse_3s_ease-in-out_infinite]"></div>
+        <div class="absolute h-96 w-96 rounded-full border border-[#b21e6b]/15 animate-[pulse_3s_ease-in-out_infinite]">
+        </div>
       </div>
       <div class="mx-auto max-w-3xl rounded-2xl p-4">
         <img src="assets/reels/pr-r-b.png" alt="WINIX Air Purifiers" class="mx-auto max-h-[500px] object-contain" />
       </div>
-      <span class="pointer-events-none absolute -right-4 -bottom-4 block h-16 w-32 -rotate-12 skew-x-6 rounded bg-gradient-to-r from-[#6a1b6e]/25 to-[#b21e6b]/25"></span>
+      <span
+        class="pointer-events-none absolute -right-4 -bottom-4 block h-16 w-32 -rotate-12 skew-x-6 rounded bg-gradient-to-r from-[#6a1b6e]/25 to-[#b21e6b]/25"></span>
     </div>
   </div>
 </section>
@@ -298,47 +176,71 @@
 <!-- Lifestyle / product image slider with smooth animation -->
 @defer (on viewport) {
 <!-- WINIX Insider – compact ticker -->
-<section class="py-24 bg-surface">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex flex-col lg:flex-row items-center gap-8">
+<section class="py-6 md:py-14 bg-surface">
+  <div class="max-w-8xl mx-auto px-4 sm:px-6 lg:px-10 ">
+    <div class="flex flex-col lg:flex-row items-center gap-3 lg:gap-10">
 
       <!-- LEFT: headline + chips -->
       <div class="w-full lg:w-5/12">
-        <h2 class="text-3xl md:text-5xl font-extrabold leading-[1.05] text-primary first-letter:text-6xl">
-          Become a <span class=" text-[#fff] bg-[#74236C] px-1">WINIX</span><br />
-          <span class="inline-block mt-2 px-5 py-1.5 shadow-soft text-[#fff] bg-[#74236C]">
+        <h2 class="text-4xl md:text-5xl font-extrabold leading-tight text-primary first-letter:text-6xl">
+          Become a <span class="text-[#fff] bg-[#74236C] px-2 py-1 rounded-sm">WINIX</span><br/>
+          <span
+            class="inline-block mt-3 px-2 py-1 rounded-sm shadow-lg text-[#fff] bg-[#74236C] transform transition-transform duration-300 hover:scale-105">
             Insider
           </span>
         </h2>
 
-        <p class="mt-4 text-base md:text-lg text-secondary">
+        <p class="mt-6 text-lg md:text-xl text-secondary leading-relaxed">
           Share your clean-air moments—tag us and get featured on our Instagram.
         </p>
+
+        <!-- Added CTA button -->
+        <div class="mt-8">
+          <!-- <button
+            class="px-6 py-3 bg-[#74236C] text-white rounded-lg font-medium hover:bg-[#5a1a54] transition-colors duration-300 flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M12 2C6.477 2 2 6.477 2 12c0 5.523 4.477 10 10 10s10-4.477 10-10c0-5.523-4.477-10-10-10zm3.5 10.5h-3v3h-1v-3h-3v-1h3v-3h1v3h3v1z" />
+            </svg>
+            Share Your Moment
+          </button> -->
+        </div>
       </div>
 
-      <!-- RIGHT: compact UGC ticker -->
+      <!-- RIGHT: enhanced UGC ticker -->
       <div class="w-full lg:w-7/12">
-        <div class="group relative h-40 md:h-52 rounded-2xl overflow-hidden ring-1 ring-[hsl(var(--color-border)/0.7)]">
-          <!-- edge fades -->
-          <div class="pointer-events-none absolute inset-y-0 left-0 w-14
-                        bg-[linear-gradient(90deg,hsl(var(--color-primary-surface))_0%,transparent_100%)]"></div>
-          <div class="pointer-events-none absolute inset-y-0 right-0 w-14
-                        bg-[linear-gradient(270deg,hsl(var(--color-primary-surface))_0%,transparent_100%)]"></div>
+        <div
+          class="group relative h-48 md:h-60 rounded-2xl overflow-hidden transition-all duration-500 hover:shadow-xl border p-px">
+          <!-- edge fades with improved gradient -->
+          <!-- <div class="pointer-events-none absolute inset-y-0 left-0 w-20 z-10
+     bg-[linear-gradient(90deg,_#74236c85_0%,_transparent_100%)]"></div>
 
-          <!-- track -->
+          <div class="pointer-events-none absolute inset-y-0 right-0 w-20 z-10
+     bg-[linear-gradient(270deg,_#74236c85_0%,_transparent_100%)]"></div> -->
+
+
+          <!-- track with improved animation -->
           <div class="absolute inset-0 overflow-hidden">
-            <div class="flex items-center gap-3 h-full
-                          animate-ugc-ticker group-hover:[animation-play-state:paused]"
+            <div class="flex items-center gap-4 h-full
+                       animate-ugc-ticker group-hover:[animation-play-state:paused]"
               [style.animationDuration]="ugcSpeed + 's'">
               <!-- duplicate the set twice for seamless loop -->
               <ng-container *ngFor="let _ of [0,1]">
                 <ng-container *ngFor="let p of ugcTiles">
-                  <figure class="shrink-0 w-36 md:w-48 h-[calc(100%-0.5rem)]
-                                   rounded-md overflow-hidden ring-1 ring-[hsl(var(--color-border)/0.6)]
-                                   bg-[hsl(var(--color-primary-surface))]">
+                  <figure
+                    class="shrink-0 w-40 md:w-56 h-[calc(100%-1rem)]
+                                 rounded-xl overflow-hidden ring-1 ring-[hsl(var(--color-border)/0.6)]
+                                 bg-[hsl(var(--color-primary-surface))] transform transition-transform duration-500 group-hover:scale-105 cursor-pointer shadow-md">
                     <!-- lazy image with NgOptimizedImage -->
                     <img [ngSrc]="p.src" [alt]="p.alt" [width]="p.w" [height]="p.h"
-                      class="w-full h-full object-cover" />
+                      class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+
+                    <!-- Overlay with Instagram icon on hover -->
+                    <!-- <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-white" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2C6.477 2 2 6.477 2 12c0 5.523 4.477 10 10 10s10-4.477 10-10c0-5.523-4.477-10-10-10zm0 18c-4.418 0-8-3.582-8-8s3.582-8 8-8 8 3.582 8 8-3.582 8-8 8zm-1-13.5v9l7.5-4.5-7.5-4.5z"/>
+                      </svg>
+                    </div> -->
                   </figure>
                 </ng-container>
               </ng-container>
@@ -346,12 +248,16 @@
           </div>
         </div>
 
-        <!-- small helper text -->
-        <p class="mt-3 text-xs text-secondary/80">
+        <!-- enhanced helper text -->
+        <p class="mt-4 text-sm text-secondary/80 flex items-center justify-center gap-1.5">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-[#74236C]" viewBox="0 0 24 24"
+            fill="currentColor">
+            <path
+              d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z" />
+          </svg>
           Tip: posts with #WinixInsider have a higher chance to be featured.
         </p>
       </div>
-
     </div>
   </div>
 </section>

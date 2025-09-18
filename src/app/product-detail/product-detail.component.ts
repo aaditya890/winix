@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from "@angular/core"
+import { Component, OnInit, OnDestroy, HostListener } from "@angular/core"
 import { CommonModule } from "@angular/common"
 import { ActivatedRoute, Router, RouterModule } from "@angular/router"
 
@@ -77,6 +77,16 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
   isLoading = true
   bottomBannerSrc: string | null = null
 
+
+    hideButton = false;
+
+  // Listen for scroll event
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+    const scrollY = window.scrollY || document.documentElement.scrollTop;
+    this.hideButton = scrollY > 10; // hide after scrolling 50px (adjust as needed)
+  }
+
   sectionsOpen: Record<SectionKey, boolean> = {
     details: false,
     techSpecs: false,
@@ -109,6 +119,14 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       open: false,
     },
   ]
+
+   // Toggle logic: ek time pe sirf ek hi open ho
+  toggleFaq(index: number) {
+    this.faqs = this.faqs.map((faq, i) => ({
+      ...faq,
+      open: i === index ? !faq.open : false
+    }));
+  }
 
   // Reviews include optional images
   reviews: Review[] = [
@@ -412,12 +430,12 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       description:
         "360° all-in-one air purifier with WiFi Smart App control, PlasmaWave technology, and 4-stage filtration including fine mesh pre-filter, True HEPA, and activated carbon. AHAM verified for 251 sq ft, capable of cleaning up to 1204 sq ft in 1 hour.",
       images: [
-        "assets/products/T500/product-1.jpg",
-        "assets/products/T500/product-2.jpg",
-        "assets/products/T500/product-3.jpg",
-        "assets/products/T500/product-4.jpg",
-        "assets/products/T500/product-5.jpg",
-        "assets/products/T500/product-5.jpg",
+        "assets/products/T500/product-1.webp",
+        "assets/products/T500/product-2.webp",
+        "assets/products/T500/product-3.webp",
+        "assets/products/T500/product-4.webp",
+        "assets/products/T500/product-5.webp",
+        "assets/products/T500/product-5.webp",
       ],
       currentImage: "assets/products/T500/product-1.jpg",
       rating: 0, // no Amazon reviews yet
@@ -521,9 +539,9 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
     this.sectionsOpen[key] = !this.sectionsOpen[key]
   }
 
-  toggleFaq(i: number) {
-    this.faqs[i].open = !this.faqs[i].open
-  }
+  // toggleFaq(i: number) {
+  //   this.faqs[i].open = !this.faqs[i].open
+  // }
 
   // Reviews
   get totalReviews(): number {

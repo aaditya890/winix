@@ -14,7 +14,7 @@ interface FeatureItem {
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [RouterLink, CommonModule, NgOptimizedImage, WinixProductCardComponent, ReviewCardsComponent, EnquiryBannerComponent, VideoShowcaseComponent],
+  imports: [RouterLink, CommonModule, NgOptimizedImage, WinixProductCardComponent, EnquiryBannerComponent, VideoShowcaseComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })

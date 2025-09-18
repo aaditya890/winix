@@ -1,118 +1,80 @@
-<section class="w-full py-10 overflow-x-hidden">
-  <div class=" px-0 md:px-4">
-    <!-- <h2 class="px-0 md:px-0 text-2xl md:text-3xl font-extrabold tracking-tight">
-      Best-sellers this season
-    </h2> -->
-
-   <div class="relative">
-  <div
-    #railEl
-    role="list"
-    class="flex gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory
-           [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden
-           px-4 sm:px-6 lg:px-8">
-
+<section class="w-full py-10 overflow-x-hidden bg-gray-50">
+  <div class="px-4 md:px-6">
+    <div class="relative">
+      <div #railEl role="list" class="flex gap-1 md:gap-3 overflow-x-auto scroll-smooth snap-x snap-mandatory
+                  [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden
+                  px-4 sm:px-6 lg:px-8 py-2">
         <!-- CARD -->
-       <article
-  *ngFor="let p of products; let i = index; trackBy: trackById"
-  role="listitem"
-  class="shrink-0 grow-0 snap-start
-         basis-[85%]
-         sm:basis-[70%]
-         md:basis-[calc(50%-0.75rem)]
-         lg:basis-[calc(33.333%-0.875rem)]
-         xl:basis-[calc(25%-1rem)]
-         2xl:basis-[calc(25%-1rem)]
-         max-w-[420px]"
->
-  <a
-    [routerLink]="['/product', p.slug]"
-    class="relative block h-full rounded-2xl border border-gray-200 bg-white shadow-sm transition"
-  >
-    <!-- top-right badge (inside card now) -->
-    <!-- <div class="absolute right-3 top-3 z-10">
-      <span
-        *ngFor="let b of p.badges"
-        class="rounded-full bg-red-600 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-white"
-      >
-        {{ b }}
-      </span>
-    </div> -->
+        <article *ngFor="let p of products; let i = index; trackBy: trackById" role="listitem" class="shrink-0 grow-0 snap-start
+                        basis-[85%] sm:basis-[70%] md:basis-[calc(50%-0.75rem)]
+                        lg:basis-[calc(33.333%-0.875rem)] xl:basis-[calc(25%-1rem)] 2xl:basis-[calc(25%-1rem)]
+                        max-w-[420px]">
+          <a [routerLink]="['/product', p.slug]"
+            class="relative block h-full border border-gray-200 bg-white shadow-md hover:shadow-xl transition-all duration-300 rounded-sm">
 
-    <!-- image -->
-    <div class="relative w-full aspect-[4/4] overflow-hidden p-4">
-      <img
-        class="h-full w-full object-contain"
-        [src]="hovered[p.id] && p.hoverImageSrc ? p.hoverImageSrc : p.imageSrc"
-        [alt]="p.title"
-        (load)="onImageLoad(i)"
-        loading="lazy"
-        decoding="async"
-      />
-    </div>
+            <!-- Image -->
+            <div class="relative w-full aspect-[4/3] overflow-hidden p-3">
+              <img class="h-full w-full object-contain transition-transform duration-300 ease-in-out hover:scale-105"
+                [src]="hovered[p.id] && p.hoverImageSrc ? p.hoverImageSrc : p.imageSrc" [alt]="p.title"
+                (load)="onImageLoad(i)" loading="lazy" decoding="async" />
+            </div>
 
-    <!-- content -->
-    <div class="px-4 pb-5">
-      <!-- rating pill -->
-      <div
-        class="inline-flex items-center rounded-[6px] bg-[#4CE279] px-2 py-0.5 text-[12px] font-semibold text-green-800"
-      >
-        <svg class="h-3.5 w-3.5 text-black" viewBox="0 0 20 20" fill="currentColor">
-          <path
-            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.802 2.035a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.802-2.035a1 1 0 00-1.176 0l-2.802 2.035c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.88 8.72c-.783-.57-.38-1.81.588-1.81H6.93a1 1 0 00.95-.69l1.07-3.292z"
-          />
-        </svg>
-        <span class="ml-1 text-black">{{ safeNumber(p.rating).toFixed(1) }}</span>
-        <span class="ml-1 font-normal text-black">({{ p.ratingCount }})</span>
-      </div>
+            <!-- Content -->
+            <div class="px-4 pb-5">
+              <!-- Rating pill -->
+              <div
+                class="inline-flex items-center gap-1 rounded-full bg-green-50 px-3 py-1 text-sm font-medium text-green-700 shadow-sm">
+                <svg class="h-4 w-4 text-green-600" viewBox="0 0 20 20" fill="currentColor">
+                  <path
+                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.802 2.035a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.802-2.035a1 1 0 00-1.176 0l-2.802 2.035c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.88 8.72c-.783-.57-.38-1.81.588-1.81H6.93a1 1 0 00.95-.69l1.07-3.292z" />
+                </svg>
+                <span>{{ safeNumber(p.rating).toFixed(1) }}</span>
+                <span class="text-gray-500 font-normal">({{ p.ratingCount }})</span>
+              </div>
 
-      <h3 class="mt-2 text-[20px] font-extrabold leading-snug text-black uppercase">
-        {{ p.title }}
-      </h3>
-      <p class="text-[16px] font-semibold text-gray-400">{{ p.tagline }}</p>
-      <p class="mt-2 text-[15px] leading-5 text-black">{{ p.description }}</p>
 
-      <!-- colors -->
-      <div *ngIf="p.colors?.length" class="mt-3 flex items-center gap-2">
-        <ng-container *ngFor="let c of p.colors; let idx = index">
-          <span
-            *ngIf="idx === 0; else circle"
-            class="h-4 w-4 rounded-[4px] border border-black/10"
-            [ngStyle]="{ 'background-color': c }"
-          ></span>
-          <ng-template #circle>
-            <span
-              class="h-4 w-4 rounded-full border border-black/10"
-              [ngStyle]="{ 'background-color': c }"
-            ></span>
-          </ng-template>
-        </ng-container>
-      </div>
+              <!-- Title & Tagline -->
+              <h3 class="mt-2 text-lg sm:text-xl font-bold leading-snug text-gray-800 uppercase">
+                {{ p.title }}
+              </h3>
+              <p class="mt-1 text-sm sm:text-sm font-medium text-gray-500">
+                {{ p.tagline }}
+              </p>
+              <p class="mt-2 text-sm sm:text-base leading-relaxed text-gray-600 line-clamp-3">
+                {{ p.description }}
+              </p>
 
-      <!-- price + CTA -->
-      <div class="mt-4 flex items-end justify-between">
-        <div>
-          <div *ngIf="p.mrp" class="text-[12px] text-gray-400 line-through">
-            {{ formatINR(p.mrp) }}
-          </div>
-          <div class="text-[21px] font-extrabold text-black">
-            {{ formatINR(p.price) }}
-          </div>
-        </div>
-       <button
-  type="button"
-  class="ml-3 inline-flex h-8 items-center rounded-lg 
-       bg-[#74236C]
-         px-4 text-sm font-semibold text-white shadow-md hover:opacity-90 transition"
->
-  Learn More
-</button>
 
-      </div>
-    </div>
-  </a>
-</article>
+              <!-- Colors -->
+              <div *ngIf="p.colors?.length" class="mt-3 flex items-center gap-2">
+                <ng-container *ngFor="let c of p.colors; let idx = index">
+                  <span *ngIf="idx === 0; else circle" class="h-4 w-4 rounded-[4px] border border-gray-200"
+                    [ngStyle]="{ 'background-color': c }"></span>
+                  <ng-template #circle>
+                    <span class="h-4 w-4 rounded-full border border-gray-200"
+                      [ngStyle]="{ 'background-color': c }"></span>
+                  </ng-template>
+                </ng-container>
+              </div>
 
+              <!-- Price & CTA -->
+              <div class="mt-4 flex items-end justify-between">
+                <div>
+                  <div *ngIf="p.mrp" class="text-sm text-gray-400 line-through">
+                    {{ formatINR(p.mrp) }}
+                  </div>
+                  <div class="text-lg sm:text-xl font-semibold text-neutral-700">
+                    {{ formatINR(p.price) }}
+                  </div>
+                </div>
+                <a [routerLink]="['/product', p.slug]"
+                  class="ml-3 inline-flex items-center rounded-lg border-2 border-[#74236C] py-1 md:py-2 px-2 md:px-4 text-xm sm:text-base font-semibold text-[#74236C] hover:bg-[#74236C] hover:text-white hover:scale-105 transition-all duration-300">
+                  Take a Look
+                </a>
+              </div>
+            </div>
+          </a>
+        </article>
       </div>
     </div>
   </div>

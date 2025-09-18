@@ -39,6 +39,21 @@ export default {
       },
       borderRadius: { xl2: "14px" },
       boxShadow: { soft: "0 8px 30px rgba(0,0,0,.06)" },
+      animation: {
+      'marquee': 'marquee 20s linear infinite',
+      'gradient-shift': 'gradientShift 8s ease-in-out infinite',
+    },
+    keyframes: {
+      marquee: {
+        '0%': { transform: 'translateX(0)' },
+        '100%': { transform: 'translateX(-50%)' },
+      },
+      gradientShift: {
+        '0%': { backgroundPosition: '0% 50%' },
+        '50%': { backgroundPosition: '100% 50%' },
+        '100%': { backgroundPosition: '0% 50%' },
+      },
+    },
     },
   },
   plugins: [],

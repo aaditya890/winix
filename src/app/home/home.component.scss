@@ -1,0 +1,8 @@
+@keyframes ugc-ticker {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); } /* full width */
+}
+
+.animate-ugc-ticker {
+  animation: ugc-ticker 1ms linear infinite; /* adjust duration for desired speed */
+}
