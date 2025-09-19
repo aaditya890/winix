@@ -24,6 +24,7 @@ interface Product {
   awardType?: string
   price?: string
   mrp?: string
+  topReview:string
   detailedSpecs?: {
     dimensions: string
     weight: string
@@ -145,6 +146,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       awardType: "UK Allergy • ECARF • AHAM",
       price: "₹9,999",
       mrp: "₹18,990",
+      topReview:'36K',
       detailedSpecs: {
         dimensions: "24D x 24W x 37H cm",
         weight: "3.22 kg",
@@ -334,6 +336,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       awardType: "Triple Certified (UK Allergy, ECARF, AHAM)",
       price: "₹15,199",
       mrp: "₹23,990",
+       topReview:'39K',
       detailedSpecs: {
         dimensions: "5D x 37W x 49H cm",
         weight: "6.71 kg",
@@ -523,6 +526,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       awardType: "Editor's Choice 2024",
       price: "₹16,149",
       mrp: "₹24,990",
+       topReview:'39k',
       detailedSpecs: {
         dimensions: "19.8D x 37.8W x 59.9H cm",
         weight: "6.7 kg",
@@ -716,6 +720,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       awardType: "AHAM • CARB • Energy Star • FCC • UL Certified",
       price: "₹19,100",
       mrp: "₹20,850",
+       topReview:'165',
       detailedSpecs: {
         dimensions: "28.7D x 28.7W x 51.8H cm (11.3\"D x 11.3\"W x 20.4\"H)",
         weight: "4.7 kg (10.4 lbs)",
@@ -921,6 +926,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       awardType: "AHAM Certified",
       price: "12,999", // price not shown in screenshots
       mrp: "16,999",
+       topReview:'249',
       detailedSpecs: {
         dimensions: "24.1W x 24.1D x 37.1H cm (9.5\" x 9.5\" x 14.6\")",
         weight: "3.0 kg (6.7 lbs)",
