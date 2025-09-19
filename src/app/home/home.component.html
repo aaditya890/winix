@@ -1,80 +1,29 @@
-<!-- Announcement Bar -->
-<!-- <section *ngIf="showBar" class="sticky top-0 z-50">
-  <div class="bg-[hsl(var(--color-primary-dark))] text-surface">
-    <div class="max-w-7xl mx-auto h-10 md:h-11 px-3 sm:px-6 flex items-center gap-3">
-     
-      <span class="hidden sm:inline text-xs md:text-sm font-semibold opacity-90">
-        {{ barTitle }}
-      </span>
-
-    
-      <div class="relative flex-1 overflow-hidden group" aria-live="polite">
-        <div class="flex items-center gap-12 whitespace-nowrap animate-ticker group-hover:[animation-play-state:paused]"
-          [style.animationDuration]="speed + 's'">
-          
-          <ng-container *ngFor="let _ of [0,1]">
-            <ng-container *ngFor="let m of messages; let last = last">
-              <span class="text-xs md:text-sm">{{ m }}</span>
-              <span *ngIf="!last" class="opacity-50">•</span>
-            </ng-container>
-          </ng-container>
-        </div>
-      </div>
-
-    
-      <button (click)="dismissBar()" class="ml-auto p-1 rounded hover:bg-[hsl(var(--color-primary)/0.15)]"
-        aria-label="Dismiss announcement">
-        <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-        </svg>
-      </button>
-    </div>
-  </div>
-</section> -->
-<!-- Fullscreen hero banner with autoplaying background video -->
- 
 <section class="relative h-screen overflow-hidden">
   <div class="absolute inset-0">
     <video class="w-full h-full object-cover" [autoplay]="true" [muted]="true" [loop]="true" playsinline
       preload="metadata">
-      <source src="assets/video/hero-section-video.mp4" type="video/mp4">
+            <source src="assets/video/winix-hero.webm" type="video/mp4">
     </video>
   </div>
 
-  <!-- Mobile video -->
-  <!-- <div class="md:hidden absolute inset-0">
-    <video class="w-full h-full object-cover" [autoplay]="true" [muted]="true" [loop]="true" playsinline
-      preload="metadata" poster="assets/video/hero-poster-sm.webp">
-      <source src="assets/video/hero-video-sm.mp4" type="video/mp4">
-      <track kind="captions" src="assets/captions/hero-en.vtt" srclang="en" label="English" default>
-    </video>
-  </div> -->
-  <!-- Overlay -->
   <div class="absolute inset-0 bg-black bg-opacity-20"></div>
   <div class="relative z-10 h-full flex items-center justify-center text-center">
     <div class="max-w-2xl mx-auto px-4">
-      <!-- <h1 class="text-5xl md:text-7xl font-light text-white mb-8 leading-tight">
-        Breathe
-        <span class="block font-bold">Pure Air</span>
-      </h1> -->
-      <!-- <button
-        class="bg-white text-gray-900 px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transition-colors duration-300 text-lg">
-        SHOP NOW
-      </button> -->
     </div>
   </div>
 </section>
 
+
+<div id="REELS" class="h-0"></div>
 <app-video-showcase></app-video-showcase>
 
-
-<section class="relative overflow-hidden bg-white py-6 md:py-14">
-  <div
+<section class="relative overflow-hidden bg-white py-10 md:py-20">
+  <!-- <div
     class="pointer-events-none absolute -top-24 -right-16 h-56 w-56 rounded-full bg-gradient-to-br from-[#6a1b6e]/20 to-[#b21e6b]/20 blur-3xl">
   </div>
   <div
     class="pointer-events-none absolute -bottom-24 -left-24 h-72 w-72 rounded-full bg-gradient-to-tr from-[#0e1649]/15 to-[#6a1b6e]/15 blur-3xl">
-  </div>
+  </div> -->
 
   <svg aria-hidden="true" class="pointer-events-none absolute right-0 top-0 h-full w-[50%] opacity-15"
     viewBox="0 0 500 800" fill="none">
@@ -86,13 +35,6 @@
   <div class="relative z-10 max-w-8xl mx-auto grid items-center gap-10 px-6 md:grid-cols-2 md:px-12">
 
     <div class="text-left">
-
-      <span
-        class="inline-flex items-center gap-2 rounded-full border border-[#0e1649]/15 bg-[#0e1649]/5 px-3 py-1 text-xs font-semibold text-[#0e1649]">
-        New 2025
-        <span class="h-1.5 w-1.5 rounded-full bg-[#b21e6b]"></span>
-      </span>
-
       <h2 class="mt-3 text-3xl md:text-5xl font-extrabold leading-tight text-[#0e1649] first-letter:text-7xl">
         Breathe Easy with
         <span class="relative inline-block ml-2">
@@ -108,18 +50,18 @@
       </p>
 
       <div class="mt-6 flex flex-wrap items-center gap-3">
-        <button type="button"
+        <button type="button" (click)="scrollTo('BULK-QUERIES')"
           class="group inline-flex items-center gap-2 rounded-full bg-[#74236C] px-6 py-3 text-sm font-semibold text-white shadow-lg transition-transform hover:scale-[1.04]">
-          Discover More
+          Bulk Queries
           <span class="grid place-items-center rounded-full bg-white/15 p-1">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" class="opacity-90">
               <path d="M5 12h14M13 5l7 7-7 7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
           </span>
         </button>
-        <a href="#compare"
-          class="inline-flex items-center gap-2 rounded-full border border-[#0e1649]/20 bg-white px-5 py-3 text-sm font-semibold text-[#0e1649] shadow-sm transition hover:border-[#0e1649]/30">
-          Compare Models
+        <a (click)="openWhatsApp()"
+          class="inline-flex items-center gap-2 rounded-full border border-[#0e1649]/20 bg-white px-5 py-3 text-sm font-semibold text-[#0e1649] shadow-sm transition hover:border-[#0e1649]/30 cursor-pointer">
+          Connect Now
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor">
             <path d="M9 18l6-6-6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
           </svg>
@@ -146,10 +88,10 @@
         </div>
       </div>
       <div class="mx-auto max-w-3xl rounded-2xl p-4">
-        <img src="assets/reels/pr-r-b.png" alt="WINIX Air Purifiers" class="mx-auto max-h-[500px] object-contain" />
+        <img src="assets/reels/pr-r-b.webp" alt="WINIX Air Purifiers" class="mx-auto max-h-[500px] object-contain" />
       </div>
-      <span
-        class="pointer-events-none absolute -right-4 -bottom-4 block h-16 w-32 -rotate-12 skew-x-6 rounded bg-gradient-to-r from-[#6a1b6e]/25 to-[#b21e6b]/25"></span>
+      <!-- <span
+        class="pointer-events-none absolute -right-4 -bottom-4 block h-16 w-32 -rotate-12 skew-x-6 rounded bg-gradient-to-r from-[#6a1b6e]/25 to-[#b21e6b]/25"></span> -->
     </div>
   </div>
 </section>
@@ -177,7 +119,7 @@
 <!-- Lifestyle / product image slider with smooth animation -->
 @defer (on viewport) {
 <!-- WINIX Insider – compact ticker -->
-<section class="py-6 md:py-14">
+<section class="py-10 md:py-20">
   <div class="max-w-8xl mx-auto px-4 sm:px-6 lg:px-10 ">
     <div class="flex flex-col lg:flex-row items-center gap-3 lg:gap-10">
 
@@ -283,10 +225,11 @@
 
 
 <!-- ===== BULK QUERIES ===== -->
-<div id="BULK-QUERIES" class="h-0"></div>
-
+<div id="TESTIMONIALS" class="h-0"></div>
 <app-review-cards></app-review-cards>
 
+
+<div id="BULK-QUERIES" class="h-0"></div>
 @defer (on viewport) {
 <app-enquiry-banner>
 </app-enquiry-banner>

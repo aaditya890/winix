@@ -14,7 +14,7 @@ interface FeatureItem {
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [RouterLink, CommonModule, NgOptimizedImage, WinixProductCardComponent, EnquiryBannerComponent, VideoShowcaseComponent, ReviewCardsComponent],
+  imports: [CommonModule, NgOptimizedImage, WinixProductCardComponent, EnquiryBannerComponent, VideoShowcaseComponent, ReviewCardsComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
@@ -51,16 +51,16 @@ export class HomeComponent {
 
   // ===== Insider Ticker =====
   ugcSpeed = 22;
-ugcTiles = [
-  { src: 'assets/section-right-scroll/1.webp', alt: 'WINIX at desk', w: 1200, h: 800 },
-  { src: 'assets/section-right-scroll/3.webp', alt: 'Reading nook', w: 1200, h: 800 },
-  { src: 'assets/section-right-scroll/4.webp', alt: 'Bedroom corner', w: 1200, h: 800 },
-  { src: 'assets/section-right-scroll/5.webp', alt: 'Pet friendly', w: 1200, h: 800 },
-  { src: 'assets/section-right-scroll/6.webp', alt: 'Minimal shelf', w: 1200, h: 800 },
-  { src: 'assets/section-right-scroll/7.webp', alt: 'Plants + purifier', w: 1200, h: 800 },
-  { src: 'assets/section-right-scroll/8.webp', alt: 'Cozy study', w: 1200, h: 800 },
-  { src: 'assets/section-right-scroll/2.webp', alt: 'Unboxing', w: 1200, h: 800 },
-];
+  ugcTiles = [
+    { src: 'assets/section-right-scroll/1.webp', alt: 'WINIX at desk', w: 1200, h: 800 },
+    { src: 'assets/section-right-scroll/3.webp', alt: 'Reading nook', w: 1200, h: 800 },
+    { src: 'assets/section-right-scroll/4.webp', alt: 'Bedroom corner', w: 1200, h: 800 },
+    { src: 'assets/section-right-scroll/5.webp', alt: 'Pet friendly', w: 1200, h: 800 },
+    { src: 'assets/section-right-scroll/6.webp', alt: 'Minimal shelf', w: 1200, h: 800 },
+    { src: 'assets/section-right-scroll/7.webp', alt: 'Plants + purifier', w: 1200, h: 800 },
+    { src: 'assets/section-right-scroll/8.webp', alt: 'Cozy study', w: 1200, h: 800 },
+    { src: 'assets/section-right-scroll/2.webp', alt: 'Unboxing', w: 1200, h: 800 },
+  ];
 
 
   // Announcement Bar Dismiss
@@ -69,19 +69,26 @@ ugcTiles = [
     localStorage.setItem('announce_dismissed', '1');
   }
 
- scrollTo(id: string) {
-  const target = document.getElementById(id);
-  if (!target) return;
+  scrollTo(id: string) {
+    const target = document.getElementById(id);
+    if (!target) return;
 
-  // sticky header ki actual height le lo (desktop/mobile dono me theek rahe)
-  const header = document.querySelector('header') as HTMLElement | null;
-  const headerOffset = header?.offsetHeight ?? 72;   // adjust if needed
-  const extraGap = 8;                                // thoda sa breathing space
-  const y = target.getBoundingClientRect().top + window.pageYOffset - headerOffset - extraGap;
+    // sticky header ki actual height le lo (desktop/mobile dono me theek rahe)
+    const header = document.querySelector('header') as HTMLElement | null;
+    const headerOffset = header?.offsetHeight ?? 72;   // adjust if needed
+    const extraGap = 8;                                // thoda sa breathing space
+    const y = target.getBoundingClientRect().top + window.pageYOffset - headerOffset - extraGap;
 
-  window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
-}
+    window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
+  }
 
 
+    // Function to open WhatsApp chat
+  openWhatsApp(): void {
+    const message = encodeURIComponent("Hii Winixair!");
+    const phone = "+918885241706";
+    const whatsappUrl = `https://api.whatsapp.com/send?phone=${phone}&text=${message}`;
+    window.open(whatsappUrl, '_blank');
+  }
 
 }
