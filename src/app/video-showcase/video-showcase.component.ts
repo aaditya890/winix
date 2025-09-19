@@ -28,12 +28,12 @@ export class VideoShowcaseComponent implements AfterViewInit, OnDestroy {
   @ViewChildren('videoEl') videos!: QueryList<ElementRef<HTMLVideoElement>>;
 
   items: VideoItem[] = [
-    { src: 'assets/reels/1.mp4', poster: 'assets/social/1.jpg', title: '' },
-    { src: 'assets/reels/2.mp4', poster: 'assets/social/2.jpg', title: '' },
-    { src: 'assets/reels/3.mp4', poster: 'assets/social/3.jpg', title: '' },
-    { src: 'assets/reels/4.mp4', poster: 'assets/social/4.jpg', title: '' },
-    { src: 'assets/reels/5.mp4', poster: 'assets/social/5.jpg', title: '' },
-    { src: 'assets/reels/6.mp4', poster: 'assets/social/6.jpg', title: '' },
+    { src: 'assets/reels/1.mp4', poster: '', title: '' },
+    { src: 'assets/reels/2.mp4', poster: '', title: '' },
+    { src: 'assets/reels/3.mp4', poster: '', title: '' },
+    { src: 'assets/reels/4.mp4', poster: '', title: '' },
+    { src: 'assets/reels/5.mp4', poster: '', title: '' },
+    { src: 'assets/reels/6.mp4', poster: '', title: '' },
   ];
 
   private io?: IntersectionObserver;

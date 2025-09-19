@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy, HostListener } from "@angular/core"
 import { CommonModule } from "@angular/common"
-import { ActivatedRoute, Router, RouterModule } from "@angular/router"
+import { ActivatedRoute, NavigationEnd, Router, RouterModule } from "@angular/router"
+import { filter, first } from "rxjs"
 
 interface Product {
   id: number
@@ -109,6 +110,8 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
     }));
   }
 
+
+  
   products: Product[] = [
     {
       id: 1,
@@ -1099,6 +1102,32 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
     })
   }
 
+
+
+ goToReels(): void {
+    const targetId = 'REELS';
+
+    const scrollToTarget = () => {
+      const el = document.getElementById(targetId);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    };
+
+    // Are we already on the home route?
+    const atHome = this.router.url.split('?')[0] === '/';
+
+    if (atHome) {
+      // Same page → just smooth scroll
+      scrollToTarget();
+    } else {
+      // Navigate to home WITHOUT fragment (so no # in URL), then scroll
+      this.router.navigateByUrl('/').then(() => {
+        // Wait a tick to ensure the section is rendered
+        setTimeout(scrollToTarget, 0);
+      });
+    }
+  }
   ngOnDestroy(): void {
     if (this.imageInterval) clearInterval(this.imageInterval)
   }

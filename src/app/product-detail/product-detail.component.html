@@ -70,25 +70,6 @@
             <p class="text-[14px] text-gray-800">{{ product.description }}</p>
           </div>
 
-          <!-- nav -->
-          <!-- <div class="overflow-x-auto mb-1">
-            <ul class="flex gap-2 px-1 text-[12px] font-extrabold uppercase tracking-wide">
-              <li><a href="#overview"
-                  class="inline-block px-3 py-2 rounded-md bg-gray-100 text-[#111] hover:border-[#101A50]">Overview</a>
-              </li>
-              <li><a href="#specs"
-                  class="inline-block px-3 py-2 rounded-md bg-gray-100 text-[#111] hover:border-[#101A50]">Specs</a>
-              </li>
-              <li><a href="#reviews"
-                  class="inline-block px-3 py-2 rounded-md bg-gray-100 text-[#111] hover:border-[#101A50]">Reviews</a>
-              </li>
-              <li><a href="#faq"
-                  class="inline-block px-3 py-2 rounded-md bg-gray-100 text-[#111] hover:border-[#101A50]">FAQs</a>
-              </li>
-            </ul>
-          </div> -->
-          <!-- nav-end -->
-
           <!-- Key Features -->
           <div class="flex flex-wrap gap-2">
             <span *ngFor="let f of product.keyFeatures"
@@ -113,9 +94,11 @@
             <button
               class="w-full h-9 rounded-[10px] bg-[#111] text-white font-black uppercase tracking-wide hover:bg-black transition-colors">BUY
               NOW</button>
-            <button
-              class="w-full h-12 rounded-[10px] bg-[#74236C] text-white font-extrabold uppercase tracking-wide hover:brightness-95 transition">WATCH
-              Demo</button>
+            <button (click)="goToReels()"
+              class="w-full h-12 rounded-[10px] bg-[#74236C] text-white font-extrabold uppercase tracking-wide hover:brightness-95 transition">
+              WATCH Demo
+            </button>
+
           </div>
 
           <!-- Features Grid -->
@@ -236,7 +219,8 @@
             </div>
           </div>
 
-          <button class="w-full flex items-center justify-between px-4 py-3 rounded-[12px] bg-gray-100 nsition"
+          <button
+            class="w-full flex items-center justify-between px-4 py-3 rounded-[12px] bg-gray-100 border border-gray-200 font-extrabold text-[#111] hover:border-gray-300 transition"
             (click)="toggleSection('care')">
             <span class="text-neutral-700 font-semibold text-xl">Material and Care</span>
             <span
@@ -271,9 +255,11 @@
           </button>
           <div *ngIf="sectionsOpen.tests"
             class="mt-2 rounded-[12px] border text-sm font-semibold bg-white p-4 text-neutral-500">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Whether in small bedrooms or large living rooms, WINIX purifiers consistently deliver fast, reliable air
+            cleaning performance—verified through standardized test procedures and real-world conditions.
           </div>
         </section>
+
       </div>
     </div>
 
