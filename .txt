@@ -1,9 +1,7 @@
-review star
-review section 
-video update on home  
-scroll lock on faqs pdetail 
-nav links
+policy refund & shipment
+search btn
 tap to shop
+btns
 
   <!-- Peeking 3-slide banner -->
     <section id="banner" class="mt-16">
