@@ -1,5 +1,5 @@
-<section class="w-full py-10 overflow-x-hidden bg-gray-50">
-  <div class="px-4 md:px-6">
+<section class="w-full py-10 overflow-x-hidden">
+  <div class="px-2 md:px-6">
     <div class="relative">
       <div #railEl role="list" class="flex gap-1 md:gap-3 overflow-x-auto scroll-smooth snap-x snap-mandatory
                   [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden
@@ -10,11 +10,11 @@
                         lg:basis-[calc(33.333%-0.875rem)] xl:basis-[calc(25%-1rem)] 2xl:basis-[calc(25%-1rem)]
                         max-w-[420px]">
           <a [routerLink]="['/product', p.slug]"
-            class="relative block h-full border border-gray-200 bg-white shadow-md hover:shadow-xl transition-all duration-300 rounded-sm">
+            class="relative block h-full border border-gray-200 bg-white shadow-md transition-all duration-300 rounded-sm">
 
             <!-- Image -->
             <div class="relative w-full aspect-[4/3] overflow-hidden p-3">
-              <img class="h-full w-full object-contain transition-transform duration-300 ease-in-out hover:scale-105"
+              <img class="h-full w-full object-contain"
                 [src]="hovered[p.id] && p.hoverImageSrc ? p.hoverImageSrc : p.imageSrc" [alt]="p.title"
                 (load)="onImageLoad(i)" loading="lazy" decoding="async" />
             </div>
