@@ -5,6 +5,7 @@ import { filter, first } from "rxjs"
 
 interface Product {
   id: number
+  productUrl:string
   name: string
   shortName: string
   slug: string
@@ -115,6 +116,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
   products: Product[] = [
     {
       id: 1,
+      productUrl:"https://www.amazon.in/Winix-Small-Tower-A231-Purifier/dp/B08HW5SBQ6/ref=sr_1_1_sspa?crid=3E4UW6KQS1IHL&dib=eyJ2IjoiMSJ9.nyrDct4QLbf6J4nB4JwHKdswXh_KKQKMAuEv-AlXIBI.39zb7Frm_88rf20XFP4m78D_BdJfBpTFCAvaG-7-It4&dib_tag=se&keywords=winix%2Ba231&qid=1758281141&sprefix=winix%2Ba231%2Caps%2C246&sr=8-1-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1 ",
       slug: "winix-a231-air-purifier",
       name: "WINIX A231 Premium 4-Stage Air Purifier",
       shortName: "A231 Compact",
@@ -306,6 +308,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
     },
     {
       id: 2,
+      productUrl:"https://www.amazon.in/Winix-5300-2-Purifier-PlasmaWave-Reducing/dp/B01D8DAYBA/ref=sr_1_1_sspa?crid=13CBVJUQ98R7R&dib=eyJ2IjoiMSJ9.Kp26yzZ_O7yzCqZVio4eM8X0lDXtjI4IfNuutcBiDJOGikTLEumjQeBFs12phlwA1fPcueTVaqVD8kvlO0LzVS3kqv8EVjfipAZbFaTS5M-faaYKj7ZDocTv-YUva276h32vcS85_jaCvZc6TWJgbzlg8wqQrXuCTGNgpPEjCj3-OCVrHK5852_MkjQt8IMCLWO3KgPNN05ZgwuShB8-ppE3Za8j8rnNwQMBmf6tkX0.FtKqwonycx94L0Lbr2GqcBMCiLTMC1vheZeg9izAgPM&dib_tag=se&keywords=winix%2B5500-2%2Bair%2Bpurifier&nsdOptOutParam=true&qid=1758281186&sprefix=winix%2B5500-2%2B%2Caps%2C317&sr=8-1-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1 ",
       slug: "winix-5300-2-air-purifier",
       name: "WINIX 5300-2 Premium 4-Stage Air Purifier",
       shortName: "5300-2 Premium",
@@ -496,6 +499,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
     },
     {
       id: 3,
+      productUrl:"https://www.amazon.in/Winix-5500-2-Purifier-PlasmaWave-Reducing/dp/B01D8DAYII/ref=sr_1_3?crid=13CBVJUQ98R7R&dib=eyJ2IjoiMSJ9.Kp26yzZ_O7yzCqZVio4eM8X0lDXtjI4IfNuutcBiDJOGikTLEumjQeBFs12phlwA1fPcueTVaqVD8kvlO0LzVS3kqv8EVjfipAZbFaTS5M-faaYKj7ZDocTv-YUva276h32vcS85_jaCvZc6TWJgbzlg8wqQrXuCTGNgpPEjCj3-OCVrHK5852_MkjQt8IMCLWO3KgPNN05ZgwuShB8-ppE3Za8j8rnNwQMBmf6tkX0.FtKqwonycx94L0Lbr2GqcBMCiLTMC1vheZeg9izAgPM&dib_tag=se&keywords=winix%2B5500-2%2Bair%2Bpurifier&nsdOptOutParam=true&qid=1758281186&sprefix=winix%2B5500-2%2B%2Caps%2C317&sr=8-3&th=1 ",
       slug: "winix-5500-2-air-purifier",
       name: "WINIX 5500-2 Air Purifier • True HEPA, PlasmaWave & Washable AOC Carbon",
       shortName: "5500-2 Elite",
@@ -686,6 +690,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
     },
     {
       id: 4,
+      productUrl:"#",
       slug: "winix-t810-air-purifier",
       name: "WINIX T810 Air Purifier for Home Extra Large Room",
       shortName: "T810",
@@ -891,6 +896,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
     },
     {
       id: 5,
+      productUrl:"https://www.amazon.in/dp/B0FQBSFWRJ",
       slug: "winix-t500-air-purifier",
       name: "WINIX T500 360° 4-Stage True HEPA WiFi Air Purifier with PlasmaWave®",
       shortName: "T500",
@@ -1211,5 +1217,10 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
   formatDate(d: string): string {
     const date = new Date(d)
     return date.toLocaleDateString()
+  }
+  navigateToCheckout(link:string):void{
+    if(link){
+      window.open(link, "_blank");
+    }
   }
 }
