@@ -51,16 +51,17 @@ export class HomeComponent {
 
   // ===== Insider Ticker =====
   ugcSpeed = 22;
-  ugcTiles = [
-    { src: 'assets/section-right-scroll/1.webp', alt: 'WINIX at desk', w: 600, h: 400 },
-    { src: 'assets/section-right-scroll/3.webp', alt: 'Reading nook', w: 600, h: 400 },
-    { src: 'assets/section-right-scroll/4.webp', alt: 'Bedroom corner', w: 600, h: 400 },
-    { src: 'assets/section-right-scroll/5.webp', alt: 'Pet friendly', w: 600, h: 400 },
-    { src: 'assets/section-right-scroll/6.webp', alt: 'Minimal shelf', w: 600, h: 400 },
-    { src: 'assets/section-right-scroll/7.webp', alt: 'Plants + purifier', w: 600, h: 400 },
-    { src: 'assets/section-right-scroll/8.webp', alt: 'Cozy study', w: 600, h: 400 },
-    { src: 'assets/section-right-scroll/2.webp', alt: 'Unboxing', w: 600, h: 400 },
-  ];
+ugcTiles = [
+  { src: 'assets/section-right-scroll/1.webp', alt: 'WINIX at desk', w: 1200, h: 800 },
+  { src: 'assets/section-right-scroll/3.webp', alt: 'Reading nook', w: 1200, h: 800 },
+  { src: 'assets/section-right-scroll/4.webp', alt: 'Bedroom corner', w: 1200, h: 800 },
+  { src: 'assets/section-right-scroll/5.webp', alt: 'Pet friendly', w: 1200, h: 800 },
+  { src: 'assets/section-right-scroll/6.webp', alt: 'Minimal shelf', w: 1200, h: 800 },
+  { src: 'assets/section-right-scroll/7.webp', alt: 'Plants + purifier', w: 1200, h: 800 },
+  { src: 'assets/section-right-scroll/8.webp', alt: 'Cozy study', w: 1200, h: 800 },
+  { src: 'assets/section-right-scroll/2.webp', alt: 'Unboxing', w: 1200, h: 800 },
+];
+
 
   // Announcement Bar Dismiss
   dismissBar() {
