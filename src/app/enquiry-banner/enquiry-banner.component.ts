@@ -1,4 +1,4 @@
-import { Component, Input, signal } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
@@ -9,19 +9,13 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
   templateUrl: './enquiry-banner.component.html',
   styleUrls: ['./enquiry-banner.component.scss']
 })
-
 export class EnquiryBannerComponent {
-  /** ✅ Replace with your BG image (assets or URL) */
-  bgImage = 'assets/form-bg.webp';
-
-  /** ✅ Replace with your WhatsApp number (no +, no spaces), e.g. 919876543210 */
-  whatsappNumber = '916267363477';
-
-  isSubmitting:any = signal(false);
+  whatsappNumber = '918885241706'; // ✅ Replace with your number
+  isSubmitting = signal(false);
 
   form: FormGroup = this.fb.group({
     name: ['', [Validators.required, Validators.minLength(2)]],
-    phone: ['', [Validators.required, Validators.pattern(/^[0-9+\-\s]{7,15}$/)]],
+    phone: ['', [Validators.required, Validators.pattern(/^[0-9]{10,}$/)]],
     email: ['', [Validators.email]],
     message: ['']
   });
@@ -33,22 +27,23 @@ export class EnquiryBannerComponent {
       this.form.markAllAsTouched();
       return;
     }
+
     this.isSubmitting.set(true);
 
     const { name, phone, email, message } = this.form.value;
     const lines = [
-      '*Hii, WinixAir!*',
+      '*Hi, WinixAir!*',
       `Name: ${name}`,
       `Phone: ${phone}`,
       email ? `Email: ${email}` : '',
-      message ? `Message: ${message}` : '',
-      // `Source: ${location.href}`
+      message ? `Message: ${message}` : ''
     ].filter(Boolean);
 
     const text = encodeURIComponent(lines.join('\n'));
     const url = `https://wa.me/${this.whatsappNumber}?text=${text}`;
 
     window.open(url, '_blank');
+
     this.isSubmitting.set(false);
     this.form.reset();
   }

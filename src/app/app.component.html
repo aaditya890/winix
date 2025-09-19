@@ -52,7 +52,7 @@
   <div class="max-w-8xl mx-auto px-4 sm:px-6 ">
     <div class="flex justify-between items-center h-16">
       <button type="button" class="flex items-center" (click)="scrollTo('PRODUCTS')" aria-label="Go to top">
-        <img src="assets/winix-logo.png" class="h-6" alt="WINIX Logo">
+        <img routerLink="/" src="assets/winix-logo.png" class="h-6" alt="WINIX Logo">
       </button>
 
       <div class="flex items-center gap-2 sm:gap-4">
@@ -174,4 +174,36 @@
     <path d="M20.52 3.48A11.77 11.77 0 0 0 12 0C5.37 0 0 5.37 0 12c0 2.12.55 4.16 1.6 5.97L0 24l6.21-1.58A11.94 11.94 0 0 0 12 24c6.63 0 12-5.37 12-12 0-3.19-1.24-6.18-3.48-8.52zM12 21.8c-2.05 0-4.05-.56-5.8-1.62l-.41-.24-3.69.94.99-3.59-.26-.42A9.8 9.8 0 0 1 2.2 12C2.2 6.92 6.92 2.2 12 2.2c2.62 0 5.09 1.02 6.95 2.87a9.77 9.77 0 0 1 2.85 6.93c0 5.08-4.72 9.8-9.8 9.8zm5.44-7.27c-.3-.15-1.76-.87-2.03-.97-.27-.1-.46-.15-.66.15-.2.3-.76.97-.93 1.17-.17.2-.34.22-.63.07-.3-.15-1.27-.47-2.42-1.5-.9-.8-1.51-1.8-1.68-2.1-.17-.3-.02-.46.13-.61.13-.13.3-.34.45-.5.15-.17.2-.28.3-.47.1-.2.05-.37-.02-.52-.07-.15-.66-1.6-.91-2.18-.24-.58-.49-.5-.66-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.03 1-1.03 2.43s1.06 2.82 1.21 3.02c.15.2 2.08 3.18 5.05 4.46.7.3 1.25.47 1.68.6.7.22 1.34.19 1.85.12.56-.08 1.76-.72 2.01-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35z"/>
   </svg>
 </button>
+
+
+
+<!-- Footer Section -->
+@defer (on viewport) {
+<!-- Mobile-Fixed Footer -->
+<footer class="bg-[#050518] text-white relative overflow-hidden"> <!-- Top Row -->
+  <div class="relative z-10 flex flex-col sm:flex-row justify-between items-center px-4 sm:px-6 py-4 text-sm"> <span
+      class="text-white/70 tracking-wider"> <span class="font-semibold text-white underline cursor-pointer"><a
+          href="https://octatech.in/" target="_blank"></a></span> </span>
+    <div class="flex gap-4 sm:gap-6 mt-2 sm:mt-0"> <a routerLink="/privacy-policy"
+        class="hover:underline text-white/70 hover:text-white transition-colors duration-300"> Privacy Policy </a> <a
+        routerLink="/terms-and-conditions"
+        class="hover:underline text-white/70 hover:text-white transition-colors duration-300"> Terms & Conditions </a>
+    </div>
+  </div> <!-- Massive Text Section -->
+  <div class="relative footer-gradient"> <!-- Background decoration -->
+    <div class="absolute inset-0 bg-gradient-to-r from-purple-900/5 via-transparent to-blue-900/5"></div>
+    <!-- Subtle grid pattern -->
+    <div class="absolute inset-0 opacity-5">
+      <div class="w-full h-full"
+        style="background-image: radial-gradient(circle, #ffffff 1px, transparent 1px); background-size: 50px 50px;">
+      </div>
+    </div>
+    <div class="relative z-10 px-2 sm:px-4" #footerImage data-lazy-id="footer-img"> <img src="assets/winix-footer1.webp"
+        class="w-full" alt="" loading="lazy" /> </div> <!-- Bottom fade effect -->
+    <div class="absolute bottom-0 left-0 right-0 h-16 sm:h-20 bg-gradient-to-t from-black/30 to-transparent"> </div>
+  </div>
+</footer>
+} @placeholder {
+<div class="h-32 bg-transparent"></div> <!-- keeps layout smooth -->
+}
 

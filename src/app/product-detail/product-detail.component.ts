@@ -111,7 +111,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
   products: Product[] = [
     {
       id: 1,
-      slug: "a231",
+      slug: "winix-a231-air-purifier",
       name: "WINIX A231 Premium 4-Stage Air Purifier",
       shortName: "A231 Compact",
       description:
@@ -301,7 +301,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
     },
     {
       id: 2,
-      slug: "winix-5300-2-premium-4-stage-air-purifier",
+      slug: "winix-5300-2-air-purifier",
       name: "WINIX 5300-2 Premium 4-Stage Air Purifier",
       shortName: "5300-2 Premium",
       description:
@@ -490,7 +490,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
     },
     {
       id: 3,
-      slug: "winix-5500-2-plasmawave-elite",
+      slug: "winix-5500-2-air-purifier",
       name: "WINIX 5500-2 Air Purifier • True HEPA, PlasmaWave & Washable AOC Carbon",
       shortName: "5500-2 Elite",
       description:
@@ -679,7 +679,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
     },
     {
       id: 4,
-      slug: "winix-t810",
+      slug: "winix-t810-air-purifier",
       name: "WINIX T810 Air Purifier for Home Extra Large Room",
       shortName: "T810",
       description:
@@ -883,7 +883,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
     },
     {
       id: 5,
-      slug: "winix-t500",
+      slug: "winix-t500-air-purifier",
       name: "WINIX T500 360° 4-Stage True HEPA WiFi Air Purifier with PlasmaWave®",
       shortName: "T500",
       description:

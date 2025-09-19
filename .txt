@@ -1,5 +1,10 @@
- review start
- 
+review star
+review section
+video update on home  
+scroll lock on faqs pdetail 
+nav links
+tap to shop
+
   <!-- Peeking 3-slide banner -->
     <section id="banner" class="mt-16">
       <div class="overflow-x-auto snap-x snap-mandatory scroll-smooth
