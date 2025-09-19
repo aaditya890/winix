@@ -1,137 +1,130 @@
-<section class="min-h-screen bg-surface text-primary">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 py-12 lg:py-16">
-    <!-- Header with Animation -->
-    <h1 class="text-center text-3xl sm:text-4xl lg:text-5xl font-bold font-heading mb-10 lg:mb-12 tracking-tight animate-fade-in-up">
+<section class="min-h-screen text-white">
+  <div class="max-w-full mx-auto px-6 md:px-8 py-10s">
+    <!-- Header -->
+    <h1 class="text-center text-primary text-3xl sm:text-4xl lg:text-5xl font-bold mb-10 tracking-tight">
       Privacy Policy
     </h1>
 
-    <!-- Table of Contents (Sticky on Desktop) -->
-    <nav class="lg:sticky lg:top-6 lg:w-64 lg:float-left lg:mr-8 mb-8 lg:mb-0 bg-white/80 backdrop-blur-sm rounded-xl p-4 shadow-sm border border-gray-200 hidden lg:block">
-      <h2 class="text-lg font-semibold font-heading text-primary mb-4">Contents</h2>
-      <ul class="space-y-2 text-sm font-sans text-gray-600">
-        <li><a href="#who-we-are" class="hover:text-pri transition-colors duration-200">Who We Are</a></li>
-        <li><a href="#comments" class="hover:text-pri transition-colors duration-200">Comments</a></li>
-        <li><a href="#media" class="hover:text-pri transition-colors duration-200">Media</a></li>
-        <li><a href="#cookies" class="hover:text-pri transition-colors duration-200">Cookies</a></li>
-        <li><a href="#embedded-content" class="hover:text-pri transition-colors duration-200">Embedded Content</a></li>
-        <li><a href="#data-sharing" class="hover:text-pri transition-colors duration-200">Who We Share Your Data With</a></li>
-        <li><a href="#data-retention" class="hover:text-pri transition-colors duration-200">How Long We Retain Your Data</a></li>
-        <li><a href="#data-rights" class="hover:text-pri transition-colors duration-200">Your Data Rights</a></li>
-        <li><a href="#data-destination" class="hover:text-pri transition-colors duration-200">Where Your Data Is Sent</a></li>
-      </ul>
-    </nav>
-
-    <!-- Content Wrapper -->
-    <div class="max-w-3xl mx-auto lg:ml-72">
+    <!-- Content wrapper (center aligned) -->
+    <div class="">
       <!-- Who We Are -->
-      <div class="mb-5 animate-fade-in-up" style="animation-delay: 0.1s;" id="who-we-are">
-        <h2 class="text-xl sm:text-2xl font-bold font-heading text-primary mb-3 tracking-tight">Who We Are</h2>
+      <div class="mb-5" id="who-we-are">
+        <h2 class="text-xl sm:text-2xl font-bold text-primary mb-3 tracking-tight">Who We Are</h2>
         <div class="h-1 w-16 bg-gradient-to-r from-pri to-transparent mb-4 rounded-full"></div>
-        <p class="text-base sm:text-lg text-secondary leading-relaxed font-sans">
-          Our website address is: <a href="http://winixair.in" class="text-pri hover:text-pri-2 transition-colors duration-200" target="_blank" rel="noopener">http://winixair.in</a>.
+        <p class="text-base sm:text-lg text-secondary leading-relaxed">
+          Our website address is:
+          <a routerLink="/" class="text-pri hover:text-pri-2 transition-colors" rel="noopener">https://winixair.in</a>
         </p>
       </div>
 
       <!-- Comments -->
-      <div class="mb-5 animate-fade-in-up" style="animation-delay: 0.2s;" id="comments">
-        <h2 class="text-xl sm:text-2xl font-bold font-heading text-primary mb-3 tracking-tight">Comments</h2>
+      <div class="mb-5" id="comments">
+        <h2 class="text-xl sm:text-2xl font-bold text-primary mb-3 tracking-tight">Comments</h2>
         <div class="h-1 w-16 bg-gradient-to-r from-pri to-transparent mb-4 rounded-full"></div>
-        <p class="text-base sm:text-lg text-secondary leading-relaxed font-sans">
+        <p class="text-base sm:text-lg text-secondary leading-relaxed">
           When visitors leave comments on the site, we collect the data shown in the comments form, as well as the visitor’s IP address and browser user agent string to help with spam detection.
         </p>
       </div>
 
       <!-- Media -->
-      <div class="mb-10 animate-fade-in-up" style="animation-delay: 0.3s;" id="media">
-        <h2 class="text-xl sm:text-2xl font-bold font-heading text-primary mb-3 tracking-tight">Media</h2>
+      <div class="mb-10" id="media">
+        <h2 class="text-xl sm:text-2xl font-bold text-primary mb-3 tracking-tight">Media</h2>
         <div class="h-1 w-16 bg-gradient-to-r from-pri to-transparent mb-4 rounded-full"></div>
-        <p class="text-base sm:text-lg text-secondary leading-relaxed font-sans">
-          If you upload images to the website, you should avoid including embedded location data (EXIF GPS). Visitors can download and extract any location data from images on the website.
+        <p class="text-base sm:text-lg text-secondary leading-relaxed">
+          If you upload images to the website, avoid embedding location data (EXIF GPS). Visitors can download and extract any location data from images on the website.
         </p>
       </div>
 
       <!-- Cookies -->
-      <div class="mb-5 animate-fade-in-up" style="animation-delay: 0.4s;" id="cookies">
-        <h2 class="text-xl sm:text-2xl font-bold font-heading text-primary mb-3 tracking-tight">Cookies</h2>
+      <div class="mb-5" id="cookies">
+        <h2 class="text-xl sm:text-2xl font-bold text-primary mb-3 tracking-tight">Cookies</h2>
         <div class="h-1 w-16 bg-gradient-to-r from-pri to-transparent mb-4 rounded-full"></div>
-        <ul class="list-disc pl-5 space-y-3 text-base sm:text-lg text-secondary leading-relaxed font-sans">
-          <li>
-            If you leave a comment, you may opt-in to saving your name, email address, and website in cookies for convenience. These cookies last for one year.
-          </li>
-          <li>
-            Visiting our login page sets a temporary cookie to check browser compatibility. It contains no personal data and is discarded when you close your browser.
-          </li>
-          <li>
-            Logging in sets cookies to save login information and screen display choices. Login cookies last two days, and screen options cookies last one year. Selecting “Remember Me” extends login persistence to two weeks. Logging out removes these cookies.
-          </li>
-          <li>
-            Editing or publishing an article saves a cookie with the post ID, containing no personal data. It expires after one day.
-          </li>
+        <ul class="list-disc pl-5 space-y-3 text-base sm:text-lg text-secondary leading-relaxed">
+          <li>If you leave a comment, you may opt-in to saving your name, email address, and website in cookies for convenience. These cookies last for one year.</li>
+          <li>Visiting our login page sets a temporary cookie to check browser compatibility. It contains no personal data and is discarded when you close your browser.</li>
+          <li>Logging in sets cookies to save login information and screen display choices. Login cookies last two days, and screen options cookies last one year. Selecting “Remember Me” extends login persistence to two weeks. Logging out removes these cookies.</li>
+          <li>Editing or publishing an article saves a cookie with the post ID (no personal data). It expires after one day.</li>
         </ul>
       </div>
 
       <!-- Embedded Content -->
-      <div class="mb-5 animate-fade-in-up" style="animation-delay: 0.5s;" id="embedded-content">
-        <h2 class="text-xl sm:text-2xl font-bold font-heading text-primary mb-3 tracking-tight">Embedded Content from Other Websites</h2>
+      <div class="mb-5" id="embedded-content">
+        <h2 class="text-xl sm:text-2xl font-bold text-primary mb-3 tracking-tight">Embedded Content from Other Websites</h2>
         <div class="h-1 w-16 bg-gradient-to-r from-pri to-transparent mb-4 rounded-full"></div>
-        <p class="text-base sm:text-lg text-secondary leading-relaxed font-sans mb-3">
+        <p class="text-base sm:text-lg text-secondary leading-relaxed mb-3">
           Articles on this site may include embedded content (e.g., videos, images, or posts). Embedded content from other websites behaves as if you visited those websites directly.
         </p>
-        <p class="text-base sm:text-lg text-secondary leading-relaxed font-sans">
+        <p class="text-base sm:text-lg text-secondary leading-relaxed">
           These websites may collect data, use cookies, embed third-party tracking, and monitor your interactions, especially if you have an account and are logged in to those websites.
         </p>
       </div>
 
       <!-- Who We Share Your Data With -->
-      <div class="mb-5 animate-fade-in-up" style="animation-delay: 0.6s;" id="data-sharing">
-        <h2 class="text-xl sm:text-2xl font-bold font-heading text-primary mb-3 tracking-tight">Who We Share Your Data With</h2>
+      <div class="mb-5" id="data-sharing">
+        <h2 class="text-xl sm:text-2xl font-bold text-primary mb-3 tracking-tight">Who We Share Your Data With</h2>
         <div class="h-1 w-16 bg-gradient-to-r from-pri to-transparent mb-4 rounded-full"></div>
-        <p class="text-base sm:text-lg text-secondary leading-relaxed font-sans">
+        <p class="text-base sm:text-lg text-secondary leading-relaxed">
           If you request a password reset, your IP address will be included in the reset email.
         </p>
       </div>
 
-      <!-- How Long We Retain Your Data -->
-      <div class="mb-5 animate-fade-in-up" style="animation-delay: 0.7s;" id="data-retention">
-        <h2 class="text-xl sm:text-2xl font-bold font-heading text-primary mb-3 tracking-tight">How Long We Retain Your Data</h2>
+      <!-- Data Retention -->
+      <div class="mb-5" id="data-retention">
+        <h2 class="text-xl sm:text-2xl font-bold text-primary mb-3 tracking-tight">How Long We Retain Your Data</h2>
         <div class="h-1 w-16 bg-gradient-to-r from-pri to-transparent mb-4 rounded-full"></div>
-        <ul class="list-disc pl-5 space-y-3 text-base sm:text-lg text-secondary leading-relaxed font-sans">
-          <li>
-            Comments and their metadata are retained indefinitely to recognize and approve follow-up comments automatically, avoiding moderation queues.
-          </li>
-          <li>
-            For registered users, we store personal information in their user profile. Users can view, edit, or delete their personal information (except usernames) at any time. Website administrators can also access and edit this information.
-          </li>
+        <ul class="list-disc pl-5 space-y-3 text-base sm:text-lg text-secondary leading-relaxed">
+          <li>Comments and their metadata are retained indefinitely to recognize and approve follow-up comments automatically.</li>
+          <li>For registered users, we store personal information in their profile. Users can view, edit, or delete their information (except usernames) at any time. Site administrators can also view and edit this information.</li>
         </ul>
       </div>
 
-      <!-- Your Data Rights -->
-      <div class="mb-5 animate-fade-in-up" style="animation-delay: 0.8s;" id="data-rights">
-        <h2 class="text-xl sm:text-2xl font-bold font-heading text-primary mb-3 tracking-tight">Your Data Rights</h2>
+      <!-- Data Destination -->
+      <div class="mb-10" id="data-destination">
+        <h2 class="text-xl sm:text-2xl font-bold text-primary mb-3 tracking-tight">Where Your Data Is Sent</h2>
         <div class="h-1 w-16 bg-gradient-to-r from-pri to-transparent mb-4 rounded-full"></div>
-        <p class="text-base sm:text-lg text-secondary leading-relaxed font-sans">
-          If you have an account or have left comments, you can request an exported file of your personal data or ask us to erase it. This does not include data we must retain for administrative, legal, or security purposes.
+        <p class="text-base sm:text-lg text-secondary leading-relaxed">
+          Visitor comments may be checked through an automated spam detection service.
         </p>
       </div>
 
-      <!-- Where Your Data Is Sent -->
-      <div class="mb-5 animate-fade-in-up" style="animation-delay: 0.9s;" id="data-destination">
-        <h2 class="text-xl sm:text-2xl font-bold font-heading text-primary mb-3 tracking-tight">Where Your Data Is Sent</h2>
-        <div class="h-1 w-16 bg-gradient-to-r from-pri to-transparent mb-4 rounded-full"></div>
-        <p class="text-base sm:text-lg text-secondary leading-relaxed font-sans">
-          Visitor comments may be checked through an automated spam detection service to ensure site security.
-        </p>
+      <!-- Contact / Address (aligned two-column list) -->
+      <div class="pt-8 my-8 border-t border-gray-700" id="contact-info">
+        <h2 class="text-xl sm:text-2xl font-bold text-primary mb-3 tracking-tight">Contact Information</h2>
+        <div class="h-1 w-16 bg-gradient-to-r from-pri to-transparent mb-6 rounded-full"></div>
+
+        <address class="not-italic">
+          <ul class="space-y-3 text-base sm:text-lg text-secondary">
+            <li class="flex gap-4">
+              <span class="w-24 shrink-0 text-primary/80">Address:</span>
+              <span>14/123, Kamalanagar, Anantapur – 515001, India</span>
+            </li>
+            <li class="flex gap-4">
+              <span class="w-24 shrink-0 text-primary/80">Phone:</span>
+              <span>+91 90144 12394</span>
+            </li>
+            <li class="flex gap-4">
+              <span class="w-24 shrink-0 text-primary/80">Mobile:</span>
+              <span>+91 88852 41706</span>
+            </li>
+            <li class="flex gap-4">
+              <span class="w-24 shrink-0 text-primary/80">Email:</span>
+              <span>
+                <a href="mailto:care@justshop24x7.com" class="hover:text-pri-2 transition-colors">{{emailText}}</a>
+              </span>
+            </li>
+          </ul>
+        </address>
       </div>
     </div>
 
-    <!-- Back to Top Button -->
+    <!-- Back to Top -->
     <div class="fixed bottom-6 left-6">
-      <button 
-        class="rounded-full bg-pri text-white p-3 shadow-lg hover:bg-pri-2 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-pri/50"
+      <button
+        class="rounded-full bg-pri text-white p-3 shadow-lg hover:bg-pri-2 transition-all focus:outline-none focus:ring-2 focus:ring-pri/50"
         aria-label="Back to top"
-        onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+        onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">
         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-          <path fill-rule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z" clip-rule="evenodd"></path>
+          <path fill-rule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z" clip-rule="evenodd"/>
         </svg>
       </button>
     </div>

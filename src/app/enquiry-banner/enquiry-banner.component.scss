@@ -1,46 +1,31 @@
-// body {
-//             font-family: 'Inter', sans-serif;
-//             background-color: #faf7f5;
-//         }
-        
-//         .contact-section {
-//             background: linear-gradient(135deg, #4a044e 0%, #2d0530 100%);
-//         }
-        
-//         .form-card {
-//             backdrop-filter: blur(12px);
-//             background: rgba(255, 255, 255, 0.96);
-//             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-//             border: 1px solid rgba(255, 255, 255, 0.2);
-//         }
-        
-//         .input-field {
-//             transition: all 0.3s ease;
-//             border: 1px solid #e5e7eb;
-//         }
-        
-//         .input-field:focus {
-//             border-color: #74236C;
-//             box-shadow: 0 0 0 3px rgba(116, 35, 108, 0.15);
-//         }
-        
-//         .submit-btn {
-//             background: #74236C;
-//             transition: all 0.3s ease;
-//         }
-        
-//         .submit-btn:hover {
-//             background: #5a1a54;
-//             transform: translateY(-2px);
-//             box-shadow: 0 6px 20px rgba(116, 35, 108, 0.3);
-//         }
-        
-//         .award-logo {
-//             transition: all 0.3s ease;
-//             filter: grayscale(100%) brightness(200%);
-//         }
-        
-//         .award-logo:hover {
-//             filter: grayscale(0%) brightness(100%);
-//             transform: scale(1.05);
-//         }
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fade-in-right {
+    from {
+      opacity: 0;
+      transform: translateX(20px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .animate-fade-in-up {
+    animation: fade-in-up 0.6s ease-out forwards;
+  }
+
+  .animate-fade-in-right {
+    animation: fade-in-right 0.6s ease-out forwards;
+  }
