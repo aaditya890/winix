@@ -1,0 +1,13 @@
+.image-container {
+  width: 100%;
+}
+
+.half-width {
+  width: 50% !important;
+  max-width: 50% !important;
+}
+
+img {
+  display: block; /* Ensure no extra space below images */
+  width: 100%; /* Ensure image fills container */
+}
