@@ -842,11 +842,11 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         },
       ],
       highlightImages: [
-        "assets/winix-product-images/t800/t800-1.webp",
-        "assets/winix-product-images/t800/t800-2.webp",
-        "assets/winix-product-images/t800/t800-3.webp",
-        "assets/winix-product-images/t800/t800-4.webp",
-        "assets/winix-product-images/t800/t800-5.webp",
+        "assets/winix-product-images/t810/t810-1.webp",
+        "assets/winix-product-images/t810/t810-2.webp",
+        "assets/winix-product-images/t810/t810-3.webp",
+        "assets/winix-product-images/t810/t810-4.webp",
+        "assets/winix-product-images/t810/t810-5.webp",
       ],
       faqs: [
         {
