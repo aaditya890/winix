@@ -11,3 +11,11 @@ img {
   display: block; /* Ensure no extra space below images */
   width: 100%; /* Ensure image fills container */
 }
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;     /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
+}
