@@ -6,6 +6,7 @@ import { WinixProductCardComponent } from "../winix-product-card/winix-product-c
 import { ReviewCardsComponent } from "../review-cards/review-cards.component";
 import { EnquiryBannerComponent } from "../enquiry-banner/enquiry-banner.component";
 import { VideoShowcaseComponent } from "../video-showcase/video-showcase.component";
+import { ComparisonComponent } from "../comparison/comparison.component";
 
 interface FeatureItem {
   img: string; title: string; desc: string; w: number; h: number;
@@ -14,7 +15,7 @@ interface FeatureItem {
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, NgOptimizedImage, WinixProductCardComponent, EnquiryBannerComponent, VideoShowcaseComponent, ReviewCardsComponent],
+  imports: [CommonModule, NgOptimizedImage, WinixProductCardComponent, EnquiryBannerComponent, VideoShowcaseComponent, ReviewCardsComponent, ComparisonComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })

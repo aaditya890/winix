@@ -1,0 +1,80 @@
+<div class="comparison-container">
+
+      <!-- Header -->
+    <div class="text-left mb-8 sm:mb-10">
+      <!-- <p class="text-xs sm:text-sm text-secondary tracking-[0.2em] uppercase mb-2">Customer Reviews</p> -->
+
+      <h2 class="font-bold leading-tight tracking-tight text-3xl md:text-4xl lg:text-5xl text-[#0e1649]">
+        <span>Air Purifier</span>
+        <span
+          class="ml-2 inline-flex items-center rounded-md bg-gradient-to-r from-[#6a1b6e]/12 to-[#b21e6b]/12  px-2.5 py-1">
+          <span
+            class="font-semibold rounded-md text-white bg-gradient-to-r from-[#74236C] to-[#74236C] px-2 py-1">Comparison</span>
+        </span>
+      </h2>
+      <p class="text-sm md:text-lg text-secondary mt-2">
+        Compare specifications across 13 popular air purifier models
+      </p>
+    </div>
+  <!-- Header Section -->
+  <!-- <div class="header-section">
+    <h1 class="title">Air Purifier Comparison</h1>
+    <p class="subtitle">Compare specifications across 13 popular air purifier models</p>
+  </div> -->
+
+  <!-- Table Container -->
+  <div class="table-wrapper">
+    <table class="comparison-table">
+      <!-- Table Header -->
+      <thead>
+        <tr class="header-row">
+          <th class="category-header">Category</th>
+          <th *ngFor="let model of models; let i = index" class="model-header">
+            <div class="brand-name">{{ brands[i] }}</div>
+            <div class="model-name">{{ model }}</div>
+          </th>
+        </tr>
+      </thead>
+
+      <!-- Table Body -->
+      <tbody>
+        <!-- Image Row -->
+        <tr class="image-row">
+          <td class="category-cell">Image</td>
+          <td *ngFor="let img of imagePaths" class="image-cell">
+            <img [src]="img" alt="">
+          </td>
+        </tr>
+
+        <!-- Model Name Row -->
+        <tr class="model-name-row">
+          <td class="category-cell">Model Name</td>
+          <td *ngFor="let model of models" class="data-cell">
+            <span class="model-value">{{ model }}</span>
+          </td>
+        </tr>
+
+        <!-- Data Rows -->
+        <tr *ngFor="let spec of specifications; let i = index" 
+            [class.alt-row]="i % 2 === 0"
+            class="data-row">
+          
+          <!-- Category Column -->
+          <td class="category-cell">
+            <div class="category-label">{{ spec.category }}</div>
+            <div *ngIf="spec.subcategory && spec.subcategory !== spec.category" class="subcategory-label">
+              {{ spec.subcategory }}
+            </div>
+          </td>
+
+          <!-- Data Columns -->
+          <td *ngFor="let value of spec.values" 
+              class="data-cell"
+              [ngClass]="getHighlightClass(value)">
+            <span class="cell-value">{{ value }}</span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
