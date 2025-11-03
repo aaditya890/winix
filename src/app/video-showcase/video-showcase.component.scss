@@ -46,17 +46,7 @@ video {
   margin: auto;
 }
 
-/* Arrow visibility fix */
-.scroll-arrow {
-  position: fixed;
-  bottom: 1.5rem;
-  right: 1rem;
-  z-index: 9999;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-}
-
-@media (min-width: 769px) {
-  .scroll-arrow {
-    display: none !important;
-  }
+/* Arrow stays inside section */
+button {
+  transition: none;
 }

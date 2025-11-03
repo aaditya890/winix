@@ -12,7 +12,9 @@
           >Reels</span
         >
       </span>
+
       <br class="hidden sm:block" />
+
       <span
         class="mt-1 md:mt-3 mb-3 sm:mt-4 inline-flex items-center gap-2.5 text-sm sm:text-base lg:text-lg font-medium"
       >
@@ -22,6 +24,7 @@
           ></span>
           <span class="relative inline-flex rounded-full h-3 w-3 bg-[#6a1b6e]"></span>
         </span>
+
         <span
           class="inline-flex items-center rounded-full bg-white/60 px-3.5 py-1.5 border border-[#0e1649]/15 text-[#0e1649] backdrop-blur-sm"
         >
@@ -67,24 +70,26 @@
         </div>
       </article>
     </div>
-  </div>
 
-  <!-- 📱 Manual Scroll Button (mobile only) -->
-  <button
-    class="scroll-arrow md:hidden fixed bottom-6 right-4 z-[9999] bg-[#74236C] text-white p-3 rounded-full shadow-xl border border-white/20"
-    (click)="scroll('right')"
-  >
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      class="w-5 h-5"
-      fill="none"
-      viewBox="0 0 24 24"
-      stroke-width="2.5"
-      stroke="currentColor"
-    >
-      <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-    </svg>
-  </button>
+    <!-- 📱 Manual Scroll Button (inside section only for mobile) -->
+    <div class="relative flex justify-end md:hidden px-6 mt-4">
+      <button
+        class="bg-[#74236C] text-white p-3 rounded-full shadow-md border border-white/20"
+        (click)="scroll('right')"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="w-5 h-5"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="2.5"
+          stroke="currentColor"
+        >
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+        </svg>
+      </button>
+    </div>
+  </div>
 
   <!-- ✅ Modal -->
   @if (activeVideo) {
