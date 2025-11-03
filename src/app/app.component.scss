@@ -1,11 +1,55 @@
-@keyframes marquee {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
+/* Container */
+.marquee-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: #74236C;
+  color: #fff;
+  line-height: 1;
+  height: 2.2rem; /* locks layout height */
+  display: flex;
+  align-items: center;
+  user-select: none;
+}
+
+/* Track (moving area) */
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marqueeMove 25s linear infinite;
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+}
+
+/* Pause on hover */
+.marquee-wrapper:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+/* Content blocks */
+.marquee-content {
+  display: flex;
+  gap: 2rem;
+  padding-right: 2rem;
+  font-weight: 700;
+  font-family: sans-serif;
+  white-space: nowrap;
+}
+
+/* Keyframes */
+@keyframes marqueeMove {
+  from {
+    transform: translate3d(0, 0, 0);
   }
-  .animate-marquee {
-    animation: marquee 16s linear infinite;
-    display: inline-flex;
+  to {
+    transform: translate3d(-50%, 0, 0);
   }
-  .group:hover .animate-marquee {
-    animation-play-state: paused;
+}
+
+/* Smooth on mobile */
+@media (max-width: 768px) {
+  .marquee-track {
+    animation-duration: 40s;
   }
+}

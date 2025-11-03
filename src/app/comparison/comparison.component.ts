@@ -24,7 +24,6 @@ interface PurifierModel {
   modelName: string
 }
 
-
 interface PurifierModel {
   name: string
   modelName: string
@@ -79,21 +78,20 @@ export class ComparisonComponent {
   ]
 
   imagePaths = [
-  'assets/comparison-images/winix-zero-compact.jpg',
-  'assets/comparison-images/winix-5300-2.jpg',
-  'assets/comparison-images/winix-5500-2.jpg',
-  'assets/comparison-images/winix-t810.png',
-  'assets/comparison-images/coway-airmega-aim.png',
-  'assets/comparison-images/coway-airmega-150.jpg',
-  'assets/comparison-images/coway-airmega-200.jpg',
-  'assets/comparison-images/honeywell-airtouch-v2.jpg',
-  'assets/comparison-images/xiaomi-mi-4-lite.jpg',
-  'assets/comparison-images/philips-ac0950.jpg',
-  'assets/comparison-images/philips-ac1711.png',
-  'assets/comparison-images/eureka-150.jpg',
-  'assets/comparison-images/sharp-fp-f40e.jpg'
-]
-
+    'assets/comparison-images/winix-zero-compact.jpg',
+    'assets/comparison-images/winix-5300-2.jpg',
+    'assets/comparison-images/winix-5500-2.jpg',
+    'assets/comparison-images/winix-t810.png',
+    'assets/comparison-images/coway-airmega-aim.png',
+    'assets/comparison-images/coway-airmega-150.jpg',
+    'assets/comparison-images/coway-airmega-200.jpg',
+    'assets/comparison-images/honeywell-airtouch-v2.jpg',
+    'assets/comparison-images/xiaomi-mi-4-lite.jpg',
+    'assets/comparison-images/philips-ac0950.jpg',
+    'assets/comparison-images/philips-ac1711.png',
+    'assets/comparison-images/eureka-150.jpg',
+    'assets/comparison-images/sharp-fp-f40e.jpg'
+  ]
 
   specifications: SpecRow[] = [
     {
