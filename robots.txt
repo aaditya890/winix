@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://winixair.in/sitemap.xml
+Sitemap: https://winixindia.in/sitemap.xml

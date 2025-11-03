@@ -6,7 +6,7 @@
   background: #74236C;
   color: #fff;
   line-height: 1;
-  height: 2.2rem; /* locks layout height */
+  height: 2rem;
   display: flex;
   align-items: center;
   user-select: none;
@@ -32,8 +32,8 @@
   display: flex;
   gap: 2rem;
   padding-right: 2rem;
-  font-weight: 700;
-  font-family: sans-serif;
+  font-size: 14px;
+  font-weight: bold;
   white-space: nowrap;
 }
 
@@ -53,3 +53,39 @@
     animation-duration: 40s;
   }
 }
+
+
+// ---------footer
+/* ===== Lazy Footer Animation & Stability ===== */
+section.lazy-footer {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  contain: layout; /* Prevent layout reflow */
+  will-change: opacity, transform;
+  min-height: 70px; /* reserve height to avoid CLS */
+}
+
+/* when footer appears */
+section.lazy-footer.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* links */
+section.lazy-footer a {
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
+}
+
+/* hover color tweak */
+section.lazy-footer a:hover {
+  color: #fff;
+}
+
+/* text */
+section.lazy-footer p {
+  margin-top: 0.5rem;
+  line-height: 1.2;
+}
+

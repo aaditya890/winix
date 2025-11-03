@@ -11,6 +11,7 @@
       <span>Explore Our Latest Air Purification Solutions!</span>
       <span>•</span>
     </div>
+    
     <!-- Duplicate for seamless loop -->
     <div class="marquee-content" aria-hidden="true">
       <span>Award-Winning Excellence: Awwwards Winner 2025!</span>
@@ -150,3 +151,35 @@
   </svg>
 </button>
 
+
+@if (showFooter) {
+ <!-- Mobile-Fixed Footer -->
+<footer class="bg-[#050518] text-white relative overflow-hidden"> <!-- Top Row -->
+  <div class="relative z-10 flex flex-col sm:flex-row justify-between items-center px-4 sm:px-6 py-4 text-sm"> <span
+      class="text-white/70 tracking-wider"> <span class="font-semibold text-white underline cursor-pointer"><a
+          href="https://octatech.in/" target="_blank"></a></span> </span>
+    <div class="flex gap-4 sm:gap-6 mt-2 sm:mt-0"> 
+       <a routerLink="/privacy-policy"
+        class="hover:underline text-white/70 hover:text-white transition-colors duration-300"> Refund & Shipment  </a>
+      <a routerLink="/privacy-policy"
+        class="hover:underline text-white/70 hover:text-white transition-colors duration-300"> Privacy Policy </a>
+         <a
+        routerLink="/terms-and-conditions"
+        class="hover:underline text-white/70 hover:text-white transition-colors duration-300"> Terms & Conditions </a>
+    </div>
+  </div> <!-- Massive Text Section -->
+  <div class="relative footer-gradient"> <!-- Background decoration -->
+    <div class="absolute inset-0 bg-gradient-to-r from-purple-900/5 via-transparent to-blue-900/5"></div>
+    <!-- Subtle grid pattern -->
+    <div class="absolute inset-0 opacity-5">
+      <div class="w-full h-full"
+        style="background-image: radial-gradient(circle, #ffffff 1px, transparent 1px); background-size: 50px 50px;">
+      </div>
+    </div>
+    <div class="relative z-10 px-2 sm:px-4" #footerImage data-lazy-id="footer-img"> <img src="assets/winix-footer1.webp"
+        class="w-full" alt="" loading="lazy" /> </div> <!-- Bottom fade effect -->
+    <div class="absolute bottom-0 left-0 right-0 h-16 sm:h-20 bg-gradient-to-t from-black/30 to-transparent"> </div>
+  </div>
+</footer>
+
+}
