@@ -3,35 +3,39 @@
 
   <!-- Homepage -->
   <url>
-    <loc>https://winixair.in/</loc>
-    <lastmod>2025-08-29</lastmod>
+    <loc>https://winixindia.in/</loc>
+    <lastmod>2025-11-03</lastmod>
     <priority>1.0</priority>
   </url>
 
-  <!-- Products -->
+  <!-- Product Pages -->
   <url>
-    <loc>https://winixair.in/product/winix-5500-2-plasmawave-air-purifier</loc>
-    <lastmod>2025-08-29</lastmod>
+    <loc>https://winixindia.in/product/winix-5500-2-air-purifier</loc>
+    <lastmod>2025-11-03</lastmod>
     <priority>0.9</priority>
   </url>
+
   <url>
-    <loc>https://winixair.in/product/winix-5300-2-true-hepa-air-purifier</loc>
-    <lastmod>2025-08-29</lastmod>
+    <loc>https://winixindia.in/product/winix-5300-2-air-purifier</loc>
+    <lastmod>2025-11-03</lastmod>
     <priority>0.9</priority>
   </url>
+
   <url>
-    <loc>https://winixair.in/product/winix-t810-smart-air-purifier</loc>
-    <lastmod>2025-08-29</lastmod>
+    <loc>https://winixindia.in/product/winix-t810-air-purifier</loc>
+    <lastmod>2025-11-03</lastmod>
     <priority>0.8</priority>
   </url>
+
   <url>
-    <loc>https://winixair.in/product/winix-t500-compact-air-purifier</loc>
-    <lastmod>2025-08-29</lastmod>
+    <loc>https://winixindia.in/product/winix-t500-air-purifier</loc>
+    <lastmod>2025-11-03</lastmod>
     <priority>0.8</priority>
   </url>
+
   <url>
-    <loc>https://winixair.in/product/winix-a231-compact-air-purifier</loc>
-    <lastmod>2025-08-29</lastmod>
+    <loc>https://winixindia.in/product/winix-a231-air-purifier</loc>
+    <lastmod>2025-11-03</lastmod>
     <priority>0.8</priority>
   </url>
 

@@ -35,22 +35,22 @@
 }
 
 /* ===== Optional Dark Mode (toggle with [data-theme="dark"]) ===== */
-:root[data-theme="dark"] {
-  --color-primary: 0 0% 95%;         /* Light text on dark bg */
-  --color-secondary: 0 0% 70%;       /* Secondary text */
-  --color-primary-surface: 0 70% 12%;/* Dark red background */
-  --color-primary-dark: 0 80% 8%;    /* Even darker red bg */
+// :root[data-theme="dark"] {
+//   --color-primary: 0 0% 95%;         /* Light text on dark bg */
+//   --color-secondary: 0 0% 70%;       /* Secondary text */
+//   --color-primary-surface: 0 70% 12%;/* Dark red background */
+//   --color-primary-dark: 0 80% 8%;    /* Even darker red bg */
 
-  /* Red accents */
-  --accent-primary: 0 75% 40%;       /* Strong dark red */
-  --accent-secondary: 0 65% 55%;     /* Softer red accent */
+//   /* Red accents */
+//   --accent-primary: 0 75% 40%;       /* Strong dark red */
+//   --accent-secondary: 0 65% 55%;     /* Softer red accent */
 
-  --gradient-hero: linear-gradient(
-    135deg,
-    hsl(var(--accent-secondary)) 0%,
-    hsl(var(--accent-primary)) 100%
-  );
-}
+//   --gradient-hero: linear-gradient(
+//     135deg,
+//     hsl(var(--accent-secondary)) 0%,
+//     hsl(var(--accent-primary)) 100%
+//   );
+// }
 
 
 /* ===== Handy Aliases (your preferred naming) ===== */
@@ -64,21 +64,7 @@
 .bg-pri       { background-color: hsl(var(--accent-primary)); }
 .bg-pri-2     { background-color: hsl(var(--accent-secondary)); }
 .bg-surface   { background-color: hsl(var(--color-primary-surface)); }
-.bg-dark      { background-color: hsl(var(--color-primary-dark)); }
-
-/* gradients */
-.bg-hero      { background: var(--gradient-hero); }
 .bg-accent    { background: var(--gradient-accent); }
-
-/* borders */
-.border-muted { border-color: hsl(var(--color-border)); }
-
-/* shadows */
-.shadow-soft  { box-shadow: 0 8px 30px rgba(0,0,0,.06); }
-
-/* radius */
-.rounded-xl2  { border-radius: 14px; }
-
 /* utility helpers */
 .btn-primary {
   @apply px-6 py-3 rounded-full font-semibold transition-colors duration-300;
@@ -87,11 +73,7 @@
 }
 .btn-primary:hover { background-color: hsl(var(--accent-secondary)); }
 
-/* (Optional) make headings use heading font */
-h1,h2,h3,h4,h5,h6 { 
-  font-family: theme('fontFamily.heading');
 
-}
 body { font-family: theme('fontFamily.sans'); }
 html { scroll-behavior: smooth; }
 

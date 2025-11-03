@@ -14,46 +14,4 @@ search btn
 tap to shop
 btns
 
-  <!-- Peeking 3-slide banner -->
-    <section id="banner" class="mt-16">
-      <div class="overflow-x-auto snap-x snap-mandatory scroll-smooth
-           [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
-        <!-- track: gap rakho taaki next slide peek ho -->
-        <div class="flex items-stretch gap-4 px-4">
-          <!-- optional left spacer so first card left se chipke nahin -->
-          <div class="shrink-0 basis-1 sm:basis-2"></div>
 
-          <!-- Slide 1 (dynamic / fallback) -->
-          <figure class="shrink-0 snap-start basis-[88%] sm:basis-[86%] md:basis-[80%] lg:basis-[76%]">
-            <!-- [src]="bottomBannerSrc || 'assets/banners/bottom-1.jpg'" -->
-            <img
-              src="https://static.vecteezy.com/system/resources/previews/003/085/046/non_2x/colorful-abstract-banner-template-with-dummy-text-hand-drawn-doodle-vector.jpg"
-              alt="Product banner 1" class="block w-full h-full object-cover rounded-2xl shadow-md" loading="lazy" />
-          </figure>
-
-          <!-- Slide 2 -->
-          <figure class="shrink-0 snap-start basis-[88%] sm:basis-[86%] md:basis-[80%] lg:basis-[76%]">
-            <img src="https://as1.ftcdn.net/jpg/03/25/36/08/1000_F_325360843_cnLuBFHCwjhrg9ZDhjtvPlnSGvVBHflk.jpg"
-              alt="Product banner 2" class="block w-full h-full object-cover rounded-2xl shadow-md" loading="lazy" />
-          </figure>
-
-          <!-- Slide 3 -->
-          <figure class="shrink-0 snap-start basis-[88%] sm:basis-[86%] md:basis-[80%] lg:basis-[76%]">
-            <img
-              src="https://static.vecteezy.com/system/resources/previews/003/085/046/non_2x/colorful-abstract-banner-template-with-dummy-text-hand-drawn-doodle-vector.jpg"
-              alt="Product banner 3" class="block w-full h-full object-cover rounded-2xl shadow-md" loading="lazy" />
-          </figure>
-
-          <!-- optional right spacer so last card bhi ache se dikhe -->
-          <div class="shrink-0 basis-1 sm:basis-2"></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="mt-10">
-      <div class="rounded-3xl border border-black overflow-hidden flex justify-center items-center">
-        <img src="https://nuuk.in/cdn/shop/files/3_6b2b2e9e-2284-44b3-b302-5f7185e35554.jpg?v=1744643675"
-          alt="Section banner 1" loading="lazy" decoding="async" class="block w-full h-full object-cover" />
-        <!-- <p class="text-xl text-red-600 font-bold">We can add Banner/Showcase images here with our preferred height and width</p> -->
-      </div>
-    </section>
