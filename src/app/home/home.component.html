@@ -1,17 +1,24 @@
-<section class="relative h-screen overflow-hidden">
-  <div class="absolute inset-0">
-    <video class="w-full h-full object-cover" [autoplay]="true" [muted]="true" [loop]="true" playsinline
-      preload="metadata">
-            <source src="assets/video/winix-hero.webm" type="video/mp4">
-    </video>
+<section class="relative overflow-hidden">
+  <div class="relative w-full">
+    <img
+      src="https://img.freepik.com/free-psd/black-friday-super-sale-facebook-cover-banner-template_106176-4488.jpg?t=st=1762252097~exp=1762255697~hmac=4dcd0c9e776d0e9b9bace5bbecddf7d9a4c2192a0f18ed3eebf8a409b6db4756&w=1480"
+      alt="WINIX Black Friday Banner"
+      class="w-full h-auto md:h-[85vh] object-contain md:object-cover object-center"
+    />
   </div>
 
-  <div class="absolute inset-0 bg-black bg-opacity-20"></div>
-  <div class="relative z-10 h-full flex items-center justify-center text-center">
+  <!-- Optional overlay -->
+  <div class="absolute inset-0 bg-black/10"></div>
+
+  <!-- Content -->
+  <div
+    class="absolute inset-0 flex items-center justify-center text-center pointer-events-none">
     <div class="max-w-2xl mx-auto px-4">
+      <!-- Your heading/buttons here -->
     </div>
   </div>
 </section>
+
 
 
 <div id="REELS" class="h-0"></div>

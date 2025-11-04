@@ -73,11 +73,9 @@ export class HomeComponent {
   scrollTo(id: string) {
     const target = document.getElementById(id);
     if (!target) return;
-
-    // sticky header ki actual height le lo (desktop/mobile dono me theek rahe)
     const header = document.querySelector('header') as HTMLElement | null;
-    const headerOffset = header?.offsetHeight ?? 72;   // adjust if needed
-    const extraGap = 8;                                // thoda sa breathing space
+    const headerOffset = header?.offsetHeight ?? 72;   
+    const extraGap = 8;                                
     const y = target.getBoundingClientRect().top + window.pageYOffset - headerOffset - extraGap;
 
     window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
