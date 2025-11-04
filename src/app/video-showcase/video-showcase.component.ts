@@ -1,4 +1,5 @@
 import {
+  AfterViewInit,
   Component,
   ElementRef,
   QueryList,
@@ -20,39 +21,39 @@ interface VideoItem {
   templateUrl: './video-showcase.component.html',
   styleUrls: ['./video-showcase.component.scss'],
 })
-export class VideoShowcaseComponent {
+export class VideoShowcaseComponent implements AfterViewInit {
   @ViewChild('trackRef', { static: true }) trackRef!: ElementRef<HTMLElement>;
   @ViewChildren('videoEl') videos!: QueryList<ElementRef<HTMLVideoElement>>;
 
   items: VideoItem[] = [
     {
       src: 'assets/reels/1.mp4',
-      poster: 'assets/thumbnails/1.png',
+      poster: 'assets/thumbnails/1.webp',
       title: 'WINIX ZERO COMPACT',
     },
     {
       src: 'assets/reels/2.mp4',
-      poster: 'assets/thumbnails/2.png',
+      poster: 'assets/thumbnails/2.webp',
       title: 'WINIX T810',
     },
     {
       src: 'assets/reels/3.mp4',
-      poster: 'assets/thumbnails/3.png',
+      poster: 'assets/thumbnails/3.webp',
       title: 'WINIX 5500-2',
     },
     {
       src: 'assets/reels/4.mp4',
-      poster: 'assets/thumbnails/4.png',
+      poster: 'assets/thumbnails/4.webp',
       title: 'WINIX A231',
     },
     {
       src: 'assets/reels/5.mp4',
-      poster: 'assets/thumbnails/5.png',
+      poster: 'assets/thumbnails/5.webp',
       title: 'WINIX SMART SERIES',
     },
     {
       src: 'assets/reels/6.mp4',
-      poster: 'assets/thumbnails/6.png',
+      poster: 'assets/thumbnails/6.webp',
       title: 'PLASMAWAVE TECHNOLOGY',
     },
   ];
@@ -61,6 +62,27 @@ export class VideoShowcaseComponent {
   private isDown = false;
   private startX = 0;
   private startLeft = 0;
+
+
+   ngAfterViewInit() {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const img = entry.target as HTMLImageElement;
+          const src = img.dataset['src'];
+          if (src) {
+            img.src = src;
+            observer.unobserve(img);
+          }
+        }
+      });
+    }, { rootMargin: '200px' }); // preloads when 200px near viewport
+
+    // Observe each image
+    const imgs = document.querySelectorAll('img[data-src]');
+    imgs.forEach(img => observer.observe(img));
+  }
+
 
   openVideoModal(video: VideoItem) {
     this.activeVideo = video;

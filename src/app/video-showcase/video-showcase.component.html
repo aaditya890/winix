@@ -1,36 +1,25 @@
 <section class="py-10 md:py-20 overflow-x-hidden relative">
   <div class="px-4 sm:px-6 lg:px-8 group">
-    <h2
-      class="font-bold leading-tight tracking-tight text-3xl md:text-4xl lg:text-5xl text-[#0e1649]"
-    >
+    <h2 class="font-bold leading-tight tracking-tight text-3xl md:text-4xl lg:text-5xl text-[#0e1649]">
       <span>Trending on</span>
       <span
-        class="ml-2 inline-flex items-center rounded-md bg-gradient-to-r from-[#6a1b6e]/12 to-[#b21e6b]/12 px-2.5 py-1"
-      >
+        class="ml-2 inline-flex items-center rounded-md bg-gradient-to-r from-[#6a1b6e]/12 to-[#b21e6b]/12 px-2.5 py-1">
         <span
-          class="font-semibold rounded-sm text-white bg-gradient-to-r from-[#74236C] to-[#74236C] px-2 py-0.5"
-          >Reels</span
-        >
+          class="font-semibold rounded-sm text-white bg-gradient-to-r from-[#74236C] to-[#74236C] px-2 py-0.5">Reels</span>
       </span>
 
       <br class="hidden sm:block" />
 
       <span
-        class="mt-1 md:mt-3 mb-3 sm:mt-4 inline-flex items-center gap-2.5 text-sm sm:text-base lg:text-lg font-medium"
-      >
+        class="mt-1 md:mt-3 mb-3 sm:mt-4 inline-flex items-center gap-2.5 text-sm sm:text-base lg:text-lg font-medium">
         <span class="relative flex h-3 w-3">
-          <span
-            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#6a1b6e]/35"
-          ></span>
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#6a1b6e]/35"></span>
           <span class="relative inline-flex rounded-full h-3 w-3 bg-[#6a1b6e]"></span>
         </span>
 
         <span
-          class="inline-flex items-center rounded-full bg-white/60 px-3.5 py-1.5 border border-[#0e1649]/15 text-[#0e1649] backdrop-blur-sm"
-        >
-          <a href="https://www.instagram.com/winixamerica/" target="_blank"
-            >Tap to visit</a
-          >
+          class="inline-flex items-center rounded-full bg-white/60 px-3.5 py-1.5 border border-[#0e1649]/15 text-[#0e1649] backdrop-blur-sm">
+          <a href="https://www.instagram.com/winixamerica/" target="_blank">Tap to visit</a>
         </span>
       </span>
     </h2>
@@ -38,33 +27,21 @@
 
   <!-- 🔹 Horizontal scroller -->
   <div class="relative -mx-4 sm:-mx-6 lg:-mx-8">
-    <div
-      #trackRef
+    <div #trackRef
       class="no-scrollbar mt-4 flex gap-3 md:gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth select-none touch-pan cursor-grab px-4 sm:px-6 lg:px-8"
-      (wheel)="onWheel($event)"
-      (pointerdown)="onPointerDown($event)"
-      (pointermove)="onPointerMove($event)"
-      (pointerup)="onPointerUp()"
-      (mouseleave)="onPointerUp()"
-    >
-      <article
-        *ngFor="let v of items"
+      (wheel)="onWheel($event)" (pointerdown)="onPointerDown($event)" (pointermove)="onPointerMove($event)"
+      (pointerup)="onPointerUp()" (mouseleave)="onPointerUp()">
+      <article *ngFor="let v of items"
         class="relative shrink-0 snap-start w-[64vw] xs:w-[58vw] sm:w-[48vw] md:w-[36vw] lg:w-[240px] xl:w-[260px] 2xl:w-[280px] rounded-2xl overflow-hidden bg-white shadow-lg"
-        (click)="openVideoModal(v)"
-      >
+        (click)="openVideoModal(v)">
         <div class="relative aspect-[9/16] bg-gray-100">
-          <img
-            [src]="v.poster"
-            alt="Video thumbnail"
-            class="absolute inset-0 w-full h-full object-cover"
-            loading="lazy"
-          />
+          <img [attr.data-src]="v.poster" alt="Video thumbnail" class="absolute inset-0 w-full h-full object-cover"
+            loading="lazy" />
+
           <div
-            class="absolute inset-x-0 bottom-0 h-16 md:h-20 bg-gradient-to-b from-transparent via-[#1B1E5E]/80 to-[#792C82]/90"
-          ></div>
-          <div
-            class="absolute bottom-2 left-3 right-3 text-white font-extrabold text-sm sm:text-base drop-shadow"
-          >
+            class="absolute inset-x-0 bottom-0 h-16 md:h-20 bg-gradient-to-b from-transparent via-[#1B1E5E]/80 to-[#792C82]/90">
+          </div>
+          <div class="absolute bottom-2 left-3 right-3 text-white font-extrabold text-sm sm:text-base drop-shadow">
             {{ v.title }}
           </div>
         </div>
@@ -73,66 +50,34 @@
 
     <!-- 📱 Manual Scroll Button (inside section only for mobile) -->
     <div class="relative flex justify-end md:hidden px-6 mt-4">
-      <button
-  aria-label="Scroll to next video"
-  class="bg-[#74236C] text-white p-3 rounded-full shadow-md border border-white/20"
-  (click)="scroll('right')"
->
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    class="w-5 h-5"
-    fill="none"
-    viewBox="0 0 24 24"
-    stroke-width="2.5"
-    stroke="currentColor"
-    aria-hidden="true"
-  >
-    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-  </svg>
-</button>
+      <button aria-label="Scroll to next video"
+        class="bg-[#74236C] text-white p-3 rounded-full shadow-md border border-white/20" (click)="scroll('right')">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="2.5"
+          stroke="currentColor" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+        </svg>
+      </button>
 
     </div>
   </div>
 
   <!-- ✅ Modal -->
   @if (activeVideo) {
-  <div
-    class="fixed inset-0 z-[9998] flex items-center justify-center bg-black/80 backdrop-blur-sm animate-fadeIn"
-    (click)="closeModal()"
-  >
+  <div class="fixed inset-0 z-[9998] flex items-center justify-center bg-black/80 backdrop-blur-sm animate-fadeIn"
+    (click)="closeModal()">
     <!-- 🔹 Cross OUTSIDE video container -->
-    <button
-      (click)="closeModal()"
-      class="absolute top-6 right-6 md:top-8 md:right-10 bg-white rounded-full w-12 h-12 flex items-center justify-center shadow-lg border border-gray-200 z-[10000]"
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke-width="2.5"
-        stroke="currentColor"
-        class="w-6 h-6 text-gray-800"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          d="M6 18L18 6M6 6l12 12"
-        />
+    <button (click)="closeModal()"
+      class="absolute top-6 right-6 md:top-8 md:right-10 bg-white rounded-full w-12 h-12 flex items-center justify-center shadow-lg border border-gray-200 z-[10000]">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"
+        class="w-6 h-6 text-gray-800">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
       </svg>
     </button>
 
     <!-- 🔹 Centered Video -->
-    <div
-      class="relative animate-scaleUp rounded-[20px] overflow-hidden"
-      (click)="$event.stopPropagation()"
-    >
-      <video
-        [src]="activeVideo.src"
-        autoplay
-        controls
-        playsinline
-        class="w-[82vw] max-w-[360px] md:max-w-[420px] aspect-[9/16] rounded-[20px] object-cover shadow-2xl"
-      ></video>
+    <div class="relative animate-scaleUp rounded-[20px] overflow-hidden" (click)="$event.stopPropagation()">
+      <video [src]="activeVideo.src" autoplay controls playsinline
+        class="w-[82vw] max-w-[360px] md:max-w-[420px] aspect-[9/16] rounded-[20px] object-cover shadow-2xl"></video>
     </div>
   </div>
   }
