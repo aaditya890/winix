@@ -27,6 +27,15 @@ export class HomeComponent {
   showBar = true;
   isMobileOpen = false;
 
+    banners: string[] = [
+    'assets/1.png',
+    'assets/2.png',
+    'assets/3.png'
+  ];
+
+  currentIndex = 0;
+  private intervalId?: any;
+
   // ===== Features =====
   features: FeatureItem[] = [
     { img: 'assets/features/1.webp', title: 'warranty', desc: 'Comprehensive 2 year warranty covers repairs, replacements, and reliable product protection.', w: 112, h: 112 },
@@ -88,6 +97,35 @@ export class HomeComponent {
     const phone = "+918885241706";
     const whatsappUrl = `https://api.whatsapp.com/send?phone=${phone}&text=${message}`;
     window.open(whatsappUrl, '_blank');
+  }
+
+  ngOnInit() {
+    this.startAutoSlide();
+  }
+
+
+  ngOnDestroy() {
+    this.stopAutoSlide();
+  }
+
+  startAutoSlide() {
+    this.intervalId = setInterval(() => {
+      this.nextSlide();
+    }, 4000); // every 4 seconds
+  }
+
+  stopAutoSlide() {
+    if (this.intervalId) clearInterval(this.intervalId);
+  }
+
+  nextSlide() {
+    this.currentIndex = (this.currentIndex + 1) % this.banners.length;
+  }
+
+  goToSlide(index: any) {
+    this.currentIndex = index;
+    this.stopAutoSlide();
+    this.startAutoSlide(); // restart timer after manual change
   }
 
 }
