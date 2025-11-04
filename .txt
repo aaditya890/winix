@@ -16,3 +16,55 @@ btns
 
 
 logo on video 
+
+
+
+videoo-
+<section class="relative overflow-hidden">
+  <div class="relative w-full">
+    <video
+      src="assets/sample.mp4"
+      [autoplay]="true"
+      muted
+      [loop]="true"
+      playsinline
+      preload="metadata"
+      class="w-full h-auto md:h-[85vh] object-contain md:object-cover object-center"
+    ></video>
+  </div>
+
+  <!-- Optional overlay -->
+  <div class="absolute inset-0 bg-black/10"></div>
+
+  <!-- Optional text or button layer -->
+  <div
+    class="absolute inset-0 flex items-center justify-center text-center pointer-events-none">
+    <div class="max-w-2xl mx-auto px-4">
+      <!-- Example text (remove if not needed) -->
+      <!-- <h1 class="text-white text-3xl md:text-5xl font-bold">Black Friday Offer</h1> -->
+    </div>
+  </div>
+</section>
+
+
+img --
+<!-- <section class="relative overflow-hidden">
+  <div class="relative w-full">
+    <img
+      src="https://img.freepik.com/free-psd/black-friday-super-sale-facebook-cover-banner-template_106176-4488.jpg?t=st=1762252097~exp=1762255697~hmac=4dcd0c9e776d0e9b9bace5bbecddf7d9a4c2192a0f18ed3eebf8a409b6db4756&w=1480"
+      alt="WINIX Black Friday Banner"
+      class="w-full h-auto md:h-[85vh] object-contain md:object-cover object-center"
+    />
+  </div>
+
+
+  <div class="absolute inset-0 bg-black/10"></div>
+
+
+  <div
+    class="absolute inset-0 flex items-center justify-center text-center pointer-events-none">
+    <div class="max-w-2xl mx-auto px-4">
+     
+    </div>
+  </div>
+</section> -->
