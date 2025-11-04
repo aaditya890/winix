@@ -74,20 +74,23 @@
     <!-- 📱 Manual Scroll Button (inside section only for mobile) -->
     <div class="relative flex justify-end md:hidden px-6 mt-4">
       <button
-        class="bg-[#74236C] text-white p-3 rounded-full shadow-md border border-white/20"
-        (click)="scroll('right')"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="w-5 h-5"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke-width="2.5"
-          stroke="currentColor"
-        >
-          <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-        </svg>
-      </button>
+  aria-label="Scroll to next video"
+  class="bg-[#74236C] text-white p-3 rounded-full shadow-md border border-white/20"
+  (click)="scroll('right')"
+>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    class="w-5 h-5"
+    fill="none"
+    viewBox="0 0 24 24"
+    stroke-width="2.5"
+    stroke="currentColor"
+    aria-hidden="true"
+  >
+    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+  </svg>
+</button>
+
     </div>
   </div>
 

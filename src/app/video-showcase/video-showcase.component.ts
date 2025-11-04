@@ -27,32 +27,32 @@ export class VideoShowcaseComponent {
   items: VideoItem[] = [
     {
       src: 'assets/reels/1.mp4',
-      poster: 'assets/reels/poster1.webp',
+      poster: 'assets/thumbnails/1.png',
       title: 'WINIX ZERO COMPACT',
     },
     {
       src: 'assets/reels/2.mp4',
-      poster: 'assets/reels/poster2.webp',
+      poster: 'assets/thumbnails/2.png',
       title: 'WINIX T810',
     },
     {
       src: 'assets/reels/3.mp4',
-      poster: 'assets/reels/poster3.webp',
+      poster: 'assets/thumbnails/3.png',
       title: 'WINIX 5500-2',
     },
     {
       src: 'assets/reels/4.mp4',
-      poster: 'assets/reels/poster4.webp',
+      poster: 'assets/thumbnails/4.png',
       title: 'WINIX A231',
     },
     {
       src: 'assets/reels/5.mp4',
-      poster: 'assets/reels/poster5.webp',
+      poster: 'assets/thumbnails/5.png',
       title: 'WINIX SMART SERIES',
     },
     {
       src: 'assets/reels/6.mp4',
-      poster: 'assets/reels/poster6.webp',
+      poster: 'assets/thumbnails/6.png',
       title: 'PLASMAWAVE TECHNOLOGY',
     },
   ];
