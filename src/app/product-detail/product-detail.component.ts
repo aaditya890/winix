@@ -5,7 +5,7 @@ import { filter, first } from "rxjs"
 
 interface Product {
   id: number
-  productUrl:string
+  productUrl: string
   name: string
   shortName: string
   slug: string
@@ -26,7 +26,7 @@ interface Product {
   awardType?: string
   price?: string
   mrp?: string
-  topReview:string
+  topReview: string
   detailedSpecs?: {
     dimensions: string
     weight: string
@@ -45,7 +45,7 @@ interface Product {
     indicators: string[]
   }
   productReviews: Review[],
-  highlightImages:string[],
+  highlightImages: string[],
   faqs: FAQ[]
 }
 
@@ -79,6 +79,9 @@ type FAQ = {
 export class ProductDetailComponent implements OnInit, OnDestroy {
   product: Product | null = null
   currentImageIndex = 0
+  zoomStyle: Record<string, string> = {};
+  dialogZoomStyle: Record<string, string> = {};
+  dialogOpen = false;
   imageInterval?: any
   isLoading = true
   bottomBannerSrc: string | null = null
@@ -112,11 +115,11 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
   }
 
 
-  
+
   products: Product[] = [
     {
       id: 1,
-      productUrl:"https://www.amazon.in/Winix-Small-Tower-A231-Purifier/dp/B08HW5SBQ6/ref=sr_1_1_sspa?crid=3E4UW6KQS1IHL&dib=eyJ2IjoiMSJ9.nyrDct4QLbf6J4nB4JwHKdswXh_KKQKMAuEv-AlXIBI.39zb7Frm_88rf20XFP4m78D_BdJfBpTFCAvaG-7-It4&dib_tag=se&keywords=winix%2Ba231&qid=1758281141&sprefix=winix%2Ba231%2Caps%2C246&sr=8-1-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1 ",
+      productUrl: "https://www.amazon.in/Winix-Small-Tower-A231-Purifier/dp/B08HW5SBQ6/ref=sr_1_1_sspa?crid=3E4UW6KQS1IHL&dib=eyJ2IjoiMSJ9.nyrDct4QLbf6J4nB4JwHKdswXh_KKQKMAuEv-AlXIBI.39zb7Frm_88rf20XFP4m78D_BdJfBpTFCAvaG-7-It4&dib_tag=se&keywords=winix%2Ba231&qid=1758281141&sprefix=winix%2Ba231%2Caps%2C246&sr=8-1-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1 ",
       slug: "winix-a231-air-purifier",
       name: "WINIX A231 Premium 4-Stage Air Purifier",
       shortName: "A231 Compact",
@@ -127,7 +130,6 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         "assets/products/A231/product-2.jpg",
         "assets/products/A231/product-3.jpg",
         "assets/products/A231/product-4.jpg",
-        "assets/products/A231/product-5.jpg",
         "assets/products/A231/product-5.jpg",
       ],
       currentImage: "assets/products/A231/product-1.jpg",
@@ -151,7 +153,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       awardType: "UK Allergy • ECARF • AHAM",
       price: "₹9,999",
       mrp: "₹18,990",
-      topReview:'36K',
+      topReview: '36K',
       detailedSpecs: {
         dimensions: "24D x 24W x 37H cm",
         weight: "3.22 kg",
@@ -308,7 +310,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
     },
     {
       id: 2,
-      productUrl:"https://www.amazon.in/Winix-5300-2-Purifier-PlasmaWave-Reducing/dp/B01D8DAYBA/ref=sr_1_1_sspa?crid=13CBVJUQ98R7R&dib=eyJ2IjoiMSJ9.Kp26yzZ_O7yzCqZVio4eM8X0lDXtjI4IfNuutcBiDJOGikTLEumjQeBFs12phlwA1fPcueTVaqVD8kvlO0LzVS3kqv8EVjfipAZbFaTS5M-faaYKj7ZDocTv-YUva276h32vcS85_jaCvZc6TWJgbzlg8wqQrXuCTGNgpPEjCj3-OCVrHK5852_MkjQt8IMCLWO3KgPNN05ZgwuShB8-ppE3Za8j8rnNwQMBmf6tkX0.FtKqwonycx94L0Lbr2GqcBMCiLTMC1vheZeg9izAgPM&dib_tag=se&keywords=winix%2B5500-2%2Bair%2Bpurifier&nsdOptOutParam=true&qid=1758281186&sprefix=winix%2B5500-2%2B%2Caps%2C317&sr=8-1-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1 ",
+      productUrl: "https://www.amazon.in/Winix-5300-2-Purifier-PlasmaWave-Reducing/dp/B01D8DAYBA/ref=sr_1_1_sspa?crid=13CBVJUQ98R7R&dib=eyJ2IjoiMSJ9.Kp26yzZ_O7yzCqZVio4eM8X0lDXtjI4IfNuutcBiDJOGikTLEumjQeBFs12phlwA1fPcueTVaqVD8kvlO0LzVS3kqv8EVjfipAZbFaTS5M-faaYKj7ZDocTv-YUva276h32vcS85_jaCvZc6TWJgbzlg8wqQrXuCTGNgpPEjCj3-OCVrHK5852_MkjQt8IMCLWO3KgPNN05ZgwuShB8-ppE3Za8j8rnNwQMBmf6tkX0.FtKqwonycx94L0Lbr2GqcBMCiLTMC1vheZeg9izAgPM&dib_tag=se&keywords=winix%2B5500-2%2Bair%2Bpurifier&nsdOptOutParam=true&qid=1758281186&sprefix=winix%2B5500-2%2B%2Caps%2C317&sr=8-1-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1 ",
       slug: "winix-5300-2-air-purifier",
       name: "WINIX 5300-2 Premium 4-Stage Air Purifier",
       shortName: "5300-2 Premium",
@@ -342,7 +344,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       awardType: "Triple Certified (UK Allergy, ECARF, AHAM)",
       price: "₹15,199",
       mrp: "₹23,990",
-       topReview:'39K',
+      topReview: '39K',
       detailedSpecs: {
         dimensions: "5D x 37W x 49H cm",
         weight: "6.71 kg",
@@ -463,7 +465,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         "assets/winix-product-images/t5300-2/t5300-3.webp",
         "assets/winix-product-images/t5300-2/t5300-4.webp",
         "assets/winix-product-images/t5300-2/t5300-5.webp",
-      ],
+      ],
       faqs: [
         {
           q: "Is it quiet enough for night use?",
@@ -499,7 +501,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
     },
     {
       id: 3,
-      productUrl:"https://www.amazon.in/Winix-5500-2-Purifier-PlasmaWave-Reducing/dp/B01D8DAYII/ref=sr_1_3?crid=13CBVJUQ98R7R&dib=eyJ2IjoiMSJ9.Kp26yzZ_O7yzCqZVio4eM8X0lDXtjI4IfNuutcBiDJOGikTLEumjQeBFs12phlwA1fPcueTVaqVD8kvlO0LzVS3kqv8EVjfipAZbFaTS5M-faaYKj7ZDocTv-YUva276h32vcS85_jaCvZc6TWJgbzlg8wqQrXuCTGNgpPEjCj3-OCVrHK5852_MkjQt8IMCLWO3KgPNN05ZgwuShB8-ppE3Za8j8rnNwQMBmf6tkX0.FtKqwonycx94L0Lbr2GqcBMCiLTMC1vheZeg9izAgPM&dib_tag=se&keywords=winix%2B5500-2%2Bair%2Bpurifier&nsdOptOutParam=true&qid=1758281186&sprefix=winix%2B5500-2%2B%2Caps%2C317&sr=8-3&th=1 ",
+      productUrl: "https://www.amazon.in/Winix-5500-2-Purifier-PlasmaWave-Reducing/dp/B01D8DAYII/ref=sr_1_3?crid=13CBVJUQ98R7R&dib=eyJ2IjoiMSJ9.Kp26yzZ_O7yzCqZVio4eM8X0lDXtjI4IfNuutcBiDJOGikTLEumjQeBFs12phlwA1fPcueTVaqVD8kvlO0LzVS3kqv8EVjfipAZbFaTS5M-faaYKj7ZDocTv-YUva276h32vcS85_jaCvZc6TWJgbzlg8wqQrXuCTGNgpPEjCj3-OCVrHK5852_MkjQt8IMCLWO3KgPNN05ZgwuShB8-ppE3Za8j8rnNwQMBmf6tkX0.FtKqwonycx94L0Lbr2GqcBMCiLTMC1vheZeg9izAgPM&dib_tag=se&keywords=winix%2B5500-2%2Bair%2Bpurifier&nsdOptOutParam=true&qid=1758281186&sprefix=winix%2B5500-2%2B%2Caps%2C317&sr=8-3&th=1 ",
       slug: "winix-5500-2-air-purifier",
       name: "WINIX 5500-2 Air Purifier • True HEPA, PlasmaWave & Washable AOC Carbon",
       shortName: "5500-2 Elite",
@@ -533,7 +535,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       awardType: "Editor's Choice 2024",
       price: "₹16,149",
       mrp: "₹24,990",
-       topReview:'39k',
+      topReview: '39k',
       detailedSpecs: {
         dimensions: "19.8D x 37.8W x 59.9H cm",
         weight: "6.7 kg",
@@ -654,7 +656,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         "assets/winix-product-images/t5500-2/t5500-3.webp",
         "assets/winix-product-images/t5500-2/t5500-4.webp",
         "assets/winix-product-images/t5500-2/t5500-5.webp",
-      ],
+      ],
       faqs: [
         {
           q: "Is it quiet enough for bedrooms?",
@@ -690,7 +692,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
     },
     {
       id: 4,
-      productUrl:"#",
+      productUrl: "#",
       slug: "winix-t810-air-purifier",
       name: "WINIX T810 Air Purifier for Home Extra Large Room",
       shortName: "T810",
@@ -728,7 +730,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       awardType: "AHAM • CARB • Energy Star • FCC • UL Certified",
       price: "₹19,100",
       mrp: "₹20,850",
-       topReview:'165',
+      topReview: '165',
       detailedSpecs: {
         dimensions: "28.7D x 28.7W x 51.8H cm (11.3\"D x 11.3\"W x 20.4\"H)",
         weight: "4.7 kg (10.4 lbs)",
@@ -860,7 +862,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         "assets/winix-product-images/t810/t810-3.webp",
         "assets/winix-product-images/t810/t810-4.webp",
         "assets/winix-product-images/t810/t810-5.webp",
-      ],
+      ],
       faqs: [
         {
           q: "Does it support Wi-Fi or app control?",
@@ -896,7 +898,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
     },
     {
       id: 5,
-      productUrl:"https://www.amazon.in/dp/B0FQBSFWRJ",
+      productUrl: "https://www.amazon.in/dp/B0FQBSFWRJ",
       slug: "winix-t500-air-purifier",
       name: "WINIX T500 360° 4-Stage True HEPA WiFi Air Purifier with PlasmaWave®",
       shortName: "T500",
@@ -907,7 +909,6 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         "assets/products/T500/product-2.webp",
         "assets/products/T500/product-3.webp",
         "assets/products/T500/product-4.webp",
-        "assets/products/T500/product-5.webp",
         "assets/products/T500/product-5.webp",
       ],
       currentImage: "assets/products/T500/product-1.jpg",
@@ -935,7 +936,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       awardType: "AHAM Certified",
       price: "12,999", // price not shown in screenshots
       mrp: "16,999",
-       topReview:'249',
+      topReview: '249',
       detailedSpecs: {
         dimensions: "24.1W x 24.1D x 37.1H cm (9.5\" x 9.5\" x 14.6\")",
         weight: "3.0 kg (6.7 lbs)",
@@ -1060,7 +1061,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         "assets/winix-product-images/t500/t500-3.webp",
         "assets/winix-product-images/t500/t500-4.webp",
         "assets/winix-product-images/t500/t500-5.webp",
-      ],
+      ],
       faqs: [
         {
           q: "What is the recommended room size?",
@@ -1108,9 +1109,57 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
     })
   }
 
+   // --- Inline Zoom ---
+  onMouseMove(e: MouseEvent) {
+    const target = e.target as HTMLElement;
+    const rect = target.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width) * 100;
+    const y = ((e.clientY - rect.top) / rect.height) * 100;
 
+    this.zoomStyle = {
+      transformOrigin: `${x}% ${y}%`,
+      transform: 'scale(2)',
+      cursor: 'zoom-in',
+    };
+  }
 
- goToReels(): void {
+  onMouseLeave() {
+    this.zoomStyle = { transform: 'scale(1)', cursor: 'default' };
+  }
+
+  // --- Dialog Logic ---
+  openDialog() {
+    this.dialogOpen = true;
+  }
+
+  closeDialog() {
+    this.dialogOpen = false;
+  }
+
+  @HostListener('document:keydown.escape')
+  onEscape() {
+    this.closeDialog();
+  }
+
+  // --- Zoom inside Dialog ---
+  onDialogMouseMove(e: MouseEvent) {
+    const target = e.target as HTMLElement;
+    const rect = target.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width) * 100;
+    const y = ((e.clientY - rect.top) / rect.height) * 100;
+
+    this.dialogZoomStyle = {
+      transformOrigin: `${x}% ${y}%`,
+      transform: 'scale(2)',
+      cursor: 'zoom-out',
+    };
+  }
+
+  onDialogMouseLeave() {
+    this.dialogZoomStyle = { transform: 'scale(1)', cursor: 'default' };
+  }
+
+  goToReels(): void {
     const targetId = 'REELS';
 
     const scrollToTarget = () => {
@@ -1145,7 +1194,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       this.isLoading = false
       if (this.product) {
         this.currentImageIndex = 0
-        this.startImageSlideshow()
+        // this.startImageSlideshow()
         this.bottomBannerSrc = null
       }
     }, 250)
@@ -1218,8 +1267,8 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
     const date = new Date(d)
     return date.toLocaleDateString()
   }
-  navigateToCheckout(link:string):void{
-    if(link){
+  navigateToCheckout(link: string): void {
+    if (link) {
       window.open(link, "_blank");
     }
   }

@@ -1,7 +1,9 @@
 <section class="w-full py-6 overflow-x-hidden">
   <div class="px-2 md:px-6">
     <div class="relative">
-      <div #railEl role="list" class="flex gap-1 md:gap-3 overflow-x-auto scroll-smooth snap-x snap-mandatory
+      <div (wheel)="onWheel($event)" (pointerdown)="onPointerDown($event)" (pointermove)="onPointerMove($event)"
+        (pointerup)="onPointerUp()" (touchstart)="onPointerDown($event)" (touchmove)="onPointerMove($event)"
+        (touchend)="onPointerUp()" #railEl role="list" class="flex gap-1 md:gap-3 overflow-x-auto scroll-smooth snap-x snap-mandatory
                   [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden
                   px-4 sm:px-6 lg:px-8 py-2">
         <!-- CARD -->
@@ -77,5 +79,23 @@
         </article>
       </div>
     </div>
+    <!-- winix-product-card.component.html -->
+    <div class="relative flex justify-between px-6 mt-4">
+      <button type="button" aria-label="Prev"
+        class="bg-[#74236C] text-white p-3 rounded-full shadow-md border border-white/20 mr-2" (click)="scroll('left')">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="2.5"
+          stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+        </svg>
+      </button>
+      <button type="button" aria-label="Next"
+        class="bg-[#74236C] text-white p-3 rounded-full shadow-md border border-white/20" (click)="scroll('right')">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="2.5"
+          stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+        </svg>
+      </button>
+    </div>
+
   </div>
 </section>
