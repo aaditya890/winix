@@ -1,4 +1,9 @@
-import { Component } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  ViewChild,
+  AfterViewInit,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 
@@ -24,7 +29,10 @@ type Product = {
   imports: [CommonModule, RouterLink],
   templateUrl: './winix-product-card.component.html',
 })
-export class WinixProductCardComponent {
+export class WinixProductCardComponent implements AfterViewInit {
+  // IMPORTANT: ViewChild + correct type
+  @ViewChild('railEl', { static: false }) trackRef?: ElementRef<HTMLElement>;
+
   hovered: Record<string, boolean> = {};
   imageLoading: boolean[] = [];
 
@@ -107,13 +115,56 @@ export class WinixProductCardComponent {
     }
   ];
 
+  private isDown = false;
+  private startX = 0;
+  private startLeft = 0;
 
+  ngAfterViewInit() { }
+
+  /** small helper to avoid undefined errors */
+  private el(): HTMLElement | null {
+    return this.trackRef?.nativeElement ?? null;
+  }
+
+  scroll(dir: 'left' | 'right') {
+    const el = this.el();
+    if (!el) return;
+    const by = Math.round(el.clientWidth * 0.65);
+    el.scrollBy({ left: dir === 'right' ? by : -by, behavior: 'smooth' });
+  }
+
+  onWheel(e: WheelEvent) {
+    const el = this.el();
+    if (!el) return;
+    if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) el.scrollLeft += e.deltaY;
+  }
+
+  onPointerDown(e: PointerEvent | TouchEvent) {
+    const el = this.el();
+    if (!el) return;
+    this.isDown = true;
+    this.startX = 'touches' in e ? e.touches[0].clientX : e.clientX;
+    this.startLeft = el.scrollLeft;
+    el.classList.add('grabbing');
+  }
+
+  onPointerMove(e: PointerEvent | TouchEvent) {
+    if (!this.isDown) return;
+    const el = this.el();
+    if (!el) return;
+    const clientX = 'touches' in e ? e.touches[0].clientX : e.clientX;
+    el.scrollLeft = this.startLeft - (clientX - this.startX);
+  }
+
+  onPointerUp() {
+    this.isDown = false;
+    this.el()?.classList.remove('grabbing');
+  }
 
   // helpers
   trackById = (_: number, p: Product) => p.id;
   safeNumber(v: any) { const n = Number(v); return Number.isFinite(n) ? n : 0; }
   formatINR(n?: number) { return Number.isFinite(n) ? `Rs. ${Math.round(n!).toLocaleString('en-IN')}` : ''; }
-
   onCardEnter(id: string) { this.hovered[id] = true; }
   onCardLeave(id: string) { this.hovered[id] = false; }
   onImageLoad(i: number) { this.imageLoading[i] = false; }
