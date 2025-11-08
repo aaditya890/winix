@@ -76,6 +76,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
   currentImageIndex = 0
   imageInterval?: any
   isLoading = true
+  zoomActive = false
   bottomBannerSrc: string | null = null
 
 
@@ -156,7 +157,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         "assets/products/A231/product-3.jpg",
         "assets/products/A231/product-4.jpg",
         "assets/products/A231/product-5.jpg",
-        "assets/products/A231/product-5.jpg",
+        "assets/products/28.webp",
       ],
       currentImage: "assets/products/A231/product-1.jpg",
       rating: 4.6,
@@ -230,6 +231,8 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         "assets/products/5300-2/product-3.jpg",
         "assets/products/5300-2/product-4.jpg",
         "assets/products/5300-2/product-5.jpg",
+        "assets/products/5300-2/5300-2.webp",
+        "assets/products/28.webp",
       ],
       currentImage: "assets/products/5300-2/product-1.jpg",
       rating: 4.6,
@@ -291,6 +294,8 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         "assets/products/5500-2/product-3.jpg",
         "assets/products/5500-2/product-4.jpg",
         "assets/products/5500-2/product-5.jpg",
+        "assets/products/5500-2/5500-2.webp",
+        "assets/products/28.webp",
       ],
       currentImage: "assets/products/5500-2/product-1.jpg",
       rating: 4.6,
@@ -351,7 +356,8 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         "assets/products/T810/product-2.jpg",
         "assets/products/T810/product-3.jpg",
         "assets/products/T810/product-4.jpg",
-        "assets/products/T810/product-5.jpg",
+        "assets/products/T810/T810.webp",
+        "assets/products/28.webp",
       ],
       currentImage: "assets/products/T810/product-1.jpg",
       rating: 4.4,
@@ -428,7 +434,8 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         "assets/products/T500/product-3.webp",
         "assets/products/T500/product-4.webp",
         "assets/products/T500/product-5.webp",
-        "assets/products/T500/product-5.webp",
+        "assets/products/T500/T500.webp",
+        "assets/products/28.webp",
       ],
       currentImage: "assets/products/T500/product-1.jpg",
       rating: 0, // no Amazon reviews yet
@@ -486,7 +493,6 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       productReviews: [],
     },
   ]
-
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -499,6 +505,88 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
     })
   }
 
+    get visibleThumbnails() {
+    return this.product?.images?.slice(0, 4) ?? [];
+  }
+
+  get remainingCount() {
+    return (this.product?.images?.length ?? 0) - 4;
+  }
+
+   // --- Inline Zoom ---
+  onMouseMove(e: MouseEvent) {
+    const target = e.target as HTMLElement;
+    const rect = target.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width) * 100;
+    const y = ((e.clientY - rect.top) / rect.height) * 100;
+
+    this.zoomStyle = {
+      transformOrigin: `${x}% ${y}%`,
+      transform: 'scale(2)',
+      cursor: 'zoom-in',
+    };
+  }
+
+  onMouseLeave() {
+    this.zoomStyle = { transform: 'scale(1)', cursor: 'default' };
+  }
+
+  // --- Dialog Logic ---
+  openDialog() {
+    this.dialogOpen = true;
+  }
+
+  closeDialog() {
+    this.dialogOpen = false;
+  }
+
+  @HostListener('document:keydown.escape')
+  onEscape() {
+    this.closeDialog();
+  }
+
+  // --- Zoom inside Dialog ---
+  onDialogMouseMove(e: MouseEvent) {
+    const target = e.target as HTMLElement;
+    const rect = target.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width) * 100;
+    const y = ((e.clientY - rect.top) / rect.height) * 100;
+
+    this.dialogZoomStyle = {
+      transformOrigin: `${x}% ${y}%`,
+      transform: 'scale(2)',
+      cursor: 'zoom-out',
+    };
+  }
+
+  onDialogMouseLeave() {
+    this.dialogZoomStyle = { transform: 'scale(1)', cursor: 'default' };
+  }
+
+  goToReels(): void {
+    const targetId = 'REELS';
+
+    const scrollToTarget = () => {
+      const el = document.getElementById(targetId);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    };
+
+    // Are we already on the home route?
+    const atHome = this.router.url.split('?')[0] === '/';
+
+    if (atHome) {
+      // Same page → just smooth scroll
+      scrollToTarget();
+    } else {
+      // Navigate to home WITHOUT fragment (so no # in URL), then scroll
+      this.router.navigateByUrl('/').then(() => {
+        // Wait a tick to ensure the section is rendered
+        setTimeout(scrollToTarget, 0);
+      });
+    }
+  }
   ngOnDestroy(): void {
     if (this.imageInterval) clearInterval(this.imageInterval)
   }
