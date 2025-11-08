@@ -84,6 +84,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
   dialogOpen = false;
   imageInterval?: any
   isLoading = true
+  zoomActive = false
   bottomBannerSrc: string | null = null
 
 
@@ -131,6 +132,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         "assets/products/A231/product-3.jpg",
         "assets/products/A231/product-4.jpg",
         "assets/products/A231/product-5.jpg",
+        "assets/products/28.webp",
       ],
       currentImage: "assets/products/A231/product-1.jpg",
       rating: 4.6,
@@ -322,6 +324,8 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         "assets/products/5300-2/product-3.jpg",
         "assets/products/5300-2/product-4.jpg",
         "assets/products/5300-2/product-5.jpg",
+        "assets/products/5300-2/5300-2.webp",
+        "assets/products/28.webp",
       ],
       currentImage: "assets/products/5300-2/product-1.jpg",
       rating: 4.6,
@@ -513,6 +517,8 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         "assets/products/5500-2/product-3.jpg",
         "assets/products/5500-2/product-4.jpg",
         "assets/products/5500-2/product-5.jpg",
+        "assets/products/5500-2/5500-2.webp",
+        "assets/products/28.webp",
       ],
       currentImage: "assets/products/5500-2/product-1.jpg",
       rating: 4.6,
@@ -703,7 +709,8 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         "assets/products/T810/product-2.jpg",
         "assets/products/T810/product-3.jpg",
         "assets/products/T810/product-4.jpg",
-        "assets/products/T810/product-5.jpg",
+        "assets/products/T810/T810.webp",
+        "assets/products/28.webp",
       ],
       currentImage: "assets/products/T810/product-1.jpg",
       rating: 4.4,
@@ -910,6 +917,8 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         "assets/products/T500/product-3.webp",
         "assets/products/T500/product-4.webp",
         "assets/products/T500/product-5.webp",
+        "assets/products/T500/T500.webp",
+        "assets/products/28.webp",
       ],
       currentImage: "assets/products/T500/product-1.jpg",
       rating: 0, // no Amazon reviews yet
@@ -1096,7 +1105,6 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       ]
     },
   ]
-
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -1107,6 +1115,14 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       const slug = params["slug"]
       this.loadProduct(slug)
     })
+  }
+
+    get visibleThumbnails() {
+    return this.product?.images?.slice(0, 4) ?? [];
+  }
+
+  get remainingCount() {
+    return (this.product?.images?.length ?? 0) - 4;
   }
 
    // --- Inline Zoom ---

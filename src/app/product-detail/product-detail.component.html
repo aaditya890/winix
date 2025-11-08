@@ -1,31 +1,64 @@
 <div class="min-h-screen bg-white relative" *ngIf="!isLoading && product">
   <!-- Breadcrumbs -->
   <div class="max-w-full px-4 sm:px-6 lg:px-8 py-8">
-    <div class="grid grid-cols-1 lg:grid-cols-[1.05fr_.95fr] gap-8 lg:gap-10 items-start">
+    <div class="grid grid-cols-1 lg:grid-cols-[1.050r_.95fr] gap-8 lg:gap-10 items-start">
       <div class="space-y-3 lg:sticky lg:top-6">
-        <!-- 🖼️ Main Image Container -->
+        <!-- 🖼️ Main Image -->
         <div
           class="relative aspect-[4/3] bg-white rounded-[16px] border border-gray-200 shadow-sm overflow-hidden cursor-pointer"
           (click)="openDialog()">
           <img [src]="product.images[currentImageIndex]" [alt]="product.name"
-            class="w-full h-full object-contain py-3 px-5 sm:p-8 transition-transform duration-200" />
+            class="w-full h-full object-contain py-3 px-5 sm:p-8" />
 
-          <!-- ⭕ Dots -->
-          <div class="absolute bottom-4 left-1/2 -translate-x-1/2">
-            <div class="flex gap-2">
-              <button *ngFor="let _ of product.images; let i = index" (click)="selectImage(i); $event.stopPropagation()"
-                class="h-2.5 w-6 rounded-full transition-colors" [class.bg-[#101A50]]="currentImageIndex === i"
-                [class.bg-gray-300]="currentImageIndex !== i"></button>
-            </div>
+          <!-- Dots -->
+          <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+            <button *ngFor="let _ of product.images; let i = index" (click)="selectImage(i); $event.stopPropagation()"
+              class="h-2.5 w-6 rounded-full transition-colors" [class.bg-[#101A50]]="currentImageIndex === i"
+              [class.bg-gray-300]="currentImageIndex !== i"></button>
           </div>
         </div>
 
-        <!-- 📸 Thumbnails -->
+        <!-- 📸 Thumbnails (4 visible + "+X" more) -->
         <div class="grid grid-cols-5 gap-2">
-          <button *ngFor="let img of product.images; let i = index" (click)="selectImage(i)"
-            class="aspect-square rounded-[8px] overflow-hidden border transition-shadow hover:shadow"
+          <!-- Show first 4 thumbnails -->
+          <button *ngFor="let img of visibleThumbnails; let i = index" (click)="selectImage(i)"
+            class="aspect-square rounded-[8px] overflow-hidden border transition hover:shadow"
             [class.border-[#101A50]]="currentImageIndex === i" [class.border-gray-200]="currentImageIndex !== i">
-            <img [src]="img" [alt]="'Image ' + (i + 1)" class="w-full h-full object-contain p-2 bg-white" />
+            <img [src]="img" class="w-full h-full object-contain p-2 bg-white" />
+          </button>
+
+          <!-- "+X" Button -->
+          <button *ngIf="remainingCount > 0" (click)="openDialog()"
+            class="aspect-square rounded-[8px] border border-gray-200 bg-gray-100 text-gray-700 font-semibold text-lg flex items-center justify-center hover:bg-gray-200 transition">
+            +{{ remainingCount }}
+          </button>
+        </div>
+      </div>
+
+      <!-- 🪟 Fullscreen Dialog -->
+      <div *ngIf="dialogOpen" class="fixed inset-0 bg-black/70 flex items-center justify-center z-50"
+        (click)="closeDialog()">
+        <div class="relative w-[90%] md:w-[80%] lg:w-[50%] bg-white rounded-xl p-4" (click)="$event.stopPropagation()">
+          <!-- Main Zoomable Image -->
+          <div class="relative aspect-[4/3] bg-white rounded-[12px] overflow-hidden cursor-zoom-in"
+            (mousemove)="onDialogMouseMove($event)" (mouseleave)="onDialogMouseLeave()">
+            <img [src]="product.images[currentImageIndex]" [alt]="product.name"
+              class="w-full h-full object-contain transition-transform duration-200" [ngStyle]="dialogZoomStyle" />
+          </div>
+
+          <!-- Thumbnails inside Dialog -->
+          <div class="grid grid-cols-6 sm:grid-cols-8 gap-2 mt-4">
+            <button *ngFor="let img of product.images; let i = index" (click)="selectImage(i)"
+              class="aspect-square rounded-[6px] overflow-hidden border transition hover:shadow"
+              [class.border-[#101A50]]="currentImageIndex === i" [class.border-gray-200]="currentImageIndex !== i">
+              <img [src]="img" class="w-full h-full object-contain p-2 bg-white" />
+            </button>
+          </div>
+
+          <!-- ❌ Close -->
+          <button class="absolute top-3 right-3 text-white bg-black/60 rounded-full p-2 hover:bg-black/80 transition"
+            (click)="closeDialog()">
+            ✕
           </button>
         </div>
       </div>
@@ -66,7 +99,6 @@
       </div>
 
       <div class="space-y-1">
-
         <div class="flex flex-col gap-2 uppercase">
           <div class="flex items-center gap-2">
             <h1 class="text-[30px] flex items-center gap-1 sm:text-[36px] leading-[1.05] font-black text-neutral-700">{{
