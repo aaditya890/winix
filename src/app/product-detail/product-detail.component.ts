@@ -320,10 +320,14 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       description:
         "Premium 4-stage purifier with True HEPA, PlasmaWave, and activated carbon. AHAM-verified coverage up to 1065 sq ft, CADR 390 m³/h, with ultra-quiet 27.8 dB operation.",
       images: [
-        "assets/products/5300-2/product-1.jpg",
-        "assets/products/5300-2/product-2.jpg",
-        "assets/products/5300-2/product-3.jpg",
-        "assets/products/5300-2/product-4.jpg",
+        "assets/products/5300-2/1.webp",
+        "assets/products/5300-2/2.webp",
+        "assets/products/5300-2/3.webp",
+        "assets/products/5300-2/4.webp",
+         "assets/products/5300-2/5.webp",
+        "assets/products/5300-2/6.webp",
+        "assets/products/5300-2/7.webp",
+        "assets/products/5300-2/8.webp",
         "assets/products/5300-2/5300-2.webp",
         "assets/products/28.webp"
       ],
