@@ -79,15 +79,17 @@ type FAQ = {
 export class ProductDetailComponent implements OnInit, OnDestroy {
   product: Product | null = null
   currentImageIndex = 0
+   // Zoom + Dialog
   zoomStyle: Record<string, string> = {};
   dialogZoomStyle: Record<string, string> = {};
   dialogOpen = false;
-  imageInterval?: any
-  isLoading = true
-  bottomBannerSrc: string | null = null
-
-
+  zoomActive = false;
+    // Misc.
+  imageInterval?: any;
+  isLoading = true;
+  bottomBannerSrc: string | null = null;
   hideButton = false;
+
 
   // Listen for scroll event
   @HostListener('window:scroll', [])
@@ -131,6 +133,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         "assets/products/A231/product-3.jpg",
         "assets/products/A231/product-4.jpg",
         "assets/products/A231/product-5.jpg",
+        "assets/products/28.webp"
       ],
       currentImage: "assets/products/A231/product-1.jpg",
       rating: 4.6,
@@ -321,7 +324,8 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         "assets/products/5300-2/product-2.jpg",
         "assets/products/5300-2/product-3.jpg",
         "assets/products/5300-2/product-4.jpg",
-        "assets/products/5300-2/product-5.jpg",
+        "assets/products/5300-2/5300-2.webp",
+        "assets/products/28.webp"
       ],
       currentImage: "assets/products/5300-2/product-1.jpg",
       rating: 4.6,
@@ -512,7 +516,8 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         "assets/products/5500-2/product-2.jpg",
         "assets/products/5500-2/product-3.jpg",
         "assets/products/5500-2/product-4.jpg",
-        "assets/products/5500-2/product-5.jpg",
+        "assets/products/5500-2/5500-2.webp",
+        "assets/products/28.webp"
       ],
       currentImage: "assets/products/5500-2/product-1.jpg",
       rating: 4.6,
@@ -703,7 +708,8 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         "assets/products/T810/product-2.jpg",
         "assets/products/T810/product-3.jpg",
         "assets/products/T810/product-4.jpg",
-        "assets/products/T810/product-5.jpg",
+        "assets/products/T810/T810.webp",
+        "assets/products/28.webp"
       ],
       currentImage: "assets/products/T810/product-1.jpg",
       rating: 4.4,
@@ -909,7 +915,8 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         "assets/products/T500/product-2.webp",
         "assets/products/T500/product-3.webp",
         "assets/products/T500/product-4.webp",
-        "assets/products/T500/product-5.webp",
+        "assets/products/T500/T500.webp",
+        "assets/products/28.webp"
       ],
       currentImage: "assets/products/T500/product-1.jpg",
       rating: 0, // no Amazon reviews yet
@@ -1109,7 +1116,16 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
     })
   }
 
-   // --- Inline Zoom ---
+  // ✅ Visible Thumbnails & "+N"
+  get visibleThumbnails() {
+    return this.product?.images?.slice(0, 4) ?? [];
+  }
+
+  get remainingCount() {
+    return (this.product?.images?.length ?? 0) - 4;
+  }
+
+  // --- Inline Zoom ---
   onMouseMove(e: MouseEvent) {
     const target = e.target as HTMLElement;
     const rect = target.getBoundingClientRect();
@@ -1118,13 +1134,13 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
 
     this.zoomStyle = {
       transformOrigin: `${x}% ${y}%`,
-      transform: 'scale(2)',
-      cursor: 'zoom-in',
+      transform: "scale(2)",
+      cursor: "zoom-in",
     };
   }
 
   onMouseLeave() {
-    this.zoomStyle = { transform: 'scale(1)', cursor: 'default' };
+    this.zoomStyle = { transform: "scale(1)", cursor: "default" };
   }
 
   // --- Dialog Logic ---
@@ -1136,7 +1152,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
     this.dialogOpen = false;
   }
 
-  @HostListener('document:keydown.escape')
+  @HostListener("document:keydown.escape")
   onEscape() {
     this.closeDialog();
   }
@@ -1150,13 +1166,13 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
 
     this.dialogZoomStyle = {
       transformOrigin: `${x}% ${y}%`,
-      transform: 'scale(2)',
-      cursor: 'zoom-out',
+      transform: "scale(2 )",
+      cursor: "zoom-out",
     };
   }
 
   onDialogMouseLeave() {
-    this.dialogZoomStyle = { transform: 'scale(1)', cursor: 'default' };
+    this.dialogZoomStyle = { transform: "scale(1)", cursor: "default" };
   }
 
   goToReels(): void {
