@@ -15,25 +15,13 @@
     </div>
   </div>
 
-  <!-- Overlay -->
-  <div class="absolute inset-0 bg-black/10"></div>
 
-  <!-- Optional text or button -->
   <div class="absolute inset-0 flex items-center justify-center text-center pointer-events-none">
     <div class="max-w-2xl mx-auto px-4">
       <!-- <h1 class="text-white text-3xl md:text-5xl font-bold">Your Message</h1> -->
     </div>
   </div>
 
-  <!-- Dots -->
-  <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
-    <button
-      *ngFor="let _ of banners; let i = index"
-      (click)="goToSlide(i)"
-      class="w-3 h-3 rounded-full transition-all duration-300"
-      [ngClass]="i === currentIndex ? 'bg-white scale-125' : 'bg-white/50'"
-    ></button>
-  </div>
 </section>
 
 
@@ -103,13 +91,7 @@
             </svg>
           </span>
         </button>
-        <a (click)="openWhatsApp()"
-          class="inline-flex items-center gap-2 rounded-full border border-[#0e1649]/20 bg-white px-5 py-3 text-sm font-semibold text-[#0e1649] shadow-sm transition hover:border-[#0e1649]/30 cursor-pointer">
-          Connect Now
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-            <path d="M9 18l6-6-6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-          </svg>
-        </a>
+        
       </div>
 
       <div class="mt-4 flex items-center gap-4 text-xs text-gray-500">
