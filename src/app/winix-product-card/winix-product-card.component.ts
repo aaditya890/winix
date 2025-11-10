@@ -62,7 +62,7 @@ export class WinixProductCardComponent implements AfterViewInit {
       rating: 4.6,
       ratingCount: '39K',
       slug: "winix-5300-2-air-purifier",
-      imageSrc: "/assets/products/card/P-5300-2.webp",
+      imageSrc: "/assets/products/card/1.webp",
       badges: ["POPULAR"],
       price: 15199,
       mrp: 23990,
