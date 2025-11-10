@@ -1,8 +1,8 @@
 <div class="min-h-screen bg-white relative" *ngIf="!isLoading && product">
   <!-- Breadcrumbs -->
   <div class="max-w-full px-4 sm:px-6 lg:px-8 py-8">
-    <div class="grid grid-cols-1 lg:grid-cols-[1.050r_.95fr] gap-8 lg:gap-10 items-start">
-      <div class="space-y-3 lg:sticky lg:top-6">
+    <div class="grid grid-cols-1 lg:grid-cols-[1.05fr_.95fr] gap-8 lg:gap-10 items-start">
+      <div class="space-y-3 lg:sticky lg:top-6 self-start">
         <!-- 🖼️ Main Image -->
         <div
           class="relative aspect-[4/3] bg-white rounded-[16px] border border-gray-200 shadow-sm overflow-hidden cursor-pointer"
@@ -20,9 +20,9 @@
 
         <!-- 📸 Thumbnails (4 visible + "+X" more) -->
         <div class="grid grid-cols-5 gap-2">
-          <!-- Show first 4 thumbnails -->
+          <!-- 1️⃣ Show only first 4 images -->
           <button *ngFor="let img of visibleThumbnails; let i = index" (click)="selectImage(i)"
-            class="aspect-square rounded-[8px] overflow-hidden border transition hover:shadow"
+            class="aspect-square rounded-[8px] overflow-hidden border transition-shadow hover:shadow"
             [class.border-[#101A50]]="currentImageIndex === i" [class.border-gray-200]="currentImageIndex !== i">
             <img [src]="img" class="w-full h-full object-contain p-2 bg-white" />
           </button>
@@ -60,25 +60,40 @@
             (click)="closeDialog()">
             ✕
           </button>
+
+          <!-- 2️⃣ Show "+N" Button -->
+          <button *ngIf="remainingCount > 0" (click)="openDialog()"
+            class="aspect-square rounded-[8px] bg-gray-100 flex items-center justify-center text-[#101A50] text-lg font-semibold border border-gray-200 hover:bg-gray-200 transition">
+            +{{ remainingCount }}
+          </button>
         </div>
       </div>
-
       <!-- 🔍 Fullscreen Dialog -->
-      <div *ngIf="dialogOpen" class="fixed inset-0 bg-black/5 flex items-center justify-center z-50"
+      <div *ngIf="dialogOpen" class="fixed inset-0 bg-black/70 flex items-center justify-center z-50"
         (click)="closeDialog()">
-        <div
-          class="relative w-[90%] md:w-[70%] lg:w-[60%] aspect-[4/3] bg-white rounded-lg overflow-hidden cursor-pointer"
-          (mousemove)="onDialogMouseMove($event)" (mouseleave)="onDialogMouseLeave()"
+        <div class="relative w-[95%] md:w-[60%] lg:w-[50%] bg-white rounded-lg overflow-hidden"
           (click)="$event.stopPropagation()">
-          <img [src]="product.images[currentImageIndex]" [alt]="product.name"
-            class="w-full h-full object-contain transition-transform duration-200" [ngStyle]="dialogZoomStyle" />
-          <!-- ❌ Close Button -->
+          <div class="relative aspect-[4/3] overflow-hidden" (mousemove)="onDialogMouseMove($event)"
+            (mouseleave)="onDialogMouseLeave()">
+            <img [src]="product.images[currentImageIndex]" [alt]="product.name"
+              class="w-full h-full object-contain transition-transform duration-200" [ngStyle]="dialogZoomStyle" />
+          </div>
+          <div class="grid grid-cols-6 gap-2 p-4 bg-gray-50">
+            <button *ngFor="let img of product.images; let i = index" (click)="selectImage(i)"
+              class="aspect-square rounded-md overflow-hidden border hover:shadow"
+              [class.border-[#101A50]]="currentImageIndex === i" [class.border-gray-200]="currentImageIndex !== i">
+              <img [src]="img" [alt]="'Image ' + (i + 1)" class="w-full h-full object-contain bg-white p-1" />
+            </button>
+          </div>
           <button class="absolute top-3 right-3 text-white bg-black/60 rounded-full p-2 hover:bg-black/80 transition"
             (click)="closeDialog()">
             ✕
           </button>
         </div>
       </div>
+<<<<<<< HEAD
+      <div class="space-y-1 relative">
+=======
 
 
       <!-- 🔍 Fullscreen Dialog -->
@@ -99,6 +114,7 @@
       </div>
 
       <div class="space-y-1">
+>>>>>>> ec6b8641401f740c087f37f0b480e12d39ae887f
         <div class="flex flex-col gap-2 uppercase">
           <div class="flex items-center gap-2">
             <h1 class="text-[30px] flex items-center gap-1 sm:text-[36px] leading-[1.05] font-black text-neutral-700">{{
@@ -222,22 +238,6 @@
               </div>
             </div>
           </div>
-
-
-          <!-- <div class="grid grid-cols-3 gap-3">
-            <div class="text-center p-3 bg-white rounded-[10px] border border-gray-200 shadow-sm">
-              <div class="text-[13px] font-black text-[#111]">{{ product.coverage }}</div>
-              <div class="text-[11px] text-gray-600 mt-0.5 uppercase tracking-wide">Coverage</div>
-            </div>
-            <div class="text-center p-3 bg-white rounded-[10px] border border-gray-200 shadow-sm">
-              <div class="text-[13px] font-black text-[#111]">{{ product.noiseLevel }}</div>
-              <div class="text-[11px] text-gray-600 mt-0.5 uppercase tracking-wide">Noise</div>
-            </div>
-            <div class="text-center p-3 bg-white rounded-[10px] border border-gray-200 shadow-sm">
-              <div class="text-[13px] font-black text-[#111]">{{ product.filterType }}</div>
-              <div class="text-[11px] text-gray-600 mt-0.5 uppercase tracking-wide">Filter</div>
-            </div>
-          </div> -->
         </section>
 
         <section id="specs" class="scroll-mt-24 space-y-2">
@@ -331,7 +331,6 @@
             cleaning performance—verified through standardized test procedures and real-world conditions.
           </div>
         </section>
-
       </div>
     </div>
 
@@ -478,8 +477,7 @@
         </div>
       </div>
     </section>
-
-
+    
     <div class="mt-10 text-start">
       <button (click)="goBack()"
         class="inline-flex items-center justify-center gap-2 px-6 h-12 rounded-lg border-2 border-[#74236C] text-[#43183f] font-extrabold text-sm transition-all duration-300 ease-in-out hover:bg-[#101A50]/10 hover:scale-105 active:scale-95">
@@ -494,7 +492,6 @@
 
   </div>
 </div>
-
 
 <div class="min-h-[50vh] bg-[#f6f6f6] flex items-center justify-center" *ngIf="isLoading">
   <div class="text-center space-y-3">
