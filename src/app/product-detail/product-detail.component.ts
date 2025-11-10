@@ -1103,7 +1103,6 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       ]
     },
   ]
-
   constructor(
     private route: ActivatedRoute,
     private router: Router,
