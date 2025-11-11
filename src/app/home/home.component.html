@@ -1,34 +1,20 @@
 <section class="relative overflow-hidden">
   <!-- Slider Wrapper -->
-  <div class="relative mt-2 w-full flex justify-center items-center overflow-hidden bg-white">
-  <div
-    class="relative flex transition-transform duration-700 ease-in-out"
-    [style.transform]="'translateX(-' + currentIndex * 100 + '%)'"
-  >
-    <div
-      *ngFor="let img of banners"
-      class="w-full flex-shrink-0 flex justify-center items-center"
-    >
-      <img
-        [src]="img"
-        alt="WINIX Banner"
-        class="w-[1480px] h-[690px] object-cover block rounded-2xl"
-      />
+  <div class="fixed-hero mt-2 relative flex justify-center items-center overflow-hidden bg-white w-full">
+    <div class="relative flex transition-transform duration-700 ease-in-out"
+      [style.transform]="'translateX(-' + currentIndex * 100 + '%)'">
+      <div *ngFor="let img of banners" class="w-full flex-shrink-0 flex justify-center items-center">
+        <img [src]="img" alt="WINIX Banner" class="hero-img block rounded md:rounded-md" />
+      </div>
     </div>
   </div>
-</div>
-
-
 
   <div class="absolute inset-0 flex items-center justify-center text-center pointer-events-none">
     <div class="max-w-2xl mx-auto px-4">
       <!-- <h1 class="text-white text-3xl md:text-5xl font-bold">Your Message</h1> -->
     </div>
   </div>
-
 </section>
-
-
 <!-- <section class="relative overflow-hidden">
   <div class="relative w-full">
    <video class="w-full h-full object-cover" [autoplay]="true" [muted]="true" [loop]="true" playsinline
@@ -95,7 +81,7 @@
             </svg>
           </span>
         </button>
-        
+
       </div>
 
       <div class="mt-4 flex items-center gap-4 text-xs text-gray-500">
@@ -155,7 +141,7 @@
       <!-- LEFT: headline + chips -->
       <div class="w-full lg:w-5/12">
         <h2 class="text-4xl md:text-5xl font-extrabold leading-tight text-primary first-letter:text-6xl">
-          Become a <span class="text-[#fff] bg-[#74236C] px-2 py-px rounded-md">WINIX</span><br/>
+          Become a <span class="text-[#fff] bg-[#74236C] px-2 py-px rounded-md">WINIX</span><br />
           <span
             class="inline-block mt-3 px-2 py-1 rounded-md shadow-md text-[#fff] bg-[#74236C] transform transition-transform duration-300 hover:scale-105">
             Insider
@@ -173,8 +159,7 @@
 
       <!-- RIGHT: enhanced UGC ticker -->
       <div class="w-full lg:w-7/12">
-        <div
-          class="group relative h-48 md:h-60 rounded-2xl overflow-hidden p-px">
+        <div class="group relative h-48 md:h-60 rounded-2xl overflow-hidden p-px">
           <!-- track with improved animation -->
           <div class="absolute inset-0 overflow-hidden">
             <div class="flex items-center gap-4 h-full
@@ -245,7 +230,7 @@
 
 <div id="BULK-QUERIES" class="h-0"></div>
 @defer (on viewport) {
-  <app-contact-us></app-contact-us>
+<app-contact-us></app-contact-us>
 } @placeholder {
 <section class="py-20 bg-[hsl(var(--color-primary-surface))]">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -253,4 +238,3 @@
   </div>
 </section>
 }
-
