@@ -1,19 +1,23 @@
 <section class="relative overflow-hidden">
   <!-- Slider Wrapper -->
+  <div class="relative mt-2 w-full flex justify-center items-center overflow-hidden bg-white">
   <div
-    class="relative w-full transition-transform duration-700 ease-in-out"
+    class="relative flex transition-transform duration-700 ease-in-out"
     [style.transform]="'translateX(-' + currentIndex * 100 + '%)'"
   >
-    <div class="flex w-full">
-      <div *ngFor="let img of banners" class="min-w-full">
-        <img
-          [src]="img"
-          alt="WINIX Banner"
-          class="w-full h-auto md:h-[95vh] object-contain md:object-cover object-center"
-        />
-      </div>
+    <div
+      *ngFor="let img of banners"
+      class="w-full flex-shrink-0 flex justify-center items-center"
+    >
+      <img
+        [src]="img"
+        alt="WINIX Banner"
+        class="w-[1480px] h-[690px] object-cover block rounded-2xl"
+      />
     </div>
   </div>
+</div>
+
 
 
   <div class="absolute inset-0 flex items-center justify-center text-center pointer-events-none">
