@@ -99,19 +99,18 @@ export class HomeComponent {
     window.open(whatsappUrl, '_blank');
   }
 
-  ngOnInit() {
+ ngOnInit() {
     this.startAutoSlide();
   }
-
 
   ngOnDestroy() {
     this.stopAutoSlide();
   }
 
-  startAutoSlide() {
+    private startAutoSlide(): void {
     this.intervalId = setInterval(() => {
-      this.nextSlide();
-    }, 4000); // every 4 seconds
+      this.currentIndex = (this.currentIndex + 1) % this.banners.length;
+    }, 4000);
   }
 
   stopAutoSlide() {
