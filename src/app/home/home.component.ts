@@ -4,9 +4,9 @@ import { RouterLink } from '@angular/router';
 import { NgOptimizedImage } from '@angular/common';
 import { WinixProductCardComponent } from "../winix-product-card/winix-product-card.component";
 import { ReviewCardsComponent } from "../review-cards/review-cards.component";
-import { EnquiryBannerComponent } from "../enquiry-banner/enquiry-banner.component";
 import { VideoShowcaseComponent } from "../video-showcase/video-showcase.component";
 import { ComparisonComponent } from "../comparison/comparison.component";
+import { ContactUsComponent } from "../contact-us/contact-us.component";
 
 interface FeatureItem {
   img: string; title: string; desc: string; w: number; h: number;
@@ -15,7 +15,7 @@ interface FeatureItem {
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, NgOptimizedImage, WinixProductCardComponent, EnquiryBannerComponent, VideoShowcaseComponent, ReviewCardsComponent],
+  imports: [CommonModule, NgOptimizedImage, WinixProductCardComponent, VideoShowcaseComponent, ReviewCardsComponent, ContactUsComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
@@ -28,9 +28,9 @@ export class HomeComponent {
   isMobileOpen = false;
 
     banners: string[] = [
-    'assets/1.png',
-    'assets/2.png',
-    'assets/3.png'
+    'assets/winix_hero/3.png',
+    'assets/winix_hero/2.png',
+    'assets/winix_hero/1.png'
   ];
 
   currentIndex = 0;
