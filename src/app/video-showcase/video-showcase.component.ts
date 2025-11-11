@@ -94,11 +94,22 @@ export class VideoShowcaseComponent implements AfterViewInit {
     document.body.style.overflow = '';
   }
 
-  scroll(dir: 'right') {
-    const el = this.trackRef.nativeElement;
-    const by = Math.round(el.clientWidth * 0.65);
-    el.scrollBy({ left: dir === 'right' ? by : -by, behavior: 'smooth' });
-  }
+  // scroll(dir: 'right') {
+  //   const el = this.trackRef.nativeElement;
+  //   const by = Math.round(el.clientWidth * 0.65);
+  //   el.scrollBy({ left: dir === 'right' ? by : -by, behavior: 'smooth' });
+  // }
+
+  scroll(dir: 'left' | 'right') {
+  const el = this.trackRef.nativeElement;
+  const by = Math.round(el.clientWidth * 0.65);
+
+  el.scrollBy({
+    left: dir === 'right' ? by : -by,
+    behavior: 'smooth',
+  });
+}
+
 
   onWheel(e: WheelEvent) {
     const el = this.trackRef.nativeElement;
