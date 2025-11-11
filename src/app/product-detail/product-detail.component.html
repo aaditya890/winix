@@ -39,7 +39,7 @@
       <!-- 🔍 Fullscreen Dialog -->
       <div *ngIf="dialogOpen" class="fixed inset-0 bg-black/70 flex items-center justify-center z-50"
         (click)="closeDialog()">
-        <div class="relative w-[95%] md:w-[60%] lg:w-[50%] bg-white rounded-lg overflow-hidden"
+        <div class="relative w-[95%] md:w-[60%] lg:w-[48%] bg-white rounded-lg overflow-hidden"
           (click)="$event.stopPropagation()">
           <div class="relative aspect-[4/3] overflow-hidden" (mousemove)="onDialogMouseMove($event)"
             (mouseleave)="onDialogMouseLeave()">
@@ -278,7 +278,6 @@
         </section>
       </div>
     </div>
-
     <section class="mt-2 md:mt-24">
       <div class="rounded-xl border overflow-hidden">
         <div class="min-h-[100px] w-full p-2">
