@@ -30,7 +30,7 @@
 <header class="bg-white border-b border-gray-100 sticky top-0 z-50">
   <div class="max-w-8xl mx-auto px-4 sm:px-6 ">
     <div class="flex justify-between items-center h-16">
-      <button type="button" class="flex items-center" (click)="scrollTo('PRODUCTS')" aria-label="Go to top">
+      <button type="button" class="flex items-center" routerLink="/" aria-label="Go to top">
         <img routerLink="/" src="assets/winix-logo.png" class="h-6" alt="WINIX Logo">
       </button>
 
@@ -104,14 +104,9 @@
 
 
       <nav class="px-4 py-3 space-y-1">
-        <button type="button" (click)="scrollTo('PRODUCTS')"
-          class="w-full text-left px-3 py-3 rounded-md bg-[#74236C] text-white font-semibold">
-          AIR PURIFIERS
-        </button>
-
-        <button type="button" (click)="scrollTo('TECHNOLOGY')"
-          class="w-full text-left px-3 py-3 rounded-md hover:bg-gray-100 font-semibold text-gray-800">
-          TECHNOLOGY
+        <button type="button" routerLink="/"
+          class="w-full text-left px-3 py-3 rounded-md text-gray-800 font-semibold">
+          HOME
         </button>
 
         <button type="button" (click)="scrollTo('PRODUCTS')"
@@ -124,9 +119,9 @@
           TESTIMONIALS
         </button>
 
-        <button type="button" (click)="scrollTo('BULK-QUERIES')"
+        <button type="button" routerLink="/contact-us"
           class="w-full text-left px-3 py-3 rounded-md hover:bg-gray-100 font-semibold text-gray-800">
-          BULK QUERIES
+          CONTACT-US
         </button>
       </nav>
 

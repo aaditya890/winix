@@ -27,10 +27,12 @@ export class HomeComponent {
   showBar = true;
   isMobileOpen = false;
 
-    banners: string[] = [
-    'assets/winix_hero/3.png',
+  banners: string[] = [
+    'assets/winix_hero/1.png',
     'assets/winix_hero/2.png',
-    'assets/winix_hero/1.png'
+    'assets/winix_hero/3.png',
+    'assets/winix_hero/4.png',
+    'assets/winix_hero/5.png'
   ];
 
   currentIndex = 0;
@@ -83,15 +85,15 @@ export class HomeComponent {
     const target = document.getElementById(id);
     if (!target) return;
     const header = document.querySelector('header') as HTMLElement | null;
-    const headerOffset = header?.offsetHeight ?? 72;   
-    const extraGap = 8;                                
+    const headerOffset = header?.offsetHeight ?? 72;
+    const extraGap = 8;
     const y = target.getBoundingClientRect().top + window.pageYOffset - headerOffset - extraGap;
 
     window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
   }
 
 
-    // Function to open WhatsApp chat
+  // Function to open WhatsApp chat
   openWhatsApp(): void {
     const message = encodeURIComponent("Hii Winixair!");
     const phone = "+918885241706";
@@ -99,7 +101,7 @@ export class HomeComponent {
     window.open(whatsappUrl, '_blank');
   }
 
- ngOnInit() {
+  ngOnInit() {
     this.startAutoSlide();
   }
 
@@ -107,7 +109,7 @@ export class HomeComponent {
     this.stopAutoSlide();
   }
 
-    private startAutoSlide(): void {
+  private startAutoSlide(): void {
     this.intervalId = setInterval(() => {
       this.currentIndex = (this.currentIndex + 1) % this.banners.length;
     }, 4000);
