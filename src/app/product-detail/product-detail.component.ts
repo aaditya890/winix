@@ -79,10 +79,11 @@ type FAQ = {
 export class ProductDetailComponent implements OnInit, OnDestroy {
   product: Product | null = null
   currentImageIndex = 0
-  touchStartX = 0;
-  touchStartY = 0;
-  imgPosX = 0;
-  imgPosY = 0;
+  zoomed = false;
+  startX = 0;
+  startY = 0;
+  currentX = 0;
+  currentY = 0;
   // Zoom + Dialog
   zoomStyle: Record<string, string> = {};
   dialogZoomStyle: Record<string, string> = {};
@@ -1133,29 +1134,40 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
     return (this.product?.images?.length ?? 0) - 4;
   }
 
-  onTouchStart(event: TouchEvent) {
-    const touch = event.touches[0];
-    this.touchStartX = touch.clientX - this.imgPosX;
-    this.touchStartY = touch.clientY - this.imgPosY;
+
+  onTapToZoom() {
+    this.zoomed = !this.zoomed;
+
+    if (!this.zoomed) {
+      this.currentX = 0;
+      this.currentY = 0;
+      this.dialogZoomStyle = { transform: "scale(1)" };
+    } else {
+      this.dialogZoomStyle = { transform: "scale(2)" };
+    }
   }
 
-  onTouchMove(event: TouchEvent) {
-    event.preventDefault(); // prevent scrolling
-    const touch = event.touches[0];
+  onTouchStart(e: TouchEvent) {
+    if (!this.zoomed) return;
 
-    // Move image position
-    this.imgPosX = touch.clientX - this.touchStartX;
-    this.imgPosY = touch.clientY - this.touchStartY;
+    const t = e.touches[0];
+    this.startX = t.clientX - this.currentX;
+    this.startY = t.clientY - this.currentY;
+  }
+
+  onTouchMove(e: TouchEvent) {
+    if (!this.zoomed) return;
+
+    e.preventDefault();
+    const t = e.touches[0];
+
+    this.currentX = t.clientX - this.startX;
+    this.currentY = t.clientY - this.startY;
 
     this.dialogZoomStyle = {
-      transform: `scale(2) translate(${this.imgPosX / 2}px, ${this.imgPosY / 2}px)`
+      transform: `scale(2) translate3d(${this.currentX}px, ${this.currentY}px, 0)`
     };
   }
-
-  enableZoom() {
-    this.dialogZoomStyle = { transform: "scale(2)" };
-  }
-
   // --- Inline Zoom ---
   onMouseMove(e: MouseEvent) {
     const target = e.target as HTMLElement;
