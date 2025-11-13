@@ -154,7 +154,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       badge: "Compact Favorite",
       isAward: true,
       awardType: "UK Allergy • ECARF • AHAM",
-      price: "₹9,999",
+      price: "₹8,699",
       mrp: "₹18,990",
       topReview: '36K',
       detailedSpecs: {
@@ -350,7 +350,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       badge: "Premium Choice",
       isAward: true,
       awardType: "Triple Certified (UK Allergy, ECARF, AHAM)",
-      price: "₹15,199",
+      price: "₹13,899",
       mrp: "₹23,990",
       topReview: '39K',
       detailedSpecs: {
@@ -542,7 +542,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       badge: "Best Seller",
       isAward: true,
       awardType: "Editor's Choice 2024",
-      price: "₹16,149",
+      price: "₹14,999",
       mrp: "₹24,990",
       topReview: '39k',
       detailedSpecs: {
@@ -738,8 +738,8 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       badge: "Smart Choice",
       isAward: true,
       awardType: "AHAM • CARB • Energy Star • FCC • UL Certified",
-      price: "₹19,100",
-      mrp: "₹20,850",
+      price: "₹18,999",
+      mrp: "₹29,990",
       topReview: '165',
       detailedSpecs: {
         dimensions: "28.7D x 28.7W x 51.8H cm (11.3\"D x 11.3\"W x 20.4\"H)",
@@ -945,8 +945,8 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       badge: "New Launch",
       isAward: true,
       awardType: "AHAM Certified",
-      price: "12,999", // price not shown in screenshots
-      mrp: "16,999",
+      price: "10,499", // price not shown in screenshots
+      mrp: "19,990",
       topReview: '249',
       detailedSpecs: {
         dimensions: "24.1W x 24.1D x 37.1H cm (9.5\" x 9.5\" x 14.6\")",
