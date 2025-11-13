@@ -79,12 +79,16 @@ type FAQ = {
 export class ProductDetailComponent implements OnInit, OnDestroy {
   product: Product | null = null
   currentImageIndex = 0
-   // Zoom + Dialog
+  touchStartX = 0;
+  touchStartY = 0;
+  imgPosX = 0;
+  imgPosY = 0;
+  // Zoom + Dialog
   zoomStyle: Record<string, string> = {};
   dialogZoomStyle: Record<string, string> = {};
   dialogOpen = false;
   zoomActive = false;
-    // Misc.
+  // Misc.
   imageInterval?: any;
   isLoading = true;
   bottomBannerSrc: string | null = null;
@@ -324,7 +328,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         "assets/products/5300-2/2.webp",
         "assets/products/5300-2/3.webp",
         "assets/products/5300-2/4.webp",
-         "assets/products/5300-2/5.webp",
+        "assets/products/5300-2/5.webp",
         "assets/products/5300-2/6.webp",
         "assets/products/5300-2/7.webp",
         "assets/products/5300-2/8.webp",
@@ -1127,6 +1131,29 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
 
   get remainingCount() {
     return (this.product?.images?.length ?? 0) - 4;
+  }
+
+  onTouchStart(event: TouchEvent) {
+    const touch = event.touches[0];
+    this.touchStartX = touch.clientX - this.imgPosX;
+    this.touchStartY = touch.clientY - this.imgPosY;
+  }
+
+  onTouchMove(event: TouchEvent) {
+    event.preventDefault(); // prevent scrolling
+    const touch = event.touches[0];
+
+    // Move image position
+    this.imgPosX = touch.clientX - this.touchStartX;
+    this.imgPosY = touch.clientY - this.touchStartY;
+
+    this.dialogZoomStyle = {
+      transform: `scale(2) translate(${this.imgPosX / 2}px, ${this.imgPosY / 2}px)`
+    };
+  }
+
+  enableZoom() {
+    this.dialogZoomStyle = { transform: "scale(2)" };
   }
 
   // --- Inline Zoom ---
