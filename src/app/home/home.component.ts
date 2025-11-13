@@ -32,7 +32,6 @@ export class HomeComponent {
     'assets/winix_hero/2.webp',
     'assets/winix_hero/3.webp',
     'assets/winix_hero/4.webp',
-    'assets/winix_hero/5.webp'
   ];
 
   currentIndex = 0;
