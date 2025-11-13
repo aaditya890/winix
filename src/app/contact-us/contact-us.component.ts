@@ -10,6 +10,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
   styleUrl: './contact-us.component.scss'
 })
 export class ContactUsComponent {
+  emailText: string = "care@justshop24x7.com";
   whatsappNumber = '918885241706'; // ✅ Replace with your number
     isSubmitting = signal(false);
   
