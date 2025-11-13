@@ -49,8 +49,8 @@ export class WinixProductCardComponent implements AfterViewInit {
       imageSrc: "/assets/products/card/P-5500-2.webp ",
       hoverImageSrc: "/assets/products/5500-2/product-2.jpg",
       badges: ["POPULAR"],
-      price: 16149,
-      mrp: 22990,
+      price: 14999,
+      mrp: 24990,
       colors: ["#111111", "#f5f5f5"] // black, white
     },
     {
@@ -64,7 +64,7 @@ export class WinixProductCardComponent implements AfterViewInit {
       slug: "winix-5300-2-air-purifier",
       imageSrc: "/assets/products/card/1.webp",
       badges: ["POPULAR"],
-      price: 15199,
+      price: 13899,
       mrp: 23990,
       colors: ["#c9c9c9", "#111111"]
     },
@@ -79,8 +79,8 @@ export class WinixProductCardComponent implements AfterViewInit {
       slug: "winix-t810-air-purifier",
       imageSrc: "assets/products/card/P-T810.webp",
       badges: ["NEW"],
-      price: 17499,
-      mrp: 21999,
+      price: 18999,
+      mrp: 29990,
       colors: ["#f5f5f5", "#3b3b3b"]
     },
     {
@@ -94,8 +94,8 @@ export class WinixProductCardComponent implements AfterViewInit {
       slug: "winix-t500-air-purifier",
       imageSrc: "assets/products/card/P-T500.webp",
       badges: ["VALUE PICK"],
-      price: 12999,
-      mrp: 16999,
+      price: 10499,
+      mrp: 19990,
       colors: ["#ffffff", "#111111"]
     },
     {
@@ -109,7 +109,7 @@ export class WinixProductCardComponent implements AfterViewInit {
       slug: "winix-a231-air-purifier",
       imageSrc: "assets/products/card/P-A231.webp",
       badges: ["ALLERGY SAFE"],
-      price: 9999,
+      price: 8699,
       mrp: 18990,
       colors: ["#f2f2f2", "#111111"]
     }

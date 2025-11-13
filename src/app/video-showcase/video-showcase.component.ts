@@ -27,23 +27,23 @@ export class VideoShowcaseComponent implements AfterViewInit {
 
   items: VideoItem[] = [
     {
-      src: 'assets/reels/1.mp4',
-      poster: 'assets/thumbnails/1.webp',
+      src: 'assets/reels/2.mp4',
+      poster: 'assets/thumbnails/6.webp',
       title: 'WINIX ZERO COMPACT',
     },
     {
-      src: 'assets/reels/2.mp4',
-      poster: 'assets/thumbnails/2.webp',
+      src: 'assets/reels/3.mp4',
+      poster: 'assets/thumbnails/1.webp',
       title: 'WINIX T810',
     },
     {
-      src: 'assets/reels/3.mp4',
-      poster: 'assets/thumbnails/3.webp',
+      src: 'assets/reels/4.mp4',
+      poster: 'assets/thumbnails/2.webp',
       title: 'WINIX 5500-2',
     },
     {
-      src: 'assets/reels/4.mp4',
-      poster: 'assets/thumbnails/4.webp',
+      src: 'assets/reels/1.mp4',
+      poster: 'assets/thumbnails/3.webp',
       title: 'WINIX A231',
     },
     {
@@ -53,7 +53,7 @@ export class VideoShowcaseComponent implements AfterViewInit {
     },
     {
       src: 'assets/reels/6.mp4',
-      poster: 'assets/thumbnails/6.webp',
+      poster: 'assets/thumbnails/4.webp',
       title: 'PLASMAWAVE TECHNOLOGY',
     },
   ];
