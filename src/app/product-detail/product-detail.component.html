@@ -41,10 +41,9 @@
         (click)="closeDialog()">
         <div class="relative w-[95%] md:w-[60%] lg:w-[40%] bg-white rounded-lg overflow-hidden"
           (click)="$event.stopPropagation()">
-          <div class="relative aspect-[4/3] overflow-hidden" (mousemove)="onDialogMouseMove($event)"
-            (mouseleave)="onDialogMouseLeave()" (touchstart)="onTouchStart($event)" (touchmove)="onTouchMove($event)"
-            (click)="enableZoom()"
-            (mouseleave)=" onDialogMouseLeave()">
+          <div class="relative aspect-[4/3] overflow-hidden" (click)="onTapToZoom()" (touchstart)="onTouchStart($event)"
+            (touchmove)="onTouchMove($event)" (mousemove)="onDialogMouseMove($event)"
+            (mouseleave)="onDialogMouseLeave()">
             <img [src]="product.images[currentImageIndex]" [alt]="product.name"
               class="w-full h-full object-contain transition-transform duration-200" [ngStyle]="dialogZoomStyle" />
           </div>
