@@ -15,7 +15,7 @@ interface FeatureItem {
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, NgOptimizedImage, WinixProductCardComponent, VideoShowcaseComponent, ReviewCardsComponent, ContactUsComponent],
+  imports: [CommonModule, NgOptimizedImage, WinixProductCardComponent, VideoShowcaseComponent, ReviewCardsComponent, ContactUsComponent, RouterLink],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
@@ -28,11 +28,11 @@ export class HomeComponent {
   isMobileOpen = false;
 
   banners: string[] = [
-    'assets/winix_hero/1.png',
-    'assets/winix_hero/2.png',
-    'assets/winix_hero/3.png',
-    'assets/winix_hero/4.png',
-    'assets/winix_hero/5.png'
+    'assets/winix_hero/1.webp',
+    'assets/winix_hero/2.webp',
+    'assets/winix_hero/3.webp',
+    'assets/winix_hero/4.webp',
+    'assets/winix_hero/5.webp'
   ];
 
   currentIndex = 0;
