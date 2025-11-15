@@ -3,7 +3,14 @@ export default {
   content: [
     "./src/**/*.{html,ts}",   // Angular templates & components
   ],
-  darkMode: 'class',          // optional: prevents extra dark selectors
+  darkMode: 'class', 
+   safelist: [
+    'leading-[8px]',
+    'leading-[10px]',
+    'leading-[12px]',
+    'leading-[100px]',
+    'leading-2',
+  ],         // optional: prevents extra dark selectors
   theme: {
     extend: {
       colors: {
