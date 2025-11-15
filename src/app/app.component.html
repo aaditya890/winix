@@ -84,12 +84,8 @@
   <div id="mobile-menu" class="lg:hidden fixed inset-0 z-50">
 
     <div class="absolute inset-0 bg-black/40 backdrop-blur-[2px]" (click)="toggleMobileMenu(false)"></div>
-
-
     <div class="absolute right-0 top-0 h-full w-11/12 max-w-xs bg-white shadow-xl
                 ring-1 ring-gray-200 translate-x-0" role="dialog" aria-modal="true">
-
-
       <div class="flex items-center justify-between px-4 py-3 border-b">
         <img src="assets/winix-logo.png" class="h-6" alt="WINIX">
         <button type="button" class="p-2 rounded-md hover:bg-gray-100" (click)="toggleMobileMenu(false)"
@@ -102,7 +98,7 @@
 
 
       <nav class="px-4 py-3 space-y-1">
-        <button type="button" routerLink="/" class="w-full text-left px-3 py-3 rounded-md text-gray-800 font-semibold">
+        <button type="button" (click)="toggleMobileMenu(false)" routerLink="/" class="w-full text-left px-3 py-3 rounded-md text-gray-800 font-semibold">
           HOME
         </button>
 
@@ -116,7 +112,7 @@
           TESTIMONIALS
         </button>
 
-        <button type="button" routerLink="/contact-us"
+        <button type="button" routerLink="/contact-us" (click)="toggleMobileMenu(false)"
           class="w-full text-left px-3 py-3 rounded-md hover:bg-gray-100 font-semibold text-gray-800">
           CONTACT-US
         </button>
