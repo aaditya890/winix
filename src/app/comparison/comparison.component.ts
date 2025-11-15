@@ -1,22 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 
-interface PurifierSpec {
-  category: string
-  zeroCompact?: string | number
-  winix5300?: string | number
-  winix5500?: string | number
-  winixT810?: string | number
-  cowayAirMega?: string | number
-  cowayAirMega150?: string | number
-  cowayAirMega200?: string | number
-  honeywell?: string | number
-  xiaomiMi4?: string | number
-  philipsAC9950?: string | number
-  philipsAC1711?: string | number
-  eurekaE150?: string | number
-  sharpFP?: string | number
-}
 
 interface PurifierModel {
   name: string
@@ -49,7 +33,7 @@ export class ComparisonComponent {
     "ZERO Compact",
     "5300-2",
     "5500-2",
-    "T810",
+    "T800",
     "AirMega Aim",
     "AirMega 150",
     "AirMega 200",

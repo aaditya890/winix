@@ -45,18 +45,6 @@
               <p class="mt-1 text-lg sm:text-xl font-bold !leading-[17px] sm:!leading-[19px] text-neutral-400 uppercase">
                {{p.title}} | {{ p.description }}
               </p>
-              <!-- Colors -->
-              <!-- <div *ngIf="p.colors?.length" class="mt-3 flex items-center gap-2">
-                <ng-container *ngFor="let c of p.colors; let idx = index">
-                  <span *ngIf="idx === 0; else circle" class="h-4 w-4 rounded-[4px] border border-gray-200"
-                    [ngStyle]="{ 'background-color': c }"></span>
-                  <ng-template #circle>
-                    <span class="h-4 w-4 rounded-full border border-gray-200"
-                      [ngStyle]="{ 'background-color': c }"></span>
-                  </ng-template>
-                </ng-container>
-              </div> -->
-
               <!-- Price & CTA -->
               <div class="mt-4 flex items-end justify-between">
                 <div>

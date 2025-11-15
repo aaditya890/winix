@@ -707,20 +707,20 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
     {
       id: 4,
       productUrl: "#",
-      slug: "winix-t810-air-purifier",
-      name: "WINIX T810 Air Purifier for Home Extra Large Room",
-      shortName: "T810",
+      slug: "winix-t800-air-purifier",
+      name: "WINIX T800 Air Purifier for Home Extra Large Room",
+      shortName: "T800",
       description:
         "Smart Wi-Fi enabled air purifier with True HEPA, carbon filter, auto mode, and air quality monitor. Covers up to 1968 sq ft in 1 hour with AHAM-verified 410 sq ft rating.",
       images: [
-        "assets/products/T810/product-1.jpg",
-        "assets/products/T810/product-2.jpg",
-        "assets/products/T810/product-3.jpg",
-        "assets/products/T810/product-4.jpg",
-        "assets/products/T810/T810.webp",
+        "assets/products/T800/product-1.jpg",
+        "assets/products/T800/product-2.jpg",
+        "assets/products/T800/product-3.jpg",
+        "assets/products/T800/product-4.jpg",
+        "assets/products/T800/T800.webp",
         "assets/products/28.webp"
       ],
-      currentImage: "assets/products/T810/product-1.jpg",
+      currentImage: "assets/products/T800/product-1.jpg",
       rating: 4.4,
       category: "Smart Series",
       technology: "True HEPA + Carbon Filter + PlasmaWave + Smart Wi-Fi",
@@ -783,7 +783,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       },
       productReviews: [
         {
-          id: "t810-r1",
+          id: "t800-r1",
           author: "Ananya",
           rating: 5,
           title: "Air feels fresh fast",
@@ -794,7 +794,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
           images: ["/review-kitchen.png", "/review-airquality.png"],
         },
         {
-          id: "t810-r2",
+          id: "t800-r2",
           author: "Nick",
           rating: 5,
           title: "Quiet power for big rooms",
@@ -805,7 +805,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
           images: ["/review-livingroom.png"],
         },
         {
-          id: "t810-r3",
+          id: "t800-r3",
           author: "Cody",
           rating: 4,
           title: "Buttons need backlight",
@@ -816,7 +816,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
           images: [],
         },
         {
-          id: "t810-r4",
+          id: "t800-r4",
           author: "Lina",
           rating: 5,
           title: "Allergy relief within days",
@@ -827,18 +827,18 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
           images: ["/review-bedroom.png"],
         },
         {
-          id: "t810-r5",
+          id: "t800-r5",
           author: "Samir",
           rating: 4,
           title: "Great filtration, basic app",
-          body: "T810 ki cleaning power bohot strong hai—pollen aur cooking VOCs handle ho jaate hain. App ka UI thoda basic hai par kaam kar deta hai.",
+          body: "T800 ki cleaning power bohot strong hai—pollen aur cooking VOCs handle ho jaate hain. App ka UI thoda basic hai par kaam kar deta hai.",
           date: "2025-05-10",
           verified: true,
           helpful: 7,
           images: [],
         },
         {
-          id: "t810-r6",
+          id: "t800-r6",
           author: "Olivia",
           rating: 5,
           title: "Smart adjustments that you notice",
@@ -849,7 +849,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
           images: ["/review-appcontrol.png"],
         },
         {
-          id: "t810-r7",
+          id: "t800-r7",
           author: "Rahul",
           rating: 4,
           title: "Bulky but worth it",
@@ -860,7 +860,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
           images: [],
         },
         {
-          id: "t810-r8",
+          id: "t800-r8",
           author: "Meera",
           rating: 5,
           title: "Night mode FTW",
@@ -872,16 +872,16 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         },
       ],
       highlightImages: [
-        "assets/winix-product-images/t810/t810-1.webp",
-        "assets/winix-product-images/t810/t810-2.webp",
-        "assets/winix-product-images/t810/t810-3.webp",
-        "assets/winix-product-images/t810/t810-4.webp",
-        "assets/winix-product-images/t810/t810-5.webp",
+        "assets/winix-product-images/t800/t800-1.webp",
+        "assets/winix-product-images/t800/t800-2.webp",
+        "assets/winix-product-images/t800/t800-3.webp",
+        "assets/winix-product-images/t800/t800-4.webp",
+        "assets/winix-product-images/t800/t800-5.webp",
       ],
       faqs: [
         {
           q: "Does it support Wi-Fi or app control?",
-          a: "Yes. The T810 can connect to Wi-Fi and be controlled through the Winix Smart app.",
+          a: "Yes. The T800 can connect to Wi-Fi and be controlled through the Winix Smart app.",
           open: false,
         },
         {

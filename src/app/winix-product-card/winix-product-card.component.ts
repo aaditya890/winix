@@ -1,9 +1,4 @@
-import {
-  Component,
-  ElementRef,
-  ViewChild,
-  AfterViewInit,
-} from '@angular/core';
+import { Component,ElementRef,ViewChild,AfterViewInit,} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 
@@ -69,15 +64,15 @@ export class WinixProductCardComponent implements AfterViewInit {
       colors: ["#c9c9c9", "#111111"]
     },
     {
-      id: "T810",
-      title: "T810",
-      tagline: "WINIX T810 Large Room Air",
+      id: "T800",
+      title: "T800",
+      tagline: "WINIX T800 Large Room Air",
       description:
-        "High CADR for large rooms with H13 True HEPA, real-time air quality and app control.",
+        "WINIX T800 Large Room Air Purifier | 1968 Sq Ft Coverage, Smokers & Dusty Homes",
       rating: 4.4,
       ratingCount: '165',
-      slug: "winix-t810-air-purifier",
-      imageSrc: "assets/products/card/P-T810.webp",
+      slug: "winix-t800-air-purifier",
+      imageSrc: "assets/products/card/P-T800.webp",
       badges: ["NEW"],
       price: 18999,
       mrp: 29990,

@@ -34,7 +34,7 @@ export class VideoShowcaseComponent implements AfterViewInit {
     {
       src: 'assets/reels/3.mp4',
       poster: 'assets/thumbnails/1.webp',
-      title: 'WINIX T810',
+      title: 'WINIX T800',
     },
     {
       src: 'assets/reels/4.mp4',
