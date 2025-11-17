@@ -28,7 +28,7 @@ export class VideoShowcaseComponent implements AfterViewInit {
   items: VideoItem[] = [
     {
       src: 'assets/reels/2.mp4',
-      poster: 'assets/thumbnails/6.jpg',
+      poster: 'assets/thumbnails/6.webp',
       title: 'WINIX ZERO COMPACT',
     },
     {

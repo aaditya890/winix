@@ -46,6 +46,8 @@ interface Product {
   }
   productReviews: Review[],
   highlightImages: string[],
+  video?: string,
+  lastImage?: string,
   faqs: FAQ[]
 }
 
@@ -94,6 +96,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
   isLoading = true;
   bottomBannerSrc: string | null = null;
   hideButton = false;
+  detailedFeatures:any
 
 
   // Listen for scroll event
@@ -708,7 +711,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       id: 4,
       productUrl: "#",
       slug: "winix-t800-air-purifier",
-      name: "WINIX T800 Air Purifier for Home Extra Large Room",
+      name: "Winix T800 360° True HEPA WiFi Air Purifier with 4-Stage PlasmaWave Tech",
       shortName: "T800",
       description:
         "Smart Wi-Fi enabled air purifier with True HEPA, carbon filter, auto mode, and air quality monitor. Covers up to 1968 sq ft in 1 hour with AHAM-verified 410 sq ft rating.",
@@ -724,18 +727,23 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       rating: 4.4,
       category: "Smart Series",
       technology: "True HEPA + Carbon Filter + PlasmaWave + Smart Wi-Fi",
-      keyFeatures: [
-        "AHAM Verified at 410 sq ft (cleans up to 1968 sq ft in 1 hour)",
-        "Smart Wi-Fi with Winix App control",
-        "True HEPA 99.99% captures allergens as small as 0.01µm",
+     keyFeatures: [
+        "AHAM Verifide ® at 410 sq ft",
+        "The Smarter Air Purifier",
+        "Fine Mesh Pre-Filter ",
         "Washable fine mesh pre-filter",
-        "Carbon filter reduces VOCs and odors",
-        "PlasmaWave air cleaning technology",
-        "Air Quality Indicator with LED lights",
-        "Smart Sensors + Auto Mode",
-        "Ultra-quiet operation",
-        "Filter replacement indicator",
-      ],
+        "Winix True HEPA",
+        "Activated Carbon Filter",
+        "PlasmaWave® Air Cleaning Technology ",
+        "Smart Sensor + Auto Mode ",
+        "Air Quality Indicator",
+        "Ultra-Quiet",
+        "Sleep Mode",
+        "Tested and Trusted",
+        "Energy Efficient",
+        "Filter Replacement Indicator",
+        "03 Years warranty"
+      ],
       coverage: "410 sq ft (AHAM) • Up to 1968 sq ft (1 hour)",
       filterType: "Washable Pre-filter + Carbon + True HEPA",
       noiseLevel: "—",
@@ -761,18 +769,19 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         ],
       },
       detailedFeatures: [
-        "AHAM Verified at 410 sq ft coverage",
-        "Cleans up to 1968 sq ft in 1 hour",
-        "Winix Smart App with Wi-Fi control",
-        "True HEPA captures 99.99% of allergens down to 0.01µm",
-        "Washable pre-filter extends HEPA life",
-        "Carbon filter reduces odors and VOCs",
-        "PlasmaWave technology for safe air cleaning",
-        "Air quality LED indicator with real-time monitoring",
-        "Smart sensor auto mode adjusts fan speed",
-        "Ultra-quiet on lowest setting",
-        "Filter replacement indicator LED",
-      ],
+        "AHAM Verifide ® at 410 sq ft.: Also cleans rooms up to 1,968 sq ft in 1 hour (984 sq ft in 30 minutes, 656 sq ft in 20 minutes, 492 sq ft in 15 minutes)",
+        "The Smarter Air Purifier: Control and monitor your unit anytime from anywhere by instantly accessing your unit with the Winix Smart App through the convenient WiFi feature",
+        "Fine Mesh Pre-Filter: The first line of defense against the largest airborne particles found indoors.",
+        "Winix True HEPA: Captures 99.99% * of airborne allergens including pollen, dust, smoke, and pet dander, as small as 0.01 microns ",
+        "Activated Carbon Filter: Reduces VOCs and household odors from cooking, pets, and smoke. It is designed to catch airborne particles found indoors, which also helps prolong the True HEPA Filter life.",
+        "PlasmaWave® Air Cleaning Technology",
+        "Smart Sensor + Auto Mode: Built-in air quality sensor measures and adjusts fan speed in real-time ",
+        "Air Quality Indicator: Visual indicator displays real-time air quality in the room with LED lights ",
+        "Ultra-Quiet: Nearly silent on its slowest speed",
+        "Sleep Mode: Activate the quiet, energy-efficient Sleep Mode for a good night's sleep",
+        "Tested and Trusted: This unit is proven dependable and efficient by being AHAM Verified, Energy Star Certified, UL Certified, and backed by the Winix 3 Year Warranty",
+        "Energy Efficient: Energy Star Certified for low energy consumption, resulting in reduced operating costs.",
+      ],
       technicalDetails: {
         cadr: "(AHAM Verified at 410 sq ft)",
         airChangesPerHour: "(varies by room size)",
@@ -872,12 +881,14 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         },
       ],
       highlightImages: [
-        "assets/winix-product-images/t800/t800-1.webp",
-        "assets/winix-product-images/t800/t800-2.webp",
-        "assets/winix-product-images/t800/t800-3.webp",
-        "assets/winix-product-images/t800/t800-4.webp",
-        "assets/winix-product-images/t800/t800-5.webp",
+        "assets/winix-product-images/t800/1.jpg",
+        "assets/winix-product-images/t800/2.jpg",
+        "assets/winix-product-images/t800/3.jpg",
+        "assets/winix-product-images/t800/4.jpg",
+        "assets/winix-product-images/t800/6.jpg",
       ],
+      video: "assets/winix-product-images/t800/vid.webm",
+      lastImage: "assets/winix-product-images/t800/last-image.jpg",
       faqs: [
         {
           q: "Does it support Wi-Fi or app control?",

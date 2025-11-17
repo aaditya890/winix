@@ -18,7 +18,7 @@ interface Review {
   templateUrl: './review-cards.component.html',
   styleUrls: ['./review-cards.component.scss'], // <-- fixed key
 })
-export class ReviewCardsComponent implements AfterViewInit, OnDestroy {
+export class  ReviewCardsComponent implements AfterViewInit, OnDestroy {
   visibleMap: Record<string, boolean> = {};
   currentSlide = 0;
   autoSlideInterval: any;
