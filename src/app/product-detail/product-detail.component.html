@@ -188,7 +188,7 @@
 
         <section id="specs" class="scroll-mt-24 space-y-2">
           <button
-            class="w-full flex items-center justify-between px-4 py-3 rounded-[12px] bg-gray-100 border border-gray-200 font-extrabold text-[#111] hover:border-gray-300 transition"
+            class="w-full flex items-center justify-between px-4 py-3 rounded-[12px] bg-gray-100 border border-gray-100 font-extrabold text-[#111] hover:border-gray-300 transition"
             (click)="toggleSection('details')">
             <span class="text-neutral-700 font-semibold text-xl">Product Details</span>
             <span
@@ -198,110 +198,45 @@
           <div *ngIf="sectionsOpen.details"
             class="mt-2 rounded-[12px] border border-dashed border-[#101A50]/30 bg-white p-4 text-sm text-[#111]">
             <ul class="list-disc pl-5 space-y-1">
-              <li *ngFor="let item of product.detailedFeatures"
-                class="text-md md:text-lg text-neutral-500 font-semibold leading-5">{{ item
-                }}</li>
+              <li *ngFor="let item of product.detailedFeatures" class="text-md md:text-md text-neutral-500 leading-5"
+                [innerHTML]="
+        '<strong>' +
+        (item.includes(':') ? item.split(':')[0] + ':</strong> ' + item.split(':').slice(1).join(':') : item + '</strong>')
+      ">
+              </li>
             </ul>
-          </div>
-
-          <button
-            class="w-full flex items-center justify-between px-4 py-3 rounded-[12px] bg-gray-100  border border-gray-200 font-extrabold text-[#111] hover:border-gray-300 transition"
-            (click)="toggleSection('techSpecs')">
-            <span class="text-neutral-700 font-semibold text-xl">Technical Specifications</span>
-            <span
-              class="inline-flex items-center justify-center w-7 h-7 rounded-full bg-[#101A50]/10 text-[#101A50] transition-transform"
-              [class.rotate-45]="sectionsOpen.techSpecs">+</span>
-          </button>
-          <div *ngIf="sectionsOpen.techSpecs" class="mt-2 grid grid-cols-1 sm:grid-cols-2 gap-3">
-            <div class="rounded-[12px] border border-gray-200 bg-white p-3 text-sm">
-              <div class="text-md font-bold uppercase tracking-wide text-neutral-600">CADR</div>
-              <div class="font-semibold text-neutral-500 text-sm">{{ product.technicalDetails?.cadr }}</div>
-            </div>
-            <div class="rounded-[12px] border border-gray-200 bg-white p-3 text-sm">
-              <div class="text-md font-bold uppercase tracking-wide text-neutral-600">Air changes/hour</div>
-              <div class="font-semibold text-neutral-500 text-sm">{{ product.technicalDetails?.airChangesPerHour }}
-              </div>
-            </div>
-            <div class="rounded-[12px] border border-gray-200 bg-white p-3 text-sm">
-              <div class="text-md font-bold uppercase tracking-wide text-neutral-600">Recommended room</div>
-              <div class="font-semibold text-neutral-500 text-sm">{{ product.technicalDetails?.roomSizeRecommended }}
-              </div>
-            </div>
-            <div class="rounded-[12px] border border-gray-200 bg-white p-3 text-sm">
-              <div class="text-md font-bold uppercase tracking-wide text-neutral-600">Fan speeds</div>
-              <div class="font-semibold text-neutral-500 text-sm">{{ product.technicalDetails?.fanSpeeds }}</div>
-            </div>
-            <div class="rounded-[12px] border border-gray-200 bg-white p-3 text-sm sm:col-span-2">
-              <div class="text-md font-bold uppercase tracking-wide text-neutral-600">Control type</div>
-              <div class="font-semibold text-neutral-500 text-sm">{{ product.technicalDetails?.controlType }}</div>
-            </div>
-          </div>
-
-          <button
-            class="w-full flex items-center justify-between px-4 py-3 rounded-[12px] bg-gray-100 border border-gray-200 font-extrabold text-[#111] hover:border-gray-300 transition"
-            (click)="toggleSection('care')">
-            <span class="text-neutral-700 font-semibold text-xl">Material and Care</span>
-            <span
-              class="inline-flex items-center justify-center w-7 h-7 rounded-full bg-[#101A50]/10 text-[#101A50] transition-transform"
-              [class.rotate-45]="sectionsOpen.care">+</span>
-          </button>
-          <div *ngIf="sectionsOpen.care"
-            class="mt-2 rounded-[12px] border text-sm font-semibold bg-white p-4 text-neutral-500">
-            Filter life: {{ product.detailedSpecs?.filterLife }}
-          </div>
-
-          <button
-            class="w-full flex items-center justify-between px-4 py-3 rounded-[12px] bg-gray-100 border border-gray-200 font-extrabold text-[#111] hover:border-gray-300 transition"
-            (click)="toggleSection('inBox')">
-            <span class="text-neutral-700 font-semibold text-xl">In the Box</span>
-            <span
-              class="inline-flex items-center justify-center w-7 h-7 rounded-full bg-[#101A50]/10 text-[#101A50] transition-transform"
-              [class.rotate-45]="sectionsOpen.inBox">+</span>
-          </button>
-          <div *ngIf="sectionsOpen.inBox"
-            class="mt-2 rounded-[12px] border text-sm font-semibold bg-white p-4 text-neutral-500">
-            Includes purifier, filters, documentation. Configure per product.
-          </div>
-
-          <button
-            class="w-full flex items-center justify-between px-4 py-3 rounded-[12px] bg-gray-100 border border-gray-200 font-extrabold text-[#111] hover:border-gray-300 transition"
-            (click)="toggleSection('tests')">
-            <span class="text-neutral-700 font-semibold text-xl">Product Test Reports</span>
-            <span
-              class="inline-flex items-center justify-center w-7 h-7 rounded-full bg-[#101A50]/10 text-[#101A50] transition-transform"
-              [class.rotate-45]="sectionsOpen.tests">+</span>
-          </button>
-          <div *ngIf="sectionsOpen.tests"
-            class="mt-2 rounded-[12px] border text-sm font-semibold bg-white p-4 text-neutral-500">
-            Whether in small bedrooms or large living rooms, WINIX purifiers consistently deliver fast, reliable air
-            cleaning performance—verified through standardized test procedures and real-world conditions.
           </div>
         </section>
       </div>
     </div>
+
     <section class="mt-2 md:mt-24">
       <div class="rounded-xl border overflow-hidden">
-        <div class="min-h-[100px] w-full p-2">
+        <div class="w-full p-2">
+          <!-- ALL A+ IMAGES -->
+          <ng-container *ngFor="let img of product.highlightImages">
+            <div class="w-full flex justify-center bg-white rounded-md">
+              <img [src]="img" [alt]="product.slug" loading="lazy"
+                class="w-full max-h-[500px] md:max-h-[650px] object-contain" />
+            </div>
+          </ng-container>
 
-          <!-- TOP: first 3 images -->
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
-            <ng-container *ngFor="let img of product.highlightImages; let i = index">
-              <img *ngIf="i < 3" [src]="img" [alt]="product.slug" loading="lazy" decoding="async"
-                class="w-full h-full object-cover rounded-sm" />
-            </ng-container>
+          <!-- VIDEO (FULL WIDTH, NO CROP) -->
+          <div class="w-full flex justify-center bg-white rounded-md">
+            <video [autoplay]="true" [muted]="true" [loop]="true" [attr.src]="product.video" *ngIf="product.video"
+              class="w-full max-h-[500px] md:max-h-[650px] object-contain"></video>
           </div>
 
-          <!-- BOTTOM: last 2 images side-by-side -->
-          <div class="mt-2 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-2">
-            <ng-container *ngFor="let img of product.highlightImages; let i = index">
-              <img *ngIf="i >= 3" [src]="img" [alt]="product.slug" loading="lazy" decoding="async"
-                class="w-full h-full object-cover rounded-sm" />
-            </ng-container>
+          <!-- LAST IMAGE -->
+          <div class="w-full flex justify-center bg-white rounded-md">
+            <img [src]="product.lastImage" [alt]="product.slug"
+              class="w-full max-h-[500px] md:max-h-[650px] object-contain" />
           </div>
 
         </div>
       </div>
     </section>
+
 
     <section id="reviews" class="scroll-mt-24 mt-8 space-y-6 relative">
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
