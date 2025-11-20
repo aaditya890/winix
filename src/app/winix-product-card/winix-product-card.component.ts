@@ -34,7 +34,7 @@ export class WinixProductCardComponent implements AfterViewInit {
   products: Product[] = [
     {
       id: "5500-2",
-      title: "5500-2",
+      title: "WINIX 5500-2",
       tagline: "WINIX 5500-2 PlasmaWave®",
       description:
         "Captures 99.97% particles with True HEPA and tackles VOCs using AOC™ carbon filter.",
@@ -50,14 +50,14 @@ export class WinixProductCardComponent implements AfterViewInit {
     },
     {
       id: "5300-2",
-      title: "5300-2",
+      title: "WINIX 5300-2",
       tagline: "WINIX 5300-2 Premium Air",
       description:
         "4-stage filtration with True HEPA, deodorization, auto mode and quiet sleep mode.",
       rating: 4.6,
       ratingCount: '39K',
       slug: "winix-5300-2-air-purifier",
-      imageSrc: "/assets/products/card/1.webp",
+      imageSrc: "/assets/products/card/P-5300-2.webp",
       badges: ["POPULAR"],
       price: 13899,
       mrp: 23990,
@@ -65,7 +65,7 @@ export class WinixProductCardComponent implements AfterViewInit {
     },
     {
       id: "T800",
-      title: "T800",
+      title: "WINIX T800",
       tagline: "WINIX T800 Large Room Air",
       description:
         "WINIX T800 Large Room Air Purifier | 1968 Sq Ft Coverage, Smokers & Dusty Homes",
@@ -80,7 +80,7 @@ export class WinixProductCardComponent implements AfterViewInit {
     },
     {
       id: "T500",
-      title: "T500",
+      title: "WINIX T500",
       tagline: "WINIX T500 Compact Air",
       description:
         "Compact design with 360° suction, multi-stage filtration and whisper-quiet night mode.",
@@ -95,7 +95,7 @@ export class WinixProductCardComponent implements AfterViewInit {
     },
     {
       id: "A231",
-      title: "A231",
+      title: "WINIX A231",
       tagline: "WINIX A231 Compact Air",
       description:
         "Allergy-certified compact purifier, ideal for study, kids’ rooms and small spaces.",
@@ -113,6 +113,8 @@ export class WinixProductCardComponent implements AfterViewInit {
   private isDown = false;
   private startX = 0;
   private startLeft = 0;
+  private dragThreshold = 2; // px
+
 
   ngAfterViewInit() { }
 
@@ -144,12 +146,23 @@ export class WinixProductCardComponent implements AfterViewInit {
   }
 
   onPointerMove(e: PointerEvent | TouchEvent) {
-    if (!this.isDown) return;
-    const el = this.el();
-    if (!el) return;
-    const clientX = 'touches' in e ? e.touches[0].clientX : e.clientX;
-    el.scrollLeft = this.startLeft - (clientX - this.startX);
-  }
+  if (!this.isDown) return;
+
+  const el = this.el();
+  if (!el) return;
+
+  const clientX = 'touches' in e ? e.touches[0].clientX : e.clientX;
+  const diff = clientX - this.startX;
+
+  // if diff is too small → treat as tap, not drag
+  if (Math.abs(diff) < this.dragThreshold) return;
+  const speed = 4; // adjust scroll speed
+  el.scrollLeft = this.startLeft - diff * speed;
+
+  // Prevent scroll locking vertical movement
+  e.preventDefault();
+}
+
 
   onPointerUp() {
     this.isDown = false;

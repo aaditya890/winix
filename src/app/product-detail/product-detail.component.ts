@@ -49,10 +49,42 @@ interface Product {
   video?: string,
   lastImage?: string,
   faqs: FAQ[]
+  productInformation?: {
+    featuresAndSpecs: Record<string, string>;
+    measurements: Record<string, string>;
+    userGuide: string[] | Record<string, string>;
+    additionalDetails: Record<string, string>;
+  };
+
+  itemDetails?: {
+    brandName?: string;
+    modelNumber?: string;
+    manufacturer?: string;
+    globaltradeidentificationNumber?: string;
+
+    customerReviews?: {
+      rating: number;
+      totalReviews: number;
+      ratingText?: string;
+    };
+
+    bestSellersRank?: string[]; // multiple ranks (as shown)
+
+    asin?: string;
+
+    importerContactInformation?: string;
+    itemTypeName?: string;
+    includedComponents?: string;
+    countryofOrigin?: string;
+    itemHeight?: string;
+    manufacturercontactInformation?: string;
+    packerContactInformation?: string;
+    unitCount?: string;
+    warrantyDescription?: string;
+  };
 }
 
 type SectionKey = "details" | "techSpecs" | "care" | "inBox" | "tests" | "additional"
-
 type Review = {
   id: string
   author: string
@@ -78,8 +110,17 @@ type FAQ = {
   templateUrl: "./product-detail.component.html",
   styleUrls: ["./product-detail.component.scss"],
 })
+
 export class ProductDetailComponent implements OnInit, OnDestroy {
   product: Product | null = null
+  //Product info sections
+  isOpen = {
+    features: false,
+    measurements: false,
+    userGuide: false,
+    additional: false,
+    itemDetails: false
+  };
   currentImageIndex = 0
   zoomed = false;
   startX = 0;
@@ -96,8 +137,55 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
   isLoading = true;
   bottomBannerSrc: string | null = null;
   hideButton = false;
-  detailedFeatures:any
+  detailedFeatures: any
 
+  objectKeys = Object.keys;
+
+  toggle(section: keyof typeof this.isOpen) {
+    this.isOpen[section] = !this.isOpen[section];
+  }
+
+  isUserGuideObject() {
+    const ug = this.product?.productInformation?.userGuide;
+    return ug && !Array.isArray(ug);
+  }
+
+  get itemDetailsOtherKeys(): Record<string, any> {
+    const item = this.product?.itemDetails;
+    if (!item) return {};
+
+    const {
+      brandName,
+      modelNumber,
+      manufacturer,
+      customerReviews,
+      bestSellersRank,
+      ...others
+    } = item;
+
+    return others;
+  }
+
+  get normalizedUserGuide(): Record<string, string> {
+    const ug = this.product?.productInformation?.userGuide;
+
+    // If array → convert to object
+    if (Array.isArray(ug)) {
+      return ug.reduce((acc, curr, i) => {
+        acc[`Step ${i + 1}`] = curr;
+        return acc;
+      }, {} as Record<string, string>);
+    }
+
+    // If object already → return as is
+    return ug || {};
+  }
+
+  formatKey(key: string): string {
+    return key
+      .replace(/([A-Z])/g, ' $1')      // camelCase → words
+      .replace(/^./, (str) => str.toUpperCase()); // Capitalize first letter
+  }
 
   // Listen for scroll event
   @HostListener('window:scroll', [])
@@ -131,7 +219,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       id: 1,
       productUrl: "https://www.amazon.in/Winix-Small-Tower-A231-Purifier/dp/B08HW5SBQ6/ref=sr_1_1_sspa?crid=3E4UW6KQS1IHL&dib=eyJ2IjoiMSJ9.nyrDct4QLbf6J4nB4JwHKdswXh_KKQKMAuEv-AlXIBI.39zb7Frm_88rf20XFP4m78D_BdJfBpTFCAvaG-7-It4&dib_tag=se&keywords=winix%2Ba231&qid=1758281141&sprefix=winix%2Ba231%2Caps%2C246&sr=8-1-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1 ",
       slug: "winix-a231-air-purifier",
-      name: "WINIX A231 Premium 4-Stage Air Purifier",
+      name: "Winix A231 360° All in One 4 Stage True HEPA Air Purifier with PlasmaWave Tech",
       shortName: "A231 Compact",
       description:
         "Compact HEPA purifier for small-to-medium rooms with washable pre-filter, activated carbon, True HEPA, and PlasmaWave. AHAM-verified 230 sq ft coverage; ultra-quiet 20 dB.",
@@ -174,12 +262,28 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         certifications: ["AHAM Certified", "UK Allergy Certified", "ECARF"],
       },
       detailedFeatures: [
-        "AHAM-verified coverage 230 sq ft",
-        "Pre-filter traps large particles; extends HEPA life",
-        "Carbon filter reduces VOCs, smoke, pet & cooking odours",
-        "True HEPA captures pollen, dust, microbes, and smoke down to 0.3µm",
-        "PlasmaWave safely breaks down odours and vapours",
-        "Quiet operation ideal for bedrooms/offices",
+        "AHAM Verifide® at 230 sq ft.: Also cleans rooms up to 1,104 sq ft in 1 hour (552 sq ft in 30 minutes, 368 sq ft in 20 minutes, 276 sq ft in 15 minutes)",
+
+        "Fine Mesh Pre-Filter: The first line of defense against the largest airborne particles found indoors.",
+
+        "Winix True HEPA: Captures 99.99%* of airborne allergens including pollen, dust, smoke, and pet dander, as small as 0.01 microns.",
+
+        "Activated Carbon Filter: Reduces VOCs and household odors from cooking, pets, and smoke. It is designed to catch airborne particles found indoors, which also helps prolong the True HEPA Filter life",
+        "PlasmaWave® Air Cleaning Technology:",
+
+        "Smart Sensor + Auto Mode: Built-in air quality sensor measures and adjusts fan speed in real-time",
+
+        "Air Quality Indicator: Visual indicator displays real-time air quality in the room with LED lights",
+
+        "Ultra-Quiet: Nearly silent on its slowest speed",
+
+        "Sleep Mode: Activate the quiet, energy-efficient Sleep Mode for a good night's sleep",
+
+        "Tested and Trusted: This unit is proven dependable and efficient by being AHAM Verified, Energy Star Certified, ETL Certified, and backed by the Winix 2 Year Warranty",
+
+        "Energy Efficient: Energy Star Certified for low energy consumption, resulting in reduced operating costs.",
+
+        "Filter Replacement Indicator: When the filters need to be replaced, the Filter Replacement Indicator LED will illuminate."
       ],
       technicalDetails: {
         cadr: "250 m³/h (≈147 CFM)",
@@ -188,6 +292,55 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         fanSpeeds: "3 + Auto + Sleep",
         controlType: "Touch Panel + Remote",
         indicators: ["Air Quality LED", "Filter Replacement"],
+      },
+       productInformation: {
+        featuresAndSpecs: {
+          "Power Source Type": "Corded Electric",
+          "Control Method": "Touch",
+          "Filter Type": "Activated Carbon",
+          "Floor Area": "230 Square Feet",
+          "Noise Level": "20 Decibels",
+          "Particle Retention Size": "0.3 Micrometer",
+          "Controller Type": "Remote Control",
+        },
+        measurements: {
+          "Item Dimensions D x W x H": "24D x 24W x 37H Centimeters",
+          "Item Weight": "3.22 Kg"
+        },
+        userGuide: {
+          "Specification Met": "AHAM Certified",
+        },
+        additionalDetails: {
+          "Color": "White and Charcoal Grey",
+        }
+      },
+
+      itemDetails: {
+        brandName: "Winix",
+        modelNumber: "A231",
+        manufacturer: "Phone Number: +91 8885241706, Mail Id: care@justshop24x7.com, Winix",
+
+        customerReviews: {
+          rating: 4.5,
+          totalReviews: 39310,
+          ratingText: "4.5 out of 5 stars"
+        },
+
+        bestSellersRank: [
+          "#26,107 in Home & Kitchen",
+          "#67 in HEPA Air Purifiers"
+        ],
+
+        asin: "B08HW5SBQ6",
+        importerContactInformation:
+          "Sha Maknaji Veerchand, Ph no- 8885241706",
+        itemTypeName: "Air Purifier",
+        includedComponents: "Air Purifier",
+        countryofOrigin: "Republic of Korea",
+        itemHeight: "14.6 Inches",
+        packerContactInformation:
+          "Sha Maknaji Veerchand , Kamala Nagar, Anantapur. Ph no-08554-356969",
+        unitCount: "1.0 count"
       },
       productReviews: [
         {
@@ -285,7 +438,11 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         "assets/winix-product-images/a231/a231-3.webp",
         "assets/winix-product-images/a231/a231-4.webp",
         "assets/winix-product-images/a231/a231-5.webp",
+        "assets/winix-product-images/a231/a231-6.webp",
+        "assets/winix-product-images/a231/last-image.jpg",
       ],
+      video: "assets/winix-product-images/a231/vid.mp4",
+      lastImage: "assets/winix-product-images/t800/last-image.jpg",
       faqs: [
         {
           q: "Is the A231 suitable for large rooms?",
@@ -324,7 +481,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       productUrl: "https://www.amazon.in/Winix-5300-2-Purifier-PlasmaWave-Reducing/dp/B01D8DAYBA/ref=sr_1_1_sspa?crid=13CBVJUQ98R7R&dib=eyJ2IjoiMSJ9.Kp26yzZ_O7yzCqZVio4eM8X0lDXtjI4IfNuutcBiDJOGikTLEumjQeBFs12phlwA1fPcueTVaqVD8kvlO0LzVS3kqv8EVjfipAZbFaTS5M-faaYKj7ZDocTv-YUva276h32vcS85_jaCvZc6TWJgbzlg8wqQrXuCTGNgpPEjCj3-OCVrHK5852_MkjQt8IMCLWO3KgPNN05ZgwuShB8-ppE3Za8j8rnNwQMBmf6tkX0.FtKqwonycx94L0Lbr2GqcBMCiLTMC1vheZeg9izAgPM&dib_tag=se&keywords=winix%2B5500-2%2Bair%2Bpurifier&nsdOptOutParam=true&qid=1758281186&sprefix=winix%2B5500-2%2B%2Caps%2C317&sr=8-1-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1 ",
       slug: "winix-5300-2-air-purifier",
       name: "WINIX 5300-2 Premium 4-Stage Air Purifier",
-      shortName: "5300-2 Premium",
+      shortName: "Winix 5300-2 Premium",
       description:
         "Premium 4-stage purifier with True HEPA, PlasmaWave, and activated carbon. AHAM-verified coverage up to 1065 sq ft, CADR 390 m³/h, with ultra-quiet 27.8 dB operation.",
       images: [
@@ -370,12 +527,23 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         certifications: ["Certified HEPA", "UK Allergy Certified", "ECARF", "AHAM Verified"],
       },
       detailedFeatures: [
-        "True HEPA filter captures 99.97% of airborne pollutants as small as 0.3µm",
-        "3-Stage cleaning removes dust, smoke, pollen, odors, pet dander, mold spores",
-        "PlasmaWave acts as a permanent filter to break down odors and vapors",
-        "Smart Sensor + Auto Mode adjusts fan speed automatically",
-        "Sleep mode for ultra-quiet night operation",
-        "AHAM-verified coverage up to 1065 sq ft",
+        "AHAM Verifide® 360 sq. ft.: CADR rated for 360 sq. ft. Suitable for medium and large rooms including kids’ bedrooms, baby nurseries, and offices.",
+
+        "Winix True HEPA: True-HEPA filter captures 99.97% of airborne pollutants such as dust mites, pet dander, pollen, and other allergens as small as 0.3 microns.",
+
+        "3-Stage Cleaning System: Removes a wide range of allergens including dust, cigarette smoke, pollen, odors, pet dander, mold spores, and organic chemicals. CFM (Sleep / Low / Med / High / Turbo): 35.31 / 70.63 / 91.82 / 123.60 / 240.14.",
+
+        "PlasmaWave® Air Cleaning Technology:PlasmaWave acts as a permanent filter to safely break down odors, allergens, chemical vapors, and other pollutants — with no harmful ozone.",
+
+        "Smart Sensor + Auto Mode: 236 CFM, decibels, 27.8. Smart Sensor gauges the air and our Auto Mode adjusts the fan to filter the air as needed; with a sleep mode for silent night-time operation, No remote control.",
+
+        "Ultra-Quiet Operation: Nearly silent when running on its slowest speed. ",
+
+        "Sleep Mode: Activates the quiet, energy-efficient Sleep Mode for a good night’s sleep.",
+        
+        "Tested and Trusted: This unit is proven dependable and efficient by being AHAM Verified, Energy Star Certified, ETL Certified, and backed by the Winix 3 Year Warranty",
+
+        "Energy Efficient: Energy Star Certified for low energy consumption, reducing overall operating costs.",
       ],
       technicalDetails: {
         cadr: "236 CFM (≈390 m³/h)",
@@ -384,6 +552,60 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         fanSpeeds: 5, // Sleep / Low / Med / High / Turbo
         controlType: "Touch + Button Control",
         indicators: ["Air Quality LED", "Filter Replacement", "Mode Status"],
+      },
+      productInformation: {
+        featuresAndSpecs: {
+          "Power Source Type": "electric",
+          "Control Method": "Touch",
+          "Filter Type": "Activated Carbon",
+          "Floor Area": "360 Square Feet",
+          "Noise Level": "27.8 Decibels",
+          "Particle Retention Size": "0.3 Micron",
+          "Controller Type": "Button Control",
+          "Wattage": "7E+1",
+        },
+        measurements: {
+          "Item Dimensions D x W x H": "15D x 37W x 49H Centimeters",
+          "Item Weight": "6.71 kg"
+        },
+        userGuide: {
+          "Specification Met": "Certified HEPA",
+        },
+        additionalDetails: {
+          "Color": "Gray",
+        }
+      },
+      itemDetails: {
+        brandName: "Winix",
+        modelNumber: "5300-2",
+        globaltradeidentificationNumber: "08809154399143",
+        manufacturer: "Phone Number: +91 8885241706, Mail Id: care@justshop24x7.com, Winix",
+        customerReviews: {
+          rating: 4.5,
+          totalReviews: 39316,
+          ratingText: "4.5 out of 5 stars"
+        },
+
+        bestSellersRank: [
+          "#1,304 in Home & Kitchen (See Top 100 in Home & Kitchen)",
+          "#14 in HEPA Air Purifiers"
+        ],
+
+        asin: "B01D8DAYBA",
+
+        importerContactInformation:
+          "Sha Maknaji Veerchand, Kamala Nagar DCMS road Anantapur-515001-Ph no 08554-356969, care@justshop24x7.com",
+
+        itemTypeName: "Air purifier",
+
+        includedComponents: "5300-2 unit and filters, Four Carbon FIlters, one Model 5300-2 Air Purifier, one True Hepa Filter",
+        countryofOrigin: "Thailand",
+        itemHeight: "23.6 Inches",
+
+        packerContactInformation:
+          "Sha Maknaji Veerchand, Kamala Nagar DCMS road Anantapur-515001-Ph no 08554-356969, care@justshop24x7.com",
+        unitCount: "1.0 count",
+        warrantyDescription: "2 Year warranty , Call on +91 8885241706",
       },
       productReviews: [
         {
@@ -481,7 +703,11 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         "assets/winix-product-images/t5300-2/t5300-3.webp",
         "assets/winix-product-images/t5300-2/t5300-4.webp",
         "assets/winix-product-images/t5300-2/t5300-5.webp",
+        "assets/winix-product-images/t5300-2/t5300-6.webp",
+        "assets/winix-product-images/last-image.jpg",
       ],
+      video: "assets/winix-product-images/t5300-2/vid.mp4",
+      lastImage: "assets/winix-product-images/t800/last-image.jpg",
       faqs: [
         {
           q: "Is it quiet enough for night use?",
@@ -519,8 +745,8 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       id: 3,
       productUrl: "https://www.amazon.in/Winix-5500-2-Purifier-PlasmaWave-Reducing/dp/B01D8DAYII/ref=sr_1_3?crid=13CBVJUQ98R7R&dib=eyJ2IjoiMSJ9.Kp26yzZ_O7yzCqZVio4eM8X0lDXtjI4IfNuutcBiDJOGikTLEumjQeBFs12phlwA1fPcueTVaqVD8kvlO0LzVS3kqv8EVjfipAZbFaTS5M-faaYKj7ZDocTv-YUva276h32vcS85_jaCvZc6TWJgbzlg8wqQrXuCTGNgpPEjCj3-OCVrHK5852_MkjQt8IMCLWO3KgPNN05ZgwuShB8-ppE3Za8j8rnNwQMBmf6tkX0.FtKqwonycx94L0Lbr2GqcBMCiLTMC1vheZeg9izAgPM&dib_tag=se&keywords=winix%2B5500-2%2Bair%2Bpurifier&nsdOptOutParam=true&qid=1758281186&sprefix=winix%2B5500-2%2B%2Caps%2C317&sr=8-3&th=1 ",
       slug: "winix-5500-2-air-purifier",
-      name: "WINIX 5500-2 Air Purifier • True HEPA, PlasmaWave & Washable AOC Carbon",
-      shortName: "5500-2 Elite",
+      name: "WINIX 5500-2 True HEPA purifier with PlasmaWave Tech AOC carbon filter AHAM-verified 360 sq ft coverage.",
+      shortName: "WINIX 5500-2",
       description:
         "True HEPA purifier with PlasmaWave and washable AOC carbon filter. 360 sq ft coverage, 27.8 dB operation, 70W power.",
       images: [
@@ -562,12 +788,26 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         certifications: ["Certified HEPA"],
       },
       detailedFeatures: [
-        "3-stage filtration: pre-filter, AOC carbon, True HEPA",
-        "PlasmaWave helps break down odors and VOCs",
-        "Auto/Sleep modes with air quality sensing",
-        "Filter replacement indicator",
-        "LED air quality indicator",
-        "Timer function",
+        "AHAM Verifide® at 350 sq ft.: CADR rated for 360 sq. ft. room size. Suitable for medium and large rooms; kids bedrooms, family rooms and kitchens.",
+
+        "Winix True HEPA: True-HEPA filter captures 99. 97% of airborne pollutants; dust mites, pet dander, pollen and other allergens as small as 0. 3 microns.",
+
+        "Fine Mesh Filter: Washable AOC Carbon Filter, made from activated carbon granulars for removal of household odors.PlasmaWave acts as a permanent filter to safely break down odor, allergens, chemical vapors and other pollutants - with no harmful ozone.",
+
+        "The Smart Sensors Air Purifier : Smart Sensors gauge the air and our Auto Mode adjusts the fan to filter the air as needed; with a sleep mode for silent night-time operation.",
+
+        "Air Quality Indicator: Visual indicator displays real-time air quality in the room with LED lights.",
+
+        "Ultra-Quiet: Nearly silent on its slowest speed.",
+
+        "Sleep Mode: Activate the quiet, energy-efficient Sleep Mode for a good night’s sleep.",
+
+        "Tested and Trusted: This unit is proven dependable and efficient by being AHAM Verified, Energy Star Certified, UL Certified, and backed by the Winix 3 Year Warranty.",
+
+        "Energy Efficient: Energy Star Certified for low energy consumption, resulting in reduced operating costs.",
+
+        "Sleep Mode: Activate the quiet, energy-efficient Sleep Mode for a good night’s sleep",
+
       ],
       technicalDetails: {
         cadr: "243 CFM (Smoke), 246 CFM (Dust), 232 CFM (Pollen)",
@@ -576,6 +816,60 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         fanSpeeds: 4,
         controlType: "Touch Panel",
         indicators: ["Air Quality LED", "Filter Replacement", "PlasmaWave Status"],
+      },
+      productInformation: {
+        featuresAndSpecs: {
+          "Power Source Type": "Corded Electric",
+          "Control Method": "Remote",
+          "Filter Type": "HEPA",
+          "Floor Area": "360 Square Feet",
+          "Noise Level": "27.8 Decibels",
+          "Particle Retention Size": "0.3 Micron",
+          "Controller Type": "Hand Control",
+          "Wattage": "70 Watts",
+        },
+        measurements: {
+          "Item Dimensions D x W x H": "8.2D x 14.9W x x 23.6H",
+          "Item Weight": "6.7 Kg"
+        },
+        userGuide: {
+          "Specification Met": "HAM Certified, CARB Certified, Energy Star Certified, UL Certified",
+        },
+        additionalDetails: {
+          "Color": "Charcoal Gray",
+        }
+      },
+      itemDetails: {
+        brandName: "Winix",
+        modelNumber: "5500-2",
+        globaltradeidentificationNumber: "08809154399167",
+        manufacturer: "Phone Number: +91 8885241706, Mail Id: care@justshop24x7.com, Winix",
+        customerReviews: {
+          rating: 4.5,
+          totalReviews: 39310,
+          ratingText: "4.5 out of 5 stars"
+        },
+
+        bestSellersRank: [
+          "#1,304 in Home & Kitchen (See Top 100 in Home & Kitchen)",
+          "#14 in HEPA Air Purifiers"
+        ],
+
+        asin: "B01D8DAYII",
+
+        importerContactInformation:
+          "Sha Maknaji Veerchand , Kamala Nagar, Anantapur. Ph no-08554-356969",
+
+        itemTypeName: "Washable AOC Carbon Filter",
+
+        includedComponents: "Air Purifier",
+        countryofOrigin: "Republic of Korea",
+        itemHeight: "23.6 Inches",
+
+        packerContactInformation:
+          "Sha Maknaji Veerchand , Kamala Nagar, Anantapur. Ph no-08554-356969",
+        unitCount: "1.0 count",
+        warrantyDescription: "One year limited mfg. warranty",
       },
       productReviews: [
         {
@@ -673,7 +967,10 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         "assets/winix-product-images/t5500-2/t5500-3.webp",
         "assets/winix-product-images/t5500-2/t5500-4.webp",
         "assets/winix-product-images/t5500-2/t5500-5.webp",
+        "assets/winix-product-images/last-image.jpg",
       ],
+      video: "assets/winix-product-images/t5500-2/vid.mp4",
+      lastImage: "assets/winix-product-images/t5500-2/last-image.jpg",
       faqs: [
         {
           q: "Is it quiet enough for bedrooms?",
@@ -709,7 +1006,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
     },
     {
       id: 4,
-      productUrl: "#",
+      productUrl: "https://www.amazon.in/dp/B0CDNH5NX4?th=1",
       slug: "winix-t800-air-purifier",
       name: "Winix T800 360° True HEPA WiFi Air Purifier with 4-Stage PlasmaWave Tech",
       shortName: "T800",
@@ -717,17 +1014,17 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         "Smart Wi-Fi enabled air purifier with True HEPA, carbon filter, auto mode, and air quality monitor. Covers up to 1968 sq ft in 1 hour with AHAM-verified 410 sq ft rating.",
       images: [
         "assets/products/T800/product-1.jpg",
-        "assets/products/T800/product-2.jpg",
         "assets/products/T800/product-3.jpg",
-        "assets/products/T800/product-4.jpg",
         "assets/products/T800/T800.webp",
+        "assets/products/T800/product-4.jpg",
+        "assets/products/T800/product-2.jpg",
         "assets/products/28.webp"
       ],
       currentImage: "assets/products/T800/product-1.jpg",
       rating: 4.4,
       category: "Smart Series",
       technology: "True HEPA + Carbon Filter + PlasmaWave + Smart Wi-Fi",
-     keyFeatures: [
+      keyFeatures: [
         "AHAM Verifide ® at 410 sq ft",
         "The Smarter Air Purifier",
         "Fine Mesh Pre-Filter ",
@@ -743,7 +1040,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         "Energy Efficient",
         "Filter Replacement Indicator",
         "03 Years warranty"
-      ],
+      ],
       coverage: "410 sq ft (AHAM) • Up to 1968 sq ft (1 hour)",
       filterType: "Washable Pre-filter + Carbon + True HEPA",
       noiseLevel: "—",
@@ -781,7 +1078,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         "Sleep Mode: Activate the quiet, energy-efficient Sleep Mode for a good night's sleep",
         "Tested and Trusted: This unit is proven dependable and efficient by being AHAM Verified, Energy Star Certified, UL Certified, and backed by the Winix 3 Year Warranty",
         "Energy Efficient: Energy Star Certified for low energy consumption, resulting in reduced operating costs.",
-      ],
+      ],
       technicalDetails: {
         cadr: "(AHAM Verified at 410 sq ft)",
         airChangesPerHour: "(varies by room size)",
@@ -789,6 +1086,63 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         fanSpeeds: "3",
         controlType: "Touch + Wi-Fi App Control",
         indicators: ["Air Quality LED", "Filter Replacement"],
+      },
+      productInformation: {
+        featuresAndSpecs: {
+          "Power Source Type": "Corded Electric",
+          "Control Method": "App",
+          "Filter Type": "HEPA",
+          "Floor Area": "410 Square Feet",
+          "Noise Level": "23.8 Decibels",
+          "Particle Retention Size": "0.01 Micrometer",
+          "Controller Type": "Amazon Alexa",
+          "Wattage": "45 Watts",
+        },
+
+        measurements: {
+          "Item Dimensions D x W x H": "24D x 24W x 37H Centimeters",
+          "Item Weight": "4.7 kg"
+        },
+
+        userGuide: {
+          "Specification Met": "AHAM Certified, CARB Certified, Energy Star Certified, FCC Certified, UL Certified",
+        },
+
+        additionalDetails: {
+          "Color": "White",
+        }
+      },
+      itemDetails: {
+        brandName: "Winix",
+        modelNumber: "1022023000",
+        manufacturer: "Winix",
+
+        customerReviews: {
+          rating: 4.4,
+          totalReviews: 192,
+          ratingText: "4.4 out of 5 stars"
+        },
+
+        bestSellersRank: [
+          "#26,107 in Home & Kitchen",
+          "#67 in HEPA Air Purifiers"
+        ],
+
+        asin: "BOCDNH5NX4",
+
+        importerContactInformation:
+          "Sha Maknaji Veerchand, Ph no- 8885241706",
+
+        itemTypeName: "Air Purifier",
+
+        includedComponents: "Air Purifier",
+
+        itemHeight: "20.4 Inches",
+
+        packerContactInformation:
+          "Sha Maknaji Veerchand, Kamala Nagar, Anantapur. Ph no-08554-356969",
+
+        unitCount: "1.0 count"
       },
       productReviews: [
         {
@@ -886,6 +1240,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         "assets/winix-product-images/t800/3.jpg",
         "assets/winix-product-images/t800/4.jpg",
         "assets/winix-product-images/t800/6.jpg",
+        "assets/winix-product-images/last-image.jpg",
       ],
       video: "assets/winix-product-images/t800/vid.webm",
       lastImage: "assets/winix-product-images/t800/last-image.jpg",
@@ -973,16 +1328,29 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         certifications: ["AHAM Certified"],
       },
       detailedFeatures: [
-        "AHAM Verified 251 sq ft coverage",
-        "Cleans up to 1204 sq ft in 1 hour",
-        "True HEPA captures 99.99% allergens down to 0.01µm",
-        "Washable pre-filter traps larger particles",
-        "Activated carbon reduces VOCs and odors",
-        "PlasmaWave safely breaks down odors and chemical vapors",
-        "Winix Smart App + WiFi, Alexa, Google Home support",
-        "Dual smart sensors + Auto Mode",
-        "LED 4-color air quality indicator",
-        "Child Lock + Timer control",
+        "AHAM Verifide® at 251 sq ft. : Also cleans rooms up to 1204 sq. ft. in 1 hour (602 sq. ft. in 30 minutes, 401 sq. ft. in 20 minutes, 301 sq. ft. in 15 minutes).",
+
+        "The Smarter Air Purifier : Control and monitor your unit anytime from anywhere by instantly accessing your unit with the Winix Smart App through the convenient Wifi feature.",
+
+        "Fine Mesh Pre-Filter: The first line of defense against the largest airborne particles found indoors.",
+        "Winix True HEPA: Captures 99.99%* of airborne allergens including pollen, dust, smoke, and pet dander, as small as 0.01 microns.",
+
+        "Activated Carbon Filter: Reduces VOCs and household odors from cooking, pets, and smoke. It is designed to catch airborne particles found indoors, which also helps prolong the True HEPA Filter life.",
+        "PlasmaWave® Air Cleaning Technology:",
+
+        "Smart Sensor + Auto Mode: Built-in air quality sensor measures and adjusts fan speed in real-time.",
+
+        "Air Quality Indicator: Visual indicator displays real-time air quality in the room with LED lights.",
+
+        "Ultra-Quiet: Nearly silent on its slowest speed.",
+
+        "Sleep Mode: Activate the quiet, energy-efficient Sleep Mode for a good night’s sleep.",
+
+        "Tested and Trusted: This unit is proven dependable and efficient by being AHAM Verified, Energy Star Certified, UL Certified, and backed by the Winix 3 Year Warranty.",
+
+        "Energy Efficient: Energy Star Certified for low energy consumption, resulting in reduced operating costs.",
+
+        "Filter Replacement Indicator: When the filters need to be replaced, the Filter Replacement Indicator LED will illuminate."
       ],
       technicalDetails: {
         cadr: "172 (Dust) / 174 (Pollen) / 162 (Smoke)",
@@ -991,6 +1359,53 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         fanSpeeds: 5,
         controlType: "Touch + WiFi App Control",
         indicators: ["Air Quality LED (4-color)", "Filter Replacement"],
+      },
+      productInformation: {
+        featuresAndSpecs: {
+          "Power Source Type": "Corded Electric",
+          "Control Method": "App",
+          "Filter Type": "HEPA",
+          "Floor Area": "50 Square Meters",
+          "Noise Level": "36.4 Decibels",
+          "Wattage": "55 Watts",
+        },
+        measurements: {
+          "Item Dimensions D x W x H": "24D x 24W x 37H Centimeters",
+          "Item Weight": "3.1 Kg"
+        },
+        userGuide: {
+          "": "",
+        },
+        additionalDetails: {
+          "Color": "White and Black",
+        }
+      },
+
+      itemDetails: {
+        brandName: "Winix",
+        modelNumber: "WINIX T500 Luftreiniger WIFI",
+        manufacturer: "Winix",
+
+        customerReviews: {
+          rating: 4.5,
+          totalReviews: 39310,
+          ratingText: "4.5 out of 5 stars"
+        },
+
+        bestSellersRank: [
+          "#26,107 in Home & Kitchen",
+          "#67 in HEPA Air Purifiers"
+        ],
+
+        asin: "B0FQBSFWRJ",
+        importerContactInformation:
+          "Sha Maknaji Veerchand, Ph no- 8885241706",
+        itemTypeName: "Air Purifier",
+        includedComponents: "Air Purifier",
+        itemHeight: "37 Centimeters",
+        packerContactInformation:
+          "Sha Maknaji Veerchand , Kamala Nagar, Anantapur. Ph no-08554-356969",
+        unitCount: "1.0 count"
       },
       productReviews: [
         {
@@ -1088,7 +1503,10 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         "assets/winix-product-images/t500/t500-3.webp",
         "assets/winix-product-images/t500/t500-4.webp",
         "assets/winix-product-images/t500/t500-5.webp",
+        "assets/winix-product-images/last-image.jpg",
       ],
+      video: "assets/winix-product-images/t500/vid.mp4",
+      lastImage: "assets/winix-product-images/last-image.jpg",
       faqs: [
         {
           q: "What is the recommended room size?",

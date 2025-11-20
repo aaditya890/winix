@@ -3,60 +3,68 @@
     <div class="relative">
       <div (wheel)="onWheel($event)" (pointerdown)="onPointerDown($event)" (pointermove)="onPointerMove($event)"
         (pointerup)="onPointerUp()" (touchstart)="onPointerDown($event)" (touchmove)="onPointerMove($event)"
-        (touchend)="onPointerUp()" #railEl role="list" class="flex gap-1 md:gap-3 overflow-x-auto scroll-smooth snap-x snap-mandatory
+        (touchend)="onPointerUp()" #railEl role="list" class="pointer-events-auto flex gap-1 md:gap-3 overflow-x-auto scroll-smooth snap-x snap-mandatory
                   [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden
                   px-4 sm:px-6 lg:px-8 py-2">
         <!-- CARD -->
         <article *ngFor="let p of products; let i = index; trackBy: trackById" role="listitem" class="shrink-0 grow-0 snap-start
-                        basis-[85%] sm:basis-[70%] md:basis-[calc(50%-0.75rem)]
-                        lg:basis-[calc(33.333%-0.875rem)] xl:basis-[calc(25%-1rem)] 2xl:basis-[calc(25%-1rem)]
-                        max-w-[420px]">
-          <a [routerLink]="['/product', p.slug]"
-            class="relative block h-full border border-gray-200 bg-white shadow-md transition-all duration-300 rounded-sm">
+  basis-[85%] sm:basis-[70%] md:basis-[calc(50%-0.75rem)]
+  lg:basis-[calc(33.333%-0.875rem)] xl:basis-[calc(25%-1rem)]
+  max-w-[420px]">
+
+          <a [routerLink]="['/product', p.slug]" class="relative flex flex-col h-full border border-gray-200 bg-white 
+         rounded-xl shadow-sm transition-all duration-300">
 
             <!-- Image -->
-            <div class="relative w-full aspect-[4/3] overflow-hidden p-3">
-              <img class="h-full w-full object-contain"
+            <div
+              class="relative w-full h-[240px] sm:h-[260px] md:h-[280px] p-4 rounded-t-xl flex items-center justify-center">
+              <img class="max-h-full max-w-full object-contain transition-transform duration-300"
                 [src]="hovered[p.id] && p.hoverImageSrc ? p.hoverImageSrc : p.imageSrc" [alt]="p.title"
                 (load)="onImageLoad(i)" loading="lazy" decoding="async" />
             </div>
-
             <!-- Content -->
-            <div class="px-4 pb-5">
+            <div class="px-4 pb-5 pt-3 pb-3 flex flex-col h-full">
               <!-- Rating pill -->
-              <div
-                class="inline-flex items-center gap-1 rounded-full bg-green-50 px-3 py-1 text-sm font-medium text-green-700 shadow-sm">
-                <svg class="h-4 w-4 text-green-600" viewBox="0 0 20 20" fill="currentColor">
-                  <path
-                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.802 2.035a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.802-2.035a1 1 0 00-1.176 0l-2.802 2.035c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.88 8.72c-.783-.57-.38-1.81.588-1.81H6.93a1 1 0 00.95-.69l1.07-3.292z" />
-                </svg>
-                <span>{{ safeNumber(p.rating).toFixed(1) }}</span>
-                <span class="text-gray-500 font-normal">({{ p.ratingCount }})</span>
+              <div class="flex items-center justify-start gap-px">
+                <div
+                  class="inline-flex items-center gap-px rounded-md bg-[#4CE279] px-1 py-px text-[16px] font-semibold text-black shadow-sm">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" class="size-4">
+                    <path fill-rule="evenodd"
+                      d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z"
+                      clip-rule="evenodd" />
+                  </svg>
+                  <span>{{ safeNumber(p.rating).toFixed(1) }}</span>
+                </div>
+                <div>
+                  <span class="text-neutral-700 font-semibold text-xs">({{ p.ratingCount }})</span>
+                </div>
               </div>
-
-
-              <!-- Title & Tagline -->
-              <h3 class="mt-2 text-lg sm:text-xl font-extrabold tracking-tight text-neutral-700 uppercase">
+              <!-- Title -->
+              <h3 class="mt-2 text-lg sm:text-xl font-bold tracking-tight text-gray-800">
                 {{ p.title }}
               </h3>
-              <!-- <p class="mt-1 text-sm sm:text-base font-semibold tracking-wide text-gray-400 uppercase">
-                {{ p.tagline }}
-              </p> -->
-              <p class="mt-1 text-lg sm:text-xl font-bold !leading-[17px] sm:!leading-[19px] text-neutral-400 uppercase">
-               {{p.title}} | {{ p.description }}
+
+              <!-- Description -->
+              <p class="mt-1 text-sm sm:text-[18px] pb-2 sm:pb-4 font-semibold leading-[1.28rem] text-gray-600">
+                {{ p.title }} | {{ p.description }}
               </p>
-              <!-- Price & CTA -->
-              <div class="mt-4 flex items-end justify-between">
+
+              <!-- Price + CTA -->
+              <div class="flex items-end justify-between mt-auto">
                 <div>
                   <div *ngIf="p.mrp" class="text-sm text-gray-400 line-through">
                     {{ formatINR(p.mrp) }}
                   </div>
-                  <div class="text-lg sm:text-xl font-semibold text-neutral-700">
+
+                  <div class="text-xl font-bold text-gray-800">
                     {{ formatINR(p.price) }}
                   </div>
                 </div>
-                <a [routerLink]="['/product', p.slug]"
-                  class="ml-3 inline-flex items-center rounded-lg border-2 border-[#74236C] py-1 md:py-2 px-2 md:px-4 text-xm sm:text-base font-semibold text-[#74236C] hover:bg-[#74236C] hover:text-white hover:scale-105 transition-all duration-300">
+
+                <a [routerLink]="['/product', p.slug]" class="ml-3 inline-flex items-center rounded-lg border-2 border-[#74236C] 
+          py-1 md:py-2 px-3 md:px-4 text-sm sm:text-base font-semibold text-[#74236C]
+          hover:bg-[#74236C] hover:text-white hover:shadow-md hover:scale-105
+          transition-all duration-300">
                   Take a Look
                 </a>
               </div>
@@ -68,14 +76,14 @@
     <!-- winix-product-card.component.html -->
     <div class="relative flex justify-between px-6 mt-4">
       <button type="button" aria-label="Prev"
-        class="bg-[#74236C] text-white p-3 rounded-full shadow-md border border-white/20 mr-2" (click)="scroll('left')">
+        class="bg-[#74236C] text-white p-3 pointer-events-auto rounded-full shadow-md border border-white/20 mr-2" (click)="scroll('left')">
         <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="2.5"
           stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
         </svg>
       </button>
       <button type="button" aria-label="Next"
-        class="bg-[#74236C] text-white p-3 rounded-full shadow-md border border-white/20" (click)="scroll('right')">
+        class="bg-[#74236C] text-white p-3 pointer-events-auto rounded-full shadow-md border border-white/20" (click)="scroll('right')">
         <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="2.5"
           stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
