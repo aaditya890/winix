@@ -441,7 +441,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         "assets/winix-product-images/a231/a231-6.webp",
         "assets/winix-product-images/a231/last-image.jpg",
       ],
-      video: "assets/winix-product-images/a231/vid.mp4",
+      video: "assets/winix-product-images/a231/vid.webm",
       lastImage: "assets/winix-product-images/t800/last-image.jpg",
       faqs: [
         {
@@ -706,7 +706,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         "assets/winix-product-images/t5300-2/t5300-6.webp",
         "assets/winix-product-images/last-image.jpg",
       ],
-      video: "assets/winix-product-images/t5300-2/vid.mp4",
+      video: "assets/winix-product-images/t5300-2/vid.webm",
       lastImage: "assets/winix-product-images/t800/last-image.jpg",
       faqs: [
         {
@@ -969,7 +969,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         "assets/winix-product-images/t5500-2/t5500-5.webp",
         "assets/winix-product-images/last-image.jpg",
       ],
-      video: "assets/winix-product-images/t5500-2/vid.mp4",
+      video: "assets/winix-product-images/t5500-2/vid.webm",
       lastImage: "assets/winix-product-images/t5500-2/last-image.jpg",
       faqs: [
         {
@@ -1505,7 +1505,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         "assets/winix-product-images/t500/t500-5.webp",
         "assets/winix-product-images/last-image.jpg",
       ],
-      video: "assets/winix-product-images/t500/vid.mp4",
+      video: "assets/winix-product-images/t500/vid.webm",
       lastImage: "assets/winix-product-images/last-image.jpg",
       faqs: [
         {
