@@ -8,14 +8,120 @@
 }
 
 img {
-  display: block; /* Ensure no extra space below images */
-  width: 100%; /* Ensure image fills container */
+  display: block;
+  /* Ensure no extra space below images */
+  width: 100%;
+  /* Ensure image fills container */
 }
+
 .scrollbar-hide {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;     /* Firefox */
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
 }
 
 .scrollbar-hide::-webkit-scrollbar {
-  display: none; /* Chrome, Safari and Opera */
+  display: none;
+  /* Chrome, Safari and Opera */
+}
+
+.productInfo-container {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  /* Mobile friendly */
+}
+
+.productInfo-left,
+.productInfo-right {
+  width: 48%;
+}
+
+/* Accordion */
+.accordion {
+  display: flex;
+  justify-content: space-between;
+  background: #f6f9f9;
+  padding: 12px;
+  border: 1px solid #e3e3e3;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.accordion-content {
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  padding: 10px 0;
+}
+
+/* Rows */
+.row {
+  display: flex;
+  padding: 8px 16px;
+  border-bottom: 1px solid #eee;
+}
+
+.label {
+  width: 45%;
+  font-weight: 600;
+  color: #3a3939;
+}
+
+.value {
+  width: 55%;
+  font-weight: 500;
+  color: #363535;
+  font-size: 15px;
+}
+
+/* ----------------------------- */
+/*       RESPONSIVE MOBILE       */
+/* ----------------------------- */
+
+@media (max-width: 768px) {
+  .productInfo-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .productInfo-left,
+  .productInfo-right {
+    width: 100%;
+  }
+
+  .row {
+    flex-direction: column;
+    padding: 10px 12px;
+  }
+
+  .label {
+    width: 100%;
+    margin-bottom: 4px;
+    font-weight: 600;
+  }
+
+  .value {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .accordion {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .row {
+    padding: 8px 10px;
+  }
+
+  .label {
+    font-size: 14px;
+  }
+
+  .value {
+    font-size: 14px;
+  }
 }
