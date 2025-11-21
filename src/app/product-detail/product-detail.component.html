@@ -228,10 +228,14 @@
           </div>
 
           <!-- LAST IMAGE -->
-          <!-- <div class="w-full flex justify-center bg-white rounded-md">
+          <div class="w-full flex justify-center bg-white rounded-md hidden md:block">
             <img [src]="product.lastImage" [alt]="product.slug"
               class="w-full max-h-[500px] md:max-h-[650px] object-contain" />
-          </div> -->
+          </div>
+          <div class="w-full flex justify-center bg-white rounded-md block md:hidden">
+            <img src="assets/winix-product-images/28.webp" alt="Winix Product Showcase"
+              class="w-full max-h-[500px] md:max-h-[650px] object-contain" />
+          </div>
         </div>
       </div>
 
@@ -360,7 +364,7 @@
             <!-- Text + Link -->
             <p class="mt-2 text-sm text-neutral-700 leading-6">
               We would love to hear your experience!
-              <a href="https://www.google.com/maps/place/Winix+India/@18.4633256,73.87797,935m/data=!3m2!1e3!4b1!4m6!3m5!1s0x3bc2eb8a6bbf6eef:0x3adb659c05e8a73d!8m2!3d18.4633256!4d73.8805449!16s%2Fg%2F11yppmfk1l?entry=ttu&g_ep=EgoyMDI1MTExNy4wIKXMDSoASAFQAw%3D%3D"
+              <a href="https://g.page/r/CT2n6AWcZds6EBM/review "
                 target="_blank" class="text-blue-600 font-medium underline hover:text-blue-800 transition">
                 Click here to review us on Google.
               </a>
@@ -378,8 +382,6 @@
             </p>
 
           </div>
-
-
         </div>
       </div>
 
@@ -506,7 +508,7 @@
     </section>
 
     <div class="mt-10 text-start">
-      <button (click)="goBack()"
+      <button (click)="scrollTo('PRODUCTS')"
         class="inline-flex items-center justify-center gap-2 px-6 h-12 rounded-lg border-2 border-[#74236C] text-[#43183f] font-extrabold text-sm transition-all duration-300 ease-in-out hover:bg-[#101A50]/10 hover:scale-105 active:scale-95">
         <span class="text-lg">←</span> Back to Products
       </button>
