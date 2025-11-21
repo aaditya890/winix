@@ -158,6 +158,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
   startY = 0;
   currentX = 0;
   currentY = 0;
+  isMobileOpen = false;
   // Zoom + Dialog
   zoomStyle: Record<string, string> = {};
   dialogZoomStyle: Record<string, string> = {};
@@ -487,10 +488,9 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         "assets/winix-product-images/a231/a231-4.webp",
         "assets/winix-product-images/a231/a231-5.webp",
         "assets/winix-product-images/a231/a231-6.webp",
-        "assets/winix-product-images/last-image.webp",
       ],
       video: "assets/winix-product-images/a231/vid.webm",
-      lastImage: "assets/winix-product-images/t800/last-image.jpg",
+      lastImage: "assets/winix-product-images/last-image.webp",
       faqs: [
         {
           q: "Is the A231 suitable for large rooms?",
@@ -813,10 +813,9 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         "assets/winix-product-images/t5300-2/t5300-4.webp",
         "assets/winix-product-images/t5300-2/t5300-5.webp",
         "assets/winix-product-images/t5300-2/t5300-6.webp",
-        "assets/winix-product-images/last-image.webp",
       ],
       video: "assets/winix-product-images/t5300-2/vid.webm",
-      lastImage: "assets/winix-product-images/t800/last-image.jpg",
+      lastImage: "assets/winix-product-images/last-image.webp",
       faqs: [
         {
           q: "Is it quiet enough for night use?",
@@ -1129,10 +1128,9 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         "assets/winix-product-images/t5500-2/t5500-3.webp",
         "assets/winix-product-images/t5500-2/t5500-4.webp",
         "assets/winix-product-images/t5500-2/t5500-5.webp",
-        "assets/winix-product-images/last-image.webp",
       ],
       video: "assets/winix-product-images/t5500-2/vid.webm",
-      lastImage: "assets/winix-product-images/t5500-2/last-image.jpg",
+      lastImage:  "assets/winix-product-images/last-image.webp",
       faqs: [
         {
           q: "Is it quiet enough for bedrooms?",
@@ -1302,7 +1300,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       //Add new changes start here
       productTechnicalSpecs: {
         // features & specs
-        "Power Source Type": "Corded Electric",
+        // "Power Source Type": "Corded Electric",
         "Control Method": "App",
         "Filter Type": "HEPA",
         "Floor Area": "410 Square Feet",
@@ -1310,6 +1308,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         "Particle Retention Size": "0.01 Micrometer",
         "Controller Type": "Amazon Alexa",
         "Wattage": "45 Watts",
+        "Special Feature": "Programmable",
 
         // measurements
         "Item Dimensions D x W x H": "24D x 24W x 37H Centimeters",
@@ -1342,8 +1341,8 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         genericName: "Air Purifier",
 
         bestSellersRank: [
-          "#26,107 in Home & Kitchen",
-          "#67 in HEPA Air Purifiers"
+          "#62,834 in Home & Kitchen",
+          "#97 in HEPA Air Purifiers"
         ]
       },
 
@@ -1443,15 +1442,14 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         },
       ],
       highlightImages: [
-        "assets/winix-product-images/t800/1.jpg",
-        "assets/winix-product-images/t800/2.jpg",
-        "assets/winix-product-images/t800/3.jpg",
-        "assets/winix-product-images/t800/4.jpg",
-        "assets/winix-product-images/t800/6.jpg",
-        "assets/winix-product-images/last-image.webp",
+        "assets/winix-product-images/t800/1.webp",
+        "assets/winix-product-images/t800/2.webp",
+        "assets/winix-product-images/t800/3.webp",
+        "assets/winix-product-images/t800/4.webp",
+        "assets/winix-product-images/t800/6.webp",
       ],
       video: "assets/winix-product-images/t800/vid.webm",
-      lastImage: "assets/winix-product-images/t800/last-image.jpg",
+      lastImage: "assets/winix-product-images/last-image.webp",
       faqs: [
         {
           q: "Does it support Wi-Fi or app control?",
@@ -1763,10 +1761,9 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         "assets/winix-product-images/t500/t500-3.webp",
         "assets/winix-product-images/t500/t500-4.webp",
         "assets/winix-product-images/t500/t500-5.webp",
-        "assets/winix-product-images/last-image.webp",
       ],
       video: "assets/winix-product-images/t500/vid.webm",
-      lastImage: "assets/winix-product-images/last-image.jpg",
+      lastImage: "assets/winix-product-images/last-image.webp",
       faqs: [
         {
           q: "What is the recommended room size?",
@@ -1993,6 +1990,40 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
     if (r) r.helpful += 1
   }
 
+  //
+   scrollTo(id: string) {
+    // Close mobile menu (if open)
+    this.isMobileOpen = false;
+    document.body.classList.remove("overflow-hidden");
+
+    const header = document.querySelector("header") as HTMLElement | null;
+    const headerOffset = header?.offsetHeight ?? 72;
+    const extraGap = 8;
+
+    const doScroll = () => {
+      const target = document.getElementById(id);
+      if (target) {
+        const y =
+          target.getBoundingClientRect().top +
+          window.pageYOffset -
+          headerOffset -
+          extraGap;
+        window.scrollTo({ top: Math.max(0, y), behavior: "smooth" });
+      }
+    };
+    
+
+    // If already on home page
+    if (this.router.url === "/" || this.router.url === "/home") {
+      // Add a slight delay for smoother UX
+      setTimeout(() => doScroll(), 150);
+    } else {
+      // Navigate to home, then scroll
+      this.router.navigate(["/"]).then(() => {
+        setTimeout(() => doScroll(), 500); // ensure DOM loads
+      });
+    }
+  }
   // Utils
   goBack(): void {
     this.router.navigate(["/"])
