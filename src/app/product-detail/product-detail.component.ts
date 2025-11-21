@@ -36,6 +36,7 @@ interface Product {
     certifications: string[]
   }
   detailedFeatures?: string[]
+
   technicalDetails?: {
     cadr: string
     airChangesPerHour: string
@@ -49,6 +50,7 @@ interface Product {
   video?: string,
   lastImage?: string,
   faqs: FAQ[]
+
   productInformation?: {
     featuresAndSpecs: Record<string, string>;
     measurements: Record<string, string>;
@@ -82,6 +84,37 @@ interface Product {
     unitCount?: string;
     warrantyDescription?: string;
   };
+
+  //add new changes here
+  productTechnicalSpecs?: {
+    [key: string]: string;
+    // Examples:
+    // "Colour": "White"
+    // "Brand": "Winix"
+    // "Product Dimensions": "24D x 24W x 37H Centimeters"
+  };
+
+  /**
+   * Additional Information (Amazon-style)
+   */
+  additionalInformation?: {
+    manufacturer?: string;
+    packer?: string;
+    importer?: string;
+    itemWeight?: string;
+    netQuantity?: string;
+    includedComponents?: string;
+    genericName?: string;
+    bestSellersRank?: string[];
+  };
+
+  /**
+   * What's in the Box Section
+   */
+  whatsInTheBox?: {
+    items: string[];
+  };
+
 }
 
 type SectionKey = "details" | "techSpecs" | "care" | "inBox" | "tests" | "additional"
@@ -115,11 +148,9 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
   product: Product | null = null
   //Product info sections
   isOpen = {
-    features: false,
-    measurements: false,
-    userGuide: false,
-    additional: false,
-    itemDetails: false
+    productTechnicalSpecs: true,
+    box: true,
+    additionalInformation: true,
   };
   currentImageIndex = 0
   zoomed = false;
@@ -142,43 +173,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
   objectKeys = Object.keys;
 
   toggle(section: keyof typeof this.isOpen) {
-    this.isOpen[section] = !this.isOpen[section];
-  }
-
-  isUserGuideObject() {
-    const ug = this.product?.productInformation?.userGuide;
-    return ug && !Array.isArray(ug);
-  }
-
-  get itemDetailsOtherKeys(): Record<string, any> {
-    const item = this.product?.itemDetails;
-    if (!item) return {};
-
-    const {
-      brandName,
-      modelNumber,
-      manufacturer,
-      customerReviews,
-      bestSellersRank,
-      ...others
-    } = item;
-
-    return others;
-  }
-
-  get normalizedUserGuide(): Record<string, string> {
-    const ug = this.product?.productInformation?.userGuide;
-
-    // If array → convert to object
-    if (Array.isArray(ug)) {
-      return ug.reduce((acc, curr, i) => {
-        acc[`Step ${i + 1}`] = curr;
-        return acc;
-      }, {} as Record<string, string>);
-    }
-
-    // If object already → return as is
-    return ug || {};
+    this.isOpen[section] = this.isOpen[section];
   }
 
   formatKey(key: string): string {
@@ -224,11 +219,11 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       description:
         "Compact HEPA purifier for small-to-medium rooms with washable pre-filter, activated carbon, True HEPA, and PlasmaWave. AHAM-verified 230 sq ft coverage; ultra-quiet 20 dB.",
       images: [
-        "assets/products/A231/product-1.jpg",
-        "assets/products/A231/product-2.jpg",
-        "assets/products/A231/product-3.jpg",
-        "assets/products/A231/product-4.jpg",
-        "assets/products/A231/product-5.jpg",
+        "assets/products/A231/product-1.webp",
+        "assets/products/A231/product-2.webp",
+        "assets/products/A231/product-3.webp",
+        "assets/products/A231/product-4.webp",
+        "assets/products/A231/product-5.webp",
         "assets/products/28.webp"
       ],
       currentImage: "assets/products/A231/product-1.jpg",
@@ -293,7 +288,8 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         controlType: "Touch Panel + Remote",
         indicators: ["Air Quality LED", "Filter Replacement"],
       },
-       productInformation: {
+      //Old  product information
+      productInformation: {
         featuresAndSpecs: {
           "Power Source Type": "Corded Electric",
           "Control Method": "Touch",
@@ -311,7 +307,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
           "Specification Met": "AHAM Certified",
         },
         additionalDetails: {
-          "Color": "White and Charcoal Grey",
+          "Color": "White",
         }
       },
 
@@ -336,12 +332,63 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
           "Sha Maknaji Veerchand, Ph no- 8885241706",
         itemTypeName: "Air Purifier",
         includedComponents: "Air Purifier",
-        countryofOrigin: "Republic of Korea",
         itemHeight: "14.6 Inches",
         packerContactInformation:
           "Sha Maknaji Veerchand , Kamala Nagar, Anantapur. Ph no-08554-356969",
         unitCount: "1.0 count"
       },
+
+      //Add ne changes start here 
+      productTechnicalSpecs: {
+        "Power Source Type": "Corded Electric",
+        "Control Method": "Touch",
+        "Filter Type": "Activated Carbon",
+        "Floor Area": "230 Square Feet",
+        "Noise Level": "20 Decibels",
+        "Particle Retention Size": "0.3 Micrometer",
+        "Controller Type": "Remote Control",
+
+        // measurements
+        "Item Dimensions D x W x H": "24D x 24W x 37H Centimeters",
+        "Item Weight": "3.22 Kg",
+
+        // userGuide
+        "Specification Met": "AHAM Certified",
+
+        // additionalDetails (old)
+        "Color": "White and Charcoal Grey",
+
+        // from itemDetails
+        "Brand Name": "Winix",
+        "Model Number": "A231",
+        "Manufacturer": "Phone Number: +91 8885241706, Mail Id: care@justshop24x7.com, Winix",
+        "ASIN": "B08HW5SBQ6",
+        "Item Type Name": "Air Purifier",
+        "Item Height": "14.6 Inches",
+        "Unit Count": "1.0 count"
+      },
+
+      additionalInformation: {
+        manufacturer: "Phone Number: +91 8885241706, Mail Id: care@justshop24x7.com, Winix",
+        packer: "Sha Maknaji Veerchand , Kamala Nagar, Anantapur. Ph no-08554-356969",
+        importer: "Sha Maknaji Veerchand, Ph no- 8885241706",
+        itemWeight: "3.22 Kg",
+        netQuantity: "1.0 count",
+        includedComponents: "Air Purifier",
+        genericName: "Air Purifier",
+
+        bestSellersRank: [
+          "#26,107 in Home & Kitchen",
+          "#67 in HEPA Air Purifiers"
+        ]
+      },
+
+      whatsInTheBox: {
+        items: ["Air Purifier"]
+      },
+
+      //Add new changes end here
+
       productReviews: [
         {
           id: "a231-r1",
@@ -432,6 +479,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
           images: ["/review-pets.png"],
         },
       ],
+
       highlightImages: [
         "assets/winix-product-images/a231/a231-1.webp",
         "assets/winix-product-images/a231/a231-2.webp",
@@ -540,7 +588,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         "Ultra-Quiet Operation: Nearly silent when running on its slowest speed. ",
 
         "Sleep Mode: Activates the quiet, energy-efficient Sleep Mode for a good night’s sleep.",
-        
+
         "Tested and Trusted: This unit is proven dependable and efficient by being AHAM Verified, Energy Star Certified, ETL Certified, and backed by the Winix 3 Year Warranty",
 
         "Energy Efficient: Energy Star Certified for low energy consumption, reducing overall operating costs.",
@@ -553,6 +601,8 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         controlType: "Touch + Button Control",
         indicators: ["Air Quality LED", "Filter Replacement", "Mode Status"],
       },
+
+      //Old  product information
       productInformation: {
         featuresAndSpecs: {
           "Power Source Type": "electric",
@@ -599,14 +649,73 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         itemTypeName: "Air purifier",
 
         includedComponents: "5300-2 unit and filters, Four Carbon FIlters, one Model 5300-2 Air Purifier, one True Hepa Filter",
-        countryofOrigin: "Thailand",
         itemHeight: "23.6 Inches",
-
         packerContactInformation:
           "Sha Maknaji Veerchand, Kamala Nagar DCMS road Anantapur-515001-Ph no 08554-356969, care@justshop24x7.com",
         unitCount: "1.0 count",
         warrantyDescription: "2 Year warranty , Call on +91 8885241706",
       },
+
+      //Add ne changes start here
+      productTechnicalSpecs: {
+        // features & specs
+        "Power Source Type": "Electric",
+        "Control Method": "Touch",
+        "Filter Type": "Activated Carbon",
+        "Floor Area": "360 Square Feet",
+        "Noise Level": "27.8 Decibels",
+        "Particle Retention Size": "0.3 Micron",
+        "Controller Type": "Button Control",
+        "Wattage": "7E+1",
+
+        // measurements
+        "Item Dimensions D x W x H": "5D x 37W x 49H Centimeters",
+        "Item Weight": "6.71 kg",
+
+        // user guide
+        "Specification Met": "Certified HEPA",
+
+        // additionalDetails
+        "Color": "Gray",
+
+        // itemDetails main values
+        "Brand Name": "Winix",
+        "Model Number": "5300-2",
+        "ASIN": "B01D8DAYBA",
+        "Item Type Name": "Air purifier",
+        "Item Height": "23.6 Inches",
+        "Unit Count": "1.0 count",
+        "Warranty Description": "2 Year warranty , Call on +91 8885241706"
+      },
+      additionalInformation: {
+        manufacturer: "Winix",
+        packer: "Sha Maknaji Veerchand, Kamala Nagar DCMS road Anantapur-515001-Ph no 08554-356969, care@justshop24x7.com",
+
+        importer: "Sha Maknaji Veerchand, Kamala Nagar DCMS road Anantapur-515001-Ph no 08554-356969, care@justshop24x7.com",
+
+        itemWeight: "6.71 kg",
+        netQuantity: "1.0 count",
+
+        includedComponents:
+          "5300-2 unit and filters, Four Carbon FIlters, one Model 5300-2 Air Purifier, one True Hepa Filter",
+
+        genericName: "Air Purifier",
+
+        bestSellersRank: [
+          "#1,304 in Home & Kitchen (See Top 100 in Home & Kitchen)",
+          "#14 in HEPA Air Purifiers"
+        ]
+      },
+      whatsInTheBox: {
+        items: [
+          "5300-2 unit and filters",
+          "one Model 5300-2 Air Purifier",
+          "one True Hepa Filter",
+          "Four Carbon FIlters"
+        ]
+      },
+      //add new changes end here
+
       productReviews: [
         {
           id: "r1",
@@ -750,10 +859,10 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       description:
         "True HEPA purifier with PlasmaWave and washable AOC carbon filter. 360 sq ft coverage, 27.8 dB operation, 70W power.",
       images: [
-        "assets/products/5500-2/product-1.jpg",
-        "assets/products/5500-2/product-2.jpg",
-        "assets/products/5500-2/product-3.jpg",
-        "assets/products/5500-2/product-4.jpg",
+        "assets/products/5500-2/product-1.webp",
+        "assets/products/5500-2/product-2.webp",
+        "assets/products/5500-2/product-3.webp",
+        "assets/products/5500-2/product-4.webp",
         "assets/products/5500-2/5500-2.webp",
         "assets/products/28.webp"
       ],
@@ -809,6 +918,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         "Sleep Mode: Activate the quiet, energy-efficient Sleep Mode for a good night’s sleep",
 
       ],
+
       technicalDetails: {
         cadr: "243 CFM (Smoke), 246 CFM (Dust), 232 CFM (Pollen)",
         airChangesPerHour: "≈4.8x per hour",
@@ -817,6 +927,8 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         controlType: "Touch Panel",
         indicators: ["Air Quality LED", "Filter Replacement", "PlasmaWave Status"],
       },
+
+      //Old product information
       productInformation: {
         featuresAndSpecs: {
           "Power Source Type": "Corded Electric",
@@ -839,6 +951,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
           "Color": "Charcoal Gray",
         }
       },
+
       itemDetails: {
         brandName: "Winix",
         modelNumber: "5500-2",
@@ -856,21 +969,70 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         ],
 
         asin: "B01D8DAYII",
-
-        importerContactInformation:
-          "Sha Maknaji Veerchand , Kamala Nagar, Anantapur. Ph no-08554-356969",
-
+        importerContactInformation: "Sha Maknaji Veerchand , Kamala Nagar, Anantapur. Ph no-08554-356969",
         itemTypeName: "Washable AOC Carbon Filter",
-
         includedComponents: "Air Purifier",
-        countryofOrigin: "Republic of Korea",
         itemHeight: "23.6 Inches",
-
         packerContactInformation:
           "Sha Maknaji Veerchand , Kamala Nagar, Anantapur. Ph no-08554-356969",
         unitCount: "1.0 count",
         warrantyDescription: "One year limited mfg. warranty",
       },
+
+      //Add new changes start here
+      productTechnicalSpecs: {
+        // features & specs
+        "Power Source Type": "Corded Electric",
+        "Control Method": "Touch",
+        "Filter Type": "Activated Carbon",
+        "Floor Area": "360 Square Feet",
+        "Noise Level": "27.8 Decibels",
+        "Particle Retention Size": "0.3 Micron",
+        "Controller Type": "Hand Control",
+        "Wattage": "70 Watts",
+
+        // measurements
+        "Item Dimensions D x W x H": "19.8D x 37.8W x x 59.6H Centimeters",
+        "Item Weight": "6.7 Kg",
+
+        // user guide
+        "Specification Met": "Certified HEPA",
+
+        // additional details
+        "Color": "Black",
+
+        // item details (main)
+        "Brand Name": "Winix",
+        "Model Number": "5500-2",
+        "ASIN": "B01D8DAYII",
+        "Item Type Name": "Washable AOC Carbon Filter",
+        "Item Height": "23.6 Inches",
+        "Unit Count": "1.0 count",
+        "Warranty Description": "One year limited mfg. warranty"
+      },
+
+      additionalInformation: {
+        manufacturer: "Phone Number: +91 8885241706, Mail Id: care@justshop24x7.com, Winix",
+        packer: "Sha Maknaji Veerchand , Kamala Nagar, Anantapur. Ph no-08554-356969",
+        importer: "Sha Maknaji Veerchand , Kamala Nagar, Anantapur. Ph no-08554-356969",
+
+        itemWeight: "6.7 Kg",
+        netQuantity: "1.0 count",
+
+        includedComponents: "Air Purifier",
+        genericName: "Air Purifier",
+
+        bestSellersRank: [
+          "#1,304 in Home & Kitchen (See Top 100 in Home & Kitchen)",
+          "#14 in HEPA Air Purifiers"
+        ]
+      },
+
+      whatsInTheBox: {
+        items: ["Air Purifier"]
+      },
+      
+      //Add new changes end here
       productReviews: [
         {
           id: "r1",
@@ -1013,11 +1175,11 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       description:
         "Smart Wi-Fi enabled air purifier with True HEPA, carbon filter, auto mode, and air quality monitor. Covers up to 1968 sq ft in 1 hour with AHAM-verified 410 sq ft rating.",
       images: [
-        "assets/products/T800/product-1.jpg",
-        "assets/products/T800/product-3.jpg",
+        "assets/products/T800/product-1.webp",
+        "assets/products/T800/product-3.webp",
         "assets/products/T800/T800.webp",
-        "assets/products/T800/product-4.jpg",
-        "assets/products/T800/product-2.jpg",
+        "assets/products/T800/product-4.webp",
+        "assets/products/T800/product-2.webp",
         "assets/products/28.webp"
       ],
       currentImage: "assets/products/T800/product-1.jpg",
@@ -1087,6 +1249,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         controlType: "Touch + Wi-Fi App Control",
         indicators: ["Air Quality LED", "Filter Replacement"],
       },
+      //Old Product Information
       productInformation: {
         featuresAndSpecs: {
           "Power Source Type": "Corded Electric",
@@ -1114,7 +1277,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       },
       itemDetails: {
         brandName: "Winix",
-        modelNumber: "1022023000",
+        modelNumber: "T800",
         manufacturer: "Winix",
 
         customerReviews: {
@@ -1127,23 +1290,68 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
           "#26,107 in Home & Kitchen",
           "#67 in HEPA Air Purifiers"
         ],
-
         asin: "BOCDNH5NX4",
-
-        importerContactInformation:
-          "Sha Maknaji Veerchand, Ph no- 8885241706",
-
+        importerContactInformation: "Sha Maknaji Veerchand, Ph no- 8885241706",
         itemTypeName: "Air Purifier",
-
         includedComponents: "Air Purifier",
-
         itemHeight: "20.4 Inches",
-
-        packerContactInformation:
-          "Sha Maknaji Veerchand, Kamala Nagar, Anantapur. Ph no-08554-356969",
-
+        packerContactInformation: "Sha Maknaji Veerchand, Kamala Nagar, Anantapur. Ph no-08554-356969",
         unitCount: "1.0 count"
       },
+
+      //Add new changes start here
+      productTechnicalSpecs: {
+        // features & specs
+        "Power Source Type": "Corded Electric",
+        "Control Method": "App",
+        "Filter Type": "HEPA",
+        "Floor Area": "410 Square Feet",
+        "Noise Level": "23.8 Decibels",
+        "Particle Retention Size": "0.01 Micrometer",
+        "Controller Type": "Amazon Alexa",
+        "Wattage": "45 Watts",
+
+        // measurements
+        "Item Dimensions D x W x H": "24D x 24W x 37H Centimeters",
+        "Item Weight": "4.7 kg",
+
+        // user guide
+        "Specification Met": "AHAM Certified, CARB Certified, Energy Star Certified, FCC Certified, UL Certified",
+
+        // additional details
+        "Color": "White",
+
+        // item details (main)
+        "Brand Name": "Winix",
+        "Model Number": "T800",
+        "Manufacturer": "Winix",
+        "ASIN": "BOCDNH5NX4",
+        "Item Type Name": "Air Purifier",
+        "Item Height": "20.4 Inches",
+        "Unit Count": "1.0 count"
+      },
+
+      additionalInformation: {
+        manufacturer: "Winix",
+        packer: "Sha Maknaji Veerchand, Kamala Nagar, Anantapur. Ph no-08554-356969",
+        importer: "Sha Maknaji Veerchand, Ph no- 8885241706",
+
+        itemWeight: "4.7 kg",
+        netQuantity: "1.0 count",
+        includedComponents: "Air Purifier",
+        genericName: "Air Purifier",
+
+        bestSellersRank: [
+          "#26,107 in Home & Kitchen",
+          "#67 in HEPA Air Purifiers"
+        ]
+      },
+
+      whatsInTheBox: {
+        items: ["Air Purifier"]
+      },
+
+      //Add new changes end here
       productReviews: [
         {
           id: "t800-r1",
@@ -1360,6 +1568,8 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         controlType: "Touch + WiFi App Control",
         indicators: ["Air Quality LED (4-color)", "Filter Replacement"],
       },
+
+      //Old Product Information
       productInformation: {
         featuresAndSpecs: {
           "Power Source Type": "Corded Electric",
@@ -1380,10 +1590,9 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
           "Color": "White and Black",
         }
       },
-
       itemDetails: {
         brandName: "Winix",
-        modelNumber: "WINIX T500 Luftreiniger WIFI",
+        modelNumber: "WINIX T500",
         manufacturer: "Winix",
 
         customerReviews: {
@@ -1398,8 +1607,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         ],
 
         asin: "B0FQBSFWRJ",
-        importerContactInformation:
-          "Sha Maknaji Veerchand, Ph no- 8885241706",
+        importerContactInformation: "Sha Maknaji Veerchand, Ph no- 8885241706",
         itemTypeName: "Air Purifier",
         includedComponents: "Air Purifier",
         itemHeight: "37 Centimeters",
@@ -1407,6 +1615,58 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
           "Sha Maknaji Veerchand , Kamala Nagar, Anantapur. Ph no-08554-356969",
         unitCount: "1.0 count"
       },
+
+      //Add new changes start here
+      productTechnicalSpecs: {
+        // features & specs
+        "Power Source Type": "Corded Electric",
+        "Control Method": "App",
+        "Filter Type": "HEPA",
+        "Floor Area": "50 Square Meters",
+        "Noise Level": "36.4 Decibels",
+        "Wattage": "55 Watts",
+
+        // measurements
+        "Item Dimensions D x W x H": "24D x 24W x 37H Centimeters",
+        "Item Weight": "3.1 Kg",
+
+        // user guide (empty)
+        "User Guide": "",
+
+        // additional details
+        "Color": "White and Black",
+
+        // item details main mapped
+        "Brand Name": "Winix",
+        "Model Number": "WINIX T500 Luftreiniger WIFI",
+        "Manufacturer": "Winix",
+        "ASIN": "B0FQBSFWRJ",
+        "Item Type Name": "Air Purifier",
+        "Item Height": "37 Centimeters",
+        "Unit Count": "1.0 count"
+      },
+
+      additionalInformation: {
+        manufacturer: "Winix",
+        packer: "Sha Maknaji Veerchand , Kamala Nagar, Anantapur. Ph no-08554-356969",
+        importer: "Sha Maknaji Veerchand, Ph no- 8885241706",
+
+        itemWeight: "3.1 Kg",
+        netQuantity: "1.0 count",
+
+        includedComponents: "Air Purifier",
+        genericName: "Air Purifier",
+
+        bestSellersRank: [
+          "#26,107 in Home & Kitchen",
+          "#67 in HEPA Air Purifiers"
+        ]
+      },
+
+      whatsInTheBox: {
+        items: ["Air Purifier"]
+      },
+      //Add new changes end here
       productReviews: [
         {
           id: "t500-r1",
