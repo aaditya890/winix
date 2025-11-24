@@ -481,7 +481,6 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       ],
 
       highlightImages: [
-        "assets/winix-product-images/a231/a231-1.webp",
         "assets/winix-product-images/a231/a231-2.webp",
         "assets/winix-product-images/a231/a231-3.webp",
         "assets/winix-product-images/a231/a231-4.webp",
