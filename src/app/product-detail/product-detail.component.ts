@@ -366,7 +366,8 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         "ASIN": "B08HW5SBQ6",
         "Item Type Name": "Air Purifier",
         "Item Height": "14.6 Inches",
-        "Unit Count": "1.0 count"
+        "Unit Count": "1.0 count",
+        "Warranty Description": "2 + 1 On Registration"
       },
 
       additionalInformation: {
@@ -385,11 +386,9 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       },
 
       whatsInTheBox: {
-        items: ["Air Purifier"]
+        items: ["Air Purifier","Manual"]
       },
-
       //Add new changes end here
-
       productReviews: [
         {
           id: "a231-r1",
@@ -653,7 +652,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         packerContactInformation:
           "Sha Maknaji Veerchand, Kamala Nagar DCMS road Anantapur-515001-Ph no 08554-356969, care@justshop24x7.com",
         unitCount: "1.0 count",
-        warrantyDescription: "2 Year warranty , Call on +91 8885241706",
+       warrantyDescription: "2 + 1 On Registration",
       },
 
       //Add ne changes start here
@@ -685,7 +684,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         "Item Type Name": "Air purifier",
         "Item Height": "23.6 Inches",
         "Unit Count": "1.0 count",
-        "Warranty Description": "2 Year warranty , Call on +91 8885241706"
+        "Warranty Description": "2 + 1 On Registration",
       },
       additionalInformation: {
         manufacturer: "Winix",
@@ -711,6 +710,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
           "5300-2 unit and filters",
           "one Model 5300-2 Air Purifier",
           "one True Hepa Filter",
+          "Manual",
           "Four Carbon FIlters"
         ]
       },
@@ -975,7 +975,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         packerContactInformation:
           "Sha Maknaji Veerchand , Kamala Nagar, Anantapur. Ph no-08554-356969",
         unitCount: "1.0 count",
-        warrantyDescription: "One year limited mfg. warranty",
+        warrantyDescription: "2 + 1 On Registration",
       },
 
       //Add new changes start here
@@ -1007,7 +1007,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         "Item Type Name": "Washable AOC Carbon Filter",
         "Item Height": "23.6 Inches",
         "Unit Count": "1.0 count",
-        "Warranty Description": "One year limited mfg. warranty"
+        "Warranty Description": "2 + 1 On Registration"
       },
 
       additionalInformation: {
@@ -1028,7 +1028,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       },
 
       whatsInTheBox: {
-        items: ["Air Purifier"]
+        items: ["Air Purifier","Manual"]
       },
       
       //Add new changes end here
@@ -1294,7 +1294,8 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         includedComponents: "Air Purifier",
         itemHeight: "20.4 Inches",
         packerContactInformation: "Sha Maknaji Veerchand, Kamala Nagar, Anantapur. Ph no-08554-356969",
-        unitCount: "1.0 count"
+        unitCount: "1.0 count",
+        
       },
 
       //Add new changes start here
@@ -1327,7 +1328,8 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         "ASIN": "BOCDNH5NX4",
         "Item Type Name": "Air Purifier",
         "Item Height": "20.4 Inches",
-        "Unit Count": "1.0 count"
+        "Unit Count": "1.0 count",
+        "Warranty Description": "2 + 1 On Registration"
       },
 
       additionalInformation: {
@@ -1347,7 +1349,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       },
 
       whatsInTheBox: {
-        items: ["Air Purifier"]
+        items: ["Air Purifier","Manual"]
       },
 
       //Add new changes end here
@@ -1641,7 +1643,8 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         "ASIN": "B0FQBSFWRJ",
         "Item Type Name": "Air Purifier",
         "Item Height": "37 Centimeters",
-        "Unit Count": "1.0 count"
+        "Unit Count": "1.0 count",
+        "Warranty Description": "2 + 1 On Registration"
       },
 
       additionalInformation: {
@@ -1662,7 +1665,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       },
 
       whatsInTheBox: {
-        items: ["Air Purifier"]
+        items: ["Air Purifier","Manual"]
       },
       //Add new changes end here
       productReviews: [

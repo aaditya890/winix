@@ -22,7 +22,7 @@
     <!-- Slider Container -->
     <div class="relative" (mouseenter)="onMouseEnter()" (mouseleave)="onMouseLeave()">
       <div class="overflow-hidden rounded-xl">
-        <div class="flex flex-nowrap gap-3 transition-transform duration-700 ease-in-out px-2"
+        <div class="flex flex-nowrap gap-3 transition-transform duration-700 ease-in-out"
           [style.transform]="'translateX(-' + transformPercentage + '%)'">
           <!-- Review Cards -->
           <div *ngFor="let review of reviews; let i = index" class="w-auto px-1 sm:px-2">
