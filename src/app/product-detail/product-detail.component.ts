@@ -386,7 +386,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       },
 
       whatsInTheBox: {
-        items: ["Air Purifier","Manual"]
+        items: ["Winix A231","Manual"]
       },
       //Add new changes end here
       productReviews: [
@@ -706,11 +706,8 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       },
       whatsInTheBox: {
         items: [
-          "5300-2 unit and filters",
-          "one Model 5300-2 Air Purifier",
-          "one True Hepa Filter",
+          "Winix 5300-2",
           "Manual",
-          "Four Carbon FIlters"
         ]
       },
       //add new changes end here
@@ -1027,7 +1024,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       },
 
       whatsInTheBox: {
-        items: ["Air Purifier","Manual"]
+        items: ["Winix 5500-2","Manual"]
       },
       
       //Add new changes end here
@@ -1168,7 +1165,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       productUrl: "https://www.amazon.in/dp/B0CDNH5NX4?th=1",
       slug: "winix-t800-air-purifier",
       name: "Winix T800 360° True HEPA WiFi Air Purifier with 4-Stage PlasmaWave Tech",
-      shortName: "T800",
+      shortName: "WINIX T800",
       description:
         "Smart Wi-Fi enabled air purifier with True HEPA, carbon filter, auto mode, and air quality monitor. Covers up to 1968 sq ft in 1 hour with AHAM-verified 410 sq ft rating.",
       images: [
@@ -1348,7 +1345,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       },
 
       whatsInTheBox: {
-        items: ["Air Purifier","Manual"]
+        items: ["Winix T800","Manual"]
       },
 
       //Add new changes end here
@@ -1489,7 +1486,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       productUrl: "https://www.amazon.in/dp/B0FQBSFWRJ",
       slug: "winix-t500-air-purifier",
       name: "WINIX T500 360° 4-Stage True HEPA WiFi Air Purifier with PlasmaWave®",
-      shortName: "T500",
+      shortName: "WINIX T500",
       description:
         "360° all-in-one air purifier with WiFi Smart App control, PlasmaWave technology, and 4-stage filtration including fine mesh pre-filter, True HEPA, and activated carbon. AHAM verified for 251 sq ft, capable of cleaning up to 1204 sq ft in 1 hour.",
       images: [
@@ -1664,7 +1661,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       },
 
       whatsInTheBox: {
-        items: ["Air Purifier","Manual"]
+        items: ["Winix T500","Manual"]
       },
       //Add new changes end here
       productReviews: [
