@@ -28,4 +28,12 @@ export const routes: Routes = [
     path: 'contact-us',
     loadComponent: () => import('./contact-us/contact-us.component').then(m => m.ContactUsComponent),
   },
+  {
+    path:'explore',
+    loadComponent: () => import('./explore/explore.component').then(m => m.ExploreComponent),
+  },
+  {
+    path:'explore/:slug',
+    loadComponent: () => import('./explore-detail/explore-detail.component').then(m => m.ExploreDetailComponent),
+  }
 ];
