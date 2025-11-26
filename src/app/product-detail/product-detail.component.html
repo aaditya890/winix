@@ -96,7 +96,7 @@
           </div>
 
           <!-- True HEPA + PlasmaWave + Washable AOC Carbon -->
-          <div class="leading-4 mb-5 mt-2 bg-neutral-100">
+          <div class="leading-4 mb-5 mt-2 bg-neutral-100 px-2 py-1 rounded-xs">
             <h3 class="text-[14px] font-bold text-neutral-800 mb-1">{{ product.technology }}</h3>
             <p class="text-[12px] text-gray-600 leading-2 font-semibold">{{ product.description }}</p>
           </div>
@@ -229,11 +229,11 @@
           </div>
 
           <!-- LAST IMAGE -->
-          <div class="w-full flex justify-center bg-white rounded-md hidden md:block">
+          <div class="w-full justify-center bg-white rounded-md hidden md:flex">
             <img [src]="product.lastImage" [alt]="product.slug"
               class="w-full max-h-[500px] md:max-h-[650px] object-contain" />
           </div>
-          <div class="w-full flex justify-center bg-white rounded-md block md:hidden">
+          <div class="w-full flex justify-center bg-white rounded-md md:hidden">
             <img src="assets/winix-product-images/28.webp" alt="Winix Product Showcase"
               class="w-full max-h-[500px] md:max-h-[650px] object-contain" />
           </div>
@@ -254,7 +254,7 @@
 
           <div class="accordion-content" *ngIf="isOpen.productTechnicalSpecs">
             <div class="row" *ngFor="let key of objectKeys(product.productTechnicalSpecs || {})">
-              <div class="label">{{ formatKey(key) }}</div>
+              <div class="label">• {{ formatKey(key) }} :</div>
               <div class="value">{{ product.productTechnicalSpecs?.[key] }}</div>
             </div>
           </div>
@@ -275,9 +275,7 @@
               </ul>
             </div>
           </div>
-
         </div>
-
 
         <!-- RIGHT SIDE — Additional Information -->
         <div class="productInfo-right">
@@ -291,37 +289,37 @@
 
             <!-- STATIC KEYS -->
             <div class="row" *ngIf="product.additionalInformation?.manufacturer">
-              <div class="label">Manufacturer</div>
+              <div class="label">• Manufacturer :</div>
               <div class="value">{{ product.additionalInformation?.manufacturer }}</div>
             </div>
 
             <div class="row" *ngIf="product.additionalInformation?.packer">
-              <div class="label">Packer</div>
+              <div class="label">• Packer :</div>
               <div class="value">{{ product.additionalInformation?.packer }}</div>
             </div>
 
             <div class="row" *ngIf="product.additionalInformation?.importer">
-              <div class="label">Importer</div>
+              <div class="label">• Importer :</div>
               <div class="value">{{ product.additionalInformation?.importer }}</div>
             </div>
 
             <div class="row" *ngIf="product.additionalInformation?.itemWeight">
-              <div class="label">Item Weight</div>
+              <div class="label">• Item Weight :</div>
               <div class="value">{{ product.additionalInformation?.itemWeight }}</div>
             </div>
 
             <div class="row" *ngIf="product.additionalInformation?.netQuantity">
-              <div class="label">Net Quantity</div>
+              <div class="label">• Net Quantity :</div>
               <div class="value">{{ product.additionalInformation?.netQuantity }}</div>
             </div>
 
             <div class="row" *ngIf="product.additionalInformation?.includedComponents">
-              <div class="label">Included Components</div>
+              <div class="label">• Included Components :</div>
               <div class="value">{{ product.additionalInformation?.includedComponents }}</div>
             </div>
 
             <div class="row" *ngIf="product.additionalInformation?.genericName">
-              <div class="label">Generic Name</div>
+              <div class="label">• Generic Name :</div>
               <div class="value">{{ product.additionalInformation?.genericName }}</div>
             </div>
 
