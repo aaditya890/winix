@@ -59,8 +59,8 @@ img {
 
 :host ::ng-deep .accordion-content li {
   font-size: 14px !important;
-  color: #444 !important;
-  font-weight: 500 !important;
+  color: #434242 !important;
+  font-weight: 700 !important;
 }
 
 /* Rows */
@@ -72,16 +72,17 @@ img {
 
 .label {
   width: 45%;
-  font-weight: 600;
-  color: #4f4d4d;
+  font-weight: 700;
+  color: #1d1c1c;
   font-size: 14px
 }
 
 .value {
   width: 55%;
-  font-weight: 500;
-  color: #363535;
-  font-size: 14px;
+  font-weight: 600;
+  color: #323131;
+  font-size: 13.5px;
+  padding: 0px 10px;
 }
 
 /* ----------------------------- */
@@ -107,11 +108,12 @@ img {
   .label {
     width: 100%;
     margin-bottom: 4px;
-    font-weight: 600;
+    font-weight: 700;
   }
 
   .value {
     width: 100%;
+    font-weight: 600;
   }
 }
 
@@ -130,6 +132,6 @@ img {
   }
 
   .value {
-    font-size: 14px;
+    font-size: 13px;
   }
 }

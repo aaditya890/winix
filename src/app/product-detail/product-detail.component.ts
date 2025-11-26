@@ -372,8 +372,8 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
 
       additionalInformation: {
         manufacturer: "Phone Number: +91 8885241706, Mail Id: care@justshop24x7.com, Winix",
-        packer: "Sha Maknaji Veerchand , Kamala Nagar, Anantapur. Ph no-08554-356969",
-        importer: "Sha Maknaji Veerchand, Ph no- 8885241706",
+        packer: "Sha Maknaji Veerchand, Kamala Nagar DCMS road Anantapur-515001-Ph no 08554-356969, care@justshop24x7.com",
+        importer: "Sha Maknaji Veerchand, Kamala Nagar DCMS road Anantapur-515001-Ph no 08554-356969, care@justshop24x7.com",
         itemWeight: "3.22 Kg",
         netQuantity: "1.0 count",
         includedComponents: "Air Purifier",
@@ -386,7 +386,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       },
 
       whatsInTheBox: {
-        items: ["Winix A231","Manual"]
+        items: ["Winix A231", "Manual"]
       },
       //Add new changes end here
       productReviews: [
@@ -651,7 +651,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         packerContactInformation:
           "Sha Maknaji Veerchand, Kamala Nagar DCMS road Anantapur-515001-Ph no 08554-356969, care@justshop24x7.com",
         unitCount: "1.0 count",
-       warrantyDescription: "2 + 1 On Registration",
+        warrantyDescription: "2 + 1 On Registration",
       },
 
       //Add ne changes start here
@@ -686,9 +686,8 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         "Warranty Description": "2 + 1 On Registration",
       },
       additionalInformation: {
-        manufacturer: "Winix",
+        manufacturer: "Phone Number: +91 8885241706, Mail Id: care@justshop24x7.com, Winix",
         packer: "Sha Maknaji Veerchand, Kamala Nagar DCMS road Anantapur-515001-Ph no 08554-356969, care@justshop24x7.com",
-
         importer: "Sha Maknaji Veerchand, Kamala Nagar DCMS road Anantapur-515001-Ph no 08554-356969, care@justshop24x7.com",
 
         itemWeight: "6.71 kg",
@@ -1008,8 +1007,8 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
 
       additionalInformation: {
         manufacturer: "Phone Number: +91 8885241706, Mail Id: care@justshop24x7.com, Winix",
-        packer: "Sha Maknaji Veerchand , Kamala Nagar, Anantapur. Ph no-08554-356969",
-        importer: "Sha Maknaji Veerchand , Kamala Nagar, Anantapur. Ph no-08554-356969",
+        packer: "Sha Maknaji Veerchand, Kamala Nagar DCMS road Anantapur-515001-Ph no 08554-356969, care@justshop24x7.com",
+        importer: "Sha Maknaji Veerchand, Kamala Nagar DCMS road Anantapur-515001-Ph no 08554-356969, care@justshop24x7.com",
 
         itemWeight: "6.7 Kg",
         netQuantity: "1.0 count",
@@ -1024,9 +1023,9 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       },
 
       whatsInTheBox: {
-        items: ["Winix 5500-2","Manual"]
+        items: ["Winix 5500-2", "Manual"]
       },
-      
+
       //Add new changes end here
       productReviews: [
         {
@@ -1126,7 +1125,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         "assets/winix-product-images/t5500-2/t5500-5.webp",
       ],
       video: "assets/winix-product-images/t5500-2/vid.webm",
-      lastImage:  "assets/winix-product-images/last-image.webp",
+      lastImage: "assets/winix-product-images/last-image.webp",
       faqs: [
         {
           q: "Is it quiet enough for bedrooms?",
@@ -1291,7 +1290,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         itemHeight: "20.4 Inches",
         packerContactInformation: "Sha Maknaji Veerchand, Kamala Nagar, Anantapur. Ph no-08554-356969",
         unitCount: "1.0 count",
-        
+
       },
 
       //Add new changes start here
@@ -1329,9 +1328,9 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       },
 
       additionalInformation: {
-        manufacturer: "Winix",
-        packer: "Sha Maknaji Veerchand, Kamala Nagar, Anantapur. Ph no-08554-356969",
-        importer: "Sha Maknaji Veerchand, Ph no- 8885241706",
+        manufacturer: "Phone Number: +91 8885241706, Mail Id: care@justshop24x7.com, Winix",
+        packer: "Sha Maknaji Veerchand, Kamala Nagar DCMS road Anantapur-515001-Ph no 08554-356969, care@justshop24x7.com",
+        importer: "Sha Maknaji Veerchand, Kamala Nagar DCMS road Anantapur-515001-Ph no 08554-356969, care@justshop24x7.com",
 
         itemWeight: "4.7 kg",
         netQuantity: "1.0 count",
@@ -1345,7 +1344,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       },
 
       whatsInTheBox: {
-        items: ["Winix T800","Manual"]
+        items: ["Winix T800", "Manual"]
       },
 
       //Add new changes end here
@@ -1644,10 +1643,9 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       },
 
       additionalInformation: {
-        manufacturer: "Winix",
-        packer: "Sha Maknaji Veerchand , Kamala Nagar, Anantapur. Ph no-08554-356969",
-        importer: "Sha Maknaji Veerchand, Ph no- 8885241706",
-
+        manufacturer: "Phone Number: +91 8885241706, Mail Id: care@justshop24x7.com, Winix",
+        packer: "Sha Maknaji Veerchand, Kamala Nagar DCMS road Anantapur-515001-Ph no 08554-356969, care@justshop24x7.com",
+        importer: "Sha Maknaji Veerchand, Kamala Nagar DCMS road Anantapur-515001-Ph no 08554-356969, care@justshop24x7.com",
         itemWeight: "3.1 Kg",
         netQuantity: "1.0 count",
 
@@ -1661,7 +1659,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       },
 
       whatsInTheBox: {
-        items: ["Winix T500","Manual"]
+        items: ["Winix T500", "Manual"]
       },
       //Add new changes end here
       productReviews: [
@@ -1990,7 +1988,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
   }
 
   //
-   scrollTo(id: string) {
+  scrollTo(id: string) {
     // Close mobile menu (if open)
     this.isMobileOpen = false;
     document.body.classList.remove("overflow-hidden");
@@ -2010,7 +2008,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         window.scrollTo({ top: Math.max(0, y), behavior: "smooth" });
       }
     };
-    
+
 
     // If already on home page
     if (this.router.url === "/" || this.router.url === "/home") {
