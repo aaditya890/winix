@@ -1,1 +1,276 @@
-<p>explore-detail works!</p>
+<div class="w-full px-4 sm:px-8 lg:px-16 py-10" *ngIf="product">
+  <!-- TOP SECTION -->
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+
+    <!-- LEFT SIDE: IMAGE + GALLERY -->
+    <div>
+      <!-- MAIN IMAGE BOX -->
+      <div class="w-full bg-white border rounded-md p-6 flex items-center justify-center">
+        <img [src]="mainImage" [alt]="product.name" class="max-h-[450px] object-contain" />
+      </div>
+
+      <!-- GALLERY -->
+      <div class="flex flex-wrap justify-between items-center">
+        <div class="relative w-contant mt-4">
+          <!-- Left Arrow -->
+          <button
+            class="absolute left-0 top-1/2 h-full -translate-y-1/2 bg-gray-800/50 text-white p-2 rounded-full z-10"
+            (click)="slideLeft()">
+            ‹
+          </button>
+
+          <!-- Thumbnails Slider -->
+          <div class="flex gap-3 overflow-x-hidden scroll-smooth" #thumbsContainer>
+            <img *ngFor="let img of product.gallery; let i = index" [src]="img" [alt]="product.name"
+              (click)="selectImage(i)"
+              class="h-20 w-20 object-contain rounded-xl border cursor-pointer transition-all duration-200" [ngClass]="{
+        'border-2 border-[#74236C]': selectedIndex === i,
+        'border-gray-300': selectedIndex !== i
+      }" />
+          </div>
+
+          <!-- Right Arrow -->
+          <button
+            class="absolute right-0 top-1/2 h-full -translate-y-1/2 bg-gray-800/50 text-white p-2 rounded-full z-10"
+            (click)="slideRight()">
+            ›
+          </button>
+
+        </div>
+
+        <button
+          class="bg-[#6c2065] mt-6 px-7 py-2 text-white text-md rounded-full font-semibold hover:bg-[#5a1a54] transition shadow-lg">
+          Buy this product
+        </button>
+
+      </div>
+    </div>
+
+    <!-- RIGHT SIDE: DETAILS -->
+    <div>
+      <p class="text-[24px] text-[#241f56] font-semibold uppercase">
+        {{ product.category || 'Air Purifier' }}
+      </p>
+
+      <h1 class="text-3xl sm:text-4xl font-bold text-[#272256] leading-tight">
+        {{ product.shortTitle }}
+      </h1>
+
+      <p class="text-[15px] text-gray-700 mt-4 leading-relaxed">
+        {{ product.shortDescription }}
+      </p>
+
+      <p class="text-[15px] text-gray-700 mt-4 leading-relaxed" [innerHTML]="product.longDescription">
+        <!-- {{ product.longDescription }} -->
+      </p>
+
+      <button (click)="openVideo()"
+        class="bg-[#241f56] mt-6 px-7 py-2 text-white text-md rounded-full font-semibold hover:bg-[#1e1a49] transition shadow-lg">
+        ► Productvideo
+      </button>
+    </div>
+  </div>
+
+  <!-- ========================= -->
+  <!--         TABS             -->
+  <!-- ========================= -->
+
+  <div class="mt-12 flex overflow-x-auto pb-3">
+    <!-- Product Description -->
+    <button class="px-6 py-2 text-md font-semibold rounded-full whitespace-nowrap transition-all duration-300"
+      [ngClass]="{
+      'bg-[#211E5A] text-white shadow-md': activeTab === 'description',
+      'bg-transparent text-[#211E5A] border border-[#211E5A]': activeTab !== 'description'
+    }" (click)="setTab('description')">
+      Product Description
+    </button>
+
+    <!-- PlasmaWave Technology -->
+    <button class="px-6 py-2 text-md font-semibold rounded-full whitespace-nowrap transition-all duration-300"
+      [ngClass]="{
+      'bg-[#211E5A] text-white shadow-md': activeTab === 'technology',
+      'bg-transparent text-[#211E5A] border border-[#211E5A]': activeTab !== 'technology'
+    }" (click)="setTab('technology')">
+      PlasmaWave® Technology
+    </button>
+
+    <!-- Advantages -->
+    <button class="px-6 py-2 text-md font-semibold rounded-full whitespace-nowrap transition-all duration-300"
+      [ngClass]="{
+      'bg-[#211E5A] text-white shadow-md': activeTab === 'advantages',
+      'bg-transparent text-[#211E5A] border border-[#211E5A]': activeTab !== 'advantages'
+    }" (click)="setTab('advantages')">
+      Product Advantages
+    </button>
+
+    <!-- Specifications -->
+    <button class="px-6 py-2 text-md font-semibold rounded-full whitespace-nowrap transition-all duration-300"
+      [ngClass]="{
+      'bg-[#211E5A] text-white shadow-md': activeTab === 'specs',
+      'bg-transparent text-[#211E5A] border border-[#211E5A]': activeTab !== 'specs'
+    }" (click)="setTab('specs')">
+      Product Specifications
+    </button>
+
+    <!-- Filter -->
+    <button class="px-6 py-2 text-md font-semibold rounded-full whitespace-nowrap transition-all duration-300"
+      [ngClass]="{
+      'bg-[#211E5A] text-white shadow-md': activeTab === 'filter',
+      'bg-transparent text-[#211E5A] border border-[#211E5A]': activeTab !== 'filter'
+    }" (click)="setTab('filter')">
+      WINIX Filter O
+    </button>
+
+  </div>
+
+
+  <!-- TAB CONTENT -->
+  <div class="mt-6 bg-gray-50 px-3 py-4 rounded-sm text-lg leading-relaxed">
+    <div *ngIf="activeTab === 'description'">
+      <p *ngFor="let para of product.tabs.description" class="mb-4 text-[#241f56] text-sm" [innerHtml]="para">
+        <!-- {{ para }} -->
+      </p>
+    </div>
+
+    <div *ngIf="activeTab === 'technology'">
+      <p *ngFor="let para of product.tabs.technology" class="mb-4 text-[#241f56] text-sm" [innerHtml]="para">
+        <!-- {{ para }} -->
+      </p>
+    </div>
+
+    <!-- <p *ngIf="activeTab === 'technology'">
+      {{ product.tabs.technology }}
+    </p> -->
+
+    <!-- ADVANTAGES TAB -->
+    <div *ngIf="activeTab === 'advantages'">
+      <div *ngFor="let adv of product.tabs.advantages; let i = index" class="">
+        <p class="py-3 text-sm">
+          <span class="text-sm font-semibold text-[#241f56]">{{i + 1}}) {{adv.title}}</span> – {{adv.text}}
+        </p>
+      </div>
+
+    </div>
+
+    <!-- PRODUCT SPECIFICATIONS TABLE -->
+    <div *ngIf="activeTab === 'specs'" class="mt-6 text-gray-700 text-lg">
+      <div class="w-full p-1 md:p-6">
+        <div class="divide-y">
+
+          <div *ngFor="let item of product?.tabs?.specifications |  keyvalue: keepOrder" class="grid grid-cols-2 py-4">
+            <p class="font-semibold text-gray-800 text-sm">{{ item.key }}</p>
+            <p class="text-gray-800 text-sm font-medium">{{ item.value }}</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+    <div *ngIf="activeTab === 'filter'" class="mt-6 text-gray-700 text-sm leading-relaxed">
+      <!-- TITLE -->
+      <p class="font-bold text-[#74236C] text-xl mb-4">
+        {{ product.tabs.filter.title }}
+      </p>
+
+      <!-- SUBTITLE -->
+      <p class="mb-6">
+        {{ product.tabs.filter.subtitle }}
+      </p>
+
+      <!-- DETAILS PARAGRAPHS -->
+      <div class="space-y-3 mb-6">
+        <p *ngFor="let d of product.tabs.filter.details" [innerHtml]="d">
+        </p>
+      </div>
+
+      <!-- STEPS TITLE -->
+      <p class="font-semibold mt-4 mb-2">
+        {{ product.tabs.filter.stepsTitle }}
+      </p>
+
+      <!-- STEPS LIST -->
+      <ol class="list-decimal pl-6 space-y-2 mb-6">
+        <li *ngFor="let step of product.tabs.filter.steps">
+          {{ step }}
+        </li>
+      </ol>
+
+      <!-- NOTE -->
+      <p class="italic mb-4">
+        {{ product.tabs.filter.note }}
+      </p>
+
+      <!-- REMINDER -->
+      <p class="font-semibold">
+        {{ product.tabs.filter.reminder }}
+      </p>
+
+    </div>
+  </div>
+  <!-- RELATED PRODUCTS SECTION -->
+  <div class="mt-10 md:mt-20">
+    <h2 class="text-2xl md:text-3xl font-bold text-[#241f56] mb-4 md:mb-8">
+      Explore More Products
+    </h2>
+
+    <div class="flex flex-wrap items-center justify-center md:justify-normal gap-3">
+
+      <!-- CARD -->
+      <div *ngFor="let r of relatedProducts" (click)="openDetail(r)"
+        class="cursor-pointer bg-white w-full md:w-[300px] rounded-3xl p-6 shadow-md text-center">
+        <img [src]="r.image" class="w-64 md:w-96 object-contain mx-auto mb-6" />
+        <h3 class="text-xl font-semibold text-[#151B4E] mb-2">{{ r.shortTitle }}</h3>
+
+        <button class="bg-[#74236C] text-white px-5 py-2 rounded-full font-medium hover:bg-[#5a1a54]">
+          View Product
+        </button>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- =============================== -->
+  <!--     ADDITIONAL INFORMATION      -->
+  <!-- =============================== -->
+
+  <!-- <div class="mt-12 border-t pt-6">
+    <h2 class="text-2xl font-bold text-gray-900 mb-4">Additional Information</h2>
+
+    <div class="space-y-3 text-lg text-gray-700">
+      <p><strong>Manufacturer:</strong> {{ product.additionalInfo.manufacturer }}</p>
+      <p><strong>Packer:</strong> {{ product.additionalInfo.packer }}</p>
+      <p><strong>Importer:</strong> {{ product.additionalInfo.importer }}</p>
+    </div>
+  </div> -->
+
+</div>
+
+
+<!-- IN CASE PRODUCT IS NOT FOUND -->
+<div class="p-10 text-center text-gray-500 text-xl" *ngIf="!product">
+  Product not found.
+</div>
+
+<!-- VIDEO POPUP MODAL -->
+<!-- VIDEO POPUP MODAL -->
+<div *ngIf="showVideo"
+  class="fixed inset-0 bg-black bg-opacity-60 backdrop-blur-sm flex items-center justify-center z-50">
+
+  <div class="w-full max-w-full relative">
+
+    <!-- CLOSE BUTTON (FIXED + HIGHEST Z-INDEX) -->
+    <button (click)="closeVideo()"
+      class="absolute top-1 right-1 z-50 text-3xl font-bold text-white bg-black bg-opacity-40 px-3 py-1 rounded-full hover:bg-opacity-70 cursor-pointer">
+      ✕
+    </button>
+
+    <!-- VIDEO CONTAINER (PREVENT OVERLAP BLOCKING) -->
+    <div class="relative z-40">
+      <video [src]="videoUrl" controls autoplay class="w-full rounded-xl">
+      </video>
+    </div>
+
+  </div>
+</div>
