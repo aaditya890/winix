@@ -371,9 +371,9 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       },
 
       additionalInformation: {
-        manufacturer: "Phone Number: +91 8885241706, Mail Id: care@justshop24x7.com, Winix",
-        packer: "Sha Maknaji Veerchand, Kamala Nagar DCMS road Anantapur-515001-Ph no 08554-356969, care@justshop24x7.com",
-        importer: "Sha Maknaji Veerchand, Kamala Nagar DCMS road Anantapur-515001-Ph no 08554-356969, care@justshop24x7.com",
+        manufacturer: "Winix",
+        packer: "Sha Maknaji Veerchand, Kamala Nagar, Anantapur. Ph no-08554-356969",
+        importer: "Sha Maknaji Veerchand, Ph no-8885241706",
         itemWeight: "3.22 Kg",
         netQuantity: "1.0 count",
         includedComponents: "Air Purifier",
@@ -686,10 +686,9 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         "Warranty Description": "2 + 1 On Registration",
       },
       additionalInformation: {
-        manufacturer: "Phone Number: +91 8885241706, Mail Id: care@justshop24x7.com, Winix",
-        packer: "Sha Maknaji Veerchand, Kamala Nagar DCMS road Anantapur-515001-Ph no 08554-356969, care@justshop24x7.com",
-        importer: "Sha Maknaji Veerchand, Kamala Nagar DCMS road Anantapur-515001-Ph no 08554-356969, care@justshop24x7.com",
-
+        manufacturer: "Winix",
+        packer: "Sha Maknaji Veerchand, Kamala Nagar, Anantapur. Ph no-08554-356969",
+        importer: "Sha Maknaji Veerchand, Ph no-8885241706",
         itemWeight: "6.71 kg",
         netQuantity: "1.0 count",
 
@@ -1006,9 +1005,9 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       },
 
       additionalInformation: {
-        manufacturer: "Phone Number: +91 8885241706, Mail Id: care@justshop24x7.com, Winix",
-        packer: "Sha Maknaji Veerchand, Kamala Nagar DCMS road Anantapur-515001-Ph no 08554-356969, care@justshop24x7.com",
-        importer: "Sha Maknaji Veerchand, Kamala Nagar DCMS road Anantapur-515001-Ph no 08554-356969, care@justshop24x7.com",
+        manufacturer: "Winix",
+        packer: "Sha Maknaji Veerchand, Kamala Nagar, Anantapur. Ph no-08554-356969",
+        importer: "Sha Maknaji Veerchand, Ph no-8885241706",
 
         itemWeight: "6.7 Kg",
         netQuantity: "1.0 count",
@@ -1328,9 +1327,9 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       },
 
       additionalInformation: {
-        manufacturer: "Phone Number: +91 8885241706, Mail Id: care@justshop24x7.com, Winix",
-        packer: "Sha Maknaji Veerchand, Kamala Nagar DCMS road Anantapur-515001-Ph no 08554-356969, care@justshop24x7.com",
-        importer: "Sha Maknaji Veerchand, Kamala Nagar DCMS road Anantapur-515001-Ph no 08554-356969, care@justshop24x7.com",
+        manufacturer: "Winix",
+        packer: "Sha Maknaji Veerchand, Kamala Nagar, Anantapur. Ph no-08554-356969",
+        importer: "Sha Maknaji Veerchand, Ph no-8885241706",
 
         itemWeight: "4.7 kg",
         netQuantity: "1.0 count",
@@ -1643,9 +1642,9 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       },
 
       additionalInformation: {
-        manufacturer: "Phone Number: +91 8885241706, Mail Id: care@justshop24x7.com, Winix",
-        packer: "Sha Maknaji Veerchand, Kamala Nagar DCMS road Anantapur-515001-Ph no 08554-356969, care@justshop24x7.com",
-        importer: "Sha Maknaji Veerchand, Kamala Nagar DCMS road Anantapur-515001-Ph no 08554-356969, care@justshop24x7.com",
+        manufacturer: "Winix",
+        packer: "Sha Maknaji Veerchand, Kamala Nagar, Anantapur. Ph no-08554-356969",
+        importer: "Sha Maknaji Veerchand, Ph no-8885241706",
         itemWeight: "3.1 Kg",
         netQuantity: "1.0 count",
 
