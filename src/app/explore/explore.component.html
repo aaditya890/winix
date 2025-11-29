@@ -1,1 +1,44 @@
-<p>explore works!</p>
+<div class="w-full px-4 sm:px-6 lg:px-12 py-10">
+
+  <h1 class="text-3xl sm:text-4xl font-bold text-center text-gray-800 mb-10">
+    Explore Products
+  </h1>
+
+  <!-- PRODUCT GRID -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+    <!-- Single Product Card -->
+    <div
+      *ngFor="let p of products"
+      (click)="openDetail(p)"
+      class="cursor-pointer bg-white rounded-3xl shadow-md hover:shadow-xl transition-all duration-300 flex flex-col items-center text-center py-2"
+    >
+
+      <!-- Product Image -->
+      <img
+        [src]="p.image"
+        [alt]="p.name"
+        class="w-72 h-72 object-contain mb-6"
+      />
+
+      <!-- Category -->
+      <h2 class="text-lg sm:text-xl font-semibold text-gray-700">
+        {{ p.category }}
+      </h2>
+
+      <!-- Product Name -->
+      <h3 class="text-xl sm:text-2xl font-bold text-[#151B4E] mt-1 mb-6">
+        {{ p.name }}
+      </h3>
+
+      <!-- Button -->
+      <button
+        class="bg-[#74236C] text-white text-lg font-semibold px-6 py-2 rounded-full shadow hover:bg-[#5a1a54] transition">
+        Buy this product
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
