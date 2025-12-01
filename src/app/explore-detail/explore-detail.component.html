@@ -75,9 +75,9 @@
   <!--         TABS             -->
   <!-- ========================= -->
 
-  <div class="mt-12 flex overflow-x-auto pb-3">
+  <div class="mt-12 flex flex-wrap gap-2 md:gap-1 lg:gap-0 overflow-x-auto pb-3">
     <!-- Product Description -->
-    <button class="px-6 py-2 text-md font-semibold rounded-full whitespace-nowrap transition-all duration-300"
+    <button class="w-full md:w-fit px-6 py-3 text-md font-semibold rounded-full whitespace-nowrap transition-all duration-300"
       [ngClass]="{
       'bg-[#211E5A] text-white shadow-md': activeTab === 'description',
       'bg-transparent text-[#211E5A] border border-[#211E5A]': activeTab !== 'description'
@@ -86,7 +86,7 @@
     </button>
 
     <!-- PlasmaWave Technology -->
-    <button class="px-6 py-2 text-md font-semibold rounded-full whitespace-nowrap transition-all duration-300"
+    <button class="w-full md:w-fit px-6 py-3 text-md font-semibold rounded-full whitespace-nowrap transition-all duration-300"
       [ngClass]="{
       'bg-[#211E5A] text-white shadow-md': activeTab === 'technology',
       'bg-transparent text-[#211E5A] border border-[#211E5A]': activeTab !== 'technology'
@@ -95,7 +95,7 @@
     </button>
 
     <!-- Advantages -->
-    <button class="px-6 py-2 text-md font-semibold rounded-full whitespace-nowrap transition-all duration-300"
+    <button class="w-full md:w-fit px-6 py-3 text-md font-semibold rounded-full whitespace-nowrap transition-all duration-300"
       [ngClass]="{
       'bg-[#211E5A] text-white shadow-md': activeTab === 'advantages',
       'bg-transparent text-[#211E5A] border border-[#211E5A]': activeTab !== 'advantages'
@@ -104,7 +104,7 @@
     </button>
 
     <!-- Specifications -->
-    <button class="px-6 py-2 text-md font-semibold rounded-full whitespace-nowrap transition-all duration-300"
+    <button class="w-full md:w-fit px-6 py-3 text-md font-semibold rounded-full whitespace-nowrap transition-all duration-300"
       [ngClass]="{
       'bg-[#211E5A] text-white shadow-md': activeTab === 'specs',
       'bg-transparent text-[#211E5A] border border-[#211E5A]': activeTab !== 'specs'
@@ -113,7 +113,7 @@
     </button>
 
     <!-- Filter -->
-    <button class="px-6 py-2 text-md font-semibold rounded-full whitespace-nowrap transition-all duration-300"
+    <button class="w-full md:w-fit px-6 py-3 text-md font-semibold rounded-full whitespace-nowrap transition-all duration-300"
       [ngClass]="{
       'bg-[#211E5A] text-white shadow-md': activeTab === 'filter',
       'bg-transparent text-[#211E5A] border border-[#211E5A]': activeTab !== 'filter'
@@ -125,7 +125,7 @@
 
 
   <!-- TAB CONTENT -->
-  <div class="mt-6 bg-gray-50 px-3 py-4 rounded-sm text-lg leading-relaxed">
+  <div class="mt-6 bg-gray-50 px-6 py-3 rounded-sm text-lg leading-relaxed">
     <div *ngIf="activeTab === 'description'">
       <p *ngFor="let para of product.tabs.description" class="mb-4 text-[#241f56] text-sm" [innerHtml]="para">
         <!-- {{ para }} -->
@@ -208,13 +208,179 @@
 
     </div>
   </div>
+
+  <!-- Four state of purification -->
+  <div class="w-full py-8 md:py-10">
+    <h2 class="text-center text-2xl md:text-3xl font-semibold text-[#1C1C3C] mb-10">
+      Four stages of purification
+    </h2>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 px-6 md:px-10">
+      <!-- Prefilter -->
+      <div class="flex flex-col items-center text-center">
+        <div
+          class="w-24 h-24 rounded-full overflow-hidden bg-white shadow-md flex items-center justify-center mb-4">
+          <img src="assets/explore-images/explore-icons/prefilter-segment.webp" alt="Prefilter" class="w-full h-full object-cover" />
+        </div>
+        <h3 class="text-lg md:text-xl font-semibold text-[#1C1C3C]">Prefilter</h3>
+        <p class="text-gray-600 text-sm md:text-base mt-2 leading-relaxed max-w-[290px]">
+          The pre-filter filters out large particles and thus extends the life of the HEPA filter.
+        </p>
+      </div>
+
+      <!-- HEPA Filtration -->
+      <div class="flex flex-col items-center text-center">
+        <div
+          class="w-24 h-24 rounded-full overflow-hidden bg-white shadow-md flex items-center justify-center mb-4">
+          <img src="assets/explore-images/explore-icons/feature-image-3-small.webp" alt="HEPA Filtration" class="w-full h-full object-cover" />
+        </div>
+        <h3 class="text-lg md:text-xl font-semibold text-[#1C1C3C]">HEPA Filtration</h3>
+        <p class="text-gray-600 text-sm md:text-base mt-2 leading-relaxed max-w-[290px]">
+          A true HEPA filter filters out 99.99% of particles larger than 0.01 microns such as PM2.5, PM10, pollen &
+          bacteria.
+        </p>
+      </div>
+
+      <!-- Activated Charcoal -->
+      <div class="flex flex-col items-center text-center">
+        <div
+          class="w-24 h-24  rounded-full overflow-hidden bg-white shadow-md flex items-center justify-center mb-4">
+          <img src="assets/explore-images/explore-icons/carbon-fragment.webp" alt="Activated Charcoal" class="w-full h-full object-cover" />
+        </div>
+        <h3 class="text-lg md:text-xl font-semibold text-[#1C1C3C]">Activated charcoal</h3>
+        <p class="text-gray-600 text-sm md:text-base mt-2 leading-relaxed max-w-[290px]">
+          Activated charcoal reduces formaldehyde and other chemicals present in the air.
+        </p>
+      </div>
+
+      <!-- PlasmaWave -->
+      <div class="flex flex-col items-center text-center">
+        <div
+          class="w-24 h-24  rounded-full overflow-hidden bg-white shadow-md flex items-center justify-center mb-4">
+          <img src="assets/explore-images/explore-icons/feature-image-4-small.webp" alt="PlasmaWave Technology" class="w-full h-full object-cover" />
+        </div>
+        <h3 class="text-lg md:text-xl font-semibold text-[#1C1C3C]">PlasmaWave® Technology</h3>
+        <p class="text-gray-600 text-sm md:text-base mt-2 leading-relaxed max-w-[290px]">
+          PlasmaWave® Technology breaks down viruses, bacteria & harmful chemicals at the molecular level.
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Purifire -->
+  <div class="w-full py-5 md:py-14 bg-white">
+    <h2 class="text-center text-2xl md:text-3xl font-semibold text-[#1C1C3C] mb-12">
+      Purifies
+    </h2>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-6 md:px-16">
+
+      <!-- Item -->
+      <div class="flex flex-col items-center text-center">
+        <div class="w-24 h-24 rounded-full bg-gray-50 hover:bg-[#E8F5E9] transition-all duration-150 cursor-pointer flex items-center justify-center shadow mb-4">
+          <img src="assets/explore-images/explore-icons/ozone_free.webp" class="w-12 h-12 object-contain" />
+        </div>
+        <h3 class="text-lg font-semibold text-[#1C1C3C] tracking-wide">OZONE-FREE</h3>
+        <div class="w-16 h-1 bg-green-700 my-2"></div>
+        <p class="text-gray-600 text-sm max-w-[240px] leading-relaxed">
+          The devices are safe because they do not produce toxic ozone.
+        </p>
+      </div>
+
+      <!-- Item -->
+      <div class="flex flex-col items-center text-center">
+        <div class="w-24 h-24 rounded-full bg-gray-50 hover:bg-[#E8F5E9] transition-all duration-150 cursor-pointer flex items-center justify-center shadow mb-4">
+          <img src="assets/explore-images/explore-icons/polution.webp" class="w-12 h-12 object-contain" />
+        </div>
+        <h3 class="text-lg font-semibold text-[#1C1C3C] tracking-wide">PM PARTICLES</h3>
+        <div class="w-16 h-1 bg-green-700 my-2"></div>
+        <p class="text-gray-600 text-sm max-w-[240px] leading-relaxed">
+          Removes PM particles as small as 0.003 microns (PM2.5, PM10) with 99.99% efficiency.
+        </p>
+      </div>
+
+      <!-- Item -->
+      <div class="flex flex-col items-center text-center">
+        <div class="w-24 h-24 rounded-full bg-gray-50 hover:bg-[#E8F5E9] transition-all duration-150 cursor-pointer flex items-center justify-center shadow mb-4">
+          <img src="assets/explore-images/explore-icons/bacteria.webp" class="w-12 h-12 object-contain" />
+        </div>
+        <h3 class="text-lg font-semibold text-[#1C1C3C] tracking-wide">BACTERIA AND VIRUSES</h3>
+        <div class="w-16 h-1 bg-green-700 my-2"></div>
+        <p class="text-gray-600 text-sm max-w-[240px] leading-relaxed">
+          The HEPA filter combined with PlasmaWave® technology reduces bacteria and viruses.
+        </p>
+      </div>
+
+      <!-- Item -->
+      <div class="flex flex-col items-center text-center">
+        <div class="w-24 h-24 rounded-full bg-gray-50 hover:bg-[#E8F5E9] transition-all duration-150 cursor-pointer flex items-center justify-center shadow mb-4">
+          <img src="assets/explore-images/explore-icons/pet_dander.webp" class="w-12 h-12 object-contain" />
+        </div>
+        <h3 class="text-lg font-semibold text-[#1C1C3C] tracking-wide">PET DANDRUFF</h3>
+        <div class="w-16 h-1 bg-green-700 my-2"></div>
+        <p class="text-gray-600 text-sm max-w-[240px] leading-relaxed">
+          Removes pet dander and fine hair.
+        </p>
+      </div>
+
+      <!-- Item -->
+      <div class="flex flex-col items-center text-center">
+        <div class="w-24 h-24 rounded-full bg-gray-50 hover:bg-[#E8F5E9] transition-all duration-150 cursor-pointer flex items-center justify-center shadow mb-4">
+          <img src="assets/explore-images/explore-icons/pollen.webp" class="w-12 h-12 object-contain" />
+        </div>
+        <h3 class="text-lg font-semibold text-[#1C1C3C] tracking-wide">ALLERGY</h3>
+        <div class="w-16 h-1 bg-green-700 my-2"></div>
+        <p class="text-gray-600 text-sm max-w-[240px] leading-relaxed">
+          Eliminates pollen from the air. Especially useful for allergy sufferers.
+        </p>
+      </div>
+
+      <!-- Item -->
+      <div class="flex flex-col items-center text-center">
+        <div class="w-24 h-24 rounded-full bg-gray-50 hover:bg-[#E8F5E9] transition-all duration-150 cursor-pointer flex items-center justify-center shadow mb-4">
+          <img src="assets/explore-images/explore-icons/mold_spores.webp" class="w-12 h-12 object-contain" />
+        </div>
+        <h3 class="text-lg font-semibold text-[#1C1C3C] tracking-wide">MOLD SPORES</h3>
+        <div class="w-16 h-1 bg-green-700 my-2"></div>
+        <p class="text-gray-600 text-sm max-w-[240px] leading-relaxed">
+          Removes mold spores.
+        </p>
+      </div>
+
+      <!-- Item -->
+      <div class="flex flex-col items-center text-center">
+        <div class="w-24 h-24 rounded-full bg-gray-50 hover:bg-[#E8F5E9] transition-all duration-150 cursor-pointer flex items-center justify-center shadow mb-4">
+          <img src="assets/explore-images/explore-icons/cigarette.webp" class="w-12 h-12 object-contain" />
+        </div>
+        <h3 class="text-lg font-semibold text-[#1C1C3C] tracking-wide">CIGARETTE SMOKE</h3>
+        <div class="w-16 h-1 bg-green-700 my-2"></div>
+        <p class="text-gray-600 text-sm max-w-[240px] leading-relaxed">
+          Reduces cigarette smoke.
+        </p>
+      </div>
+
+      <!-- Item -->
+      <div class="flex flex-col items-center text-center">
+        <div class="w-24 h-24 rounded-full bg-gray-50 hover:bg-[#E8F5E9] transition-all duration-150 cursor-pointer flex items-center justify-center shadow mb-4">
+          <img src="assets/explore-images/explore-icons/chemicals.webp" class="w-12 h-12 object-contain" />
+        </div>
+        <h3 class="text-lg font-semibold text-[#1C1C3C] tracking-wide">CHEMICALS</h3>
+        <div class="w-16 h-1 bg-green-700 my-2"></div>
+        <p class="text-gray-600 text-sm max-w-[240px] leading-relaxed">
+          Activated charcoal reduces various chemicals.
+        </p>
+      </div>
+
+    </div>
+  </div>
   <!-- RELATED PRODUCTS SECTION -->
-  <div class="mt-10 md:mt-20">
-    <h2 class="text-2xl md:text-3xl font-bold text-[#241f56] mb-4 md:mb-8">
+  <div class="mt-5 md:mt-10">
+    <h2 class="text-2xl text-center md:text-center md:text-3xl font-bold text-[#241f56] mb-4 md:mb-8">
       Explore More Products
     </h2>
 
-    <div class="flex flex-wrap items-center justify-center md:justify-normal gap-3">
+    <div class="flex flex-wrap items-center justify-center md:justify-center w-full gap-3">
 
       <!-- CARD -->
       <div *ngFor="let r of relatedProducts" (click)="openDetail(r)"
@@ -230,7 +396,6 @@
     </div>
 
   </div>
-
   <!-- =============================== -->
   <!--     ADDITIONAL INFORMATION      -->
   <!-- =============================== -->

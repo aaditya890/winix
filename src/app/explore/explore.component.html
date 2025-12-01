@@ -6,12 +6,11 @@
 
   <!-- PRODUCT GRID -->
   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-
     <!-- Single Product Card -->
     <div
       *ngFor="let p of products"
       (click)="openDetail(p)"
-      class="cursor-pointer bg-white rounded-3xl shadow-md hover:shadow-xl transition-all duration-300 flex flex-col items-center text-center py-2"
+      class="cursor-pointer bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-300 flex flex-col items-center text-center py-2"
     >
 
       <!-- Product Image -->
@@ -34,11 +33,8 @@
       <!-- Button -->
       <button
         class="bg-[#74236C] text-white text-lg font-semibold px-6 py-2 rounded-full shadow hover:bg-[#5a1a54] transition">
-        Buy this product
+        Product Detail
       </button>
-
     </div>
-
   </div>
-
 </div>
