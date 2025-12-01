@@ -1,7 +1,44 @@
+<div class="explore-hero-image w-full h-52 md:h-72 lg:h-full">
+  <img src="assets/explore-images/explore-hero-image-2.png" class="w-full h-full object-cover rounded-bl-[50%]" alt="">
+</div>
+
 <div class="w-full px-4 sm:px-8 lg:px-16 py-10" *ngIf="product">
+  <!-- Winix winipedia -->
+  <div class="hidden md:block fixed bottom-16 right-5 w-72 bg-white shadow-xl rounded-2xl p-3 z-50">
+    <!-- Image -->
+    <div class="w-full h-40 overflow-hidden rounded-xl relative">
+      <img class="w-full h-full object-cover" [src]="items[index()].image" />
+
+      <!-- Prev Button -->
+      <button (click)="prev()" class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80
+                   hover:bg-white text-gray-700 w-8 h-8 rounded-full flex
+                   justify-center items-center shadow">
+        ‹
+      </button>
+
+      <!-- Next Button -->
+      <button (click)="next()" class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80
+                   hover:bg-white text-gray-700 w-8 h-8 rounded-full flex
+                   justify-center items-center shadow">
+        ›
+      </button>
+    </div>
+
+    <!-- Title -->
+    <h3 class="mt-2 text-lg leading-5 underline font-semibold text-gray-900">
+      {{ items[index()].title }}
+    </h3>
+
+    <p class="text-sm text-gray-500">{{ items[index()].short }}</p>
+
+    <!-- Click to go -->
+    <button class="mt-3 bg-[#74236C] hover:bg-[#5A1A54] text-white w-full py-2 rounded-xl"
+      (click)="go(items[index()].slug)">
+      View Details
+    </button>
+  </div>
   <!-- TOP SECTION -->
   <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
-
     <!-- LEFT SIDE: IMAGE + GALLERY -->
     <div>
       <!-- MAIN IMAGE BOX -->
@@ -37,7 +74,6 @@
           </button>
 
         </div>
-
         <button
           class="bg-[#6c2065] mt-6 px-7 py-2 text-white text-md rounded-full font-semibold hover:bg-[#5a1a54] transition shadow-lg">
           Buy this product
@@ -70,53 +106,57 @@
       </button>
     </div>
   </div>
-
   <!-- ========================= -->
   <!--         TABS             -->
   <!-- ========================= -->
 
   <div class="mt-12 flex flex-wrap gap-2 md:gap-1 lg:gap-0 overflow-x-auto pb-3">
     <!-- Product Description -->
-    <button class="w-full md:w-fit px-6 py-3 text-md font-semibold rounded-full whitespace-nowrap transition-all duration-300"
+    <button
+      class="w-full border border-[#211E5A] md:w-fit px-6 py-3 text-md font-semibold rounded-full whitespace-nowrap transition-all duration-300"
       [ngClass]="{
       'bg-[#211E5A] text-white shadow-md': activeTab === 'description',
-      'bg-transparent text-[#211E5A] border border-[#211E5A]': activeTab !== 'description'
+      'bg-transparent text-[#211E5A]': activeTab !== 'description'
     }" (click)="setTab('description')">
       Product Description
     </button>
 
     <!-- PlasmaWave Technology -->
-    <button class="w-full md:w-fit px-6 py-3 text-md font-semibold rounded-full whitespace-nowrap transition-all duration-300"
+    <button
+      class="w-full md:w-fit border border-[#211E5A] px-6 py-3 text-md font-semibold rounded-full whitespace-nowrap transition-all duration-300"
       [ngClass]="{
       'bg-[#211E5A] text-white shadow-md': activeTab === 'technology',
-      'bg-transparent text-[#211E5A] border border-[#211E5A]': activeTab !== 'technology'
+      'bg-transparent text-[#211E5A]': activeTab !== 'technology'
     }" (click)="setTab('technology')">
       PlasmaWave® Technology
     </button>
 
     <!-- Advantages -->
-    <button class="w-full md:w-fit px-6 py-3 text-md font-semibold rounded-full whitespace-nowrap transition-all duration-300"
+    <button
+      class="w-full border border-[#211E5A] md:w-fit px-6 py-3 text-md font-semibold rounded-full whitespace-nowrap transition-all duration-300"
       [ngClass]="{
       'bg-[#211E5A] text-white shadow-md': activeTab === 'advantages',
-      'bg-transparent text-[#211E5A] border border-[#211E5A]': activeTab !== 'advantages'
+      'bg-transparent text-[#211E5A]': activeTab !== 'advantages'
     }" (click)="setTab('advantages')">
       Product Advantages
     </button>
 
     <!-- Specifications -->
-    <button class="w-full md:w-fit px-6 py-3 text-md font-semibold rounded-full whitespace-nowrap transition-all duration-300"
+    <button
+      class="w-full border border-[#211E5A] md:w-fit px-6 py-3 text-md font-semibold rounded-full whitespace-nowrap transition-all duration-300"
       [ngClass]="{
       'bg-[#211E5A] text-white shadow-md': activeTab === 'specs',
-      'bg-transparent text-[#211E5A] border border-[#211E5A]': activeTab !== 'specs'
+      'bg-transparent text-[#211E5A]': activeTab !== 'specs'
     }" (click)="setTab('specs')">
       Product Specifications
     </button>
 
     <!-- Filter -->
-    <button class="w-full md:w-fit px-6 py-3 text-md font-semibold rounded-full whitespace-nowrap transition-all duration-300"
+    <button
+      class="w-full border border-[#211E5A] md:w-fit px-6 py-3 text-md font-semibold rounded-full whitespace-nowrap transition-all duration-300"
       [ngClass]="{
       'bg-[#211E5A] text-white shadow-md': activeTab === 'filter',
-      'bg-transparent text-[#211E5A] border border-[#211E5A]': activeTab !== 'filter'
+      'bg-transparent text-[#211E5A] border': activeTab !== 'filter'
     }" (click)="setTab('filter')">
       WINIX Filter O
     </button>
@@ -218,9 +258,9 @@
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 px-6 md:px-10">
       <!-- Prefilter -->
       <div class="flex flex-col items-center text-center">
-        <div
-          class="w-24 h-24 rounded-full overflow-hidden bg-white shadow-md flex items-center justify-center mb-4">
-          <img src="assets/explore-images/explore-icons/prefilter-segment.webp" alt="Prefilter" class="w-full h-full object-cover" />
+        <div class="w-24 h-24 rounded-full overflow-hidden bg-white shadow-md flex items-center justify-center mb-4">
+          <img src="assets/explore-images/explore-icons/prefilter-segment.webp" alt="Prefilter"
+            class="w-full h-full object-cover" />
         </div>
         <h3 class="text-lg md:text-xl font-semibold text-[#1C1C3C]">Prefilter</h3>
         <p class="text-gray-600 text-sm md:text-base mt-2 leading-relaxed max-w-[290px]">
@@ -230,9 +270,9 @@
 
       <!-- HEPA Filtration -->
       <div class="flex flex-col items-center text-center">
-        <div
-          class="w-24 h-24 rounded-full overflow-hidden bg-white shadow-md flex items-center justify-center mb-4">
-          <img src="assets/explore-images/explore-icons/feature-image-3-small.webp" alt="HEPA Filtration" class="w-full h-full object-cover" />
+        <div class="w-24 h-24 rounded-full overflow-hidden bg-white shadow-md flex items-center justify-center mb-4">
+          <img src="assets/explore-images/explore-icons/feature-image-3-small.webp" alt="HEPA Filtration"
+            class="w-full h-full object-cover" />
         </div>
         <h3 class="text-lg md:text-xl font-semibold text-[#1C1C3C]">HEPA Filtration</h3>
         <p class="text-gray-600 text-sm md:text-base mt-2 leading-relaxed max-w-[290px]">
@@ -243,9 +283,9 @@
 
       <!-- Activated Charcoal -->
       <div class="flex flex-col items-center text-center">
-        <div
-          class="w-24 h-24  rounded-full overflow-hidden bg-white shadow-md flex items-center justify-center mb-4">
-          <img src="assets/explore-images/explore-icons/carbon-fragment.webp" alt="Activated Charcoal" class="w-full h-full object-cover" />
+        <div class="w-24 h-24  rounded-full overflow-hidden bg-white shadow-md flex items-center justify-center mb-4">
+          <img src="assets/explore-images/explore-icons/carbon-fragment.webp" alt="Activated Charcoal"
+            class="w-full h-full object-cover" />
         </div>
         <h3 class="text-lg md:text-xl font-semibold text-[#1C1C3C]">Activated charcoal</h3>
         <p class="text-gray-600 text-sm md:text-base mt-2 leading-relaxed max-w-[290px]">
@@ -255,9 +295,9 @@
 
       <!-- PlasmaWave -->
       <div class="flex flex-col items-center text-center">
-        <div
-          class="w-24 h-24  rounded-full overflow-hidden bg-white shadow-md flex items-center justify-center mb-4">
-          <img src="assets/explore-images/explore-icons/feature-image-4-small.webp" alt="PlasmaWave Technology" class="w-full h-full object-cover" />
+        <div class="w-24 h-24  rounded-full overflow-hidden bg-white shadow-md flex items-center justify-center mb-4">
+          <img src="assets/explore-images/explore-icons/feature-image-4-small.webp" alt="PlasmaWave Technology"
+            class="w-full h-full object-cover" />
         </div>
         <h3 class="text-lg md:text-xl font-semibold text-[#1C1C3C]">PlasmaWave® Technology</h3>
         <p class="text-gray-600 text-sm md:text-base mt-2 leading-relaxed max-w-[290px]">
@@ -278,7 +318,8 @@
 
       <!-- Item -->
       <div class="flex flex-col items-center text-center">
-        <div class="w-24 h-24 rounded-full bg-gray-50 hover:bg-[#E8F5E9] transition-all duration-150 cursor-pointer flex items-center justify-center shadow mb-4">
+        <div
+          class="w-24 h-24 rounded-full bg-gray-50 hover:bg-[#E8F5E9] transition-all duration-150 cursor-pointer flex items-center justify-center shadow mb-4">
           <img src="assets/explore-images/explore-icons/ozone_free.webp" class="w-12 h-12 object-contain" />
         </div>
         <h3 class="text-lg font-semibold text-[#1C1C3C] tracking-wide">OZONE-FREE</h3>
@@ -290,7 +331,8 @@
 
       <!-- Item -->
       <div class="flex flex-col items-center text-center">
-        <div class="w-24 h-24 rounded-full bg-gray-50 hover:bg-[#E8F5E9] transition-all duration-150 cursor-pointer flex items-center justify-center shadow mb-4">
+        <div
+          class="w-24 h-24 rounded-full bg-gray-50 hover:bg-[#E8F5E9] transition-all duration-150 cursor-pointer flex items-center justify-center shadow mb-4">
           <img src="assets/explore-images/explore-icons/polution.webp" class="w-12 h-12 object-contain" />
         </div>
         <h3 class="text-lg font-semibold text-[#1C1C3C] tracking-wide">PM PARTICLES</h3>
@@ -302,7 +344,8 @@
 
       <!-- Item -->
       <div class="flex flex-col items-center text-center">
-        <div class="w-24 h-24 rounded-full bg-gray-50 hover:bg-[#E8F5E9] transition-all duration-150 cursor-pointer flex items-center justify-center shadow mb-4">
+        <div
+          class="w-24 h-24 rounded-full bg-gray-50 hover:bg-[#E8F5E9] transition-all duration-150 cursor-pointer flex items-center justify-center shadow mb-4">
           <img src="assets/explore-images/explore-icons/bacteria.webp" class="w-12 h-12 object-contain" />
         </div>
         <h3 class="text-lg font-semibold text-[#1C1C3C] tracking-wide">BACTERIA AND VIRUSES</h3>
@@ -314,7 +357,8 @@
 
       <!-- Item -->
       <div class="flex flex-col items-center text-center">
-        <div class="w-24 h-24 rounded-full bg-gray-50 hover:bg-[#E8F5E9] transition-all duration-150 cursor-pointer flex items-center justify-center shadow mb-4">
+        <div
+          class="w-24 h-24 rounded-full bg-gray-50 hover:bg-[#E8F5E9] transition-all duration-150 cursor-pointer flex items-center justify-center shadow mb-4">
           <img src="assets/explore-images/explore-icons/pet_dander.webp" class="w-12 h-12 object-contain" />
         </div>
         <h3 class="text-lg font-semibold text-[#1C1C3C] tracking-wide">PET DANDRUFF</h3>
@@ -326,7 +370,8 @@
 
       <!-- Item -->
       <div class="flex flex-col items-center text-center">
-        <div class="w-24 h-24 rounded-full bg-gray-50 hover:bg-[#E8F5E9] transition-all duration-150 cursor-pointer flex items-center justify-center shadow mb-4">
+        <div
+          class="w-24 h-24 rounded-full bg-gray-50 hover:bg-[#E8F5E9] transition-all duration-150 cursor-pointer flex items-center justify-center shadow mb-4">
           <img src="assets/explore-images/explore-icons/pollen.webp" class="w-12 h-12 object-contain" />
         </div>
         <h3 class="text-lg font-semibold text-[#1C1C3C] tracking-wide">ALLERGY</h3>
@@ -338,7 +383,8 @@
 
       <!-- Item -->
       <div class="flex flex-col items-center text-center">
-        <div class="w-24 h-24 rounded-full bg-gray-50 hover:bg-[#E8F5E9] transition-all duration-150 cursor-pointer flex items-center justify-center shadow mb-4">
+        <div
+          class="w-24 h-24 rounded-full bg-gray-50 hover:bg-[#E8F5E9] transition-all duration-150 cursor-pointer flex items-center justify-center shadow mb-4">
           <img src="assets/explore-images/explore-icons/mold_spores.webp" class="w-12 h-12 object-contain" />
         </div>
         <h3 class="text-lg font-semibold text-[#1C1C3C] tracking-wide">MOLD SPORES</h3>
@@ -350,7 +396,8 @@
 
       <!-- Item -->
       <div class="flex flex-col items-center text-center">
-        <div class="w-24 h-24 rounded-full bg-gray-50 hover:bg-[#E8F5E9] transition-all duration-150 cursor-pointer flex items-center justify-center shadow mb-4">
+        <div
+          class="w-24 h-24 rounded-full bg-gray-50 hover:bg-[#E8F5E9] transition-all duration-150 cursor-pointer flex items-center justify-center shadow mb-4">
           <img src="assets/explore-images/explore-icons/cigarette.webp" class="w-12 h-12 object-contain" />
         </div>
         <h3 class="text-lg font-semibold text-[#1C1C3C] tracking-wide">CIGARETTE SMOKE</h3>
@@ -362,7 +409,8 @@
 
       <!-- Item -->
       <div class="flex flex-col items-center text-center">
-        <div class="w-24 h-24 rounded-full bg-gray-50 hover:bg-[#E8F5E9] transition-all duration-150 cursor-pointer flex items-center justify-center shadow mb-4">
+        <div
+          class="w-24 h-24 rounded-full bg-gray-50 hover:bg-[#E8F5E9] transition-all duration-150 cursor-pointer flex items-center justify-center shadow mb-4">
           <img src="assets/explore-images/explore-icons/chemicals.webp" class="w-12 h-12 object-contain" />
         </div>
         <h3 class="text-lg font-semibold text-[#1C1C3C] tracking-wide">CHEMICALS</h3>
@@ -374,14 +422,22 @@
 
     </div>
   </div>
+
+  <!-- Aplus images -->
+  <div class="mt-10">
+    <div *ngFor="let img of product.aplus" class="mb-10">
+      <img [src]="img" class="w-full rounded-xl shadow" />
+      <hr class="my-1 md:my-5 border-gray-200" />
+    </div>
+  </div>
+
   <!-- RELATED PRODUCTS SECTION -->
   <div class="mt-5 md:mt-10">
-    <h2 class="text-2xl text-center md:text-center md:text-3xl font-bold text-[#241f56] mb-4 md:mb-8">
+    <h2 class="text-2xl text-center md:text-start md:text-3xl font-bold text-[#241f56] mb-4 md:mb-8">
       Explore More Products
     </h2>
 
-    <div class="flex flex-wrap items-center justify-center md:justify-center w-full gap-3">
-
+    <div class="flex flex-wrap items-center justify-center md:justify-start w-full gap-3">
       <!-- CARD -->
       <div *ngFor="let r of relatedProducts" (click)="openDetail(r)"
         class="cursor-pointer bg-white w-full md:w-[300px] rounded-3xl p-6 shadow-md text-center">
@@ -410,20 +466,50 @@
     </div>
   </div> -->
 
+  <div class="block md:hidden w-full bg-white shadow-xl rounded-2xl p-3">
+    <!-- Image -->
+    <div class="w-full h-40 overflow-hidden rounded-xl relative">
+      <img class="w-full h-full object-cover" [src]="items[index()].image" />
+
+      <!-- Prev Button -->
+      <button (click)="prev()" class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80
+                   hover:bg-white text-gray-700 w-8 h-8 rounded-full flex
+                   justify-center items-center shadow">
+        ‹
+      </button>
+
+      <!-- Next Button -->
+      <button (click)="next()" class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80
+                   hover:bg-white text-gray-700 w-8 h-8 rounded-full flex
+                   justify-center items-center shadow">
+        ›
+      </button>
+    </div>
+
+    <!-- Title -->
+    <h3 class="mt-2 text-lg font-semibold text-gray-900">
+      {{ items[index()].title }}
+    </h3>
+
+    <p class="text-sm text-gray-500">{{ items[index()].short }}</p>
+
+    <!-- Click to go -->
+    <button class="mt-3 bg-[#74236C] hover:bg-[#5A1A54] text-white w-full py-2 rounded-xl"
+      (click)="go(items[index()].slug)">
+      View Details
+    </button>
+  </div>
+
 </div>
-
-
 <!-- IN CASE PRODUCT IS NOT FOUND -->
 <div class="p-10 text-center text-gray-500 text-xl" *ngIf="!product">
   Product not found.
 </div>
 
 <!-- VIDEO POPUP MODAL -->
-<!-- VIDEO POPUP MODAL -->
 <div *ngIf="showVideo"
   class="fixed inset-0 bg-black bg-opacity-60 backdrop-blur-sm flex items-center justify-center z-50">
-
-  <div class="w-full max-w-full relative">
+  <div class="w-full max-w-6xl relative">
 
     <!-- CLOSE BUTTON (FIXED + HIGHEST Z-INDEX) -->
     <button (click)="closeVideo()"
