@@ -1,7 +1,8 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, signal } from '@angular/core';
 import { Location } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgIf, NgFor, KeyValuePipe, NgClass } from '@angular/common';
+import { WINIX_SLIDER_ITEMS } from '../../../insight-data';
 
 @Component({
   selector: 'app-explore-detail',
@@ -19,7 +20,22 @@ export class ExploreDetailComponent implements OnInit {
   activeTab: string = 'description';
   showVideo = false;
   videoUrl: string = "";
+  
+ items = WINIX_SLIDER_ITEMS;
+  index = signal(0);
 
+  next() {
+    this.index.update(i => (i + 1) % this.items.length);
+  }
+
+  go(slug: string) {
+    this.router.navigate(['/insight', slug]);
+  }
+
+  
+prev() {
+  this.index.update(i => (i - 1 + this.items.length) % this.items.length);
+}
 
   constructor(
     private location: Location,
@@ -29,18 +45,24 @@ export class ExploreDetailComponent implements OnInit {
 
   allProducts = [
     {
-      id: 'zerocompact',
-      shortTitle: 'WINIX ZERO COMPACT',
+      id: 'a231',
+      shortTitle: 'WINIX A231',
       name: 'Air Purifier WINIX A231',
       category: 'Air Purifier',
       image: '/assets/explore-images/A231/product-1.png',
-
       gallery: [
         '/assets/products/A231/product-1.webp',
         '/assets/products/A231/product-2.webp',
         '/assets/products/A231/product-3.webp',
         '/assets/products/A231/product-4.webp',
         '/assets/products/A231/product-5.webp'
+      ],
+      aplus:[
+        '/assets/winix-product-images/a231/a231-1.webp',
+        '/assets/winix-product-images/a231/a231-2.webp',
+       '/assets/winix-product-images/a231/a231-3.webp',
+        '/assets/winix-product-images/a231/a231-4.webp',
+        '/assets/winix-product-images/a231/a231-5.webp'
       ],
       vid: "assets/explore-images/A231/vid.webm",
       shortDescription: `Air purifier WINIX ZERO Compact is a compact and powerful hepa filter air purifier that cleans your indoor air quality for 99.97%. Air Purifier ZERO Compact is the best-air-purifier suitable for your bedroom and home can be used in all rooms up to 50m². With a powerful CADR (Clean Air Delivery Rate) of 250m³ per hour, this room air purifier helps you to purify your indoor air quality from allergies, pollen, dust, dust mites, fine dust (PM2.5), pet hair, mold spores, household odors (VOCs) and cigarette smoke!`,
@@ -103,7 +125,7 @@ export class ExploreDetailComponent implements OnInit {
           }
         ],
         specifications: {
-          "Model Name": "WINIX Zero Compact",
+          "Model Name": "WINIX A231",
           "Model No.": "AAPU500-JLE",
           "Maximum Room Capacity": "50m²",
           "Max. air flow": "250m³ p/h",
@@ -165,6 +187,13 @@ export class ExploreDetailComponent implements OnInit {
         '/assets/products/T500/product-3.webp',
         '/assets/products/T500/product-4.webp',
         '/assets/products/T500/product-5.webp'
+      ],
+      aplus:[
+        '/assets/winix-product-images/t500/t500-1.webp',
+        '/assets/winix-product-images/t500/t500-2.webp',
+       '/assets/winix-product-images/t500/t500-3.webp',
+        '/assets/winix-product-images/t500/t500-4.webp',
+        '/assets/winix-product-images/t500/t500-5.webp',
       ],
       vid: "assets/explore-images/T500/vid.webm",
       shortDescription: 'Air purifier WINIX T500 WIFI is a compact, powerful and smart room air purifier that cleans 99.97% of your indoor air quality. WINIX T500 WIFI hepa filter air purifier is ideal for the bedroom and can be used in all rooms up to 50m². With a powerful CADR (Clean Air Delivery Rate) of 250m³ per hour, this air purifier helps you clean your indoor air quality from allergies, pollen, fine dust,  mirco plastics, house dust mites, particulate matter (PM2.5), pet hair, mold spores, household odors (VOCs) and cigarette smoke! You can operate the Air Purifier WINIX T500 WIFI manually or by using the WINIX Smart App, Google Home or Amazon Alexa.',
@@ -286,6 +315,13 @@ export class ExploreDetailComponent implements OnInit {
         '/assets/products/T800/product-3.webp',
         '/assets/products/T800/product-4.webp',
         '/assets/products/T800/product-5.webp',
+      ],
+      aplus:[
+        '/assets/winix-product-images/t800/1.webp',
+        '/assets/winix-product-images/t800/2.webp',
+       '/assets/winix-product-images/t800/3.webp',
+        '/assets/winix-product-images/t800/4.webp',
+        '/assets/winix-product-images/t800/6.webp',
       ],
       vid: "assets/explore-images/T800/vid.webm",
       shortDescription: 'Air purifier WINIX T800 WiFi is our newest and most powerful air cleaner for home and bedroom that cleans your indoor air quality by 99.999% with the help of the WINIX Smart App. The WINIX T800 is a fully automatic air filter suitable for all rooms up to 120m². With a powerful CADR (Clean Air Delivery Rate) of 500m³ per hour, this HEPA air cleaner helps you to purify your indoor air quality from allergies, pollen, dust, dust mites, particulate matter (PM2.5), pet hair, mold spores, household odors (VOCs) and cigarette smoke! WINIX T800 can be operated manually as well as through the WINIX Smart App, but also via voice control using Google Home or Amazon Alexa.',
@@ -440,6 +476,7 @@ export class ExploreDetailComponent implements OnInit {
 
   /* ---------------- INIT ---------------- */
   ngOnInit(): void {
+    setInterval(() => this.next(), 4000);
     const stateData = history.state;
 
     if (stateData && stateData.id) {
