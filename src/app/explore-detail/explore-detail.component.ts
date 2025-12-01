@@ -42,7 +42,7 @@ export class ExploreDetailComponent implements OnInit {
         '/assets/products/A231/product-4.webp',
         '/assets/products/A231/product-5.webp'
       ],
-      vid: "assets/explore-images/A231/vid.mp4",
+      vid: "assets/explore-images/A231/vid.webm",
       shortDescription: `Air purifier WINIX ZERO Compact is a compact and powerful hepa filter air purifier that cleans your indoor air quality for 99.97%. Air Purifier ZERO Compact is the best-air-purifier suitable for your bedroom and home can be used in all rooms up to 50m². With a powerful CADR (Clean Air Delivery Rate) of 250m³ per hour, this room air purifier helps you to purify your indoor air quality from allergies, pollen, dust, dust mites, fine dust (PM2.5), pet hair, mold spores, household odors (VOCs) and cigarette smoke!`,
 
       longDescription: `Air purifier ZERO Compact is the best air purifier for allergies and uses <span class="text-[#74236C] font-semibold">All-in-One WINIX Filter O</span>, just like the WINIX air purifier T500 WIFI, air purifier A330 and hepa-air purifier A332. Air purifier T500 WIFI filters your indoor air quality through 1) a pre-filter, 2) a carbon filter, 3) a HEPA filter (99.97%) and 4) our WINIX PlasmaWave® Technology. Using smart sensor technology, this hepa air purifier proactively cleans the indoor air and ensures that you breathe clean air as long as you use the air purifier. T500 WIFI with hepa filter has been tested and certified by ECARF and <span class="text-[#74236C] font-semibold">Allergy UK.</span>`,
@@ -166,7 +166,7 @@ export class ExploreDetailComponent implements OnInit {
         '/assets/products/T500/product-4.webp',
         '/assets/products/T500/product-5.webp'
       ],
-      vid: "assets/explore-images/T500/vid.mp4",
+      vid: "assets/explore-images/T500/vid.webm",
       shortDescription: 'Air purifier WINIX T500 WIFI is a compact, powerful and smart room air purifier that cleans 99.97% of your indoor air quality. WINIX T500 WIFI hepa filter air purifier is ideal for the bedroom and can be used in all rooms up to 50m². With a powerful CADR (Clean Air Delivery Rate) of 250m³ per hour, this air purifier helps you clean your indoor air quality from allergies, pollen, fine dust,  mirco plastics, house dust mites, particulate matter (PM2.5), pet hair, mold spores, household odors (VOCs) and cigarette smoke! You can operate the Air Purifier WINIX T500 WIFI manually or by using the WINIX Smart App, Google Home or Amazon Alexa.',
 
       longDescription: `Air purifier T500 WIFI uses All-in-One <span class="text-[#6c2065] font-semibold">WINIX Filter O</span>, just like the WINIX air purifier A330, air purifier A332 and air purifier <span class="text-[#6c2065] font-semibold">ZERO Compact</span> Air purifier T500 WIFI filters your indoor air quality through 1) a pre-filter, 2) a carbon filter, 3) a HEPA filter (99.97%) and 4) our WINIX PlasmaWave® Technology. Using smart sensor technology, this hepa air purifier pro-actively cleans the indoor air and ensures that you breathe clean air as long as you keep using the best-air-purifier. Air Purifier T500 WIFI with hepa filter has been tested and certified by <span class="text-[#6c2065] font-semibold">ECARF</span> and <span class="text-[#6c2065] font-semibold">Allergy UK.</span>`,
@@ -287,7 +287,7 @@ export class ExploreDetailComponent implements OnInit {
         '/assets/products/T800/product-4.webp',
         '/assets/products/T800/product-5.webp',
       ],
-      vid: "assets/explore-images/T800/vid.mp4",
+      vid: "assets/explore-images/T800/vid.webm",
       shortDescription: 'Air purifier WINIX T800 WiFi is our newest and most powerful air cleaner for home and bedroom that cleans your indoor air quality by 99.999% with the help of the WINIX Smart App. The WINIX T800 is a fully automatic air filter suitable for all rooms up to 120m². With a powerful CADR (Clean Air Delivery Rate) of 500m³ per hour, this HEPA air cleaner helps you to purify your indoor air quality from allergies, pollen, dust, dust mites, particulate matter (PM2.5), pet hair, mold spores, household odors (VOCs) and cigarette smoke! WINIX T800 can be operated manually as well as through the WINIX Smart App, but also via voice control using Google Home or Amazon Alexa.',
 
       longDescription: `Air Purifier T800 uses an All-in-One filter GR and filters your indoor air quality through 1) a pre-filter, 2) a carbon filter, 3) a HEPA filter (99.999%) and 4) our WINIX PlasmaWave® Technology. Using digital and smart sensor technology, this air cleaner proactively cleans the indoor air quality and ensures that you breathe clean air for as long as you keep using it. Tested and Certified by Allergy UK!`,
