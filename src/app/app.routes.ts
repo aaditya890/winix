@@ -29,11 +29,15 @@ export const routes: Routes = [
     loadComponent: () => import('./contact-us/contact-us.component').then(m => m.ContactUsComponent),
   },
   {
-    path:'explore',
+    path: 'explore',
     loadComponent: () => import('./explore/explore.component').then(m => m.ExploreComponent),
   },
   {
-    path:'explore/:slug',
+    path: 'explore/:slug',
     loadComponent: () => import('./explore-detail/explore-detail.component').then(m => m.ExploreDetailComponent),
-  }
+  },
+  {
+    path: 'insight/:slug',
+    loadComponent: () => import('./wikipedia/wikipedia.component').then(m => m.WikipediaComponent),
+  },
 ];

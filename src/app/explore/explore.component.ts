@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { NgFor } from '@angular/common';
+import { ComparisonComponent } from "../comparison/comparison.component";
 
 @Component({
   selector: 'app-explore',
   standalone: true,
-  imports: [NgFor, RouterLink],
+  imports: [NgFor, RouterLink, ComparisonComponent],
   templateUrl: './explore.component.html',
   styleUrl: './explore.component.scss',
 })
@@ -14,9 +15,9 @@ export class ExploreComponent {
 
   products = [
     {
-      id: 'zerocompact',
+      id: 'a231',
       shortTitle: 'WINIX A231',
-      name: 'WINIX ZERO COMPACT',
+      name: 'Air Purifier WINIX A231',
       category: 'Air Purifier',
       image: '/assets/explore-images/A231/product-1.png',
 

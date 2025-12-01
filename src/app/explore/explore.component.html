@@ -7,18 +7,11 @@
   <!-- PRODUCT GRID -->
   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
     <!-- Single Product Card -->
-    <div
-      *ngFor="let p of products"
-      (click)="openDetail(p)"
-      class="cursor-pointer bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-300 flex flex-col items-center text-center py-2"
-    >
+    <div *ngFor="let p of products" (click)="openDetail(p)"
+      class="cursor-pointer bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-300 flex flex-col items-center text-center py-2">
 
       <!-- Product Image -->
-      <img
-        [src]="p.image"
-        [alt]="p.name"
-        class="w-72 h-72 object-contain mb-6"
-      />
+      <img [src]="p.image" [alt]="p.name" class="w-72 h-72 object-contain mb-6" />
 
       <!-- Category -->
       <h2 class="text-lg sm:text-xl font-semibold text-gray-700">
@@ -36,5 +29,8 @@
         Product Detail
       </button>
     </div>
+  </div>
+  <div class="mt-6 md:mt-12">
+   <app-comparison></app-comparison>
   </div>
 </div>
