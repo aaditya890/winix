@@ -7,7 +7,7 @@ import { WinixProductCardComponent } from "../winix-product-card/winix-product-c
 @Component({
   selector: 'app-explore',
   standalone: true,
-  imports: [NgFor, RouterLink, ComparisonComponent, WinixProductCardComponent],
+  imports: [NgFor, ComparisonComponent, WinixProductCardComponent],
   templateUrl: './explore.component.html',
   styleUrl: './explore.component.scss',
 })
