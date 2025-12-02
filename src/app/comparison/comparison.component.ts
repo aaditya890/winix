@@ -30,7 +30,7 @@ interface SpecRow {
 })
 export class ComparisonComponent {
   models = [
-    "ZERO Compact",
+    "A231",
     "5300-2",
     "5500-2",
     "T800",
