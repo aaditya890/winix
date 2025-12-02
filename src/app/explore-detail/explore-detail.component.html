@@ -1,4 +1,4 @@
-<div class="explore-hero-image w-full h-60">
+<div class="explore-hero-image w-full h-50 md:h-60">
   <img [src]="product.heroImage" class="w-full h-full object-cover rounded-bl-[50%]" alt="">
 </div>
 
@@ -42,10 +42,18 @@
           </button>
 
         </div>
-        <button routerLink="{{product.url}}"
-          class="bg-[#6c2065] mt-6 px-7 py-2 text-white text-md rounded-full font-semibold hover:bg-[#5a1a54] transition shadow-lg">
-          Buy this product
-        </button>
+        <div class="flex gap-2">
+          <button routerLink="{{product.url}}"
+            class="bg-[#6c2065] mt-6 px-7 py-2 text-white text-md rounded-full font-semibold hover:bg-[#5a1a54] transition shadow-lg">
+            Buy this product
+          </button>
+
+          <button (click)="openManual()"
+            class="bg-[#211E5A] mt-6 px-7 py-2 text-white text-md rounded-full font-semibold hover:bg-[#1a1749] transition shadow-lg">
+            User Manual
+          </button>
+
+        </div>
 
       </div>
     </div>
@@ -68,76 +76,39 @@
         <!-- {{ product.longDescription }} -->
       </p>
 
-      <button (click)="openVideo()"
-        class="bg-[#241f56] mt-6 px-7 py-2 text-white text-md rounded-full font-semibold hover:bg-[#1e1a49] transition shadow-lg">
-        ► Productvideo
-      </button>
+      <div class="flex gap-2">
+        <button (click)="openVideo()"
+          class="bg-[#241f56] mt-6 px-7 py-2 text-white text-md rounded-full font-semibold hover:bg-[#1e1a49] transition shadow-lg">
+          ► Productvideo
+        </button>
+
+        <button *ngIf="product?.ahemCertificate" (click)="openAhemCertificate()"
+          class="bg-[#6c2065] mt-6 px-7 py-2 text-white text-md rounded-full font-semibold hover:bg-[#5a1a54] transition shadow-lg">
+          Ahem Certificate
+        </button>
+      </div>
     </div>
   </div>
   <!-- ========================= -->
   <!--         TABS             -->
   <!-- ========================= -->
 
-<div class="mt-12 flex flex-wrap gap-3">
-
-  <!-- Product Description -->
-  <button
-    class="flex-1 basis-[48%] md:basis-auto border border-[#211E5A] px-4 py-3 text-sm font-semibold rounded-full text-center transition-all duration-300"
-    [ngClass]="{
-      'bg-[#211E5A] text-white shadow-md': activeTab === 'description',
-      'bg-transparent text-[#211E5A]': activeTab !== 'description'
-    }"
-    (click)="setTab('description')">
-    Product Description
-  </button>
-
-  <!-- PlasmaWave Technology -->
-  <button
-    class="flex-1 basis-[48%] md:basis-auto border border-[#211E5A] px-4 py-3 text-sm font-semibold rounded-full text-center transition-all duration-300"
-    [ngClass]="{
-      'bg-[#211E5A] text-white shadow-md': activeTab === 'technology',
-      'bg-transparent text-[#211E5A]': activeTab !== 'technology'
-    }"
-    (click)="setTab('technology')">
-    PlasmaWave® Technology
-  </button>
-
-  <!-- Advantages -->
-  <button
-    class="flex-1 basis-[48%] md:basis-auto border border-[#211E5A] px-4 py-3 text-sm font-semibold rounded-full text-center transition-all duration-300"
-    [ngClass]="{
-      'bg-[#211E5A] text-white shadow-md': activeTab === 'advantages',
-      'bg-transparent text-[#211E5A]': activeTab !== 'advantages'
-    }"
-    (click)="setTab('advantages')">
-    Product Advantages
-  </button>
-
-  <!-- Specifications -->
-  <button
-    class="flex-1 basis-[48%] md:basis-auto border border-[#211E5A] px-4 py-3 text-sm font-semibold rounded-full text-center transition-all duration-300"
-    [ngClass]="{
-      'bg-[#211E5A] text-white shadow-md': activeTab === 'specs',
-      'bg-transparent text-[#211E5A]': activeTab !== 'specs'
-    }"
-    (click)="setTab('specs')">
-    Product Specifications
-  </button>
-
-  <!-- Filter -->
-  <button
-    class="flex-1 basis-[48%] md:basis-auto border border-[#211E5A] px-4 py-3 text-sm font-semibold rounded-full text-center transition-all duration-300"
-    [ngClass]="{
-      'bg-[#211E5A] text-white shadow-md': activeTab === 'filter',
-      'bg-transparent text-[#211E5A]': activeTab !== 'filter'
-    }"
-    (click)="setTab('filter')">
-    WINIX Filter O
-  </button>
-
-</div>
-
-
+  <div class="mt-12 flex flex-wrap gap-2 md:gap-1 lg:gap-0 overflow-x-auto pb-3"> <!-- Product Description --> <button
+      class="w-full border border-[#211E5A] md:w-fit px-6 py-3 text-md font-semibold rounded-full whitespace-nowrap transition-all duration-300"
+      [ngClass]="{ 'bg-[#211E5A] text-white shadow-md': activeTab === 'description', 'bg-transparent text-[#211E5A]': activeTab !== 'description' }"
+      (click)="setTab('description')"> Product Description </button> <!-- PlasmaWave Technology --> <button
+      class="w-full md:w-fit border border-[#211E5A] px-6 py-3 text-md font-semibold rounded-full whitespace-nowrap transition-all duration-300"
+      [ngClass]="{ 'bg-[#211E5A] text-white shadow-md': activeTab === 'technology', 'bg-transparent text-[#211E5A]': activeTab !== 'technology' }"
+      (click)="setTab('technology')"> PlasmaWave® Technology </button> <!-- Advantages --> <button
+      class="w-full border border-[#211E5A] md:w-fit px-6 py-3 text-md font-semibold rounded-full whitespace-nowrap transition-all duration-300"
+      [ngClass]="{ 'bg-[#211E5A] text-white shadow-md': activeTab === 'advantages', 'bg-transparent text-[#211E5A]': activeTab !== 'advantages' }"
+      (click)="setTab('advantages')"> Product Advantages </button> <!-- Specifications --> <button
+      class="w-full border border-[#211E5A] md:w-fit px-6 py-3 text-md font-semibold rounded-full whitespace-nowrap transition-all duration-300"
+      [ngClass]="{ 'bg-[#211E5A] text-white shadow-md': activeTab === 'specs', 'bg-transparent text-[#211E5A]': activeTab !== 'specs' }"
+      (click)="setTab('specs')"> Product Specifications </button> <!-- Filter --> <button
+      class="w-full border border-[#211E5A] md:w-fit px-6 py-3 text-md font-semibold rounded-full whitespace-nowrap transition-all duration-300"
+      [ngClass]="{ 'bg-[#211E5A] text-white shadow-md': activeTab === 'filter', 'bg-transparent text-[#211E5A] border': activeTab !== 'filter' }"
+      (click)="setTab('filter')"> WINIX Filter O </button> </div>
 
   <!-- TAB CONTENT -->
   <div class="mt-6 bg-gray-50 px-6 py-3 rounded-sm text-lg leading-relaxed">
@@ -406,67 +377,63 @@
     </div>
   </div>
 
-<!-- RELATED PRODUCTS SECTION -->
-<div class="mt-5 md:mt-10">
-  <h2 class="text-2xl text-center md:text-start md:text-3xl font-bold text-[#241f56] mb-4 md:mb-8">
-    Explore More Products
-  </h2>
+  <!-- RELATED PRODUCTS SECTION -->
+  <div class="mt-5 md:mt-10">
+    <h2 class="text-2xl text-center md:text-start md:text-3xl font-bold text-[#241f56] mb-4 md:mb-8">
+      Explore More Products
+    </h2>
 
-  <!-- GRID LAYOUT FIXED -->
-  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 w-full">
+    <!-- GRID LAYOUT FIXED -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 w-full">
 
-    <!-- Normal Product Cards -->
-    <div *ngFor="let r of relatedProducts"
-      (click)="openDetail(r)"
-      class="cursor-pointer bg-white rounded-3xl p-6 shadow-md text-center">
+      <!-- Normal Product Cards -->
+      <div *ngFor="let r of relatedProducts" (click)="openDetail(r)"
+        class="cursor-pointer bg-white rounded-3xl p-6 shadow-md text-center">
 
-      <img [src]="r.image" class="w-64 md:w-56 object-contain mx-auto mb-6" />
-      <h3 class="text-xl font-semibold text-[#151B4E] mb-2">{{ r.shortTitle }}</h3>
+        <img [src]="r.image" class="w-64 md:w-56 object-contain mx-auto mb-6" />
+        <h3 class="text-xl font-semibold text-[#151B4E] mb-2">{{ r.shortTitle }}</h3>
 
-      <button class="bg-[#74236C] text-white px-5 py-2 rounded-full font-medium hover:bg-[#5a1a54]">
-        View Product
-      </button>
-    </div>
-
-    <!-- SLIDER CARD FIXED -->
-    <div class="hidden md:block bg-white shadow-sm rounded-3xl p-4 border border-gray-300">
-
-      <div class="w-full h-44 rounded-lg overflow-hidden relative">
-        <img class="w-full h-full object-cover" [src]="items[index()].image" />
-
-        <!-- Prev -->
-        <button (click)="prev()"
-          class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white 
-                 text-gray-700 w-8 h-8 rounded-full flex justify-center items-center shadow">
-          ‹
-        </button>
-
-        <!-- Next -->
-        <button (click)="next()"
-          class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white 
-                 text-gray-700 w-8 h-8 rounded-full flex justify-center items-center shadow">
-          ›
+        <button class="bg-[#74236C] text-white px-5 py-2 rounded-full font-medium hover:bg-[#5a1a54]">
+          View Product
         </button>
       </div>
 
-      <h3 class="mt-3 text-lg font-semibold underline text-gray-900 leading-5">
-        {{ items[index()].title }}
-      </h3>
+      <!-- SLIDER CARD FIXED -->
+      <div class="hidden md:block bg-white shadow-sm rounded-3xl p-4 border border-gray-300">
 
-      <p class="text-sm text-gray-500">
-        {{ items[index()].short }}
-      </p>
+        <div class="w-full h-44 rounded-lg overflow-hidden relative">
+          <img class="w-full h-full object-cover" [src]="items[index()].image" />
 
-      <button
-        (click)="go(items[index()].slug)"
-        class="mt-3 bg-[#101A50] hover:bg-[#191f49] text-white w-full py-2 rounded-xl">
-        View Details
-      </button>
+          <!-- Prev -->
+          <button (click)="prev()" class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white 
+                 text-gray-700 w-8 h-8 rounded-full flex justify-center items-center shadow">
+            ‹
+          </button>
+
+          <!-- Next -->
+          <button (click)="next()" class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white 
+                 text-gray-700 w-8 h-8 rounded-full flex justify-center items-center shadow">
+            ›
+          </button>
+        </div>
+
+        <h3 class="mt-3 text-lg font-semibold underline text-gray-900 leading-5">
+          {{ items[index()].title }}
+        </h3>
+
+        <p class="text-sm text-gray-500">
+          {{ items[index()].short }}
+        </p>
+
+        <button (click)="go(items[index()].slug)"
+          class="mt-3 bg-[#101A50] hover:bg-[#191f49] text-white w-full py-2 rounded-xl">
+          View Details
+        </button>
+
+      </div>
 
     </div>
-
   </div>
-</div>
 
   <!-- =============================== -->
   <!--     ADDITIONAL INFORMATION      -->

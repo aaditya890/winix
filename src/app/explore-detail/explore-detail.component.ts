@@ -46,9 +46,11 @@ export class ExploreDetailComponent implements OnInit {
   allProducts = [
     {
       id: 'a231',
+      ahemCertificate: null,
       shortTitle: 'WINIX A231',
       name: 'Air Purifier WINIX A231',
       category: 'Air Purifier',
+      userManual: 'assets/manuals/a231.pdf',
       image: '/assets/explore-images/A231/product-1.png',
       heroImage: 'assets/explore-images/A231/banner.png',
       url: '/product/winix-a231-air-purifier',
@@ -178,9 +180,11 @@ export class ExploreDetailComponent implements OnInit {
     },
     {
       id: 't500-wifi',
+      ahemCertificate: 'assets/manuals/t500-ahem.pdf',
       shortTitle: 'WINIX T500 WIFI',
       name: 'Air Purifier WINIX T500 WIFI',
       category: 'Air Purifier',
+      userManual: 'assets/manuals/t500.pdf',
       image: '/assets/explore-images/T500/product-1.png',
       heroImage: 'assets/explore-images/T500/banner.png',
       url: '/product/winix-t500-air-purifier',
@@ -307,11 +311,13 @@ export class ExploreDetailComponent implements OnInit {
     },
     {
       id: 't800',
+      ahemCertificate: 'assets/manuals/t800-ahem.pdf',
       shortTitle: 'WINIX T800 WIFI',
       name: 'Air Purifier WINIX T800 WIFI',
       category: 'Air Purifier',
+      userManual: 'assets/manuals/t800.pdf',
       image: '/assets/explore-images/T800/product-1.png',
-      heroImage:'assets/explore-images/T800/banner.png',
+      heroImage: 'assets/explore-images/T800/banner.png',
       url: '/product/winix-t800-air-purifier',
       gallery: [
         '/assets/products/T800/product-1.webp',
@@ -518,6 +524,21 @@ export class ExploreDetailComponent implements OnInit {
     this.router.navigate(['/explore', product.id], { state: product });
     this.loadProduct(product.id);
   }
+
+  // Open Product Manual
+  openManual() {
+    if (this.product?.userManual) {
+      window.open(this.product.userManual, "_blank");
+    }
+  }
+
+  // Open AHEM Certificate Pdf
+  openAhemCertificate() {
+    if (this.product?.ahemCertificate) {
+      window.open(this.product.ahemCertificate, "_blank");
+    }
+  }
+
 
   //For PopUp video
   openVideo() {
