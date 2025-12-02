@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { NgFor } from '@angular/common';
 import { ComparisonComponent } from "../comparison/comparison.component";
+import { WinixProductCardComponent } from "../winix-product-card/winix-product-card.component";
 
 @Component({
   selector: 'app-explore',
   standalone: true,
-  imports: [NgFor, RouterLink, ComparisonComponent],
+  imports: [NgFor, RouterLink, ComparisonComponent, WinixProductCardComponent],
   templateUrl: './explore.component.html',
   styleUrl: './explore.component.scss',
 })

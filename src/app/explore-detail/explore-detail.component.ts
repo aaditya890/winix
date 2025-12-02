@@ -1,13 +1,13 @@
 import { Component, OnInit, ViewChild, ElementRef, signal } from '@angular/core';
 import { Location } from '@angular/common';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { NgIf, NgFor, KeyValuePipe, NgClass } from '@angular/common';
 import { WINIX_SLIDER_ITEMS } from '../../../insight-data';
 
 @Component({
   selector: 'app-explore-detail',
   standalone: true,
-  imports: [NgIf, NgFor, KeyValuePipe, NgClass],
+  imports: [NgIf, NgFor, KeyValuePipe, NgClass, RouterLink],
   templateUrl: './explore-detail.component.html',
   styleUrl: './explore-detail.component.scss'
 })
@@ -20,8 +20,8 @@ export class ExploreDetailComponent implements OnInit {
   activeTab: string = 'description';
   showVideo = false;
   videoUrl: string = "";
-  
- items = WINIX_SLIDER_ITEMS;
+
+  items = WINIX_SLIDER_ITEMS;
   index = signal(0);
 
   next() {
@@ -32,10 +32,10 @@ export class ExploreDetailComponent implements OnInit {
     this.router.navigate(['/insight', slug]);
   }
 
-  
-prev() {
-  this.index.update(i => (i - 1 + this.items.length) % this.items.length);
-}
+
+  prev() {
+    this.index.update(i => (i - 1 + this.items.length) % this.items.length);
+  }
 
   constructor(
     private location: Location,
@@ -50,6 +50,8 @@ prev() {
       name: 'Air Purifier WINIX A231',
       category: 'Air Purifier',
       image: '/assets/explore-images/A231/product-1.png',
+      heroImage: 'assets/explore-images/A231/banner.png',
+      url: '/product/winix-a231-air-purifier',
       gallery: [
         '/assets/products/A231/product-1.webp',
         '/assets/products/A231/product-2.webp',
@@ -57,10 +59,10 @@ prev() {
         '/assets/products/A231/product-4.webp',
         '/assets/products/A231/product-5.webp'
       ],
-      aplus:[
+      aplus: [
         '/assets/winix-product-images/a231/a231-1.webp',
         '/assets/winix-product-images/a231/a231-2.webp',
-       '/assets/winix-product-images/a231/a231-3.webp',
+        '/assets/winix-product-images/a231/a231-3.webp',
         '/assets/winix-product-images/a231/a231-4.webp',
         '/assets/winix-product-images/a231/a231-5.webp'
       ],
@@ -180,7 +182,8 @@ prev() {
       name: 'Air Purifier WINIX T500 WIFI',
       category: 'Air Purifier',
       image: '/assets/explore-images/T500/product-1.png',
-
+      heroImage: 'assets/explore-images/T500/banner.png',
+      url: '/product/winix-t500-air-purifier',
       gallery: [
         '/assets/products/T500/product-1.webp',
         '/assets/products/T500/product-2.webp',
@@ -188,10 +191,10 @@ prev() {
         '/assets/products/T500/product-4.webp',
         '/assets/products/T500/product-5.webp'
       ],
-      aplus:[
+      aplus: [
         '/assets/winix-product-images/t500/t500-1.webp',
         '/assets/winix-product-images/t500/t500-2.webp',
-       '/assets/winix-product-images/t500/t500-3.webp',
+        '/assets/winix-product-images/t500/t500-3.webp',
         '/assets/winix-product-images/t500/t500-4.webp',
         '/assets/winix-product-images/t500/t500-5.webp',
       ],
@@ -308,7 +311,8 @@ prev() {
       name: 'Air Purifier WINIX T800 WIFI',
       category: 'Air Purifier',
       image: '/assets/explore-images/T800/product-1.png',
-
+      heroImage:'assets/explore-images/T800/banner.png',
+      url: '/product/winix-t800-air-purifier',
       gallery: [
         '/assets/products/T800/product-1.webp',
         '/assets/products/T800/product-2.webp',
@@ -316,10 +320,10 @@ prev() {
         '/assets/products/T800/product-4.webp',
         '/assets/products/T800/product-5.webp',
       ],
-      aplus:[
+      aplus: [
         '/assets/winix-product-images/t800/1.webp',
         '/assets/winix-product-images/t800/2.webp',
-       '/assets/winix-product-images/t800/3.webp',
+        '/assets/winix-product-images/t800/3.webp',
         '/assets/winix-product-images/t800/4.webp',
         '/assets/winix-product-images/t800/6.webp',
       ],
