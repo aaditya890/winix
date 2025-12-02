@@ -1,0 +1,1390 @@
+<div class="max-w-7xl mx-auto py-10 px-4">
+
+    <!-- If article not found -->
+    <div *ngIf="!article" class="text-center py-20 text-gray-500">
+        Article not found.
+    </div>
+
+    <!-- Article found -->
+    <div *ngIf="article">
+
+        <!-- TITLE -->
+        <h1 class="text-2xl sm:text-3xl font-bold text-center mb-3 text-[#101A4F]">
+            {{ article.title }}
+        </h1>
+
+        <!-- DATE -->
+        <p class="text-center text-gray-500 mb-8">
+            {{ article.date | date:'MMMM dd, yyyy' }}
+        </p>
+
+        <!-- CONTENT SWITCH BY SLUG -->
+        <div [ngSwitch]="article.slug" class="prose max-w-none text-gray-700">
+
+            <div *ngSwitchCase="'air-purifier-allies-flu-cold'" class="space-y-10">
+
+                <!-- TOP SECTION : IMAGE LEFT + CONTENT RIGHT -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
+
+                    <!-- LEFT IMAGE -->
+                    <img src="https://www.winix.cz/files/responsive/980/0/clanek-chripka-nachlazeni.jpg"
+                        class="rounded-xl shadow w-full object-cover" />
+
+                    <!-- RIGHT CONTENT -->
+                    <div class="space-y-5 text-gray-700 leading-relaxed text-[17px]">
+
+                        <p>
+                            With the arrival of winter, we naturally retreat more into the warmth of our homes,
+                            offices and public spaces. However, long hours spent in poorly ventilated rooms and
+                            more frequent contact with other people also bring a dark side – the risk of spreading
+                            viruses and bacteria increases.
+                        </p>
+
+                        <p>
+                            Closed and poorly ventilated spaces create ideal conditions for the transmission of
+                            infections. One effective tool to reduce the risk of infection is the use of an air
+                            purifier.
+                        </p>
+
+                        <p>
+                            Indoor air quality has a significant impact on our respiratory health. Polluted indoor air
+                            contains viruses, bacteria, dust particles, allergens and molds – all of which increase
+                            the risk of respiratory diseases, especially in the winter season when we stay indoors for
+                            longer.
+                        </p>
+
+                    </div>
+                </div>
+
+
+                <!-- SECTION 2 -->
+                <h2 class="text-2xl font-bold text-[#101A4F]">
+                    THE MAIN ENEMY OF THE RESPIRATORY TRACT: AIRBORNE VIRUSES
+                </h2>
+
+                <p>
+                    The quality of the air inside buildings, where we spend a large part of our time,
+                    has a fundamental impact on our health. Indoor air can contain a number of invisible
+                    pollutants that strain the respiratory system and contribute to respiratory problems.
+                    What pollutants are most commonly found in indoor air and why are they dangerous?
+                </p>
+
+                <ul class="list-disc pl-6 space-y-2">
+                    <li>
+                        <strong>Viruses</strong> – micro-organisms spread through the air in droplets or aerosols that
+                        are released during breathing, talking, coughing, or sneezing.
+                    </li>
+                    <li>
+                        <strong>Bacteria</strong> – single-celled organisms that also travel through the air and cause
+                        respiratory infections such as pneumonia, bronchitis or sinusitis.
+                    </li>
+                    <li>
+                        <strong>Molds</strong> – spores of molds easily spread in air and can cause allergic reactions
+                        and respiratory inflammation.
+                    </li>
+                </ul>
+
+
+                <!-- SECTION 3 -->
+                <h2 class="text-2xl font-bold text-[#101A4F] mt-6">
+                    INFECTIOUS RESPIRATORY DISEASES SPREAD ESPECIALLY IN THE WINTER SEASON
+                </h2>
+
+                <p>
+                    Winter months are associated with a notable increase in cases of infectious respiratory diseases,
+                    such as colds, flu and COVID-19. Although these diseases can occur year-round, their incidence
+                    is significantly higher in winter. What causes this seasonal increase?
+                </p>
+
+                <ul class="list-disc pl-6 space-y-2">
+                    <li><strong>Lower temperatures</strong> – cold air dries the mucous membranes of the respiratory
+                        tract, reducing their ability to fight pathogens.</li>
+                    <li><strong>Higher concentration of people in closed spaces</strong> – poor ventilation allows
+                        viruses to linger in the air longer.</li>
+                    <li><strong>Weakened immunity</strong> – winter sunlight provides less Vitamin D, weakening the
+                        immune system.</li>
+                    <li><strong>Dry indoor air</strong> – winter heating reduces air humidity, allowing viruses to
+                        survive longer.</li>
+                    <li><strong>Insufficient ventilation</strong> – viruses spread faster in rooms that are not
+                        ventilated frequently.</li>
+                </ul>
+
+
+                <!-- SECTION 4 -->
+                <h2 class="text-2xl font-bold text-[#101A4F] mt-6">
+                    AIR PURIFIER – A USEFUL AID IN PREVENTING FLU AND COLDS
+                </h2>
+
+                <p>
+                    Air purifiers remove impurities and harmful particles from indoor air with very high efficiency.
+                    They not only filter viruses but also bacteria, dust, allergens, mold spores and other harmful
+                    particles. What benefits does an air purifier bring during flu season?
+                </p>
+
+                <ul class="list-disc pl-6 space-y-2">
+                    <li>Removes viruses and germs from the air.</li>
+                    <li>Reduces spread of infections in closed spaces.</li>
+                    <li>Promotes a healthier breathing environment.</li>
+                    <li>Reduces the load on the immune system.</li>
+                </ul>
+
+
+                <!-- SECTION 5 -->
+                <h2 class="text-2xl font-bold text-[#101A4F] mt-6">
+                    FACTORS POSITIVELY INFLUENCING THE EFFICIENCY OF AN AIR PURIFIER
+                </h2>
+
+                <ul class="list-disc pl-6 space-y-2">
+                    <li><strong>Choosing sufficient power</strong> – air output should be at least 2× the room volume.
+                    </li>
+                    <li><strong>Proper placement</strong> – place purifier in the room where people spend most time.
+                    </li>
+                    <li><strong>Longer purifier operating time</strong> – run continuously when someone is sick.</li>
+                    <li><strong>Regular maintenance and filter replacement</strong> – ensures maximum filtration
+                        efficiency.</li>
+                </ul>
+
+
+                <!-- SECTION 6 -->
+                <h2 class="text-2xl font-bold text-[#101A4F] mt-6">
+                    OTHER IMPORTANT MEASURES
+                </h2>
+
+                <p>
+                    Although an air purifier helps significantly reduce the spread of respiratory diseases, it should
+                    be combined with proper ventilation, hand hygiene, wearing masks during illness, humidifying indoor
+                    air,
+                    and inhalation of mineral waters to provide the best protection.
+                </p>
+
+            </div>
+
+
+            <div *ngSwitchCase="'reduce-dust-home'" class="space-y-10">
+
+                <!-- TOP SECTION : IMAGE LEFT + CONTENT RIGHT -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
+
+                    <!-- LEFT IMAGE -->
+                    <img src="https://www.winix.cz/files/responsive/980/0/co-jsou-prachove-castice.jpg"
+                        class="rounded-xl shadow w-full object-cover" />
+
+                    <!-- RIGHT CONTENT -->
+                    <div class="space-y-5 text-gray-700 leading-relaxed text-[17px]">
+
+                        <p>
+                            Dust is everywhere around us — in the air, on furniture, on fabrics, and in every corner
+                            of the home. Some dust particles are harmless, but many can irritate the respiratory
+                            system, create allergies, and affect overall indoor air quality.
+                        </p>
+
+                        <p>
+                            Whether you live in a metro city, near a roadside, or in an area with dry climate, dust
+                            naturally finds its way indoors. Fine particles stay suspended in the air for several hours,
+                            making the indoor environment uncomfortable and unhealthy.
+                        </p>
+
+                        <p>
+                            The good news is: with proper cleaning habits and a high-quality air purifier, you can
+                            significantly reduce airborne dust and create a cleaner, healthier environment inside your
+                            home.
+                        </p>
+
+                    </div>
+                </div>
+
+
+                <!-- SECTION 1 -->
+                <h2 class="text-2xl font-bold text-[#101A4F]">
+                    WHAT EXACTLY IS AIRBORNE DUST?
+                </h2>
+
+                <p>
+                    Airborne dust is made up of extremely fine particles that float in the air and are easily inhaled.
+                    These particles come from various everyday sources inside the home. The smaller the particle,
+                    the deeper it can travel into the respiratory system — and the more harmful it becomes.
+                </p>
+
+                <ul class="list-disc pl-6 space-y-2">
+                    <li>Skin flakes, fabric fibers, hair, and pet dander</li>
+                    <li>Tiny particles from outdoor pollution entering the home</li>
+                    <li>Micro-particles released while cooking</li>
+                    <li>Dust mites and organic matter from beds, carpets, and sofas</li>
+                    <li>Soil particles brought indoors through shoes or windows</li>
+                </ul>
+
+
+                <!-- SECTION 2 -->
+                <h2 class="text-2xl font-bold text-[#101A4F] mt-6">
+                    WHY IS AIRBORNE DUST HARMFUL?
+                </h2>
+
+                <p>
+                    Dust isn’t just dirt — it can carry microorganisms, allergens and chemicals that settle on
+                    surfaces and continue circulating in the air. Long-term exposure to airborne dust can cause:
+                </p>
+
+                <ul class="list-disc pl-6 space-y-2">
+                    <li>Breathing difficulty and throat irritation</li>
+                    <li>Allergy flare-ups and sneezing</li>
+                    <li>Watery eyes, runny nose, headaches</li>
+                    <li>Asthma triggers in sensitive individuals</li>
+                    <li>Poor sleep quality due to polluted indoor air</li>
+                </ul>
+
+
+                <!-- SECTION 3 -->
+                <h2 class="text-2xl font-bold text-[#101A4F] mt-6">
+                    PRACTICAL TIPS TO REDUCE AIRBORNE DUST IN YOUR HOME
+                </h2>
+
+                <p>Here are effective and practical ways to control dust inside Indian homes:</p>
+
+                <ul class="list-disc pl-6 space-y-3">
+                    <li>
+                        <strong>Use a high-quality air purifier</strong> — Air purifiers with multi-stage HEPA
+                        filtration
+                        capture fine dust, allergens, and micro-particles that regular cleaning cannot remove.
+                    </li>
+
+                    <li>
+                        <strong>Wipe surfaces regularly</strong> — Use a damp microfiber cloth instead of a dry cloth
+                        to prevent dust from spreading into the air.
+                    </li>
+
+                    <li>
+                        <strong>Vacuum carpets, mattresses and sofas</strong> — These trap large amounts of invisible
+                        dust.
+                        Use a vacuum cleaner with a HEPA filter for best results.
+                    </li>
+
+                    <li>
+                        <strong>Keep windows closed during peak dust hours</strong> — Early morning or late evening,
+                        especially in traffic-heavy or construction areas.
+                    </li>
+
+                    <li>
+                        <strong>Use door mats and remove shoes</strong> — This reduces soil and dust from entering your
+                        home.
+                    </li>
+
+                    <li>
+                        <strong>Wash bedsheets, curtains and pillow covers regularly</strong> — Fabrics trap dust mites
+                        easily.
+                    </li>
+
+                    <li>
+                        <strong>Keep indoor plants minimal</strong> — Some plants release pollen or shed particles,
+                        increasing dust.
+                    </li>
+                </ul>
+
+
+                <!-- SECTION 4 -->
+                <h2 class="text-2xl font-bold text-[#101A4F] mt-6">
+                    HOW AN AIR PURIFIER HELPS IN CONTROLLING DUST
+                </h2>
+
+                <p>
+                    Air purifiers play a major role in removing airborne dust that cannot be eliminated through
+                    everyday cleaning. A strong HEPA purifier continuously filters the air and traps even the tiniest
+                    dust particles that cause breathing discomfort.
+                </p>
+
+                <ul class="list-disc pl-6 space-y-2">
+                    <li>Captures PM10 and PM2.5 fine dust particles</li>
+                    <li>Reduces allergy-causing pollutants</li>
+                    <li>Improves overall indoor air quality, especially in bedrooms and living rooms</li>
+                    <li>Helps maintain a cleaner home for longer, reducing frequent cleaning</li>
+                </ul>
+
+
+                <!-- SECTION 5 -->
+                <h2 class="text-2xl font-bold text-[#101A4F] mt-6">
+                    FINAL THOUGHTS
+                </h2>
+
+                <p>
+                    Dust is unavoidable, but with consistent cleaning habits and the right air purification system,
+                    you can significantly reduce airborne dust inside your home. Cleaner air means healthier living,
+                    better sleep, and improved comfort for your entire family.
+                </p>
+
+                <p>
+                    A good quality air purifier becomes an essential appliance not just for people with allergies,
+                    but for every home that wants a healthier indoor environment.
+                </p>
+
+            </div>
+
+            <div *ngSwitchCase="'choose-purifier-pollen'" class="space-y-10">
+
+                <!-- TOP SECTION: IMAGE LEFT + CONTENT RIGHT -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
+
+                    <!-- IMAGE -->
+                    <img src="https://www.winix.cz/files/responsive/980/0/cisticka-vzduchu-na-pyl.jpg"
+                        class="rounded-xl shadow w-full object-cover" />
+
+                    <!-- RIGHT CONTENT -->
+                    <div class="space-y-5 text-gray-700 leading-relaxed text-[17px]">
+
+                        <p>
+                            Seasonal pollen levels often rise in India during changing weather, especially around
+                            spring and early winter. Many people experience sneezing, itchy eyes, congestion, or
+                            breathing discomfort — not only allergy patients but also otherwise healthy individuals.
+                        </p>
+
+                        <p>
+                            Pollen grains are extremely tiny, light, and float easily indoors through windows, clothes,
+                            and even on pets. Once inside, they accumulate on surfaces and stay suspended in the air,
+                            making it difficult to maintain a clean and comfortable home environment.
+                        </p>
+
+                        <p>
+                            Using a high-performance air purifier helps reduce pollen levels significantly and improves
+                            indoor air quality so your home stays healthier and more breathable.
+                        </p>
+
+                    </div>
+                </div>
+
+
+                <!-- SECTION 1 -->
+                <h2 class="text-2xl font-bold text-[#101A4F]">
+                    WHY IS POLLEN A PROBLEM INSIDE HOMES?
+                </h2>
+
+                <p>
+                    Although pollen comes from plants outdoors, it quickly enters the home. Once inside, these
+                    microscopic grains circulate in the air and cause irritation to the nose, eyes, and throat.
+                </p>
+
+                <ul class="list-disc pl-6 space-y-2">
+                    <li>Pollen particles travel easily through open windows and doors</li>
+                    <li>They stick to clothes, hair, shoes, and indoor fabrics</li>
+                    <li>They remain airborne due to their extremely light structure</li>
+                    <li>They can trigger allergies, headaches, and throat irritation</li>
+                    <li>They affect children, elderly people, and sensitive individuals</li>
+                </ul>
+
+
+                <!-- SECTION 2 -->
+                <h2 class="text-2xl font-bold text-[#101A4F] mt-6">
+                    WHY AN AIR PURIFIER IS EFFECTIVE AGAINST POLLEN
+                </h2>
+
+                <p>
+                    Pollen is too small for normal cleaning methods to handle. Sweeping or dusting can even make
+                    the particles float back into the air. Air purifiers solve this problem by continuously sucking
+                    in air, trapping microscopic pollen particles, and releasing clean, filtered air.
+                </p>
+
+                <ul class="list-disc pl-6 space-y-2">
+                    <li>Captures ultra-fine pollen particles with HEPA filtration</li>
+                    <li>Reduces sneezing, itchy eyes, and congestion</li>
+                    <li>Improves breathing comfort, especially at night</li>
+                    <li>Makes the entire home environment feel cleaner</li>
+                    <li>Keeps bedrooms and living rooms more comfortable</li>
+                </ul>
+
+
+                <!-- SECTION 3 -->
+                <h2 class="text-2xl font-bold text-[#101A4F] mt-6">
+                    HOW TO CHOOSE THE RIGHT AIR PURIFIER FOR POLLEN
+                </h2>
+
+                <p>
+                    Not all air purifiers are equally effective for pollen. Here are important features you must
+                    check before buying one:
+                </p>
+
+                <ul class="list-disc pl-6 space-y-3">
+
+                    <li>
+                        <strong>1. True HEPA Filter (H13 or Higher)</strong><br>
+                        Pollen particles are extremely tiny. A True HEPA filter captures up to 99.97% of particles as
+                        small as 0.3 microns — highly effective for pollen and dust.
+                    </li>
+
+                    <li>
+                        <strong>2. Multi-Stage Filtration System</strong><br>
+                        A combination of pre-filter, carbon filter, and HEPA filter gives strong protection from pollen,
+                        dust, odors, and airborne pollutants.
+                    </li>
+
+                    <li>
+                        <strong>3. Good CADR (Clean Air Delivery Rate)</strong><br>
+                        Higher CADR means faster cleaning. Choose a purifier suitable for the size of your room.
+                    </li>
+
+                    <li>
+                        <strong>4. Auto Mode with Smart Sensors</strong><br>
+                        Smart sensors detect air quality changes and adjust the fan speed automatically during high
+                        pollen hours.
+                    </li>
+
+                    <li>
+                        <strong>5. Low Noise Levels for Bedroom Use</strong><br>
+                        Pollen discomfort increases at night. A quiet purifier ensures peaceful sleep.
+                    </li>
+
+                    <li>
+                        <strong>6. Easy Maintenance & Filter Replacement</strong><br>
+                        Choose a purifier with easily accessible filters and clear replacement indicators.
+                    </li>
+
+                </ul>
+
+
+                <!-- SECTION 4 -->
+                <h2 class="text-2xl font-bold text-[#101A4F] mt-6">
+                    ADDITIONAL TIPS TO REDUCE POLLEN AT HOME
+                </h2>
+
+                <p>Along with an air purifier, small daily habits can also help control pollen indoors:</p>
+
+                <ul class="list-disc pl-6 space-y-2">
+                    <li>Keep windows closed during early morning and evening (high pollen hours)</li>
+                    <li>Change bed sheets and curtains regularly</li>
+                    <li>Shower and change clothes after coming from outdoors</li>
+                    <li>Use a wet cloth to clean surfaces instead of dry dusting</li>
+                    <li>Limit indoor plants that release pollen</li>
+                    <li>Keep shoes outside the living area</li>
+                </ul>
+
+
+                <!-- SECTION 5 -->
+                <h2 class="text-2xl font-bold text-[#101A4F] mt-6">
+                    FINAL WORD
+                </h2>
+
+                <p>
+                    Pollen can make indoor living extremely uncomfortable — even for people who do not have
+                    allergies. A high-quality air purifier helps trap these tiny airborne particles and keeps your
+                    indoor air clean, fresh, and breathable.
+                </p>
+
+                <p>
+                    By choosing the right purifier and building simple daily habits, you can significantly reduce
+                    pollen exposure and create a healthier living environment for the entire family.
+                </p>
+
+            </div>
+
+
+            <div *ngSwitchCase="'certified-important'" class="space-y-10">
+
+                <!-- TOP SECTION: IMAGE LEFT + CONTENT RIGHT -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
+
+                    <!-- IMAGE -->
+                    <img src="https://www.winix.cz/files/responsive/980/0/winix-certifikace-uvod.jpg"
+                        class="rounded-xl shadow w-full object-cover" />
+
+                    <!-- RIGHT CONTENT -->
+                    <div class="space-y-5 text-gray-700 leading-relaxed text-[17px]">
+
+                        <p>
+                            An air purifier isn’t just another home appliance — it directly affects the air your family
+                            breathes. That’s why choosing a certified purifier is extremely important. Certifications
+                            ensure
+                            that the purifier has been tested, verified, and proven to work effectively and safely.
+                        </p>
+
+                        <p>
+                            In the Indian environment, where air quality can fluctuate due to dust, pollution, and
+                            seasonal
+                            allergens, it is essential to rely on a machine that performs exactly as promised.
+                        </p>
+
+                        <p>
+                            A certified purifier gives you confidence that the filtration system, airflow, and safety
+                            standards
+                            meet strict quality requirements.
+                        </p>
+
+                    </div>
+                </div>
+
+
+                <!-- SECTION 1 -->
+                <h2 class="text-2xl font-bold text-[#101A4F]">
+                    WHAT DOES CERTIFICATION MEAN?
+                </h2>
+
+                <p>
+                    Certification is a formal evaluation carried out by neutral testing laboratories or quality-control
+                    organizations. It ensures the purifier delivers its claimed performance and maintains safety
+                    standards during long-term use.
+                </p>
+
+                <ul class="list-disc pl-6 space-y-2">
+                    <li>Independent testing of filters and airflow efficiency</li>
+                    <li>Validation of HEPA filtration performance</li>
+                    <li>Confirmation that harmful ozone levels are not produced</li>
+                    <li>Assurance that the purifier is safe for continuous indoor use</li>
+                </ul>
+
+
+                <!-- SECTION 2 -->
+                <h2 class="text-2xl font-bold text-[#101A4F] mt-6">
+                    WHY CERTIFICATION IS IMPORTANT
+                </h2>
+
+                <p>
+                    In a market full of products with big claims, certifications protect you from unreliable,
+                    ineffective,
+                    or unsafe devices. Certified air purifiers are tested to work properly in real-world environments.
+                </p>
+
+                <ul class="list-disc pl-6 space-y-3">
+                    <li>
+                        <strong>Reliable Performance</strong><br>
+                        Certified purifiers deliver the filtration efficiency they claim — especially important for
+                        pollen, dust,
+                        smoke, and bacteria.
+                    </li>
+
+                    <li>
+                        <strong>Genuine HEPA Filtration</strong><br>
+                        Many devices use “HEPA-like” filters, which are not effective. Certification ensures TRUE HEPA
+                        standards are met.
+                    </li>
+
+                    <li>
+                        <strong>Low Ozone Emission</strong><br>
+                        A certified purifier ensures it does not release harmful ozone, keeping your indoor air safe.
+                    </li>
+
+                    <li>
+                        <strong>Energy Efficiency</strong><br>
+                        Certification checks power usage — so you get strong performance without high electricity bills.
+                    </li>
+
+                    <li>
+                        <strong>Safety & Durability</strong><br>
+                        Components such as motors, power circuits, and sensors pass safety checks for continuous use.
+                    </li>
+                </ul>
+
+
+                <!-- SECTION 3 -->
+                <h2 class="text-2xl font-bold text-[#101A4F] mt-6">
+                    TYPES OF COMMON AIR PURIFIER CERTIFICATIONS
+                </h2>
+
+                <p>
+                    While names may differ by region, the purpose of all certifications is the same — verifying
+                    performance,
+                    safety, and filtration quality. Here are widely recognized certification categories:
+                </p>
+
+                <ul class="list-disc pl-6 space-y-3">
+
+                    <li>
+                        <strong>HEPA Filtration Certification</strong><br>
+                        Ensures the purifier uses genuine H13/H14 level filters capable of capturing 99.97% of fine
+                        particles.
+                    </li>
+
+                    <li>
+                        <strong>Ozone Safety Certification</strong><br>
+                        Confirms the purifier does not release harmful ozone into the room.
+                    </li>
+
+                    <li>
+                        <strong>Electrical & Fire Safety Certification</strong><br>
+                        Guarantees the internal components meet safety standards for home and office use.
+                    </li>
+
+                    <li>
+                        <strong>Performance & CADR Verification</strong><br>
+                        Confirms the clean-air delivery rate and airflow levels are accurate and effective for dust,
+                        pollen,
+                        smoke, and fine particles.
+                    </li>
+                </ul>
+
+
+                <!-- SECTION 4 -->
+                <h2 class="text-2xl font-bold text-[#101A4F] mt-6">
+                    BENEFITS OF BUYING A CERTIFIED AIR PURIFIER
+                </h2>
+
+                <p>
+                    Choosing a certified purifier ensures long-term protection and consistent performance. Here’s how
+                    certification benefits you:
+                </p>
+
+                <ul class="list-disc pl-6 space-y-2">
+                    <li>Cleaner indoor air with proven filtration quality</li>
+                    <li>Accurate removal of dust, pollen, smoke, and fine particles</li>
+                    <li>Better assistance during allergy season</li>
+                    <li>Peace of mind with safety-approved components</li>
+                    <li>Long-term durability and stable performance</li>
+                </ul>
+
+
+                <!-- SECTION 5 -->
+                <h2 class="text-2xl font-bold text-[#101A4F] mt-6">
+                    HOW TO CHECK IF A PURIFIER IS CERTIFIED
+                </h2>
+
+                <p>
+                    Before purchasing, always cross-check certifications. Reliable brands mention their certifications
+                    clearly in product documentation, packaging, and user manuals.
+                </p>
+
+                <ul class="list-disc pl-6 space-y-2">
+                    <li>Check product specification sheets</li>
+                    <li>Look for certification marks in manuals</li>
+                    <li>Verify filtration standard (like True HEPA)</li>
+                    <li>Check if the purifier is ozone-safe</li>
+                    <li>Confirm the brand provides authentic test reports</li>
+                </ul>
+
+
+                <!-- FINAL SECTION -->
+                <h2 class="text-2xl font-bold text-[#101A4F] mt-6">
+                    FINAL WORD
+                </h2>
+
+                <p>
+                    A certified air purifier ensures genuine, long-lasting protection for your family. It guarantees the
+                    device
+                    is tested, safe, and efficient — offering clean indoor air without compromise.
+                </p>
+
+                <p>
+                    By choosing a trusted, certified model, you invest in better health, comfort, and peace of mind for
+                    your home.
+                </p>
+
+            </div>
+
+
+            <div *ngSwitchCase="'air-purification-important'" class="space-y-10">
+
+                <!-- TOP SECTION: IMAGE LEFT + CONTENT RIGHT -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
+
+                    <!-- IMAGE -->
+                    <img src="https://www.winix.cz/files/responsive/720/0/winix-zero-couple.png"
+                        class="rounded-xl shadow w-full object-cover" />
+
+                    <!-- RIGHT SIDE CONTENT -->
+                    <div class="space-y-5 text-gray-700 leading-relaxed text-[17px]">
+
+                        <p>
+                            Clean air is essential for maintaining good health, comfort, and well-being. However,
+                            indoor air often contains dust, bacteria, allergens, odors, and invisible pollutants
+                            that can affect your breathing even more than outdoor air. Since we spend a large part
+                            of our day indoors — at home, in the office, or in closed environments — the quality of
+                            indoor air has a direct impact on our daily life.
+                        </p>
+
+                        <p>
+                            Modern lifestyles, urban pollution, household activities, and seasonal changes all
+                            contribute to poor indoor air. Even if your home appears clean, the air inside may
+                            contain harmful particles that cannot be removed through normal cleaning methods.
+                        </p>
+
+                        <p>
+                            Air purification helps maintain a healthy environment by continuously filtering the air
+                            and removing pollutants that can affect breathing, sleep quality, and long-term health.
+                        </p>
+
+                    </div>
+                </div>
+
+
+                <!-- SECTION 1 -->
+                <h2 class="text-2xl font-bold text-[#101A4F]">
+                    WHAT POLLUTANTS ARE PRESENT IN INDOOR AIR?
+                </h2>
+
+                <p>
+                    Many pollutants inside homes and offices are invisible. These airborne particles accumulate
+                    from day-to-day activities and remain suspended for hours.
+                </p>
+
+                <ul class="list-disc pl-6 space-y-2">
+                    <li>Dust and fine particles from fabrics, floors, and surfaces</li>
+                    <li>Pollen brought in from outside during seasonal changes</li>
+                    <li>Pet dander and microscopic hair particles</li>
+                    <li>Cooking smoke and kitchen fumes</li>
+                    <li>Mold spores in damp environments</li>
+                    <li>Odors from paints, chemicals, or household cleaners</li>
+                    <li>Airborne bacteria and viruses</li>
+                </ul>
+
+
+                <!-- SECTION 2 -->
+                <h2 class="text-2xl font-bold text-[#101A4F] mt-6">
+                    WHY AIR PURIFICATION IS NECESSARY
+                </h2>
+
+                <p>
+                    As homes become more sealed for cooling efficiency, airflow reduces. Pollutants build up
+                    indoors, making the air feel heavy and unhealthy. Purifying the air helps restore freshness
+                    and improves indoor comfort.
+                </p>
+
+                <ul class="list-disc pl-6 space-y-3">
+
+                    <li>
+                        <strong>1. Helps Reduce Respiratory Irritation</strong><br>
+                        Allergens like dust and pollen can cause sneezing, blocked nose, or breathing difficulty.
+                        Air purification helps create cleaner air for sensitive individuals.
+                    </li>
+
+                    <li>
+                        <strong>2. Eliminates Harmful Fine Particles</strong><br>
+                        Ultra-fine dust and pollutants enter the lungs easily. A purifier captures even the smallest
+                        particles using HEPA filtration.
+                    </li>
+
+                    <li>
+                        <strong>3. Removes Unpleasant Odors</strong><br>
+                        Cooking fumes, pet odors, and chemical smells are absorbed by activated carbon filters,
+                        leaving the air fresher.
+                    </li>
+
+                    <li>
+                        <strong>4. Reduces Exposure to Airborne Germs</strong><br>
+                        High-quality filtration helps reduce airborne bacteria and viruses, especially during
+                        seasonal illnesses.
+                    </li>
+
+                    <li>
+                        <strong>5. Essential for Children & Elderly People</strong><br>
+                        Their immune systems are more sensitive, making clean indoor air extremely important.
+                    </li>
+
+                </ul>
+
+
+                <!-- SECTION 3 -->
+                <h2 class="text-2xl font-bold text-[#101A4F] mt-6">
+                    BENEFITS OF USING AN AIR PURIFIER AT HOME
+                </h2>
+
+                <p>
+                    A good purifier improves overall indoor comfort and creates a healthier living environment.
+                </p>
+
+                <ul class="list-disc pl-6 space-y-2">
+                    <li>Cleaner breathing air throughout the day</li>
+                    <li>Better sleep quality with fewer disturbances</li>
+                    <li>Low dust accumulation on surfaces and furniture</li>
+                    <li>Less eye, nose, and throat irritation</li>
+                    <li>Ideal for people working from home</li>
+                    <li>Improves air quality for people with asthma or sensitivities</li>
+                </ul>
+
+
+                <!-- SECTION 4 -->
+                <h2 class="text-2xl font-bold text-[#101A4F] mt-6">
+                    HOW AIR PURIFIERS WORK TO CLEAN INDOOR AIR
+                </h2>
+
+                <p>
+                    Air purifiers pull in surrounding air, trap harmful particles using multi-stage filters, and
+                    release clean, purified air back into the room.
+                </p>
+
+                <ul class="list-disc pl-6 space-y-2">
+                    <li><strong>Pre-Filter:</strong> Captures large dust and hair particles.</li>
+                    <li><strong>Activated Carbon Filter:</strong> Reduces odors and fumes.</li>
+                    <li><strong>HEPA Filter:</strong> Traps fine dust, pollen, allergens, and bacteria.</li>
+                    <li><strong>Smart Sensors:</strong> Adjust purifier speed based on air quality.</li>
+                </ul>
+
+
+                <!-- SECTION 5 -->
+                <h2 class="text-2xl font-bold text-[#101A4F] mt-6">
+                    FINAL WORD
+                </h2>
+
+                <p>
+                    Clean indoor air should be a priority for every household. Air purification helps remove
+                    pollutants that normal cleaning cannot handle, giving your home a healthier and fresher
+                    environment.
+                </p>
+
+                <p>
+                    Investing in a good air purifier ensures long-term comfort, cleaner breathing air, and better
+                    protection for your family — especially during seasonal changes and high-pollution days.
+                </p>
+
+            </div>
+
+
+            <div *ngSwitchCase="'choose-right-air-purifier-steps'" class="space-y-10">
+
+                <!-- TOP SECTION -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
+
+                    <!-- IMAGE -->
+                    <img src="https://www.winix.cz/files/responsive/720/0/zero-pro-dog.jpg"
+                        class="rounded-xl shadow w-full object-cover" />
+
+                    <!-- RIGHT CONTENT -->
+                    <div class="space-y-5 text-gray-700 leading-relaxed text-[17px]">
+
+                        <p>
+                            Selecting the right air purifier is one of the most important steps toward creating a
+                            healthier home environment. With so many models available, choosing the right one can
+                            feel confusing — but it becomes simple when you know exactly what to look for.
+                        </p>
+
+                        <p>
+                            The right purifier should match your room size, filter out the pollutants you face daily,
+                            operate quietly, and keep your home comfortable throughout the day.
+                        </p>
+
+                        <p>
+                            Here are 4 simple and effective steps to help you pick the perfect air purifier for your
+                            home or workspace.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <!-- SECTION 1 -->
+                <h2 class="text-2xl font-bold text-[#101A4F]">STEP 1 — IDENTIFY YOUR PRIMARY AIR PROBLEM</h2>
+
+                <p>
+                    Every home faces different air quality challenges. Before buying an air purifier, understand what
+                    issues you want to target. This ensures you choose a purifier with the correct filtration.
+                </p>
+
+                <ul class="list-disc pl-6 space-y-2">
+                    <li><strong>Dust & Fine Particles:</strong> Choose a purifier with a strong HEPA filter.</li>
+                    <li><strong>Pollen or Seasonal Allergies:</strong> Look for True HEPA filtration with high
+                        precision.</li>
+                    <li><strong>Odors & Smoke:</strong> Carbon filters help remove cooking smells and smoke.</li>
+                    <li><strong>Pet Hair & Dander:</strong> A purifier with a washable pre-filter works best.</li>
+                    <li><strong>High Pollution Zones:</strong> Multi-stage filtration system recommended.</li>
+                </ul>
+
+
+                <!-- SECTION 2 -->
+                <h2 class="text-2xl font-bold text-[#101A4F] mt-6">STEP 2 — CHECK THE ROOM SIZE & PURIFIER COVERAGE</h2>
+
+                <p>
+                    Air purifiers are designed to clean specific room sizes. Choosing the right capacity ensures
+                    quick and efficient air cleaning.
+                </p>
+
+                <ul class="list-disc pl-6 space-y-2">
+                    <li>Small Rooms (Bedroom / Study): 150–250 sq.ft.</li>
+                    <li>Medium Rooms (Living Room): 250–450 sq.ft.</li>
+                    <li>Large Rooms: 450 sq.ft. and above</li>
+                </ul>
+
+                <p>
+                    Make sure the purifier’s CADR (Clean Air Delivery Rate) matches your room size for effective
+                    air circulation.
+                </p>
+
+
+                <!-- SECTION 3 -->
+                <h2 class="text-2xl font-bold text-[#101A4F] mt-6">STEP 3 — CHOOSE THE RIGHT FILTER TYPE</h2>
+
+                <p>
+                    The filtration system is the heart of your purifier. A good purifier should include:
+                </p>
+
+                <ul class="list-disc pl-6 space-y-3">
+
+                    <li>
+                        <strong>True HEPA Filter</strong><br>
+                        Captures 99.97% of tiny pollutants including dust, pollen, allergens, and airborne germs.
+                    </li>
+
+                    <li>
+                        <strong>Activated Carbon Filter</strong><br>
+                        Removes cooking smells, pet odors, and chemical fumes.
+                    </li>
+
+                    <li>
+                        <strong>Pre-Filter</strong><br>
+                        Traps large dust particles, hair, and pet fur — increases the life of the HEPA filter.
+                    </li>
+
+                    <li>
+                        <strong>Optional UV or Plasma Features</strong><br>
+                        Helpful for reducing airborne germs and bacteria.
+                    </li>
+
+                </ul>
+
+
+                <!-- SECTION 4 -->
+                <h2 class="text-2xl font-bold text-[#101A4F] mt-6">STEP 4 — CHECK SMART FEATURES & CONVENIENCE</h2>
+
+                <p>
+                    Modern air purifiers come with advanced sensors and features that improve convenience and
+                    performance.
+                </p>
+
+                <ul class="list-disc pl-6 space-y-2">
+                    <li><strong>Air Quality Sensors:</strong> Detect pollution levels automatically.</li>
+                    <li><strong>Auto Mode:</strong> Adjusts fan speed as per air quality.</li>
+                    <li><strong>Low Noise Levels:</strong> Needed for bedrooms and night use.</li>
+                    <li><strong>Filter Replacement Indicator:</strong> Helps maintain performance.</li>
+                    <li><strong>Sleep Mode:</strong> Ultra-quiet operation while resting.</li>
+                    <li><strong>Child Lock:</strong> Useful for families with children.</li>
+                </ul>
+
+
+                <!-- FINAL SECTION -->
+                <h2 class="text-2xl font-bold text-[#101A4F] mt-6">FINAL WORD</h2>
+
+                <p>
+                    Choosing an air purifier becomes simple when you follow these four steps. By identifying your
+                    air-quality concerns, matching the purifier to your room size, selecting the right filtration,
+                    and choosing helpful smart features, you ensure long-lasting protection for your home.
+                </p>
+
+                <p>
+                    A high-quality purifier creates a healthier atmosphere, improves breathing comfort, and helps
+                    your family enjoy cleaner and fresher indoor air every day.
+                </p>
+
+            </div>
+
+
+            <div *ngSwitchCase="'fireplaces-safe-air-purifier'" class="space-y-10">
+
+                <!-- TOP SECTION -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
+
+                    <!-- IMAGE -->
+                    <img src="https://www.winix.cz/files/responsive/980/0/cisticka-vzduchu-krb-obyvak-winix-gemini.jpg"
+                        class="rounded-xl shadow w-full object-cover" />
+
+                    <!-- RIGHT CONTENT -->
+                    <div class="space-y-5 text-gray-700 leading-relaxed text-[17px]">
+
+                        <p>
+                            Fireplaces, indoor stoves, room heaters, or traditional wood-based heating can make a home
+                            feel
+                            warm and cozy — but they also release fine particles, smoke, and odors into the indoor air.
+                            These
+                            pollutants are often invisible but can affect breathing comfort and overall indoor air
+                            quality.
+                        </p>
+
+                        <p>
+                            Even when proper ventilation is used, tiny smoke particles and fumes can stay inside the
+                            room for
+                            hours. An efficient air purifier helps reduce the impact of indoor heating methods by
+                            trapping
+                            harmful particles and keeping the indoor air cleaner and healthier.
+                        </p>
+
+                        <p>
+                            Whether you use a wood stove, kerosene heater, gas heater, or any indoor heating source, the
+                            right
+                            purifier ensures safer operation throughout the cold months.
+                        </p>
+
+                    </div>
+                </div>
+
+
+                <!-- SECTION 1 -->
+                <h2 class="text-2xl font-bold text-[#101A4F]">
+                    WHY HEATING SOURCES RELEASE AIR POLLUTANTS
+                </h2>
+
+                <p>
+                    Heating appliances release a combination of smoke, fumes, and microscopic particles. These
+                    pollutants
+                    stay suspended in the air and can irritate the respiratory system.
+                </p>
+
+                <ul class="list-disc pl-6 space-y-2">
+                    <li><strong>Fine ash and soot particles</strong> from burning wood or fuel</li>
+                    <li><strong>Invisible smoke particles</strong> that remain in the air for hours</li>
+                    <li><strong>Strong odors</strong> from incomplete combustion</li>
+                    <li><strong>Carbon-based fumes</strong> from traditional heaters</li>
+                    <li><strong>Dust disturbance</strong> when warm air circulates</li>
+                </ul>
+
+
+                <!-- SECTION 2 -->
+                <h2 class="text-2xl font-bold text-[#101A4F] mt-6">
+                    HOW AN AIR PURIFIER HELPS DURING FIREPLACE OR STOVE USE
+                </h2>
+
+                <p>
+                    Air purifiers significantly reduce the negative effects of indoor heating by capturing harmful
+                    particles
+                    and neutralizing odors. This makes indoor heating safer and more comfortable.
+                </p>
+
+                <ul class="list-disc pl-6 space-y-3">
+
+                    <li>
+                        <strong>1. Removes Smoke & Fine Particles</strong><br>
+                        HEPA filtration captures tiny smoke particles that normal cleaning cannot remove.
+                    </li>
+
+                    <li>
+                        <strong>2. Reduces Odors & Fumes</strong><br>
+                        Activated carbon filters absorb unpleasant smells and fumes released from heating.
+                    </li>
+
+                    <li>
+                        <strong>3. Protects Respiratory Health</strong><br>
+                        People with asthma, sinus issues, or sensitive breathing benefit from cleaner indoor air.
+                    </li>
+
+                    <li>
+                        <strong>4. Provides Continuous Air Circulation</strong><br>
+                        Airflow helps reduce the buildup of trapped warm air and smoke near ceilings.
+                    </li>
+
+                    <li>
+                        <strong>5. Improves Overall Indoor Comfort</strong><br>
+                        Rooms feel fresher, lighter, and more breathable — even when heating is used for long hours.
+                    </li>
+
+                </ul>
+
+
+                <!-- SECTION 3 -->
+                <h2 class="text-2xl font-bold text-[#101A4F] mt-6">
+                    FEATURES TO LOOK FOR IN A PURIFIER FOR FIREPLACE OR STOVE USE
+                </h2>
+
+                <p>
+                    Not every air purifier is suitable for environments with smoke or heating fumes. Choose one with
+                    strong filtration and high performance.
+                </p>
+
+                <ul class="list-disc pl-6 space-y-3">
+
+                    <li>
+                        <strong>True HEPA H13 Filter</strong><br>
+                        Captures ultra-fine smoke particles and airborne pollutants effectively.
+                    </li>
+
+                    <li>
+                        <strong>Activated Carbon Filter</strong><br>
+                        Essential for removing strong odors and harmful gaseous fumes.
+                    </li>
+
+                    <li>
+                        <strong>High CADR Rating</strong><br>
+                        Ensures quick purification, especially in living rooms or large spaces.
+                    </li>
+
+                    <li>
+                        <strong>Auto Mode with Sensors</strong><br>
+                        Adjusts purifier speed when smoke levels increase.
+                    </li>
+
+                    <li>
+                        <strong>Long Running Capability</strong><br>
+                        Must operate safely for several hours during winter nights.
+                    </li>
+
+                </ul>
+
+
+                <!-- SECTION 4 -->
+                <h2 class="text-2xl font-bold text-[#101A4F] mt-6">
+                    ADDITIONAL SAFETY TIPS FOR USING HEATERS OR STOVES INDOORS
+                </h2>
+
+                <p>
+                    Along with an air purifier, follow simple safety measures to maintain a cleaner and safer
+                    environment.
+                </p>
+
+                <ul class="list-disc pl-6 space-y-2">
+                    <li>Ensure proper ventilation when using heaters or wood stoves</li>
+                    <li>Clean ash or soot buildup regularly</li>
+                    <li>Keep the room free from clutter near the heating source</li>
+                    <li>Use an exhaust fan briefly after heating to release trapped fumes</li>
+                    <li>Keep children at a safe distance from open flames or heaters</li>
+                    <li>Never leave a lit heating device unattended</li>
+                </ul>
+
+
+                <!-- FINAL SECTION -->
+                <h2 class="text-2xl font-bold text-[#101A4F] mt-6">
+                    FINAL WORD
+                </h2>
+
+                <p>
+                    Indoor heating can make winters comfortable, but it also affects the quality of air inside your
+                    home.
+                    Using a high-quality air purifier ensures safer operation by reducing smoke, soot, odors, and fine
+                    particles released during heating.
+                </p>
+
+                <p>
+                    With the right purifier and a few safety habits, you can enjoy warmth while keeping the air clean,
+                    healthy, and fresh for your entire family.
+                </p>
+
+            </div>
+
+
+            <div *ngSwitchCase="'cigarette-smoke-help'" class="space-y-10">
+
+                <!-- TOP SECTION -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
+
+                    <!-- IMAGE -->
+                    <img src="https://www.winix.cz/files/responsive/980/0/winix-cisticka-a-cigaretovy-kour.jpg"
+                        class="rounded-xl shadow w-full object-cover" />
+
+                    <!-- RIGHT CONTENT -->
+                    <div class="space-y-5 text-gray-700 leading-relaxed text-[17px]">
+
+                        <p>
+                            Cigarette smoke is one of the most stubborn indoor pollutants. Its fine particles spread
+                            quickly inside a room, settle on surfaces, and linger in the air for hours. Even after a
+                            cigarette is extinguished, the odor and chemicals continue to remain in the environment,
+                            affecting everyone indoors.
+                        </p>
+
+                        <p>
+                            Whether you smoke occasionally, have smokers at home, or deal with smoke drifting from
+                            balconies or neighbors — an air purifier can significantly help in reducing smoke and
+                            unpleasant odor.
+                        </p>
+
+                        <p>
+                            A good purifier not only traps smoke particles but also removes harmful chemical fumes,
+                            giving you fresher and cleaner indoor air.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- SECTION 1 -->
+                <h2 class="text-2xl font-bold text-[#101A4F]">
+                    WHY CIGARETTE SMOKE IS A SERIOUS INDOOR POLLUTANT
+                </h2>
+
+                <p>
+                    Cigarette smoke contains thousands of chemical compounds. Many of these particles are extremely
+                    small and can remain airborne for long periods.
+                </p>
+
+                <ul class="list-disc pl-6 space-y-2">
+                    <li>Ultra-fine particles that easily enter the lungs</li>
+                    <li>Strong odors that cling to fabrics and furniture</li>
+                    <li>Toxic fumes like nicotine, tar, ammonia, and benzene</li>
+                    <li>“Second-hand smoke” affects children, elderly people, and pets</li>
+                    <li>Smoke settles into curtains, carpets, walls, and sofas</li>
+                </ul>
+
+
+                <!-- SECTION 2 -->
+                <h2 class="text-2xl font-bold text-[#101A4F] mt-6">
+                    HOW AN AIR PURIFIER REMOVES CIGARETTE SMOKE
+                </h2>
+
+                <p>
+                    Air purifiers help by constantly circulating and filtering indoor air. Special filters capture
+                    smoke particles and absorb strong odors.
+                </p>
+
+                <ul class="list-disc pl-6 space-y-3">
+
+                    <li>
+                        <strong>1. HEPA FILTER REMOVES FINE SMOKE PARTICLES</strong><br>
+                        HEPA filters trap particles as small as 0.3 microns, including smoke residue and chemicals.
+                    </li>
+
+                    <li>
+                        <strong>2. ACTIVATED CARBON FILTER ABSORBS SMELL</strong><br>
+                        Carbon effectively removes cigarette smell, nicotine odor, and toxic gases from the air.
+                    </li>
+
+                    <li>
+                        <strong>3. CONSTANT AIR CIRCULATION CLEANS THE ROOM FASTER</strong><br>
+                        Purifiers pull in polluted air and continuously release fresh, clean air.
+                    </li>
+
+                    <li>
+                        <strong>4. REMOVES SECOND-HAND SMOKE PARTICLES</strong><br>
+                        Protects non-smokers and children from harmful airborne pollutants.
+                    </li>
+
+                </ul>
+
+
+                <!-- SECTION 3 -->
+                <h2 class="text-2xl font-bold text-[#101A4F] mt-6">
+                    BENEFITS OF USING A PURIFIER FOR CIGARETTE SMOKE
+                </h2>
+
+                <p>
+                    Using a purifier helps keep your indoor environment healthier, even if smoking occasionally
+                    happens indoors.
+                </p>
+
+                <ul class="list-disc pl-6 space-y-2">
+                    <li>Eliminates strong lingering odor</li>
+                    <li>Reduces smoke haze and fine particles</li>
+                    <li>Makes the room breathable within minutes</li>
+                    <li>Neutralizes harmful fumes and chemicals</li>
+                    <li>Protects family members from second-hand smoke</li>
+                    <li>Keeps furniture and fabrics fresher</li>
+                </ul>
+
+
+                <!-- SECTION 4 -->
+                <h2 class="text-2xl font-bold text-[#101A4F] mt-6">
+                    FEATURES TO LOOK FOR IN A SMOKE-SPECIFIC AIR PURIFIER
+                </h2>
+
+                <p>
+                    If your home has cigarette smoke exposure, choose a purifier specially equipped to handle it.
+                </p>
+
+                <ul class="list-disc pl-6 space-y-3">
+
+                    <li>
+                        <strong>High-Quality Activated Carbon Filter</strong><br>
+                        Essential for absorbing smoke odor and harmful chemical fumes.
+                    </li>
+
+                    <li>
+                        <strong>HEPA H13 Filter</strong><br>
+                        Captures ultra-fine smoke particles for deep cleaning.
+                    </li>
+
+                    <li>
+                        <strong>Strong CADR Rating</strong><br>
+                        Ensures faster smoke removal in living rooms and larger spaces.
+                    </li>
+
+                    <li>
+                        <strong>Smart Sensors</strong><br>
+                        Detect smoke and increase power automatically.
+                    </li>
+
+                    <li>
+                        <strong>Long-duration Safe Operation</strong><br>
+                        Useful for homes where smoking happens frequently.
+                    </li>
+
+                </ul>
+
+
+                <!-- SECTION 5 -->
+                <h2 class="text-2xl font-bold text-[#101A4F] mt-6">
+                    ADDITIONAL TIPS TO CONTROL SMOKE INDOORS
+                </h2>
+
+                <ul class="list-disc pl-6 space-y-2">
+                    <li>Smoke near a window or balcony to reduce indoor accumulation</li>
+                    <li>Use exhaust fans briefly after smoking</li>
+                    <li>Wash or air out fabrics that absorb odor</li>
+                    <li>Keep ashtrays clean and covered</li>
+                    <li>Run the purifier continuously for best results</li>
+                </ul>
+
+
+                <!-- FINAL SECTION -->
+                <h2 class="text-2xl font-bold text-[#101A4F] mt-6">
+                    FINAL WORD
+                </h2>
+
+                <p>
+                    Cigarette smoke and odor can make indoor living uncomfortable and unhealthy. A high-quality air
+                    purifier helps remove smoke particles, reduce odor, and protect your family from harmful airborne
+                    pollutants.
+                </p>
+
+                <p>
+                    With the right purifier and simple everyday habits, you can maintain cleaner, fresher indoor air —
+                    even in environments where smoking occurs.
+                </p>
+
+            </div>
+
+
+        </div>
+    </div>
+
+     <!-- Contact -->
+    <div id="contact" class="mb-10">
+      <h2 class="text-2xl font-bold text-primary mb-3 tracking-tight">Contact Us</h2>
+      <p class="text-base sm:text-lg text-secondary leading-relaxed mb-5">
+        For any support related to orders, returns, or refunds, reach out to:
+      </p>
+
+      <div class="bg-gray-50 p-6 rounded-2xl shadow-sm border border-gray-200">
+        <h3 class="text-xl font-semibold text-primary mb-4">Winix India</h3>
+        <ul class="space-y-3 text-base sm:text-lg text-secondary">
+          <li class="flex items-start gap-3">
+            <span class="text-2xl"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                stroke-width="1.5" stroke="currentColor" class="size-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
+              </svg>
+            </span>
+            <span>Sha Maknaji Veerchand,
+                    1st–2nd Floor, S.No.4, H.No.1/18/2, Lane 5, Kakdewasti,
+                    Next to Rishi Enclave, Kondhwa Budruk, Pune 411048</span>
+          </li>
+          <!-- <li class="flex items-start gap-3">
+            <span class="text-2xl"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                stroke-width="1.5" stroke="currentColor" class="size-6">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z" />
+              </svg>
+            </span>
+            <span>+91 90144 12394</span>
+          </li> -->
+          <li class="flex items-start gap-3">
+            <span class="text-2xl"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                stroke-width="1.5" stroke="currentColor" class="size-6">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M10.5 1.5H8.25A2.25 2.25 0 0 0 6 3.75v16.5a2.25 2.25 0 0 0 2.25 2.25h7.5A2.25 2.25 0 0 0 18 20.25V3.75a2.25 2.25 0 0 0-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" />
+              </svg>
+            </span>
+            <span>+91 88852 41706</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-2xl"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                stroke-width="1.5" stroke="currentColor" class="size-6">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
+              </svg>
+            </span>
+            <a href="mailto:care@justshop24x7.com" class="text-pri hover:text-pri-2 transition-colors">
+              {{emailText}}
+            </a>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-2xl"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                stroke-width="1.5" stroke="currentColor" class="size-6">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 0 1 7.843 4.582M12 3a8.997 8.997 0 0 0-7.843 4.582m15.686 0A11.953 11.953 0 0 1 12 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0 1 21 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0 1 12 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 0 1 3 12c0-1.605.42-3.113 1.157-4.418" />
+              </svg>
+            </span>
+            <a href="https://winixindia.in" target="_blank" class="text-pri hover:text-pri-2 transition-colors">
+              https://winixindia.in
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+</div>

@@ -1,0 +1,97 @@
+<!-- Updated background to use brand colors, header styling, and responsive grid with proper spanning for last 2 cards -->
+<div class="min-h-screen bg-gradient-to-br from-white to-gray-50 py-10 px-4 sm:px-6 lg:px-8">
+
+  <!-- Header Section -->
+  <div class="max-w-8xl mx-auto mb-8">
+    <div class="text-center mb-4">
+      <h1 class="text-4xl sm:text-5xl font-bold mb-2" style="color: #101A4F;">Insights & Articles</h1>
+      <p class="text-lg text-gray-600">Stay updated with the latest tips and industry news</p>
+    </div>
+
+   
+  </div>
+
+  <!-- Articles Grid -->
+  <div class="max-w-8xl mx-auto">
+
+    <!-- GRID SYSTEM -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 auto-rows-max">
+
+      <!-- Article Card -->
+      <a 
+        *ngFor="let article of articles; let i = index"
+        [routerLink]="['/article', article.slug]"
+        class="group block h-full"
+
+      
+        [ngClass]="{
+          'lg:col-span-1': true,
+          'lg:col-start-auto': true
+        }"
+      >
+
+        <!-- Card Container -->
+        <div 
+          class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 h-full flex flex-col hover:-translate-y-1 border-b-4"
+          [ngStyle]="{
+            'borderBottomColor': i % 2 === 0 ? '#101A4F' : '#74236C'
+          }"
+        >
+          
+          <!-- Image Container -->
+          <div class="relative w-full h-48 sm:h-56 lg:h-64 overflow-hidden bg-gray-200">
+            <img 
+              [src]="article.image" 
+              [alt]="article.title"
+              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 ease-out"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          </div>
+
+          <!-- Content -->
+          <div class="p-5 sm:p-6 flex flex-col flex-grow">
+
+            <!-- Date Badge -->
+            <span 
+              class="inline-block text-xs font-semibold rounded-full px-3 py-1 mb-3 w-fit"
+              style="color: #101A4F; background-color: rgba(16, 26, 79, 0.1);"
+            >
+              {{ article.date | date:'MMM dd, yyyy' }}
+            </span>
+
+            <!-- Title -->
+            <h2 
+              class="text-lg sm:text-xl font-bold leading-snug mb-3 line-clamp-2 transition-colors duration-300"
+              style="color: #101A4F;"
+            >
+              {{ article.title }}
+            </h2>
+
+            <!-- Description -->
+            <p class="text-sm sm:text-base text-gray-600 leading-relaxed mb-4 line-clamp-3 flex-grow">
+              {{ article.content }}
+            </p>
+
+            <!-- Read More -->
+            <div class="flex items-center font-semibold text-sm group-hover:gap-2 transition-all duration-300" style="color: #74236C;">
+              <span>Read More</span>
+              <svg class="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+              </svg>
+            </div>
+
+          </div>
+        </div>
+      </a>
+
+    </div>
+
+    <!-- Empty State -->
+    <div *ngIf="!articles || articles.length === 0" class="text-center py-16">
+      <svg class="w-16 h-16 mx-auto text-gray-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C6.5 6.253 2 10.998 2 17s4.5 10.747 10 10.747c5.5 0 10-4.998 10-10.747S17.5 6.253 12 6.253z"></path>
+      </svg>
+      <p class="text-gray-600 text-lg">No articles available at the moment</p>
+    </div>
+  </div>
+</div>

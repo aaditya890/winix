@@ -40,4 +40,15 @@ export const routes: Routes = [
     path: 'insight/:slug',
     loadComponent: () => import('./wikipedia/wikipedia.component').then(m => m.WikipediaComponent),
   },
+  {
+  path: 'articles',
+  loadComponent: () =>
+    import('./articles/articles.component').then(m => m.ArticlesComponent),
+},
+
+{
+  path: 'article/:slug',
+  loadComponent: () =>
+    import('./article-detail/article-detail.component').then(m => m.ArticleDetailComponent),
+},
 ];
