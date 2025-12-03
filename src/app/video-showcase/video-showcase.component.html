@@ -35,8 +35,8 @@
         class="relative shrink-0 snap-start  w-[46vw] xs:w-[60vw] sm:w-[45vw] md:w-[30vw] lg:w-[220px] xl:w-[240px] 2xl:w-[260px] rounded-md overflow-hidden bg-white shadow-lg"
         (click)="openVideoModal(v)">
         <div class="relative aspect-[9/16] bg-gray-100">
-          <img [attr.data-src]="v.poster" alt="Video thumbnail" class="absolute inset-0 w-full h-full object-contain"
-            loading="lazy" />
+          <img [src]="v.poster" loading="lazy" decoding="async" fetchpriority="low"
+            class="absolute inset-0 w-full h-full object-cover" />
           <div
             class="absolute inset-x-0 bottom-0 h-16 md:h-20 bg-gradient-to-b from-transparent via-[#1B1E5E]/80 to-[#792C82]/90">
           </div>

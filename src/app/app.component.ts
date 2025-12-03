@@ -1,11 +1,12 @@
 import { Component, HostListener } from "@angular/core";
 import { NavigationEnd, Router, RouterLink, RouterOutlet } from "@angular/router";
 import { filter } from "rxjs";
+import { VideoSliderSectionComponent } from "./video-slider-section/video-slider-section.component";
 
 @Component({
   selector: "app-root",
   standalone: true,
-  imports: [RouterOutlet, RouterLink],
+  imports: [RouterOutlet, RouterLink, VideoSliderSectionComponent],
   templateUrl: "./app.component.html",
   styleUrls: ["./app.component.scss"],
 })
