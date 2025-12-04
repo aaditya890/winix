@@ -155,40 +155,46 @@ export class WinixFilterCardComponent {
     }
   }
 
-  /** Drag start */
-  onPointerDown(e: PointerEvent | TouchEvent) {
-    const el = this.el();
-    if (!el) return;
+onPointerDown(e: PointerEvent | TouchEvent) {
+  const el = this.el();
+  if (!el) return;
 
-    this.isDown = true;
-    this.startX = 'touches' in e ? e.touches[0].clientX : e.clientX;
-    this.startLeft = el.scrollLeft;
-    el.classList.add('grabbing');
-  }
+  this.isDown = true;
+  
+  // lock scroll direction for a moment
+  el.style.scrollSnapType = 'none';
 
-  /** Drag move */
-  onPointerMove(e: PointerEvent | TouchEvent) {
-    if (!this.isDown) return;
+  this.startX = 'touches' in e ? e.touches[0].clientX : e.clientX;
+  this.startLeft = el.scrollLeft;
+}
 
-    const el = this.el();
-    if (!el) return;
+onPointerMove(e: PointerEvent | TouchEvent) {
+  if (!this.isDown) return;
 
-    const clientX = 'touches' in e ? e.touches[0].clientX : e.clientX;
-    const diff = clientX - this.startX;
+  const el = this.el();
+  if (!el) return;
 
-    if (Math.abs(diff) < this.dragThreshold) return;
+  const clientX = 'touches' in e ? e.touches[0].clientX : e.clientX;
+  const diff = clientX - this.startX;
 
-    const speed = 4;
-    el.scrollLeft = this.startLeft - diff * speed;
+  if (Math.abs(diff) < this.dragThreshold) return;
 
+  const speed = 4;
+  el.scrollLeft = this.startLeft - diff * speed;
+
+  // ❌ DON'T block scroll on touch devices
+  if (!(e instanceof TouchEvent)) {
     e.preventDefault();
   }
+}
+
 
   /** Drag end */
-  onPointerUp() {
-    this.isDown = false;
-    this.el()?.classList.remove('grabbing');
-  }
+ onPointerUp() {
+  this.isDown = false;
+  const el = this.el();
+  if (el) el.style.scrollSnapType = 'x mandatory';
+}
 
   /** Helpers */
   trackById = (_: number, p: Product) => p.id;
