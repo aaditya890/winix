@@ -168,33 +168,29 @@ onPointerDown(e: PointerEvent | TouchEvent) {
   this.startLeft = el.scrollLeft;
 }
 
-onPointerMove(e: PointerEvent | TouchEvent) {
-  if (!this.isDown) return;
+  /** Drag move */
+  onPointerMove(e: PointerEvent | TouchEvent) {
+    if (!this.isDown) return;
 
-  const el = this.el();
-  if (!el) return;
+    const el = this.el();
+    if (!el) return;
 
-  const clientX = 'touches' in e ? e.touches[0].clientX : e.clientX;
-  const diff = clientX - this.startX;
+    const clientX = 'touches' in e ? e.touches[0].clientX : e.clientX;
+    const diff = clientX - this.startX;
 
-  if (Math.abs(diff) < this.dragThreshold) return;
+    if (Math.abs(diff) < this.dragThreshold) return;
 
-  const speed = 4;
-  el.scrollLeft = this.startLeft - diff * speed;
+    const speed = 4;
+    el.scrollLeft = this.startLeft - diff * speed;
 
-  // ❌ DON'T block scroll on touch devices
-  if (!(e instanceof TouchEvent)) {
     e.preventDefault();
   }
-}
-
 
   /** Drag end */
- onPointerUp() {
-  this.isDown = false;
-  const el = this.el();
-  if (el) el.style.scrollSnapType = 'x mandatory';
-}
+  onPointerUp() {
+    this.isDown = false;
+    this.el()?.classList.remove('grabbing');
+  }
 
   /** Helpers */
   trackById = (_: number, p: Product) => p.id;
