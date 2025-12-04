@@ -8,6 +8,7 @@ import { VideoShowcaseComponent } from "../video-showcase/video-showcase.compone
 import { ComparisonComponent } from "../comparison/comparison.component";
 import { ContactUsComponent } from "../contact-us/contact-us.component";
 import { VideoSliderSectionComponent } from "../video-slider-section/video-slider-section.component";
+import { WinixFilterCardComponent } from '../winix-filter-card/winix-filter-card.component';
 
 interface FeatureItem {
   img: string; title: string; desc: string; w: number; h: number;
@@ -16,7 +17,7 @@ interface FeatureItem {
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, NgOptimizedImage, WinixProductCardComponent, VideoShowcaseComponent, ReviewCardsComponent, ContactUsComponent, RouterLink, VideoShowcaseComponent, VideoSliderSectionComponent],
+  imports: [CommonModule, NgOptimizedImage,WinixFilterCardComponent, WinixProductCardComponent, VideoShowcaseComponent, ReviewCardsComponent, ContactUsComponent, RouterLink, VideoShowcaseComponent, VideoSliderSectionComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
