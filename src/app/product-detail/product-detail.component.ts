@@ -227,7 +227,8 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         "/assets/filters/5500-2/5.webp",
         "/assets/filters/5500-2/6.webp",
         "/assets/filters/5500-2/7.webp",
-        "/assets/filters/5500-2/8.webp"
+        "/assets/filters/5500-2/8.webp",
+        "assets/products/28.webp"
       ],
       currentImage: "/assets/filters/5500-2/1.webp",
       rating: 4.7,
@@ -359,10 +360,11 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         "/assets/filters/5500-2/A+/2.webp",
         "/assets/filters/5500-2/A+/3.webp",
         "/assets/filters/5500-2/A+/4.webp",
-        "/assets/filters/5500-2/A+/5.webp"
+        "/assets/filters/5500-2/A+/5.webp",
+        "/assets/filters/5500-2/A+/6.webp"
       ],
       video: "",
-      lastImage:  "/assets/filters/5500-2/A+/6.webp",
+      lastImage:  "assets/winix-product-images/last-image.webp",
       faqs: [
         {
           q: "Is this a genuine filter?",
