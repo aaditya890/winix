@@ -392,74 +392,74 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
           open: false
         }
       ],
-      productReviews: [
-        {
-          id: "5500-r1",
-          author: "Dr Susan",
-          rating: 5,
-          title: "Best Replacement Filter",
-          body: "Glad to find this on Amazon to save big dollars than buying from the Winix direct.",
-          date: "2025-11-19",
-          verified: true,
-          helpful: 22,
-          images: []
-        },
-        {
-          id: "5500-r2",
-          author: "Hannah",
-          rating: 5,
-          title: "Just perfect.",
-          body: "Glad to find this on Amazon to save big dollars instead of buying direct.",
-          date: "2023-12-07",
-          verified: true,
-          helpful: 18,
-          images: []
-        },
-        {
-          id: "5500-r3",
-          author: "Harold",
-          rating: 4,
-          title: "Temporary relief for allergy sufferers",
-          body: "Captures most dust but ultrafine (.003 microns) passes through. Needs cleaning often.",
-          date: "2025-09-25",
-          verified: true,
-          helpful: 9,
-          images: []
-        },
-        {
-          id: "5500-r4",
-          author: "Gustav Dahlén",
-          rating: 5,
-          title: "Perfekt för min Winix 2020EU",
-          body: "Passar perfekt! Filterbytet förbättrade luftkvaliteten direkt.",
-          date: "2025-10-11",
-          verified: true,
-          helpful: 12,
-          images: []
-        },
-        {
-          id: "5500-r5",
-          author: "Liner",
-          rating: 5,
-          title: "Good product",
-          body: "My second time ordering. Works great and lasts long.",
-          date: "2025-07-03",
-          verified: true,
-          helpful: 15,
-          images: []
-        },
-        {
-          id: "5500-r6",
-          author: "Shiela",
-          rating: 5,
-          title: "Genuine",
-          body: "Perfect. Will save for repurchase 🥰",
-          date: "2025-05-27",
-          verified: true,
-          helpful: 14,
-          images: []
-        }
-      ]
+     productReviews: [
+  {
+    id: "5500-r1",
+    author: "Dr. Susan",
+    rating: 5,
+    title: "Best replacement filter",
+    body: "The filter quality is excellent. Fits perfectly and the purifier performance improved immediately.",
+    date: "2025-11-19",
+    verified: true,
+    helpful: 22,
+    images: []
+  },
+  {
+    id: "5500-r2",
+    author: "Hannah",
+    rating: 5,
+    title: "Just perfect",
+    body: "Genuine filter and works exactly as expected. Air quality improved within a few hours.",
+    date: "2023-12-07",
+    verified: true,
+    helpful: 18,
+    images: []
+  },
+  {
+    id: "5500-r3",
+    author: "Harold",
+    rating: 4,
+    title: "Good for regular dust and allergies",
+    body: "Filters most dust and pollen well. Needs cleaning or replacement on time for best results.",
+    date: "2025-09-25",
+    verified: true,
+    helpful: 9,
+    images: []
+  },
+  {
+    id: "5500-r4",
+    author: "Gaurav D.",
+    rating: 5,
+    title: "Perfect fit for my purifier",
+    body: "The replacement was simple and the air quality improvement was noticeable instantly.",
+    date: "2025-10-11",
+    verified: true,
+    helpful: 12,
+    images: []
+  },
+  {
+    id: "5500-r5",
+    author: "Lina",
+    rating: 5,
+    title: "Good product",
+    body: "This is my second purchase. Works well and lasts a good amount of time with regular cleaning.",
+    date: "2025-07-03",
+    verified: true,
+    helpful: 15,
+    images: []
+  },
+  {
+    id: "5500-r6",
+    author: "Sheila",
+    rating: 5,
+    title: "Genuine filter",
+    body: "High quality and fits perfectly. Will definitely purchase again when needed.",
+    date: "2025-05-27",
+    verified: true,
+    helpful: 14,
+    images: []
+  }
+]
     }
 
     ,
