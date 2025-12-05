@@ -212,6 +212,261 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
 
   products: Product[] = [
     {
+      id: 6,
+      productUrl: "https://www.amazon.in/Winix-Genuine-116130-Replacement-5500-2/dp/B01JL1TO8R",
+      slug: "winix-5500-2-replacement-filter",
+      name: "Winix Genuine 116130 Replacement Filter H for 5500-2 Air Purifier",
+      shortName: "Winix 5500-2 Filter",
+      description:
+        "Genuine 116130 Replacement Filter H for Winix 5500-2. Includes True HEPA, washable AOC carbon filter, and long-lasting performance for dust, smoke, odours, and allergens.",
+      images: [
+        "/assets/filters/5500-2/1.webp",
+        "/assets/filters/5500-2/2.webp",
+        "/assets/filters/5500-2/3.webp",
+        "/assets/filters/5500-2/4.webp",
+        "/assets/filters/5500-2/5.webp",
+        "/assets/filters/5500-2/6.webp",
+        "/assets/filters/5500-2/7.webp",
+        "/assets/filters/5500-2/8.webp"
+      ],
+      currentImage: "/assets/filters/5500-2/1.webp",
+      rating: 4.7,
+      category: "Replacement Filter",
+      technology: "True HEPA 99.97% • Washable AOC Carbon • 4-Stage Filtration",
+      keyFeatures: [
+        "True HEPA captures 99.97% of airborne pollutants",
+        "Washable AOC Carbon removes odours & VOCs",
+        "Pre-filter extends HEPA lifespan",
+        "Compatible with Winix 5500-2 air purifier",
+        "Simple installation & long filter life",
+        "Improves dust, smoke & allergy control"
+      ],
+      coverage: "NA (Filter Only)",
+      filterType: "Pre-filter + Washable AOC Carbon + True HEPA",
+      noiseLevel: "NA",
+      isHovered: false,
+      badge: "Genuine Replacement",
+      isAward: true,
+      awardType: "AHAM • UK Allergy • ECARF Certified",
+      price: "₹3,999",
+      mrp: "₹4,999",
+      topReview: "5,445",
+      detailedSpecs: {
+        dimensions: "16.25\"L x 12.5\"W x 1.5\"H",
+        weight: "980 g",
+        powerConsumption: "NA",
+        filterLife: "HEPA: ~12 months • Carbon: 3–6 months",
+        warranty: "1 Year",
+        certifications: ["AHAM", "ECARF", "Allergy UK"]
+      },
+      detailedFeatures: [
+        "True HEPA Filter captures 99.97% of airborne particles as fine as 0.3 microns.",
+        "Washable AOC Carbon Filter reduces odours from pets, kitchens, and smoke.",
+        "Improves airflow & purifier efficiency with regular replacement.",
+        "Easy installation with perfectly fitting frame for Winix 5500-2.",
+        "Essential for maintaining clean, fresh indoor air quality.",
+        "Removes dust, allergens, smoke, odours, VOCs, and pollution.",
+        "Prolongs air purifier motor life by reducing strain.",
+        "Designed for long-lasting, consistent filtration performance.",
+        "High-quality activated carbon absorbs household smells effectively.",
+        "AHAM-certified and allergy-tested for safety & performance."
+      ],
+      technicalDetails: {
+        cadr: "NA (Filter only)",
+        airChangesPerHour: "Depends on purifier",
+        roomSizeRecommended: "NA",
+        fanSpeeds: "NA",
+        controlType: "Manual Installation",
+        indicators: ["Replace Filter Indicator (5500-2 Purifier)"]
+      },
+      productInformation: {
+        featuresAndSpecs: {
+          "Power Source Type": "Manual",
+          "Control Method": "Touch (via purifier)",
+          "Filter Type": "True HEPA + AOC Carbon",
+          "Floor Area": "NA",
+          "Noise Level": "NA",
+          "Particle Retention Size": "0.3 Micrometer",
+          "Controller Type": "Manual Insert"
+        },
+        measurements: {
+          "Item Dimensions D x W x H": "1.5 x 12.5 x 16.25 inches",
+          "Item Weight": "980 g"
+        },
+        userGuide: { "Specification Met": "AHAM Certified" },
+        additionalDetails: { "Color": "White & Black" }
+      },
+      itemDetails: {
+        brandName: "Winix",
+        modelNumber: "116130 (Filter H)",
+        manufacturer: "Winix",
+        customerReviews: {
+          rating: 4.7,
+          totalReviews: 5445,
+          ratingText: "4.7 out of 5 stars"
+        },
+        bestSellersRank: [
+          "#91,822 in Home & Kitchen",
+          "#101 in HEPA Air Purifiers"
+        ],
+        asin: "B01JL1TO8R",
+        importerContactInformation: "Winix / Local Distributor",
+        itemTypeName: "Replacement Filter",
+        includedComponents: "HEPA Filter + AOC Carbon Filter",
+        itemHeight: "16.25 Inches",
+        packerContactInformation: "Winix Packaging Unit",
+        unitCount: "1.0 count"
+      },
+      productTechnicalSpecs: {
+        "Power Source Type": "Manual",
+        "Control Method": "Touch (Purifier)",
+        "Filter Type": "True HEPA + AOC Carbon",
+        "Floor Area": "NA",
+        "Noise Level": "NA",
+        "Particle Retention Size": "0.3 Micrometer",
+        "Controller Type": "Manual",
+        "Item Dimensions D x W x H": "1.5 x 12.5 x 16.25 inches",
+        "Item Weight": "980 g",
+        "Specification Met": "AHAM Certified",
+        "Color": "White & Black",
+        "Brand Name": "Winix",
+        "Model Number": "116130",
+        "Manufacturer": "Winix",
+        "ASIN": "B01JL1TO8R",
+        "Item Type Name": "Replacement Filter",
+        "Item Height": "16.25 Inches",
+        "Unit Count": "1.0 count",
+        "Warranty Description": "1 Year on Product"
+      },
+      additionalInformation: {
+        manufacturer: "Winix",
+        packer: "Sha Maknaji Veerchand, Kamala Nagar, Anantapur. Ph no-08554-356969",
+        importer: "Sha Maknaji Veerchand, Ph no-8885241706",
+        itemWeight: "980 g",
+        netQuantity: "1 Count",
+        includedComponents: "True HEPA + AOC Carbon Filter",
+        genericName: "Replacement Air Purifier Filter",
+        bestSellersRank: [
+          "#91,822 in Home & Kitchen",
+          "#101 in HEPA Air Purifiers"
+        ]
+      },
+      whatsInTheBox: {
+        items: ["True HEPA Filter H", "AOC Carbon Filter", "User Insert Guide"]
+      },
+      highlightImages: [
+         "/assets/filters/5500-2/A+/1.webp",
+        "/assets/filters/5500-2/A+/2.webp",
+        "/assets/filters/5500-2/A+/3.webp",
+        "/assets/filters/5500-2/A+/4.webp",
+        "/assets/filters/5500-2/A+/5.webp"
+      ],
+      video: "",
+      lastImage:  "/assets/filters/5500-2/A+/6.webp",
+      faqs: [
+        {
+          q: "Is this a genuine filter?",
+          a: "Yes, it is an authentic Winix Genuine 116130 Filter H compatible with 5500-2.",
+          open: false
+        },
+        {
+          q: "Is the carbon filter washable?",
+          a: "Yes, the AOC Carbon filter is fully washable.",
+          open: false
+        },
+        {
+          q: "How long do the filters last?",
+          a: "HEPA lasts ~12 months; Carbon lasts 3–6 months depending on usage.",
+          open: false
+        },
+        {
+          q: "Does this help with odours?",
+          a: "Yes, the washable carbon filter effectively reduces household smells.",
+          open: false
+        },
+        {
+          q: "Is it easy to install?",
+          a: "Yes, simply open the front panel and replace the old filter.",
+          open: false
+        }
+      ],
+      productReviews: [
+        {
+          id: "5500-r1",
+          author: "Dr Susan",
+          rating: 5,
+          title: "Best Replacement Filter",
+          body: "Glad to find this on Amazon to save big dollars than buying from the Winix direct.",
+          date: "2025-11-19",
+          verified: true,
+          helpful: 22,
+          images: []
+        },
+        {
+          id: "5500-r2",
+          author: "Hannah",
+          rating: 5,
+          title: "Just perfect.",
+          body: "Glad to find this on Amazon to save big dollars instead of buying direct.",
+          date: "2023-12-07",
+          verified: true,
+          helpful: 18,
+          images: []
+        },
+        {
+          id: "5500-r3",
+          author: "Harold",
+          rating: 4,
+          title: "Temporary relief for allergy sufferers",
+          body: "Captures most dust but ultrafine (.003 microns) passes through. Needs cleaning often.",
+          date: "2025-09-25",
+          verified: true,
+          helpful: 9,
+          images: []
+        },
+        {
+          id: "5500-r4",
+          author: "Gustav Dahlén",
+          rating: 5,
+          title: "Perfekt för min Winix 2020EU",
+          body: "Passar perfekt! Filterbytet förbättrade luftkvaliteten direkt.",
+          date: "2025-10-11",
+          verified: true,
+          helpful: 12,
+          images: []
+        },
+        {
+          id: "5500-r5",
+          author: "Liner",
+          rating: 5,
+          title: "Good product",
+          body: "My second time ordering. Works great and lasts long.",
+          date: "2025-07-03",
+          verified: true,
+          helpful: 15,
+          images: []
+        },
+        {
+          id: "5500-r6",
+          author: "Shiela",
+          rating: 5,
+          title: "Genuine",
+          body: "Perfect. Will save for repurchase 🥰",
+          date: "2025-05-27",
+          verified: true,
+          helpful: 14,
+          images: []
+        }
+      ]
+    }
+
+    ,
+    // /------------------------------------------------------------------
+    ////////////////////////////
+    /////////////////////////////////
+    //////////////////////////////////////
+    ////////////////////////////////////////////////////////
+    {
       id: 1,
       productUrl: "https://www.amazon.in/Winix-Small-Tower-A231-Purifier/dp/B08HW5SBQ6/ref=sr_1_1_sspa?crid=3E4UW6KQS1IHL&dib=eyJ2IjoiMSJ9.nyrDct4QLbf6J4nB4JwHKdswXh_KKQKMAuEv-AlXIBI.39zb7Frm_88rf20XFP4m78D_BdJfBpTFCAvaG-7-It4&dib_tag=se&keywords=winix%2Ba231&qid=1758281141&sprefix=winix%2Ba231%2Caps%2C246&sr=8-1-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1 ",
       slug: "winix-a231-air-purifier",
