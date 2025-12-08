@@ -32,16 +32,16 @@ export class WinixFilterCardComponent {
   hovered: Record<string, boolean> = {};
   imageLoading: boolean[] = [];
 
-  products: Product[] = [
+products: Product[] = [
   // 1️⃣ WINIX 5500-2 FILTER
   {
     id: "winix-5500-2-filter",
     title: "WINIX 5500-2 FILTER",
-    tagline: "WINIX GENUINE 116130 REPLACEMENT FILTER H FOR 5500-2 AIR PURIFIER",
+    tagline: "Genuine 116130 Replacement Filter H for 5500-2",
     description:
-      "WINIX 5500-2 FILTER | WINIX GENUINE 116130 REPLACEMENT FILTER H FOR 5500-2 AIR PURIFIER",
+      "True HEPA + Washable AOC Carbon filter for Winix 5500-2 air purifier.",
     rating: 4.8,
-    ratingCount: "5,440",
+    ratingCount: "5,445",
     slug: "winix-5500-2-replacement-filter",
     imageSrc: "/assets/filters/5500-2/1.webp",
     hoverImageSrc: "/assets/filters/5500-2/2.webp",
@@ -51,18 +51,54 @@ export class WinixFilterCardComponent {
     colors: ["#FFFFFF", "#000000"]
   },
 
+  // 5️⃣ WINIX T800 FILTER
+  {
+    id: "winix-t800-filter",
+    title: "WINIX T800 FILTER",
+    tagline: "Genuine Filter O for Winix T800 Air Purifier",
+    description:
+      "True HEPA 99.97% + Activated Carbon filter for large room purification.",
+    rating: 4.8,
+    ratingCount: "20",
+    slug: "winix-t800-replacement-filter",
+    imageSrc: "/assets/filters/T800/1.webp",
+    hoverImageSrc: "/assets/filters/T800/2.jpg",
+    badges: ["PREMIUM"],
+    price: 3499,
+    mrp: 4990,
+    colors: ["#DDDDDD", "#000000"]
+  },
+
+  // 4️⃣ WINIX 5300-2 FILTER
+  {
+    id: "winix-5300-2-filter",
+    title: "WINIX 5300-2 FILTER",
+    tagline: "Genuine 115115 Replacement Filter A for 5300-2",
+    description:
+      "True HEPA + Carbon replacement filter for 5300-2, C535 & P300 models.",
+    rating: 4.8,
+    ratingCount: "8,434",
+    slug: "winix-5300-2-replacement-filter",
+    imageSrc: "/assets/filters/5300-2/1.webp",
+    hoverImageSrc: "/assets/filters/5300-2/2.webp",
+    badges: ["GENUINE PART"],
+    price: 3999,
+    mrp: 34990,
+    colors: ["#FFFFFF", "#000000"]
+  },
+
   // 2️⃣ WINIX T500 FILTER
   {
     id: "winix-t500-filter",
     title: "WINIX T500 FILTER",
-    tagline: "WINIX GENUINE 1712-0110-00 REPLACEMENT FILTER O FOR WINIX T500",
+    tagline: "Genuine 1712-0110-00 Replacement Filter O for T500",
     description:
-      "WINIX T500 FILTER | WINIX GENUINE 1712-0110-00 REPLACEMENT FILTER O FOR SMALL-TO-MEDIUM ROOMS",
-    rating: 4.7,
-    ratingCount: "12K",
-    slug: "winix-t500-replacement-filter-o",
-    imageSrc: "/assets/filters/A231/2.jpg",
-    hoverImageSrc: "/assets/filters/T500/filter-o-2.webp",
+      "True HEPA + Carbon filter for small to medium room air purification.",
+    rating: 4.5,
+    ratingCount: "251",
+    slug: "winix-t500-replacement-filter",
+    imageSrc: "/assets/filters/A231/2.webp",
+    hoverImageSrc: "/assets/filters/A231/1.webp",
     badges: ["POPULAR"],
     price: 2999,
     mrp: 3990,
@@ -73,54 +109,19 @@ export class WinixFilterCardComponent {
   {
     id: "FILTER-O-A231",
     title: "WINIX A231 FILTER",
-    tagline: "WINIX GENUINE 1712-0110-00 REPLACEMENT FILTER O FOR A231",
+    tagline: "Genuine 1712-0110-00 Replacement Filter O for A231",
     description:
-      "WINIX A231 FILTER | WINIX GENUINE 1712-0110-00 REPLACEMENT FILTER O WITH TRUE HEPA & PLASMAWAVE",
-    rating: 4.8,
+      "True HEPA + Activated Carbon filter for compact room air purification.",
+    rating: 4.5,
     ratingCount: "251",
-    slug: "winix-a231-replacement-filter-o",
-    imageSrc: "/assets/filters/A231/1.jpg",
-    hoverImageSrc: "/assets/filters/A231/2.jpg",
+    slug: "winix-a231-replacement-filter",
+    imageSrc: "/assets/filters/A231/1.webp",
+    hoverImageSrc: "/assets/filters/A231/2.webp",
     badges: ["ALLERGY SAFE"],
     price: 2999,
     mrp: 3990,
     colors: ["#EEEEEE", "#000000"]
-  },
-  // 4️⃣ WINIX 5300-2 FILTER
-{
-  id: "winix-5300-2-filter",
-  title: "WINIX 5300-2 FILTER",
-  tagline: "WINIX GENUINE 115115 REPLACEMENT FILTER A FOR 5300-2 & COMPATIBLE MODELS",
-  description:
-    "WINIX 5300-2 FILTER | WINIX GENUINE 115115 TRUE HEPA + CARBON REPLACEMENT FILTER A FOR 5300-2, C535 & P300 MODELS",
-  rating: 4.7,
-  ratingCount: "8,180",
-  slug: "winix-5300-2-replacement-filter-a",
-  imageSrc: "/assets/filters/5300-2/1.jpg",
-  hoverImageSrc: "/assets/filters/5300-2/2.jpg",
-  badges: ["GENUINE PART"],
-  price: 3999,
-  mrp: 34990,
-  colors: ["#FFFFFF", "#000000"]
-},
-
-// 5️⃣ WINIX T800 FILTER
-{
-  id: "winix-t800-filter",
-  title: "WINIX T800 FILTER",
-  tagline: "WINIX GENUINE FILTER O FOR WINIX T800 AIR PURIFIER",
-  description:
-    "WINIX T800 FILTER | GENUINE FILTER O WITH TRUE HEPA 99.97% & ACTIVATED CARBON FOR LARGE-ROOM AIR PURIFICATION",
-  rating: 4.6,
-  ratingCount: "165",
-  slug: "winix-t800-replacement-filter-o",
-  imageSrc: "/assets/filters/T800/1.jpg",
-  hoverImageSrc: "/assets/filters/T800/2.jpg",
-  badges: ["PREMIUM"],
-  price: 3499,
-  mrp: 4990,
-  colors: ["#DDDDDD", "#000000"]
-}
+  }
 ];
 
 
@@ -130,7 +131,6 @@ export class WinixFilterCardComponent {
   private dragThreshold = 2;
 
   ngAfterViewInit() { }
-
   /** safe element access */
   private el(): HTMLElement | null {
     return this.trackRef?.nativeElement ?? null;

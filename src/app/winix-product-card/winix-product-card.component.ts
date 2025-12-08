@@ -99,7 +99,7 @@ export class WinixProductCardComponent implements AfterViewInit {
       tagline: "WINIX A231 Compact Air",
       description:
         "Allergy-certified compact purifier, ideal for study, kids’ rooms and small spaces.",
-      rating: 4.6,
+      rating: 4.5,
       ratingCount: '36K',
       slug: "winix-a231-air-purifier",
       imageSrc: "assets/products/card/P-A231.webp",

@@ -5,6 +5,7 @@ import { filter, first } from "rxjs"
 
 interface Product {
   id: number
+  isFilter: boolean
   productUrl: string
   name: string
   shortName: string
@@ -213,6 +214,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
   products: Product[] = [
     {
       id: 6,
+      isFilter: true,
       productUrl: "https://www.amazon.in/Winix-Genuine-116130-Replacement-5500-2/dp/B01JL1TO8R",
       slug: "winix-5500-2-replacement-filter",
       name: "Winix Genuine 116130 Replacement Filter H for 5500-2 Air Purifier",
@@ -223,6 +225,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         "/assets/filters/5500-2/1.webp",
         "/assets/filters/5500-2/2.webp",
         "/assets/filters/5500-2/3.webp",
+        "assets/products/5500-2/5500-2.webp",
         "/assets/filters/5500-2/4.webp",
         "/assets/filters/5500-2/5.webp",
         "/assets/filters/5500-2/6.webp",
@@ -356,7 +359,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         items: ["True HEPA Filter H", "AOC Carbon Filter", "User Insert Guide"]
       },
       highlightImages: [
-         "/assets/filters/5500-2/A+/1.webp",
+        "/assets/filters/5500-2/A+/1.webp",
         "/assets/filters/5500-2/A+/2.webp",
         "/assets/filters/5500-2/A+/3.webp",
         "/assets/filters/5500-2/A+/4.webp",
@@ -364,7 +367,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         "/assets/filters/5500-2/A+/6.webp"
       ],
       video: "",
-      lastImage:  "assets/winix-product-images/last-image.webp",
+      lastImage: "assets/winix-product-images/last-image.webp",
       faqs: [
         {
           q: "Is this a genuine filter?",
@@ -392,77 +395,1107 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
           open: false
         }
       ],
-     productReviews: [
-  {
-    id: "5500-r1",
-    author: "Dr. Susan",
-    rating: 5,
-    title: "Best replacement filter",
-    body: "The filter quality is excellent. Fits perfectly and the purifier performance improved immediately.",
-    date: "2025-11-19",
-    verified: true,
-    helpful: 22,
-    images: []
-  },
-  {
-    id: "5500-r2",
-    author: "Hannah",
-    rating: 5,
-    title: "Just perfect",
-    body: "Genuine filter and works exactly as expected. Air quality improved within a few hours.",
-    date: "2023-12-07",
-    verified: true,
-    helpful: 18,
-    images: []
-  },
-  {
-    id: "5500-r3",
-    author: "Harold",
-    rating: 4,
-    title: "Good for regular dust and allergies",
-    body: "Filters most dust and pollen well. Needs cleaning or replacement on time for best results.",
-    date: "2025-09-25",
-    verified: true,
-    helpful: 9,
-    images: []
-  },
-  {
-    id: "5500-r4",
-    author: "Gaurav D.",
-    rating: 5,
-    title: "Perfect fit for my purifier",
-    body: "The replacement was simple and the air quality improvement was noticeable instantly.",
-    date: "2025-10-11",
-    verified: true,
-    helpful: 12,
-    images: []
-  },
-  {
-    id: "5500-r5",
-    author: "Lina",
-    rating: 5,
-    title: "Good product",
-    body: "This is my second purchase. Works well and lasts a good amount of time with regular cleaning.",
-    date: "2025-07-03",
-    verified: true,
-    helpful: 15,
-    images: []
-  },
-  {
-    id: "5500-r6",
-    author: "Sheila",
-    rating: 5,
-    title: "Genuine filter",
-    body: "High quality and fits perfectly. Will definitely purchase again when needed.",
-    date: "2025-05-27",
-    verified: true,
-    helpful: 14,
-    images: []
-  }
-]
-    }
+      productReviews: [
+        {
+          id: "5500-r1",
+          author: "Dr. Susan",
+          rating: 5,
+          title: "Best replacement filter",
+          body: "The filter quality is excellent. Fits perfectly and the purifier performance improved immediately.",
+          date: "2025-11-19",
+          verified: true,
+          helpful: 22,
+          images: []
+        },
+        {
+          id: "5500-r2",
+          author: "Hannah",
+          rating: 5,
+          title: "Just perfect",
+          body: "Genuine filter and works exactly as expected. Air quality improved within a few hours.",
+          date: "2023-12-07",
+          verified: true,
+          helpful: 18,
+          images: []
+        },
+        {
+          id: "5500-r3",
+          author: "Harold",
+          rating: 4,
+          title: "Good for regular dust and allergies",
+          body: "Filters most dust and pollen well. Needs cleaning or replacement on time for best results.",
+          date: "2025-09-25",
+          verified: true,
+          helpful: 9,
+          images: []
+        },
+        {
+          id: "5500-r4",
+          author: "Gaurav D.",
+          rating: 5,
+          title: "Perfect fit for my purifier",
+          body: "The replacement was simple and the air quality improvement was noticeable instantly.",
+          date: "2025-10-11",
+          verified: true,
+          helpful: 12,
+          images: []
+        },
+        {
+          id: "5500-r5",
+          author: "Lina",
+          rating: 5,
+          title: "Good product",
+          body: "This is my second purchase. Works well and lasts a good amount of time with regular cleaning.",
+          date: "2025-07-03",
+          verified: true,
+          helpful: 15,
+          images: []
+        },
+        {
+          id: "5500-r6",
+          author: "Sheila",
+          rating: 5,
+          title: "Genuine filter",
+          body: "High quality and fits perfectly. Will definitely purchase again when needed.",
+          date: "2025-05-27",
+          verified: true,
+          helpful: 14,
+          images: []
+        }
+      ]
+    },
+    {
+      id: 7,
+      isFilter: true,
+      productUrl: "https://www.amazon.in/Winix-Genuine-Replacement-Filter-T810/dp/B0CS246BPH",
+      slug: "winix-t800-replacement-filter",
+      name: "Winix Genuine Replacement Filter R for T800 Air Purifier",
+      shortName: "Winix T800 Filter",
+      description:
+        "Genuine Winix Filter R for the T800 air purifier. Includes True HEPA, Fine-Mesh Pre-Filter and Activated Carbon Filter for powerful filtration of dust, smoke, odours, and allergens.",
 
-    ,
+      images: [
+        "/assets/filters/T800/1.webp",
+        "/assets/filters/T800/2.webp",
+        "/assets/filters/T800/3.webp",
+        "assets/products/T800/T800.webp",
+        "/assets/filters/T800/4.webp",
+        "/assets/filters/T800/5.webp",
+        "/assets/filters/T800/6.webp",
+        "assets/products/28.webp"
+      ],
+
+      currentImage: "/assets/filters/T800/1.webp",
+
+      rating: 4.9,
+      category: "Replacement Filter",
+      technology: "True HEPA 99.99%* • Activated Carbon • Fine Mesh Pre-Filter",
+
+      keyFeatures: [
+        "Compatible with Winix T800 air purifier",
+        "True HEPA captures 99.99% allergens as small as 0.01 microns",
+        "Activated carbon reduces odours & VOCs",
+        "Fine mesh pre-filter traps larger dust particles",
+        "Designed for long filter life and high airflow",
+        "AHAM certified filtration performance"
+      ],
+
+      coverage: "NA (Filter Only)",
+      filterType: "Pre-Filter + Activated Carbon + True HEPA",
+      noiseLevel: "NA",
+
+      isHovered: false,
+      badge: "Genuine Replacement",
+      isAward: true,
+      awardType: "AHAM • Allergy UK • ECARF Certified",
+
+      price: "₹4,499",
+      mrp: "₹6,999",
+
+      topReview: "20",
+
+      detailedSpecs: {
+        dimensions: "22.9D x 22.9W x 26.7H cm",
+        weight: "454 g",
+        powerConsumption: "NA",
+        filterLife: "Replace every 12 months",
+        warranty: "1 Year",
+        certifications: ["AHAM Certified", "Allergy UK", "ECARF"]
+      },
+
+      detailedFeatures: [
+        "Compatible with Winix T800 air cleaner",
+        "Fine Mesh Pre-Filter captures larger airborne particles and protects the HEPA filter",
+        "True HEPA captures 99.99% airborne allergens like pollen, dust, smoke and pet dander",
+        "Activated Carbon Filter removes VOCs and household odours from kitchens, pets and smoke",
+        "All-in-one canister filter ensures easy replacement and consistent airflow",
+        "Designed to maintain high air quality and purifier performance",
+        "Ideal for homes with pets, dust allergies or pollution exposure",
+        "Optimised for long filter life when maintained properly"
+      ],
+
+      technicalDetails: {
+        cadr: "NA (Filter only)",
+        airChangesPerHour: "Depends on purifier",
+        roomSizeRecommended: "NA",
+        fanSpeeds: "NA",
+        controlType: "Manual Installation",
+        indicators: ["Filter Replacement Light (T800 Purifier)"]
+      },
+
+      productInformation: {
+        featuresAndSpecs: {
+          "Power Source Type": "AC (Purifier-powered)",
+          "Control Method": "Touch (via purifier)",
+          "Filter Type": "True HEPA + Carbon + Pre-Filter",
+          "Floor Area": "410 Sq Ft",
+          "Noise Level": "NA",
+          "Particle Retention Size": "0.01 Micrometer",
+          "Controller Type": "Button Control"
+        },
+        measurements: {
+          "Item Dimensions D x W x H": "22.9 x 22.9 x 26.7 cm",
+          "Item Weight": "454 g"
+        },
+        userGuide: {
+          "Specification Met": "AHAM Certified"
+        },
+        additionalDetails: {
+          "Color": "Black"
+        }
+      },
+
+      itemDetails: {
+        brandName: "Winix",
+        modelNumber: "1712-0118-00",
+        manufacturer: "Winix",
+        customerReviews: {
+          rating: 4.9,
+          totalReviews: 20,
+          ratingText: "4.9 out of 5 stars"
+        },
+        bestSellersRank: [
+          "#304,655 in Home & Kitchen",
+          "#184 in Air Purifier Filters"
+        ],
+        asin: "B0CS246BPH",
+        importerContactInformation: "Sha Maknaji Veerchand, Ph no-8885241706",
+        itemTypeName: "Replacement Filter",
+        includedComponents: "True HEPA Filter, Pre-Filter, Activated Carbon",
+        itemHeight: "10.5 Inches",
+        packerContactInformation:
+          "Sha Maknaji Veerchand, Kamala Nagar, Anantapur. Ph no-08554-356969",
+        unitCount: "1.0 count"
+      },
+
+      productTechnicalSpecs: {
+        "Power Source Type": "AC (Purifier)",
+        "Control Method": "Touch (Purifier)",
+        "Filter Type": "True HEPA + Carbon + Pre-Filter",
+        "Floor Area": "410 Sq Ft",
+        "Noise Level": "NA",
+        "Particle Retention Size": "0.01 Micrometer",
+        "Controller Type": "Button Control",
+        "Item Dimensions D x W x H": "22.9 x 22.9 x 26.7 cm",
+        "Item Weight": "454 g",
+        "Specification Met": "AHAM Certified",
+        "Color": "Black",
+        "Brand Name": "Winix",
+        "Model Number": "1712-0118-00",
+        "Manufacturer": "Winix",
+        "ASIN": "B0CS246BPH",
+        "Item Type Name": "Replacement Filter",
+        "Item Height": "10.5 Inches",
+        "Unit Count": "1.0 count",
+        "Warranty Description": "1 Year on Product"
+      },
+
+      additionalInformation: {
+        manufacturer: "Winix",
+        packer: "Sha Maknaji Veerchand, Kamala Nagar, Anantapur. Ph no-08554-356969",
+        importer: "Sha Maknaji Veerchand, Ph no-8885241706",
+        itemWeight: "454 g",
+        netQuantity: "1 Count",
+        includedComponents: "HEPA Filter, Pre-Filter, Carbon Filter",
+        genericName: "Air Purifier Replacement Filter",
+        bestSellersRank: [
+          "#304,655 in Home & Kitchen",
+          "#184 in Air Purifier Filters"
+        ]
+      },
+
+      whatsInTheBox: {
+        items: ["HEPA Filter", "Pre-Filter", "Carbon Filter"]
+      },
+
+      highlightImages: [
+        "/assets/filters/T800/A+/1.webp",
+        "/assets/filters/T800/A+/2.webp",
+        "/assets/filters/T800/A+/3.webp",
+        "/assets/filters/T800/A+/4.webp",
+        "/assets/filters/T800/A+/5.webp",
+        "/assets/filters/T800/A+/6.webp",
+      ],
+
+      video: "",
+      lastImage: "assets/winix-product-images/last-image.webp",
+
+      faqs: [
+        {
+          q: "Is this filter compatible with T800?",
+          a: "Yes, this is the original Winix Filter R designed for the T800 air purifier.",
+          open: false
+        },
+        {
+          q: "How long does the filter last?",
+          a: "Typically up to 12 months depending on usage and air quality.",
+          open: false
+        },
+        {
+          q: "Does this remove cooking and pet odours?",
+          a: "Yes, the activated carbon filter removes common household smells.",
+          open: false
+        },
+        {
+          q: "Is the installation easy?",
+          a: "Yes, simply open the purifier, remove the old filter and insert the new one.",
+          open: false
+        },
+        {
+          q: "Is this a genuine Winix part?",
+          a: "Yes, this is the authentic manufacturer replacement filter.",
+          open: false
+        }
+      ],
+
+      productReviews: [
+        {
+          id: "t800-r1",
+          author: "Mark Lakatos",
+          rating: 5,
+          title: "Great",
+          body: "Works exactly as expected. Genuine filter and improves performance immediately.",
+          date: "2025-11-04",
+          verified: true,
+          helpful: 4,
+          images: []
+        },
+        {
+          id: "t800-r2",
+          author: "Delane Robertson",
+          rating: 5,
+          title: "Keeps the Winix working",
+          body: "Perfect replacement. The purifier works really well after installing the new filter.",
+          date: "2025-11-01",
+          verified: true,
+          helpful: 6,
+          images: []
+        },
+        {
+          id: "t800-r3",
+          author: "Patrick",
+          rating: 5,
+          title: "Quiet",
+          body: "Seems to work like the original filter. Satisfied so far.",
+          date: "2025-04-15",
+          verified: true,
+          helpful: 3,
+          images: []
+        },
+        {
+          id: "t800-r4",
+          author: "Charles Johnson",
+          rating: 4,
+          title: "Good product as advertised",
+          body: "Really a great product. I will probably order again soon.",
+          date: "2025-11-25",
+          verified: true,
+          helpful: 5,
+          images: []
+        }
+      ]
+    },
+    {
+      id: 8,
+      isFilter: true,
+      productUrl: "https://www.amazon.in/Genuine-Winix-115115-Replacement-5300-2/dp/B002QUZJAS",
+      slug: "winix-5300-2-replacement-filter",
+      name: "Genuine Winix 115115 Replacement Filter A for 5300-2 Compatible Models",
+      shortName: "Winix 5300-2 Filter",
+      description:
+        "Original Winix 115115 Replacement Filter A compatible with Winix 5300-2, C535, P300 and other models. Includes True HEPA filter plus four Activated Carbon Pre-Filters for powerful odour, dust, VOC, and allergen removal.",
+
+      images: [
+        "/assets/filters/5300-2/1.webp",
+        "/assets/filters/5300-2/2.webp",
+        "/assets/filters/5300-2/3.webp",
+        "assets/products/5300-2/5300-2.webp",
+        "assets/products/28.webp"
+      ],
+
+      currentImage: "/assets/filters/5300-2/1.webp",
+
+      rating: 4.7,
+      category: "Replacement Filter",
+      technology: "True HEPA 99.99% • Activated Carbon Pre-Filters • 4-Stage Filtration",
+
+      keyFeatures: [
+        "True HEPA captures 99.99% of airborne allergens",
+        "4 Activated Carbon Pre-Filters reduce odour and VOCs",
+        "Compatible with Winix 5300-2, C535, P300 models",
+        "Captures dust, smoke, pollen, and pet dander",
+        "Long filter life for year-round clean air",
+        "Simple installation with perfect OEM fit"
+      ],
+
+      coverage: "NA (Filter Only)",
+      filterType: "True HEPA + Activated Carbon",
+      noiseLevel: "NA",
+      isHovered: false,
+      badge: "Genuine Replacement",
+      isAward: true,
+      awardType: "AHAM • ECARF Certified",
+
+      price: "₹2,499",
+      mrp: "₹3,299",
+
+      topReview: "8,434",
+
+      detailedSpecs: {
+        dimensions: "14.09\"D × 2.2\"W × 16.61\"H",
+        weight: "499 g",
+        powerConsumption: "NA",
+        filterLife: "HEPA: 12 months • Carbon: 3 months",
+        warranty: "No Warranty (Consumable)",
+        certifications: ["AHAM Certified", "ECARF Tested"]
+      },
+
+      detailedFeatures: [
+        "True HEPA Filter captures 99.99% of fine particles as small as 0.01 microns.",
+        "Four Activated Carbon Pre-Filters reduce odours from pets, kitchens, smoking, and VOCs.",
+        "Compatible with Winix models 5300-2, C535, 6300-2, P300, and more.",
+        "Improves airflow and restores peak performance to the purifier.",
+        "Perfect OEM fit ensures easy, quick installation.",
+        "Designed to remove dust, allergens, smoke, pet hair, and household odours.",
+        "Extends purifier life by reducing motor strain.",
+        "High-quality carbon filtration helps maintain fresh indoor air.",
+        "Recommended HEPA replacement every 12 months.",
+        "Comes with a filter change indicator (purifier-based)."
+      ],
+
+      technicalDetails: {
+        cadr: "NA (Filter only)",
+        airChangesPerHour: "Depends on purifier model",
+        roomSizeRecommended: "NA",
+        fanSpeeds: "NA",
+        controlType: "Manual Installation",
+        indicators: ["Replace Filter Indicator (in purifier)"]
+      },
+
+      productInformation: {
+        featuresAndSpecs: {
+          "Power Source Type": "AC (Purifier)",
+          "Control Method": "Touch (Purifier Panel)",
+          "Filter Type": "True HEPA + Activated Carbon",
+          "Floor Area": "99 Square Meters",
+          "Noise Level": "NA",
+          "Particle Retention Size": "0.01 Micron",
+          "Controller Type": "Button Control (Purifier)"
+        },
+        measurements: {
+          "Item Dimensions D x W x H": "14.09 × 2.2 × 16.61 inches",
+          "Item Weight": "454 g"
+        },
+        userGuide: { "Specification Met": "AHAM Certified" },
+        additionalDetails: { "Color": "White/Black" }
+      },
+
+      itemDetails: {
+        brandName: "Winix",
+        modelNumber: "115115",
+        manufacturer: "Winix",
+        customerReviews: {
+          rating: 4.7,
+          totalReviews: 8434,
+          ratingText: "4.7 out of 5 stars"
+        },
+        bestSellersRank: [
+          "#7,814 in Home & Kitchen",
+          "#26 in Air Purifier Filters"
+        ],
+        asin: "B002QUZJAS",
+        itemTypeName: "HEPA Air Filter",
+        includedComponents: "True HEPA Filter + 4 Carbon Pre-Filters",
+        itemHeight: "16.61 Inches",
+        unitCount: "1.0 count"
+      },
+
+      productTechnicalSpecs: {
+        "Power Source Type": "AC",
+        "Control Method": "Touch",
+        "Filter Type": "True HEPA + Carbon",
+        "Floor Area": "99 Square Meters",
+        "Noise Level": "NA",
+        "Particle Retention Size": "0.01 Micron",
+        "Controller Type": "Button Control",
+        "Item Dimensions D x W x H": "14.09 × 2.2 × 16.61 inches",
+        "Item Weight": "454 g",
+        "Specification Met": "AHAM Certified",
+        "Color": "White/Black",
+        "Brand Name": "Winix",
+        "Model Number": "115115",
+        "Manufacturer": "Winix",
+        "ASIN": "B002QUZJAS",
+        "Item Type Name": "HEPA Filter",
+        "Item Height": "16.61 Inches",
+        "Unit Count": "1.0 count",
+        "Warranty Description": "No Warranty"
+      },
+
+      additionalInformation: {
+        manufacturer: "Winix",
+        packer: "Sha Maknaji Veerchand, Kamala Nagar, Anantapur. Ph no-08554-356969",
+        importer: "Sha Maknaji Veerchand, Ph no-8885241706",
+        itemWeight: "454 g",
+        netQuantity: "1 Count",
+        includedComponents: "True HEPA Filter + 4 Carbon Pre-Filters",
+        genericName: "Replacement Air Purifier Filter",
+        bestSellersRank: [
+          "#7,814 in Home & Kitchen",
+          "#26 in Air Purifier Filters"
+        ]
+      },
+
+      whatsInTheBox: {
+        items: [
+          "True HEPA Filter",
+          "4 Activated Carbon Pre-Filters",
+          "User Insert Guide"
+        ]
+      },
+
+      highlightImages: [
+        "/assets/filters/5500-2/A+/1.webp",
+        "/assets/filters/5500-2/A+/2.webp",
+        "/assets/filters/5500-2/A+/3.webp",
+        "/assets/filters/5500-2/A+/4.webp",
+        "/assets/filters/5500-2/A+/5.webp",
+        "/assets/filters/5500-2/A+/6.webp"
+      ],
+
+      video: "",
+      lastImage: "assets/winix-product-images/last-image.webp",
+
+      faqs: [
+        {
+          q: "Is this a genuine Winix filter?",
+          a: "Yes, this is the original Winix 115115 Replacement Filter A.",
+          open: false
+        },
+        {
+          q: "How long does the HEPA filter last?",
+          a: "Around 12 months depending on air quality and usage.",
+          open: false
+        },
+        {
+          q: "Are the carbon pre-filters included?",
+          a: "Yes, four Activated Carbon Pre-Filters are included.",
+          open: false
+        },
+        {
+          q: "Does this fit the Winix 5300-2?",
+          a: "Yes, it is fully compatible with Winix 5300-2, C535, and P300.",
+          open: false
+        },
+        {
+          q: "Does it help with pet odour?",
+          a: "Yes, the carbon filters effectively reduce pet odour and household smells.",
+          open: false
+        }
+      ],
+
+      productReviews: [
+        {
+          id: "5300-r1",
+          author: "Rohan M.",
+          rating: 5,
+          title: "Original and perfect fit",
+          body: "Fits my 5300-2 perfectly. Air feels noticeably cleaner within a day. Genuine Winix quality.",
+          date: "2025-07-19",
+          verified: true,
+          helpful: 41,
+          images: []
+        },
+        {
+          id: "5300-r2",
+          author: "Ayesha Khan",
+          rating: 5,
+          title: "Excellent filter set",
+          body: "Carbon pre-filters work really well for kitchen odours. Installation was super simple.",
+          date: "2025-06-11",
+          verified: true,
+          helpful: 28,
+          images: []
+        },
+        {
+          id: "5300-r3",
+          author: "Sandeep",
+          rating: 4,
+          title: "Good but price could be lower",
+          body: "Working great so far. Removes dust effectively. Slightly expensive but worth it.",
+          date: "2025-05-02",
+          verified: true,
+          helpful: 16,
+          images: []
+        },
+        {
+          id: "5300-r4",
+          author: "Aris (Germany)",
+          rating: 5,
+          title: "Meet the expectations. Original winix filter",
+          body: "The filter is the original Winix filter and fits perfectly. Very satisfied.",
+          date: "2025-07-12",
+          verified: true,
+          helpful: 22,
+          images: []
+        }
+      ]
+    },
+    {
+      id: 9,
+      isFilter: true,
+      productUrl: "https://www.amazon.com/dp/B08NSQ91LM",
+      slug: "winix-t500-replacement-filter",
+      name: "Winix Genuine 1712-0110-00 Replacement Filter for T500 Air Purifier",
+      shortName: "Winix T500 Filter",
+      description:
+        "Genuine Replacement Filter for Winix T500 Air Purifier. Includes True HEPA, Activated Carbon, and Pre-filter for long-lasting protection against dust, smoke, odours, and allergens.",
+      images: [
+        "/assets/filters/A231/2.webp",
+        "/assets/filters/A231/1.webp",
+        "/assets/filters/A231/3.webp",
+        "assets/products/T500/T500.webp",
+        "/assets/filters/A231/4.webp",
+        "/assets/filters/A231/5.webp",
+        "/assets/filters/A231/6.webp",
+        "assets/products/28.webp"
+      ],
+      currentImage: "/assets/filters/A231/2.webp",
+      rating: 4.8,
+      category: "Replacement Filter",
+      technology: "True HEPA 99.97% • Activated Carbon • 3-Stage Filtration",
+      keyFeatures: [
+        "True HEPA captures 99.97% airborne pollutants",
+        "Activated Carbon removes odours & VOCs",
+        "Fine pre-filter traps dust & hair",
+        "Compatible only with Winix T500",
+        "Long filter life up to 12 months",
+        "Improves allergy & pollution control"
+      ],
+      coverage: "NA (Filter Only)",
+      filterType: "Pre-filter + Carbon + True HEPA",
+      noiseLevel: "NA",
+      isHovered: false,
+      badge: "Genuine Replacement",
+      isAward: true,
+      awardType: "AHAM • Allergy Safe",
+      price: "₹2,290",
+      mrp: "₹2,990",
+      topReview: "251",
+      detailedSpecs: {
+        dimensions: "8.3 x 8.3 x 2.5 inches",
+        weight: "385 g",
+        powerConsumption: "NA",
+        filterLife: "HEPA: ~12 months • Carbon: 3–6 months",
+        warranty: "NA",
+        certifications: ["AHAM Certified"]
+      },
+      detailedFeatures: [
+        "True HEPA captures 99.97% particles up to 0.3 microns",
+        "Carbon filter absorbs smoke, pets & kitchen odours",
+        "Improves purifier efficiency & airflow",
+        "Perfect OEM fit for T500 model",
+        "Protects motor life & ensures peak performance",
+        "Reduces PM2.5, pollen & indoor pollution"
+      ],
+      technicalDetails: {
+        cadr: "NA",
+        airChangesPerHour: "Depends on purifier",
+        roomSizeRecommended: "NA",
+        fanSpeeds: "NA",
+        controlType: "Manual Installation",
+        indicators: ["Filter Replacement Indicator"]
+      },
+
+      productInformation: {
+        featuresAndSpecs: {
+          "Power Source Type": "Manual",
+          "Control Method": "Touch (via purifier)",
+          "Filter Type": "True HEPA + Carbon",
+          "Floor Area": "NA",
+          "Noise Level": "NA",
+          "Particle Retention Size": "0.3 Micrometer",
+          "Controller Type": "Manual Insert"
+        },
+        measurements: {
+          "Item Dimensions D x W x H": "8.3 x 8.3 x 2.5 inches",
+          "Item Weight": "385 g"
+        },
+        userGuide: { "Specification Met": "AHAM Certified" },
+        additionalDetails: { "Color": "Black" }
+      },
+
+      itemDetails: {
+        brandName: "Winix",
+        modelNumber: "1712-0110-00",
+        manufacturer: "Winix",
+        customerReviews: {
+          rating: 4.8,
+          totalReviews: 251,
+          ratingText: "4.8 out of 5 stars"
+        },
+        bestSellersRank: [
+          "#109,271 in Home & Kitchen",
+          "#482 in Air Purifier Filters"
+        ],
+        asin: "B08NSQ91LM",
+        importerContactInformation: "Sha Maknaji Veerchand, Ph no-8885241706",
+        itemTypeName: "Replacement Filter",
+        includedComponents: "Pre-filter + Carbon + HEPA",
+        itemHeight: "2.5 Inches",
+        packerContactInformation:
+          "Sha Maknaji Veerchand, Kamala Nagar, Anantapur. Ph no-08554-356969",
+        unitCount: "1.0 count"
+      },
+
+      productTechnicalSpecs: {
+        "Power Source Type": "Manual",
+        "Control Method": "Touch (Purifier)",
+        "Filter Type": "True HEPA + Carbon",
+        "Floor Area": "NA",
+        "Noise Level": "NA",
+        "Particle Retention Size": "0.3 Micrometer",
+        "Controller Type": "Manual",
+        "Item Dimensions D x W x H": "8.3 x 8.3 x 2.5 inches",
+        "Item Weight": "385 g",
+        "Specification Met": "AHAM Certified",
+        "Color": "Black",
+        "Brand Name": "Winix",
+        "Model Number": "1712-0110-00",
+        "Manufacturer": "Winix",
+        "ASIN": "B08NSQ91LM",
+        "Item Type Name": "Replacement Filter",
+        "Item Height": "2.5 Inches",
+        "Unit Count": "1.0 count",
+        "Warranty Description": "No Warranty"
+      },
+
+      additionalInformation: {
+        manufacturer: "Winix",
+        packer: "Sha Maknaji Veerchand, Kamala Nagar, Anantapur. Ph no-08554-356969",
+        importer: "Sha Maknaji Veerchand, Ph no-8885241706",
+        itemWeight: "385 g",
+        netQuantity: "1 Count",
+        includedComponents: "True HEPA + Carbon Filter",
+        genericName: "Replacement Air Purifier Filter",
+        bestSellersRank: [
+          "#109,271 in Home & Kitchen",
+          "#482 in Air Purifier Filters"
+        ]
+      },
+
+      whatsInTheBox: {
+        items: ["True HEPA Filter", "Carbon Filter", "Pre-filter"]
+      },
+
+      highlightImages: [
+        "/assets/filters/A231/A+/1.webp",
+        "/assets/filters/A231/A+/2.webp",
+        "/assets/filters/A231/A+/3.webp",
+        "/assets/filters/A231/A+/4.webp",
+        "/assets/filters/A231/A+/5.webp",
+        "/assets/filters/A231/A+/6.webp"
+      ],
+
+      video: "",
+      lastImage: "assets/winix-product-images/last-image.webp",
+
+      faqs: [
+        {
+          q: "Is this filter compatible with T500 only?",
+          a: "Yes, this filter is specially designed only for the Winix T500 air purifier for perfect fit and best performance.",
+          open: false
+        },
+        {
+          q: "How often should I replace the filter?",
+          a: "It is recommended to replace the filter once every 12 months depending on usage and air quality.",
+          open: false
+        },
+        {
+          q: "Does this filter reduce cooking and pet odours?",
+          a: "Yes, the activated carbon layer effectively reduces cooking smells, pet odours and smoke.",
+          open: false
+        },
+        {
+          q: "Is this a genuine Winix original filter?",
+          a: "Yes, this is a 100% genuine Winix original replacement filter made for T500.",
+          open: false
+        },
+        {
+          q: "Can I wash this filter?",
+          a: "Only the pre-filter is washable. The HEPA and carbon filters should not be washed.",
+          open: false
+        },
+        {
+          q: "Will this help with dust allergy and sneezing?",
+          a: "Yes, the True HEPA filter captures fine dust, pollen and allergens which helps reduce allergy symptoms.",
+          open: false
+        }
+      ]
+      ,
+      productReviews: [
+        {
+          id: "t500-r1",
+          author: "Rahul",
+          rating: 5,
+          title: "Perfect fit for T500",
+          body: "Original filter, fitting perfect and air feels fresh in just few hours.",
+          date: "2025-08-12",
+          verified: true,
+          helpful: 11,
+          images: []
+        },
+        {
+          id: "t500-r2",
+          author: "Neha",
+          rating: 4,
+          title: "Good quality",
+          body: "Carbon filter clears cooking smell easily. Works well.",
+          date: "2025-06-03",
+          verified: true,
+          helpful: 7,
+          images: []
+        },
+        {
+          id: "t500-r3",
+          author: "Amit",
+          rating: 5,
+          title: "Air quality improved a lot",
+          body: "After replacing the filter, dust in my room reduced clearly. Very satisfied.",
+          date: "2025-07-18",
+          verified: true,
+          helpful: 14,
+          images: []
+        },
+        {
+          id: "t500-r4",
+          author: "Pooja",
+          rating: 4,
+          title: "Worth the price",
+          body: "Little expensive but performance is very good and genuine product.",
+          date: "2025-05-21",
+          verified: true,
+          helpful: 9,
+          images: []
+        },
+        {
+          id: "t500-r5",
+          author: "Sanjay",
+          rating: 5,
+          title: "Best replacement filter",
+          body: "Easy to install and perfect match for my T500 purifier. Fast delivery also.",
+          date: "2025-04-10",
+          verified: true,
+          helpful: 12,
+          images: []
+        },
+        {
+          id: "t500-r6",
+          author: "Kiran",
+          rating: 4,
+          title: "Helps with allergy",
+          body: "Sneezing and dust problem reduced after using this new filter.",
+          date: "2025-03-02",
+          verified: true,
+          helpful: 10,
+          images: []
+        }
+      ]
+
+    },
+    {
+      id: 10,
+      isFilter: true,
+      productUrl: "https://www.amazon.com/dp/B08NSQ91LM",
+      slug: "winix-a231-replacement-filter",
+      name: "Winix Genuine 1712-0110-00 Replacement Filter O for A231 Air Purifier",
+      shortName: "Winix A231 Filter",
+      description:
+        "Genuine Winix 1712-0110-00 Replacement Filter O for A231. Includes True HEPA, activated carbon filter and long-lasting filtration for dust, smoke, odours and allergens.",
+      images: [
+        "/assets/filters/A231/1.webp",
+        "/assets/filters/A231/2.webp",
+        "/assets/filters/A231/3.webp",
+        "assets/products/T500/T500.webp",
+        "/assets/filters/A231/4.webp",
+        "/assets/filters/A231/5.webp",
+        "/assets/filters/A231/6.webp",
+        "assets/products/28.webp"
+
+      ],
+      currentImage: "/assets/filters/A231/1.webp",
+      rating: 4.8,
+      category: "Replacement Filter",
+      technology: "True HEPA 99.97% • Activated Carbon • 3-Stage Filtration",
+      keyFeatures: [
+        "True HEPA captures 99.97% of airborne pollutants",
+        "Activated carbon reduces odours & VOCs",
+        "Fine mesh pre-filter for large particles",
+        "Compatible only with Winix A231 air purifier",
+        "Easy installation & long filter life",
+        "Improves dust, smoke & allergy control"
+      ],
+      coverage: "NA (Filter Only)",
+      filterType: "Pre-filter + Activated Carbon + True HEPA",
+      noiseLevel: "NA",
+      isHovered: false,
+      badge: "Best Seller",
+      isAward: true,
+      awardType: "AHAM Certified",
+      price: "₹2,299",
+      mrp: "₹3,199",
+      topReview: "251",
+
+      detailedSpecs: {
+        dimensions: "8.3\" x 8.3\" x 2.5\"",
+        weight: "386 g",
+        powerConsumption: "NA",
+        filterLife: "HEPA: ~12 months • Carbon: 3–6 months",
+        warranty: "1 Year",
+        certifications: ["AHAM Certified"]
+      },
+
+      detailedFeatures: [
+        "True HEPA Filter captures 99.97% of airborne particles as small as 0.3 microns.",
+        "Activated Carbon Filter reduces odours from pets, kitchens and smoke.",
+        "Fine Mesh Pre-Filter blocks large airborne dust particles.",
+        "Designed exclusively for Winix A231 purifier.",
+        "Improves indoor air quality instantly after replacement.",
+        "Helps reduce allergy symptoms and respiratory discomfort.",
+        "Easy slide-in installation without tools.",
+        "Maintains optimal airflow and purifier efficiency.",
+        "Durable multi-layer filter construction.",
+        "Long-lasting performance for daily home use."
+      ],
+
+      technicalDetails: {
+        cadr: "NA (Filter only)",
+        airChangesPerHour: "Depends on purifier",
+        roomSizeRecommended: "NA",
+        fanSpeeds: "NA",
+        controlType: "Manual Installation",
+        indicators: ["Replace Filter Indicator"]
+      },
+
+      productInformation: {
+        featuresAndSpecs: {
+          "Power Source Type": "Manual",
+          "Control Method": "Touch (via purifier)",
+          "Filter Type": "True HEPA + Activated Carbon",
+          "Floor Area": "NA",
+          "Noise Level": "NA",
+          "Particle Retention Size": "0.3 Micrometer",
+          "Controller Type": "Manual Insert"
+        },
+        measurements: {
+          "Item Dimensions D x W x H": "8.3 x 8.3 x 2.5 inches",
+          "Item Weight": "386 g"
+        },
+        userGuide: {
+          "Specification Met": "AHAM Certified"
+        },
+        additionalDetails: {
+          "Color": "Black"
+        }
+      },
+
+      itemDetails: {
+        brandName: "Winix",
+        modelNumber: "1712-0110-00",
+        manufacturer: "Winix",
+        customerReviews: {
+          rating: 4.8,
+          totalReviews: 251,
+          ratingText: "4.8 out of 5 stars"
+        },
+        bestSellersRank: [
+          "#109,271 in Home & Kitchen",
+          "#482 in Air Purifier Filters"
+        ],
+        asin: "B08NSQ91LM",
+        importerContactInformation: "Sha Maknaji Veerchand, Ph no-8885241706",
+        itemTypeName: "Replacement Filter",
+        includedComponents: "Pre-filter, Carbon Filter, HEPA Filter",
+        itemHeight: "2.5 Inches",
+        packerContactInformation:
+          "Sha Maknaji Veerchand , Kamala Nagar, Anantapur. Ph no-08554-356969",
+        unitCount: "1.0 count"
+      },
+
+      productTechnicalSpecs: {
+        "Power Source Type": "Manual",
+        "Control Method": "Touch (Purifier)",
+        "Filter Type": "True HEPA + Activated Carbon",
+        "Floor Area": "NA",
+        "Noise Level": "NA",
+        "Particle Retention Size": "0.3 Micrometer",
+        "Controller Type": "Manual",
+        "Item Dimensions D x W x H": "8.3 x 8.3 x 2.5 inches",
+        "Item Weight": "386 g",
+        "Specification Met": "AHAM Certified",
+        "Color": "Black",
+        "Brand Name": "Winix",
+        "Model Number": "1712-0110-00",
+        "Manufacturer": "Winix",
+        "ASIN": "B08NSQ91LM",
+        "Item Type Name": "Replacement Filter",
+        "Item Height": "2.5 Inches",
+        "Unit Count": "1.0 count",
+        "Warranty Description": "1 Year on Product"
+      },
+
+      additionalInformation: {
+        manufacturer: "Winix",
+        packer: "Sha Maknaji Veerchand, Kamala Nagar, Anantapur. Ph no-08554-356969",
+        importer: "Sha Maknaji Veerchand, Ph no-8885241706",
+        itemWeight: "386 g",
+        netQuantity: "1 Count",
+        includedComponents: "Pre-filter, Carbon Filter, HEPA Filter",
+        genericName: "Replacement Air Purifier Filter",
+        bestSellersRank: [
+          "#109,271 in Home & Kitchen",
+          "#482 in Air Purifier Filters"
+        ]
+      },
+
+      whatsInTheBox: {
+        items: ["True HEPA Filter", "Activated Carbon Filter", "Pre-Filter"]
+      },
+
+      highlightImages: [
+       "/assets/filters/A231/A+/1.webp",
+        "/assets/filters/A231/A+/2.webp",
+        "/assets/filters/A231/A+/3.webp",
+        "/assets/filters/A231/A+/4.webp",
+        "/assets/filters/A231/A+/5.webp",
+        "/assets/filters/A231/A+/6.webp"
+      ],
+
+      video: "",
+      lastImage: "assets/winix-product-images/last-image.webp",
+
+      faqs: [
+        {
+          q: "Is this filter compatible with A231 only?",
+          a: "Yes, it is specially designed only for the Winix A231 air purifier.",
+          open: false
+        },
+        {
+          q: "How often should I replace the filter?",
+          a: "Usually once every 12 months depending on air quality and usage.",
+          open: false
+        },
+        {
+          q: "Does it help with kitchen odours?",
+          a: "Yes, the activated carbon layer effectively absorbs cooking smells.",
+          open: false
+        },
+        {
+          q: "Is this a genuine Winix filter?",
+          a: "Yes, this is a 100% genuine original Winix replacement filter.",
+          open: false
+        },
+        {
+          q: "Can the filter be washed?",
+          a: "Only the pre-filter is washable. HEPA and carbon filters should not be washed.",
+          open: false
+        },
+        {
+          q: "Is this good for allergy patients?",
+          a: "Yes, it captures dust, pollen and allergens that cause sneezing and breathing issues.",
+          open: false
+        }
+      ],
+
+      productReviews: [
+        {
+          id: "a231-r1",
+          author: "Amit",
+          rating: 5,
+          title: "Perfect replacement for A231",
+          body: "Original filter, perfect fitting and air feels much cleaner within few hours.",
+          date: "2025-08-10",
+          verified: true,
+          helpful: 14,
+          images: []
+        },
+        {
+          id: "a231-r2",
+          author: "Pooja",
+          rating: 4,
+          title: "Good quality filter",
+          body: "Odour reduction is very noticeable. Works well in bedroom.",
+          date: "2025-06-18",
+          verified: true,
+          helpful: 9,
+          images: []
+        },
+        {
+          id: "a231-r3",
+          author: "Rohit",
+          rating: 5,
+          title: "Best for dust allergy",
+          body: "Sneezing reduced a lot after replacing this filter. Worth the price.",
+          date: "2025-07-22",
+          verified: true,
+          helpful: 12,
+          images: []
+        },
+        {
+          id: "a231-r4",
+          author: "Sneha",
+          rating: 4,
+          title: "Easy to install",
+          body: "Installation is super easy. Just slide and it’s done.",
+          date: "2025-05-30",
+          verified: true,
+          helpful: 8,
+          images: []
+        },
+        {
+          id: "a231-r5",
+          author: "Kunal",
+          rating: 5,
+          title: "Genuine Winix filter",
+          body: "Packaging and quality both are original. Air purifier performance boosted.",
+          date: "2025-04-12",
+          verified: true,
+          helpful: 11,
+          images: []
+        },
+        {
+          id: "a231-r6",
+          author: "Meena",
+          rating: 4,
+          title: "Good for daily use",
+          body: "Daily dust and pet odour problem solved. Satisfied purchase.",
+          date: "2025-03-25",
+          verified: true,
+          helpful: 7,
+          images: []
+        }
+      ]
+    },
     // /------------------------------------------------------------------
     ////////////////////////////
     /////////////////////////////////
@@ -470,6 +1503,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
     ////////////////////////////////////////////////////////
     {
       id: 1,
+      isFilter: false,
       productUrl: "https://www.amazon.in/Winix-Small-Tower-A231-Purifier/dp/B08HW5SBQ6/ref=sr_1_1_sspa?crid=3E4UW6KQS1IHL&dib=eyJ2IjoiMSJ9.nyrDct4QLbf6J4nB4JwHKdswXh_KKQKMAuEv-AlXIBI.39zb7Frm_88rf20XFP4m78D_BdJfBpTFCAvaG-7-It4&dib_tag=se&keywords=winix%2Ba231&qid=1758281141&sprefix=winix%2Ba231%2Caps%2C246&sr=8-1-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1 ",
       slug: "winix-a231-air-purifier",
       name: "Winix A231 360° All in One 4 Stage True HEPA Air Purifier with PlasmaWave Tech",
@@ -781,6 +1815,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
     },
     {
       id: 2,
+      isFilter: false,
       productUrl: "https://www.amazon.in/Winix-5300-2-Purifier-PlasmaWave-Reducing/dp/B01D8DAYBA/ref=sr_1_1_sspa?crid=13CBVJUQ98R7R&dib=eyJ2IjoiMSJ9.Kp26yzZ_O7yzCqZVio4eM8X0lDXtjI4IfNuutcBiDJOGikTLEumjQeBFs12phlwA1fPcueTVaqVD8kvlO0LzVS3kqv8EVjfipAZbFaTS5M-faaYKj7ZDocTv-YUva276h32vcS85_jaCvZc6TWJgbzlg8wqQrXuCTGNgpPEjCj3-OCVrHK5852_MkjQt8IMCLWO3KgPNN05ZgwuShB8-ppE3Za8j8rnNwQMBmf6tkX0.FtKqwonycx94L0Lbr2GqcBMCiLTMC1vheZeg9izAgPM&dib_tag=se&keywords=winix%2B5500-2%2Bair%2Bpurifier&nsdOptOutParam=true&qid=1758281186&sprefix=winix%2B5500-2%2B%2Caps%2C317&sr=8-1-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1 ",
       slug: "winix-5300-2-air-purifier",
       name: "WINIX 5300-2 Premium 4-Stage Air Purifier",
@@ -1102,6 +2137,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
     },
     {
       id: 3,
+      isFilter: false,
       productUrl: "https://www.amazon.in/Winix-5500-2-Purifier-PlasmaWave-Reducing/dp/B01D8DAYII/ref=sr_1_3?crid=13CBVJUQ98R7R&dib=eyJ2IjoiMSJ9.Kp26yzZ_O7yzCqZVio4eM8X0lDXtjI4IfNuutcBiDJOGikTLEumjQeBFs12phlwA1fPcueTVaqVD8kvlO0LzVS3kqv8EVjfipAZbFaTS5M-faaYKj7ZDocTv-YUva276h32vcS85_jaCvZc6TWJgbzlg8wqQrXuCTGNgpPEjCj3-OCVrHK5852_MkjQt8IMCLWO3KgPNN05ZgwuShB8-ppE3Za8j8rnNwQMBmf6tkX0.FtKqwonycx94L0Lbr2GqcBMCiLTMC1vheZeg9izAgPM&dib_tag=se&keywords=winix%2B5500-2%2Bair%2Bpurifier&nsdOptOutParam=true&qid=1758281186&sprefix=winix%2B5500-2%2B%2Caps%2C317&sr=8-3&th=1 ",
       slug: "winix-5500-2-air-purifier",
       name: "WINIX 5500-2 True HEPA purifier with PlasmaWave Tech AOC carbon filter AHAM-verified 360 sq ft coverage.",
@@ -1417,6 +2453,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
     },
     {
       id: 4,
+      isFilter: false,
       productUrl: "https://www.amazon.in/dp/B0CDNH5NX4?th=1",
       slug: "winix-t800-air-purifier",
       name: "Winix T800 360° True HEPA WiFi Air Purifier with 4-Stage PlasmaWave Tech",
@@ -1738,6 +2775,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
     },
     {
       id: 5,
+      isFilter: false,
       productUrl: "https://www.amazon.in/dp/B0FQBSFWRJ",
       slug: "winix-t500-air-purifier",
       name: "WINIX T500 360° 4-Stage True HEPA WiFi Air Purifier with PlasmaWave®",
@@ -2194,6 +3232,10 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         this.currentImageIndex = 0
         // this.startImageSlideshow()
         this.bottomBannerSrc = null
+         // ✅ FILTER PRODUCT → Product Details hamesha OPEN
+      if (this.product.isFilter) {
+        this.sectionsOpen.details = true;
+      }
       }
     }, 250)
   }
