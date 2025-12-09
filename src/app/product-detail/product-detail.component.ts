@@ -212,6 +212,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
 
 
   products: Product[] = [
+    /// Filter Products Start
     {
       id: 6,
       isFilter: true,
@@ -366,7 +367,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         "/assets/filters/5500-2/A+/5.webp",
         "/assets/filters/5500-2/A+/6.webp"
       ],
-      video: "",
+      video: "/assets/filters/5500-2/5500-2.webm",
       lastImage: "assets/winix-product-images/last-image.webp",
       faqs: [
         {
@@ -637,7 +638,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         "/assets/filters/T800/A+/6.webp",
       ],
 
-      video: "",
+      video: "assets/filters/T800/T800.webm",
       lastImage: "assets/winix-product-images/last-image.webp",
 
       faqs: [
@@ -883,7 +884,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         "/assets/filters/5500-2/A+/6.webp"
       ],
 
-      video: "",
+      video: "/assets/filters/5300-2/5300-2.webm",
       lastImage: "assets/winix-product-images/last-image.webp",
 
       faqs: [
@@ -1117,7 +1118,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         "/assets/filters/A231/A+/6.webp"
       ],
 
-      video: "",
+      video: "assets/filters/A231/A231.webm",
       lastImage: "assets/winix-product-images/last-image.webp",
 
       faqs: [
@@ -1391,7 +1392,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         "/assets/filters/A231/A+/6.webp"
       ],
 
-      video: "",
+      video: "assets/filters/A231/A231.webm",
       lastImage: "assets/winix-product-images/last-image.webp",
 
       faqs: [
@@ -1496,11 +1497,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         }
       ]
     },
-    // /------------------------------------------------------------------
-    ////////////////////////////
-    /////////////////////////////////
-    //////////////////////////////////////
-    ////////////////////////////////////////////////////////
+    /// Filter Products End
     {
       id: 1,
       isFilter: false,
