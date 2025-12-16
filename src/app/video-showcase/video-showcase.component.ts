@@ -1,11 +1,4 @@
-import {
-  AfterViewInit,
-  Component,
-  ElementRef,
-  QueryList,
-  ViewChild,
-  ViewChildren,
-} from '@angular/core';
+import { AfterViewInit, Component, ElementRef, QueryList, ViewChild, ViewChildren, } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 interface VideoItem {
@@ -64,7 +57,7 @@ export class VideoShowcaseComponent implements AfterViewInit {
   private startLeft = 0;
 
 
-   ngAfterViewInit() {
+  ngAfterViewInit() {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -101,14 +94,14 @@ export class VideoShowcaseComponent implements AfterViewInit {
   // }
 
   scroll(dir: 'left' | 'right') {
-  const el = this.trackRef.nativeElement;
-  const by = Math.round(el.clientWidth * 0.65);
+    const el = this.trackRef.nativeElement;
+    const by = Math.round(el.clientWidth * 0.65);
 
-  el.scrollBy({
-    left: dir === 'right' ? by : -by,
-    behavior: 'smooth',
-  });
-}
+    el.scrollBy({
+      left: dir === 'right' ? by : -by,
+      behavior: 'smooth',
+    });
+  }
 
 
   onWheel(e: WheelEvent) {

@@ -6,7 +6,6 @@ export interface ArticleItem {
   content: string;
 }
 
-
 export const ARTICLES: ArticleItem[] = [
   {
     slug: 'air-purifier-allies-flu-cold',

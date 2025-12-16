@@ -9,8 +9,6 @@
       </span>
 
       <br class="hidden sm:block" />
-
-   
     </h2>
   </div>
   <div class="px-2 md:px-6">
@@ -22,7 +20,7 @@
                   px-4 sm:px-6 lg:px-8 py-2">
         <!-- CARD -->
         <article *ngFor="let p of products; let i = index; trackBy: trackById" role="listitem" class="shrink-0 grow-0 snap-start
-  basis-[85%] sm:basis-[70%] md:basis-[calc(50%-0.75rem)]
+        basis-[85%] sm:basis-[70%] md:basis-[calc(50%-0.75rem)]
   lg:basis-[calc(33.333%-0.875rem)] xl:basis-[calc(25%-1rem)]
   max-w-[420px]">
 
@@ -90,14 +88,16 @@
     <!-- winix-product-card.component.html -->
     <div class="relative flex justify-between px-6 mt-4">
       <button type="button" aria-label="Prev"
-        class="bg-[#74236C] text-white p-3 pointer-events-auto rounded-full shadow-md border border-white/20 mr-2" (click)="scroll('left')">
+        class="bg-[#74236C] text-white p-3 pointer-events-auto rounded-full shadow-md border border-white/20 mr-2"
+        (click)="scroll('left')">
         <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="2.5"
           stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
         </svg>
       </button>
       <button type="button" aria-label="Next"
-        class="bg-[#74236C] text-white p-3 pointer-events-auto rounded-full shadow-md border border-white/20" (click)="scroll('right')">
+        class="bg-[#74236C] text-white p-3 pointer-events-auto rounded-full shadow-md border border-white/20"
+        (click)="scroll('right')">
         <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="2.5"
           stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />

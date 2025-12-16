@@ -1,7 +1,6 @@
 import { Component, OnInit, OnDestroy, HostListener } from "@angular/core"
 import { CommonModule } from "@angular/common"
 import { ActivatedRoute, NavigationEnd, Router, RouterModule } from "@angular/router"
-import { filter, first } from "rxjs"
 
 interface Product {
   id: number
