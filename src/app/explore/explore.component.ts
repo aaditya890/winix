@@ -23,9 +23,7 @@ export class ExploreComponent {
       image: '/assets/explore-images/A231/product-1.png',
 
       gallery: [
-        '/assets/products/a231/main.webp',
-        '/assets/products/a231/side.webp',
-        '/assets/products/a231/detail.webp'
+        
       ],
 
       shortDescription: 'Compact, efficient air purifier ideal for small rooms and personal spaces.',
@@ -57,7 +55,10 @@ export class ExploreComponent {
         '/assets/products/T500/product-2.webp',
         '/assets/products/T500/product-3.webp',
         '/assets/products/T500/product-4.webp',
-        '/assets/products/T500/product-5.webp'
+        '/assets/products/T500/product-5.webp',
+        '/assets/products/T500/product-6.webp',
+        '/assets/products/T500/product-7.webp',
+        '/assets/products/T500/product-8.webp'
       ],
 
       shortDescription: 'Compact, powerful and smart air purifier…',
@@ -79,9 +80,7 @@ export class ExploreComponent {
       image: '/assets/explore-images/T800/product-1.png',
 
       gallery: [
-        '/assets/products/t800/main.webp',
-        '/assets/products/t800/side.webp',
-        '/assets/products/t800/detail.webp'
+       
       ],
 
       shortDescription: 'High-performance air purifier ideal for large rooms and homes.',
