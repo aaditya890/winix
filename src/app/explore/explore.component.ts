@@ -51,14 +51,14 @@ export class ExploreComponent {
       image: '/assets/explore-images/T500/product-1.png',
 
       gallery: [
-        '/assets/products/T500/product-1.webp',
-        '/assets/products/T500/product-2.webp',
-        '/assets/products/T500/product-3.webp',
-        '/assets/products/T500/product-4.webp',
-        '/assets/products/T500/product-5.webp',
-        '/assets/products/T500/product-6.webp',
-        '/assets/products/T500/product-7.webp',
-        '/assets/products/T500/product-8.webp'
+        '/assets/products-v2/T500/product-1.webp',
+        '/assets/products-v2/T500/product-2.webp',
+        '/assets/products-v2/T500/product-3.webp',
+        '/assets/products-v2/T500/product-4.webp',
+        '/assets/products-v2/T500/product-5.webp',
+        '/assets/products-v2/T500/product-6.webp',
+        '/assets/products-v2/T500/product-7.webp',
+        '/assets/products-v2/T500/product-8.webp'
       ],
 
       shortDescription: 'Compact, powerful and smart air purifier…',

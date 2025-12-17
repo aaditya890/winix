@@ -55,14 +55,14 @@ export class ExploreDetailComponent implements OnInit {
       heroImage: 'assets/explore-images/A231/banner.png',
       url: '/product/winix-a231-air-purifier',
       gallery: [
-        '/assets/products/A231/product-1.webp',
-        '/assets/products/A231/product-2.webp',
-        '/assets/products/A231/product-3.webp',
-        '/assets/products/A231/product-4.webp',
-        '/assets/products/A231/product-5.webp',
-        '/assets/products/A231/product-6.webp',
-        '/assets/products/A231/product-7.webp',
-        '/assets/products/A231/product-8.webp'
+        '/assets/products-v2/A231/product-1.webp',
+        '/assets/products-v2/A231/product-2.webp',
+        '/assets/products-v2/A231/product-3.webp',
+        '/assets/products-v2/A231/product-4.webp',
+        '/assets/products-v2/A231/product-5.webp',
+        '/assets/products-v2/A231/product-6.webp',
+        '/assets/products-v2/A231/product-7.webp',
+        '/assets/products-v2/A231/product-8.webp'
       ],
       aplus: [
         '/assets/winix-product-images/a231/a231-1.webp',
@@ -192,14 +192,14 @@ export class ExploreDetailComponent implements OnInit {
       heroImage: 'assets/explore-images/T500/banner.png',
       url: '/product/winix-t500-air-purifier',
       gallery: [
-        '/assets/products/T500/product-1.webp',
-        '/assets/products/T500/product-2.webp',
-        '/assets/products/T500/product-3.webp',
-        '/assets/products/T500/product-4.webp',
-        '/assets/products/T500/product-5.webp',
-        '/assets/products/T500/product-6.webp',
-        '/assets/products/T500/product-7.webp',
-        '/assets/products/T500/product-8.webp'
+        '/assets/products-v2/T500/product-1.webp',
+        '/assets/products-v2/T500/product-2.webp',
+        '/assets/products-v2/T500/product-3.webp',
+        '/assets/products-v2/T500/product-4.webp',
+        '/assets/products-v2/T500/product-5.webp',
+        '/assets/products-v2/T500/product-6.webp',
+        '/assets/products-v2/T500/product-7.webp',
+        '/assets/products-v2/T500/product-8.webp'
       ],
       aplus: [
         '/assets/winix-product-images/t500/t500-1.webp',
@@ -326,14 +326,14 @@ export class ExploreDetailComponent implements OnInit {
       heroImage: 'assets/explore-images/T800/banner.png',
       url: '/product/winix-t800-air-purifier',
       gallery: [
-        '/assets/products/T800/product-1.webp',
-        '/assets/products/T800/product-2.webp',
-        '/assets/products/T800/product-3.webp',
-        '/assets/products/T800/product-4.webp',
-        '/assets/products/T800/product-5.webp',
-        '/assets/products/T800/product-6.webp',
-        '/assets/products/T800/product-7.webp',
-        '/assets/products/T800/product-8.webp'
+        '/assets/products-v2/T800/product-1.webp',
+        '/assets/products-v2/T800/product-2.webp',
+        '/assets/products-v2/T800/product-3.webp',
+        '/assets/products-v2/T800/product-4.webp',
+        '/assets/products-v2/T800/product-5.webp',
+        '/assets/products-v2/T800/product-6.webp',
+        '/assets/products-v2/T800/product-7.webp',
+        '/assets/products-v2/T800/product-8.webp'
       ],
       aplus: [
         '/assets/winix-product-images/t800/1.webp',
