@@ -225,12 +225,12 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         "/assets/filters/5500-2/1.webp",
         "/assets/filters/5500-2/2.webp",
         "/assets/filters/5500-2/3.webp",
-        "assets/products/5500-2/5500-2.webp",
         "/assets/filters/5500-2/4.webp",
         "/assets/filters/5500-2/5.webp",
         "/assets/filters/5500-2/6.webp",
         "/assets/filters/5500-2/7.webp",
         "/assets/filters/5500-2/8.webp",
+        "assets/products/5500-2/5500-2.webp",
         "assets/products/28.webp"
       ],
       currentImage: "/assets/filters/5500-2/1.webp",
@@ -729,6 +729,11 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         "/assets/filters/5300-2/1.webp",
         "/assets/filters/5300-2/2.webp",
         "/assets/filters/5300-2/3.webp",
+        "/assets/filters/5300-2/4.webp",
+        "/assets/filters/5300-2/5.webp",
+        "/assets/filters/5300-2/6.webp",
+        "/assets/filters/5300-2/7.webp",
+        "/assets/filters/5300-2/8.webp",
         "assets/products/5300-2/5300-2.webp",
         "assets/products/28.webp"
       ],
@@ -1383,7 +1388,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       },
 
       highlightImages: [
-       "/assets/filters/A231/A+/1.webp",
+        "/assets/filters/A231/A+/1.webp",
         "/assets/filters/A231/A+/2.webp",
         "/assets/filters/A231/A+/3.webp",
         "/assets/filters/A231/A+/4.webp",
@@ -1512,6 +1517,9 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         "assets/products/A231/product-3.webp",
         "assets/products/A231/product-4.webp",
         "assets/products/A231/product-5.webp",
+        "assets/products/A231/product-6.webp",
+        "assets/products/A231/product-7.webp",
+        "assets/products/A231/product-8.webp",
         "assets/products/28.webp"
       ],
       currentImage: "assets/products/A231/product-1.jpg",
@@ -2145,6 +2153,10 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         "assets/products/5500-2/product-2.webp",
         "assets/products/5500-2/product-3.webp",
         "assets/products/5500-2/product-4.webp",
+        "assets/products/5500-2/product-5.webp",
+        "assets/products/5500-2/product-6.webp",
+        "assets/products/5500-2/product-7.webp",
+        "assets/products/5500-2/product-8.webp",
         "assets/products/5500-2/5500-2.webp",
         "assets/products/28.webp"
       ],
@@ -2458,10 +2470,14 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         "Smart Wi-Fi enabled air purifier with True HEPA, carbon filter, auto mode, and air quality monitor. Covers up to 1968 sq ft in 1 hour with AHAM-verified 410 sq ft rating.",
       images: [
         "assets/products/T800/product-1.webp",
-        "assets/products/T800/product-3.webp",
-        "assets/products/T800/T800.webp",
-        "assets/products/T800/product-4.webp",
         "assets/products/T800/product-2.webp",
+        "assets/products/T800/product-3.webp",
+        "assets/products/T800/product-4.webp",
+        "assets/products/T800/product-5.webp",
+        "assets/products/T800/product-6.webp",
+        "assets/products/T800/product-7.webp",
+        "assets/products/T800/product-8.webp",
+        "assets/products/T800/T800.webp",
         "assets/products/28.webp"
       ],
       currentImage: "assets/products/T800/product-1.jpg",
@@ -2783,6 +2799,10 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         "assets/products/T500/product-2.webp",
         "assets/products/T500/product-3.webp",
         "assets/products/T500/product-4.webp",
+        "assets/products/T500/product-5.webp",
+        "assets/products/T500/product-6.webp",
+        "assets/products/T500/product-7.webp",
+        "assets/products/T500/product-8.webp",
         "assets/products/T500/T500.webp",
         "assets/products/28.webp"
       ],
@@ -3228,10 +3248,10 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         this.currentImageIndex = 0
         // this.startImageSlideshow()
         this.bottomBannerSrc = null
-         // ✅ FILTER PRODUCT → Product Details hamesha OPEN
-      if (this.product.isFilter) {
-        this.sectionsOpen.details = true;
-      }
+        // ✅ FILTER PRODUCT → Product Details hamesha OPEN
+        if (this.product.isFilter) {
+          this.sectionsOpen.details = true;
+        }
       }
     }, 250)
   }

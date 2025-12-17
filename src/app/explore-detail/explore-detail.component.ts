@@ -59,7 +59,10 @@ export class ExploreDetailComponent implements OnInit {
         '/assets/products/A231/product-2.webp',
         '/assets/products/A231/product-3.webp',
         '/assets/products/A231/product-4.webp',
-        '/assets/products/A231/product-5.webp'
+        '/assets/products/A231/product-5.webp',
+        '/assets/products/A231/product-6.webp',
+        '/assets/products/A231/product-7.webp',
+        '/assets/products/A231/product-8.webp'
       ],
       aplus: [
         '/assets/winix-product-images/a231/a231-1.webp',
@@ -193,7 +196,10 @@ export class ExploreDetailComponent implements OnInit {
         '/assets/products/T500/product-2.webp',
         '/assets/products/T500/product-3.webp',
         '/assets/products/T500/product-4.webp',
-        '/assets/products/T500/product-5.webp'
+        '/assets/products/T500/product-5.webp',
+        '/assets/products/T500/product-6.webp',
+        '/assets/products/T500/product-7.webp',
+        '/assets/products/T500/product-8.webp'
       ],
       aplus: [
         '/assets/winix-product-images/t500/t500-1.webp',
@@ -325,6 +331,9 @@ export class ExploreDetailComponent implements OnInit {
         '/assets/products/T800/product-3.webp',
         '/assets/products/T800/product-4.webp',
         '/assets/products/T800/product-5.webp',
+        '/assets/products/T800/product-6.webp',
+        '/assets/products/T800/product-7.webp',
+        '/assets/products/T800/product-8.webp'
       ],
       aplus: [
         '/assets/winix-product-images/t800/1.webp',
