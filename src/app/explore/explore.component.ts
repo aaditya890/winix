@@ -23,7 +23,7 @@ export class ExploreComponent {
       image: '/assets/explore-images/A231/product-1.png',
 
       gallery: [
-        
+
       ],
 
       shortDescription: 'Compact, efficient air purifier ideal for small rooms and personal spaces.',
@@ -38,9 +38,9 @@ export class ExploreComponent {
       },
 
       additionalInfo: {
-        manufacturer: 'Phone Number: +91 8885241706, Mail Id: care@justshop24x7.com, Winix',
-        packer: 'Sha Maknaji Veerchand, Kamala Nagar, Anantapur. Ph no-08554-356969',
-        importer: 'Sha Maknaji Veerchand, Ph no-8885241706'
+        manufacturer: 'Winix',
+        packer: 'Sha Maknaji Veerchand, S.No.4, H.No.1/18/2, Lane 5, Kakdewasti, Next to Rishi Enclave, Kondhwa Budruk, Pune 411048.',
+        importer: 'Sha Maknaji Veerchand, S.No.4, H.No.1/18/2, Lane 5, Kakdewasti, Next to Rishi Enclave, Kondhwa Budruk, Pune 411048. Contact: +91 88852 41706, Email: care@justshop24x7.com'
       }
     },
     {
@@ -51,14 +51,14 @@ export class ExploreComponent {
       image: '/assets/explore-images/T500/product-1.png',
 
       gallery: [
-        '/assets/products/T500/product-1.webp',
-        '/assets/products/T500/product-2.webp',
-        '/assets/products/T500/product-3.webp',
-        '/assets/products/T500/product-4.webp',
-        '/assets/products/T500/product-5.webp',
-        '/assets/products/T500/product-6.webp',
-        '/assets/products/T500/product-7.webp',
-        '/assets/products/T500/product-8.webp'
+        '/assets/products-v2/T500/product-1.webp',
+        '/assets/products-v2/T500/product-2.webp',
+        '/assets/products-v2/T500/product-3.webp',
+        '/assets/products-v2/T500/product-4.webp',
+        '/assets/products-v2/T500/product-5.webp',
+        '/assets/products-v2/T500/product-6.webp',
+        '/assets/products-v2/T500/product-7.webp',
+        '/assets/products-v2/T500/product-8.webp'
       ],
 
       shortDescription: 'Compact, powerful and smart air purifier…',
@@ -80,7 +80,7 @@ export class ExploreComponent {
       image: '/assets/explore-images/T800/product-1.png',
 
       gallery: [
-       
+
       ],
 
       shortDescription: 'High-performance air purifier ideal for large rooms and homes.',
@@ -95,9 +95,9 @@ export class ExploreComponent {
       },
 
       additionalInfo: {
-        manufacturer: 'Phone Number: +91 8885241706, Mail Id: care@justshop24x7.com, Winix',
-        packer: 'Sha Maknaji Veerchand, Kamala Nagar, Anantapur. Ph no-08554-356969',
-        importer: 'Sha Maknaji Veerchand, Ph no-8885241706'
+         manufacturer: 'Winix',
+        packer: 'Sha Maknaji Veerchand, S.No.4, H.No.1/18/2, Lane 5, Kakdewasti, Next to Rishi Enclave, Kondhwa Budruk, Pune 411048.',
+        importer: 'Sha Maknaji Veerchand, S.No.4, H.No.1/18/2, Lane 5, Kakdewasti, Next to Rishi Enclave, Kondhwa Budruk, Pune 411048. Contact: +91 88852 41706, Email: care@justshop24x7.com'
       }
     }
   ];

@@ -101,6 +101,8 @@ interface Product {
     manufacturer?: string;
     packer?: string;
     importer?: string;
+    contact: string;
+    email: string;
     itemWeight?: string;
     netQuantity?: string;
     includedComponents?: string;
@@ -230,8 +232,8 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         "/assets/filters/5500-2/6.webp",
         "/assets/filters/5500-2/7.webp",
         "/assets/filters/5500-2/8.webp",
-        "assets/products/5500-2/5500-2.webp",
-        "assets/products/28.webp"
+        "assets/products-v2/5500-2/5500-2.webp",
+        "assets/products-v2/28.webp"
       ],
       currentImage: "/assets/filters/5500-2/1.webp",
       rating: 4.7,
@@ -343,9 +345,11 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         "Warranty Description": "1 Year on Product"
       },
       additionalInformation: {
-        manufacturer: "Winix",
-        packer: "Sha Maknaji Veerchand, Kamala Nagar, Anantapur. Ph no-08554-356969",
-        importer: "Sha Maknaji Veerchand, Ph no-8885241706",
+        manufacturer: 'Winix',
+        packer: 'Sha Maknaji Veerchand, S.No.4, H.No.1/18/2, Lane 5, Kakdewasti, Next to Rishi Enclave, Kondhwa Budruk, Pune 411048.',
+        importer: 'Sha Maknaji Veerchand, S.No.4, H.No.1/18/2, Lane 5, Kakdewasti, Next to Rishi Enclave, Kondhwa Budruk, Pune 411048.',
+        contact: '+91 88852 41706',
+        email: 'care@justshop24x7.com',
         itemWeight: "980 g",
         netQuantity: "1 Count",
         includedComponents: "True HEPA + AOC Carbon Filter",
@@ -478,11 +482,11 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         "/assets/filters/T800/1.webp",
         "/assets/filters/T800/2.webp",
         "/assets/filters/T800/3.webp",
-        "assets/products/T800/T800.webp",
+        "assets/products-v2/T800/T800.webp",
         "/assets/filters/T800/4.webp",
         "/assets/filters/T800/5.webp",
         "/assets/filters/T800/6.webp",
-        "assets/products/28.webp"
+        "assets/products-v2/28.webp"
       ],
 
       currentImage: "/assets/filters/T800/1.webp",
@@ -611,9 +615,11 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       },
 
       additionalInformation: {
-        manufacturer: "Winix",
-        packer: "Sha Maknaji Veerchand, Kamala Nagar, Anantapur. Ph no-08554-356969",
-        importer: "Sha Maknaji Veerchand, Ph no-8885241706",
+        manufacturer: 'Winix',
+        packer: 'Sha Maknaji Veerchand, S.No.4, H.No.1/18/2, Lane 5, Kakdewasti, Next to Rishi Enclave, Kondhwa Budruk, Pune 411048.',
+        importer: 'Sha Maknaji Veerchand, S.No.4, H.No.1/18/2, Lane 5, Kakdewasti, Next to Rishi Enclave, Kondhwa Budruk, Pune 411048.',
+        contact: '+91 88852 41706',
+        email: 'care@justshop24x7.com',
         itemWeight: "454 g",
         netQuantity: "1 Count",
         includedComponents: "HEPA Filter, Pre-Filter, Carbon Filter",
@@ -729,13 +735,8 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         "/assets/filters/5300-2/1.webp",
         "/assets/filters/5300-2/2.webp",
         "/assets/filters/5300-2/3.webp",
-        "/assets/filters/5300-2/4.webp",
-        "/assets/filters/5300-2/5.webp",
-        "/assets/filters/5300-2/6.webp",
-        "/assets/filters/5300-2/7.webp",
-        "/assets/filters/5300-2/8.webp",
-        "assets/products/5300-2/5300-2.webp",
-        "assets/products/28.webp"
+        "assets/products-v2/5300-2/5300-2.webp",
+        "assets/products-v2/28.webp"
       ],
 
       currentImage: "/assets/filters/5300-2/1.webp",
@@ -858,9 +859,11 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       },
 
       additionalInformation: {
-        manufacturer: "Winix",
-        packer: "Sha Maknaji Veerchand, Kamala Nagar, Anantapur. Ph no-08554-356969",
-        importer: "Sha Maknaji Veerchand, Ph no-8885241706",
+        manufacturer: 'Winix',
+        packer: 'Sha Maknaji Veerchand, S.No.4, H.No.1/18/2, Lane 5, Kakdewasti, Next to Rishi Enclave, Kondhwa Budruk, Pune 411048.',
+        importer: 'Sha Maknaji Veerchand, S.No.4, H.No.1/18/2, Lane 5, Kakdewasti, Next to Rishi Enclave, Kondhwa Budruk, Pune 411048.',
+        contact: '+91 88852 41706',
+        email: 'care@justshop24x7.com',
         itemWeight: "454 g",
         netQuantity: "1 Count",
         includedComponents: "True HEPA Filter + 4 Carbon Pre-Filters",
@@ -979,11 +982,11 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         "/assets/filters/A231/2.webp",
         "/assets/filters/A231/1.webp",
         "/assets/filters/A231/3.webp",
-        "assets/products/T500/T500.webp",
+        "assets/products-v2/T500/T500.webp",
         "/assets/filters/A231/4.webp",
         "/assets/filters/A231/5.webp",
         "/assets/filters/A231/6.webp",
-        "assets/products/28.webp"
+        "assets/products-v2/28.webp"
       ],
       currentImage: "/assets/filters/A231/2.webp",
       rating: 4.8,
@@ -1096,9 +1099,11 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       },
 
       additionalInformation: {
-        manufacturer: "Winix",
-        packer: "Sha Maknaji Veerchand, Kamala Nagar, Anantapur. Ph no-08554-356969",
-        importer: "Sha Maknaji Veerchand, Ph no-8885241706",
+        manufacturer: 'Winix',
+        packer: 'Sha Maknaji Veerchand, S.No.4, H.No.1/18/2, Lane 5, Kakdewasti, Next to Rishi Enclave, Kondhwa Budruk, Pune 411048.',
+        importer: 'Sha Maknaji Veerchand, S.No.4, H.No.1/18/2, Lane 5, Kakdewasti, Next to Rishi Enclave, Kondhwa Budruk, Pune 411048.',
+        contact: '+91 88852 41706',
+        email: 'care@justshop24x7.com',
         itemWeight: "385 g",
         netQuantity: "1 Count",
         includedComponents: "True HEPA + Carbon Filter",
@@ -1241,11 +1246,11 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         "/assets/filters/A231/1.webp",
         "/assets/filters/A231/2.webp",
         "/assets/filters/A231/3.webp",
-        "assets/products/T500/T500.webp",
+        "assets/products-v2/T500/T500.webp",
         "/assets/filters/A231/4.webp",
         "/assets/filters/A231/5.webp",
         "/assets/filters/A231/6.webp",
-        "assets/products/28.webp"
+        "assets/products-v2/28.webp"
 
       ],
       currentImage: "/assets/filters/A231/1.webp",
@@ -1370,9 +1375,11 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       },
 
       additionalInformation: {
-        manufacturer: "Winix",
-        packer: "Sha Maknaji Veerchand, Kamala Nagar, Anantapur. Ph no-08554-356969",
-        importer: "Sha Maknaji Veerchand, Ph no-8885241706",
+        manufacturer: 'Winix',
+        packer: 'Sha Maknaji Veerchand, S.No.4, H.No.1/18/2, Lane 5, Kakdewasti, Next to Rishi Enclave, Kondhwa Budruk, Pune 411048.',
+        importer: 'Sha Maknaji Veerchand, S.No.4, H.No.1/18/2, Lane 5, Kakdewasti, Next to Rishi Enclave, Kondhwa Budruk, Pune 411048.',
+        contact: '+91 88852 41706',
+        email: 'care@justshop24x7.com',
         itemWeight: "386 g",
         netQuantity: "1 Count",
         includedComponents: "Pre-filter, Carbon Filter, HEPA Filter",
@@ -1512,17 +1519,17 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       description:
         "Compact HEPA purifier for small-to-medium rooms with washable pre-filter, activated carbon, True HEPA, and PlasmaWave. AHAM-verified 230 sq ft coverage; ultra-quiet 20 dB.",
       images: [
-        "assets/products/A231/product-1.webp",
-        "assets/products/A231/product-2.webp",
-        "assets/products/A231/product-3.webp",
-        "assets/products/A231/product-4.webp",
-        "assets/products/A231/product-5.webp",
-        "assets/products/A231/product-6.webp",
-        "assets/products/A231/product-7.webp",
-        "assets/products/A231/product-8.webp",
-        "assets/products/28.webp"
+        "assets/products-v2/A231/product-1.webp",
+        "assets/products-v2/A231/product-2.webp",
+        "assets/products-v2/A231/product-3.webp",
+        "assets/products-v2/A231/product-4.webp",
+        "assets/products-v2/A231/product-5.webp",
+        "assets/products-v2/A231/product-6.webp",
+        "assets/products-v2/A231/product-7.webp",
+        "assets/products-v2/A231/product-8.webp",
+        "assets/products-v2/28.webp"
       ],
-      currentImage: "assets/products/A231/product-1.jpg",
+      currentImage: "assets/products-v2/A231/product-1.jpg",
       rating: 4.6,
       category: "Compact",
       technology: "4-Stage Filtration • True HEPA 99.97% • PlasmaWave",
@@ -1666,9 +1673,11 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       },
 
       additionalInformation: {
-        manufacturer: "Winix",
-        packer: "Sha Maknaji Veerchand, Kamala Nagar, Anantapur. Ph no-08554-356969",
-        importer: "Sha Maknaji Veerchand, Ph no-8885241706",
+        manufacturer: 'Winix',
+        packer: 'Sha Maknaji Veerchand, S.No.4, H.No.1/18/2, Lane 5, Kakdewasti, Next to Rishi Enclave, Kondhwa Budruk, Pune 411048.',
+        importer: 'Sha Maknaji Veerchand, S.No.4, H.No.1/18/2, Lane 5, Kakdewasti, Next to Rishi Enclave, Kondhwa Budruk, Pune 411048.',
+        contact: '+91 88852 41706',
+        email: 'care@justshop24x7.com',
         itemWeight: "3.22 Kg",
         netQuantity: "1.0 count",
         includedComponents: "Air Purifier",
@@ -1827,18 +1836,18 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       description:
         "Premium 4-stage purifier with True HEPA, PlasmaWave, and activated carbon. AHAM-verified coverage up to 1065 sq ft, CADR 390 m³/h, with ultra-quiet 27.8 dB operation.",
       images: [
-        "assets/products/5300-2/1.webp",
-        "assets/products/5300-2/2.webp",
-        "assets/products/5300-2/3.webp",
-        "assets/products/5300-2/4.webp",
-        "assets/products/5300-2/5.webp",
-        "assets/products/5300-2/6.webp",
-        "assets/products/5300-2/7.webp",
-        "assets/products/5300-2/8.webp",
-        "assets/products/5300-2/5300-2.webp",
-        "assets/products/28.webp"
+        "assets/products-v2/5300-2/1.webp",
+        "assets/products-v2/5300-2/2.webp",
+        "assets/products-v2/5300-2/3.webp",
+        "assets/products-v2/5300-2/4.webp",
+        "assets/products-v2/5300-2/5.webp",
+        "assets/products-v2/5300-2/6.webp",
+        "assets/products-v2/5300-2/7.webp",
+        "assets/products-v2/5300-2/8.webp",
+        "assets/products-v2/5300-2/5300-2.webp",
+        "assets/products-v2/28.webp"
       ],
-      currentImage: "assets/products/5300-2/product-1.jpg",
+      currentImage: "assets/products-v2/5300-2/product-1.jpg",
       rating: 4.6,
       category: "Premium Series",
       technology: "True HEPA + PlasmaWave + Activated Carbon",
@@ -1982,9 +1991,11 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         "Warranty Description": "2 + 1 On Registration",
       },
       additionalInformation: {
-        manufacturer: "Winix",
-        packer: "Sha Maknaji Veerchand, Kamala Nagar, Anantapur. Ph no-08554-356969",
-        importer: "Sha Maknaji Veerchand, Ph no-8885241706",
+         manufacturer: 'Winix',
+        packer: 'Sha Maknaji Veerchand, S.No.4, H.No.1/18/2, Lane 5, Kakdewasti, Next to Rishi Enclave, Kondhwa Budruk, Pune 411048.',
+        importer: 'Sha Maknaji Veerchand, S.No.4, H.No.1/18/2, Lane 5, Kakdewasti, Next to Rishi Enclave, Kondhwa Budruk, Pune 411048.',
+        contact: '+91 88852 41706',
+        email: 'care@justshop24x7.com',
         itemWeight: "6.71 kg",
         netQuantity: "1.0 count",
 
@@ -2149,18 +2160,18 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       description:
         "True HEPA purifier with PlasmaWave and washable AOC carbon filter. 360 sq ft coverage, 27.8 dB operation, 70W power.",
       images: [
-        "assets/products/5500-2/product-1.webp",
-        "assets/products/5500-2/product-2.webp",
-        "assets/products/5500-2/product-3.webp",
-        "assets/products/5500-2/product-4.webp",
-        "assets/products/5500-2/product-5.webp",
-        "assets/products/5500-2/product-6.webp",
-        "assets/products/5500-2/product-7.webp",
-        "assets/products/5500-2/product-8.webp",
-        "assets/products/5500-2/5500-2.webp",
-        "assets/products/28.webp"
+        "assets/products-v2/5500-2/product-1.webp",
+        "assets/products-v2/5500-2/product-2.webp",
+        "assets/products-v2/5500-2/product-3.webp",
+        "assets/products-v2/5500-2/product-4.webp",
+        "assets/products-v2/5500-2/product-5.webp",
+        "assets/products-v2/5500-2/product-6.webp",
+        "assets/products-v2/5500-2/product-7.webp",
+        "assets/products-v2/5500-2/product-8.webp",
+        "assets/products-v2/5500-2/5500-2.webp",
+        "assets/products-v2/28.webp"
       ],
-      currentImage: "assets/products/5500-2/product-1.jpg",
+      currentImage: "assets/products-v2/5500-2/product-1.jpg",
       rating: 4.6,
       category: "Elite Series",
       technology: "True HEPA + PlasmaWave + Washable AOC Carbon",
@@ -2306,10 +2317,11 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       },
 
       additionalInformation: {
-        manufacturer: "Winix",
-        packer: "Sha Maknaji Veerchand, Kamala Nagar, Anantapur. Ph no-08554-356969",
-        importer: "Sha Maknaji Veerchand, Ph no-8885241706",
-
+        manufacturer: 'Winix',
+        packer: 'Sha Maknaji Veerchand, S.No.4, H.No.1/18/2, Lane 5, Kakdewasti, Next to Rishi Enclave, Kondhwa Budruk, Pune 411048.',
+        importer: 'Sha Maknaji Veerchand, S.No.4, H.No.1/18/2, Lane 5, Kakdewasti, Next to Rishi Enclave, Kondhwa Budruk, Pune 411048.',
+        contact: '+91 88852 41706',
+        email: 'care@justshop24x7.com',
         itemWeight: "6.7 Kg",
         netQuantity: "1.0 count",
 
@@ -2469,18 +2481,18 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       description:
         "Smart Wi-Fi enabled air purifier with True HEPA, carbon filter, auto mode, and air quality monitor. Covers up to 1968 sq ft in 1 hour with AHAM-verified 410 sq ft rating.",
       images: [
-        "assets/products/T800/product-1.webp",
-        "assets/products/T800/product-2.webp",
-        "assets/products/T800/product-3.webp",
-        "assets/products/T800/product-4.webp",
-        "assets/products/T800/product-5.webp",
-        "assets/products/T800/product-6.webp",
-        "assets/products/T800/product-7.webp",
-        "assets/products/T800/product-8.webp",
-        "assets/products/T800/T800.webp",
-        "assets/products/28.webp"
+        "assets/products-v2/T800/product-1.webp",
+        "assets/products-v2/T800/product-2.webp",
+        "assets/products-v2/T800/product-3.webp",
+        "assets/products-v2/T800/product-4.webp",
+        "assets/products-v2/T800/product-5.webp",
+        "assets/products-v2/T800/product-6.webp",
+        "assets/products-v2/T800/product-7.webp",
+        "assets/products-v2/T800/product-8.webp",
+        "assets/products-v2/T800/T800.webp",
+        "assets/products-v2/28.webp"
       ],
-      currentImage: "assets/products/T800/product-1.jpg",
+      currentImage: "assets/products-v2/T800/product-1.jpg",
       rating: 4.4,
       category: "Smart Series",
       technology: "True HEPA + Carbon Filter + PlasmaWave + Smart Wi-Fi",
@@ -2633,9 +2645,11 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       },
 
       additionalInformation: {
-        manufacturer: "Winix",
-        packer: "Sha Maknaji Veerchand, Kamala Nagar, Anantapur. Ph no-08554-356969",
-        importer: "Sha Maknaji Veerchand, Ph no-8885241706",
+        manufacturer: 'Winix',
+        packer: 'Sha Maknaji Veerchand, S.No.4, H.No.1/18/2, Lane 5, Kakdewasti, Next to Rishi Enclave, Kondhwa Budruk, Pune 411048.',
+        importer: 'Sha Maknaji Veerchand, S.No.4, H.No.1/18/2, Lane 5, Kakdewasti, Next to Rishi Enclave, Kondhwa Budruk, Pune 411048.',
+        contact: '+91 88852 41706',
+        email: 'care@justshop24x7.com',
 
         itemWeight: "4.7 kg",
         netQuantity: "1.0 count",
@@ -2795,18 +2809,18 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       description:
         "360° all-in-one air purifier with WiFi Smart App control, PlasmaWave technology, and 4-stage filtration including fine mesh pre-filter, True HEPA, and activated carbon. AHAM verified for 251 sq ft, capable of cleaning up to 1204 sq ft in 1 hour.",
       images: [
-        "assets/products/T500/product-1.webp",
-        "assets/products/T500/product-2.webp",
-        "assets/products/T500/product-3.webp",
-        "assets/products/T500/product-4.webp",
-        "assets/products/T500/product-5.webp",
-        "assets/products/T500/product-6.webp",
-        "assets/products/T500/product-7.webp",
-        "assets/products/T500/product-8.webp",
-        "assets/products/T500/T500.webp",
-        "assets/products/28.webp"
+        "assets/products-v2/T500/product-1.webp",
+        "assets/products-v2/T500/product-2.webp",
+        "assets/products-v2/T500/product-3.webp",
+        "assets/products-v2/T500/product-4.webp",
+        "assets/products-v2/T500/product-5.webp",
+        "assets/products-v2/T500/product-6.webp",
+        "assets/products-v2/T500/product-7.webp",
+        "assets/products-v2/T500/product-8.webp",
+        "assets/products-v2/T500/T500.webp",
+        "assets/products-v2/28.webp"
       ],
-      currentImage: "assets/products/T500/product-1.jpg",
+      currentImage: "assets/products-v2/T500/product-1.jpg",
       rating: 0, // no Amazon reviews yet
       category: "Smart Series",
       technology: "4-Stage Filtration • True HEPA 99.99% • PlasmaWave • WiFi",
@@ -2953,9 +2967,11 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       },
 
       additionalInformation: {
-        manufacturer: "Winix",
-        packer: "Sha Maknaji Veerchand, Kamala Nagar, Anantapur. Ph no-08554-356969",
-        importer: "Sha Maknaji Veerchand, Ph no-8885241706",
+        manufacturer: 'Winix',
+        packer: 'Sha Maknaji Veerchand, S.No.4, H.No.1/18/2, Lane 5, Kakdewasti, Next to Rishi Enclave, Kondhwa Budruk, Pune 411048.',
+        importer: 'Sha Maknaji Veerchand, S.No.4, H.No.1/18/2, Lane 5, Kakdewasti, Next to Rishi Enclave, Kondhwa Budruk, Pune 411048.',
+        contact: '+91 88852 41706',
+        email: 'care@justshop24x7.com',
         itemWeight: "3.1 Kg",
         netQuantity: "1.0 count",
 
