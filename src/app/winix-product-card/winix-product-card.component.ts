@@ -44,7 +44,7 @@ export class WinixProductCardComponent implements AfterViewInit {
       imageSrc: "/assets/products-v2/card-v2/5500-2.webp",
       hoverImageSrc: "/assets/products-v2/5500-2/product-2.jpg",
       badges: ["POPULAR"],
-      price: 14999,
+      price: 15999,
       mrp: 24990,
       colors: ["#111111", "#f5f5f5"] // black, white
     },
@@ -59,7 +59,7 @@ export class WinixProductCardComponent implements AfterViewInit {
       slug: "winix-5300-2-air-purifier",
       imageSrc: "/assets/products-v2/card-v2/5300-2.webp",
       badges: ["POPULAR"],
-      price: 13899,
+      price: 14999,
       mrp: 23990,
       colors: ["#c9c9c9", "#111111"]
     },
@@ -74,7 +74,7 @@ export class WinixProductCardComponent implements AfterViewInit {
       slug: "winix-t800-air-purifier",
       imageSrc: "assets/products-v2/card-v2/T800.webp",
       badges: ["NEW"],
-      price: 18999,
+      price: 21999,
       mrp: 29990,
       colors: ["#f5f5f5", "#3b3b3b"]
     },

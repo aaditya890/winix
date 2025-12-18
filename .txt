@@ -1,5 +1,0 @@
-
-
-<div id="REELS" class="h-0"></div>
-<app-video-showcase></app-video-showcase>
-
