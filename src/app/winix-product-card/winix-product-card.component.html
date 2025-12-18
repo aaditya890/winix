@@ -29,7 +29,7 @@
 
             <!-- Image -->
             <div
-              class="relative w-full h-[240px] sm:h-[260px] md:h-[280px] p-4 rounded-t-xl flex items-center justify-center">
+              class="relative w-full h-[280px] p-4 rounded-t-xl flex items-center justify-center">
               <img class="max-h-full max-w-full object-contain transition-transform duration-300"
                 [src]="hovered[p.id] && p.hoverImageSrc ? p.hoverImageSrc : p.imageSrc" [alt]="p.title"
                 (load)="onImageLoad(i)" loading="lazy" decoding="async" />

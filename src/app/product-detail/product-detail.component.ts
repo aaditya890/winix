@@ -101,6 +101,8 @@ interface Product {
     manufacturer?: string;
     packer?: string;
     importer?: string;
+    contact: string;
+    email: string;
     itemWeight?: string;
     netQuantity?: string;
     includedComponents?: string;
@@ -343,9 +345,11 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         "Warranty Description": "1 Year on Product"
       },
       additionalInformation: {
-        manufacturer: "Winix",
-        packer: "Sha Maknaji Veerchand, Kamala Nagar, Anantapur. Ph no-08554-356969",
-        importer: "Sha Maknaji Veerchand, Ph no-8885241706",
+        manufacturer: 'Winix',
+        packer: 'Sha Maknaji Veerchand, S.No.4, H.No.1/18/2, Lane 5, Kakdewasti, Next to Rishi Enclave, Kondhwa Budruk, Pune 411048.',
+        importer: 'Sha Maknaji Veerchand, S.No.4, H.No.1/18/2, Lane 5, Kakdewasti, Next to Rishi Enclave, Kondhwa Budruk, Pune 411048.',
+        contact: '+91 88852 41706',
+        email: 'care@justshop24x7.com',
         itemWeight: "980 g",
         netQuantity: "1 Count",
         includedComponents: "True HEPA + AOC Carbon Filter",
@@ -611,9 +615,11 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       },
 
       additionalInformation: {
-        manufacturer: "Winix",
-        packer: "Sha Maknaji Veerchand, Kamala Nagar, Anantapur. Ph no-08554-356969",
-        importer: "Sha Maknaji Veerchand, Ph no-8885241706",
+        manufacturer: 'Winix',
+        packer: 'Sha Maknaji Veerchand, S.No.4, H.No.1/18/2, Lane 5, Kakdewasti, Next to Rishi Enclave, Kondhwa Budruk, Pune 411048.',
+        importer: 'Sha Maknaji Veerchand, S.No.4, H.No.1/18/2, Lane 5, Kakdewasti, Next to Rishi Enclave, Kondhwa Budruk, Pune 411048.',
+        contact: '+91 88852 41706',
+        email: 'care@justshop24x7.com',
         itemWeight: "454 g",
         netQuantity: "1 Count",
         includedComponents: "HEPA Filter, Pre-Filter, Carbon Filter",
@@ -853,9 +859,11 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       },
 
       additionalInformation: {
-        manufacturer: "Winix",
-        packer: "Sha Maknaji Veerchand, Kamala Nagar, Anantapur. Ph no-08554-356969",
-        importer: "Sha Maknaji Veerchand, Ph no-8885241706",
+        manufacturer: 'Winix',
+        packer: 'Sha Maknaji Veerchand, S.No.4, H.No.1/18/2, Lane 5, Kakdewasti, Next to Rishi Enclave, Kondhwa Budruk, Pune 411048.',
+        importer: 'Sha Maknaji Veerchand, S.No.4, H.No.1/18/2, Lane 5, Kakdewasti, Next to Rishi Enclave, Kondhwa Budruk, Pune 411048.',
+        contact: '+91 88852 41706',
+        email: 'care@justshop24x7.com',
         itemWeight: "454 g",
         netQuantity: "1 Count",
         includedComponents: "True HEPA Filter + 4 Carbon Pre-Filters",
@@ -1091,9 +1099,11 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       },
 
       additionalInformation: {
-        manufacturer: "Winix",
-        packer: "Sha Maknaji Veerchand, Kamala Nagar, Anantapur. Ph no-08554-356969",
-        importer: "Sha Maknaji Veerchand, Ph no-8885241706",
+        manufacturer: 'Winix',
+        packer: 'Sha Maknaji Veerchand, S.No.4, H.No.1/18/2, Lane 5, Kakdewasti, Next to Rishi Enclave, Kondhwa Budruk, Pune 411048.',
+        importer: 'Sha Maknaji Veerchand, S.No.4, H.No.1/18/2, Lane 5, Kakdewasti, Next to Rishi Enclave, Kondhwa Budruk, Pune 411048.',
+        contact: '+91 88852 41706',
+        email: 'care@justshop24x7.com',
         itemWeight: "385 g",
         netQuantity: "1 Count",
         includedComponents: "True HEPA + Carbon Filter",
@@ -1365,9 +1375,11 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       },
 
       additionalInformation: {
-        manufacturer: "Winix",
-        packer: "Sha Maknaji Veerchand, Kamala Nagar, Anantapur. Ph no-08554-356969",
-        importer: "Sha Maknaji Veerchand, Ph no-8885241706",
+        manufacturer: 'Winix',
+        packer: 'Sha Maknaji Veerchand, S.No.4, H.No.1/18/2, Lane 5, Kakdewasti, Next to Rishi Enclave, Kondhwa Budruk, Pune 411048.',
+        importer: 'Sha Maknaji Veerchand, S.No.4, H.No.1/18/2, Lane 5, Kakdewasti, Next to Rishi Enclave, Kondhwa Budruk, Pune 411048.',
+        contact: '+91 88852 41706',
+        email: 'care@justshop24x7.com',
         itemWeight: "386 g",
         netQuantity: "1 Count",
         includedComponents: "Pre-filter, Carbon Filter, HEPA Filter",
@@ -1661,9 +1673,11 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       },
 
       additionalInformation: {
-        manufacturer: "Winix",
-        packer: "Sha Maknaji Veerchand, Kamala Nagar, Anantapur. Ph no-08554-356969",
-        importer: "Sha Maknaji Veerchand, Ph no-8885241706",
+        manufacturer: 'Winix',
+        packer: 'Sha Maknaji Veerchand, S.No.4, H.No.1/18/2, Lane 5, Kakdewasti, Next to Rishi Enclave, Kondhwa Budruk, Pune 411048.',
+        importer: 'Sha Maknaji Veerchand, S.No.4, H.No.1/18/2, Lane 5, Kakdewasti, Next to Rishi Enclave, Kondhwa Budruk, Pune 411048.',
+        contact: '+91 88852 41706',
+        email: 'care@justshop24x7.com',
         itemWeight: "3.22 Kg",
         netQuantity: "1.0 count",
         includedComponents: "Air Purifier",
@@ -1977,9 +1991,11 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         "Warranty Description": "2 + 1 On Registration",
       },
       additionalInformation: {
-        manufacturer: "Winix",
-        packer: "Sha Maknaji Veerchand, Kamala Nagar, Anantapur. Ph no-08554-356969",
-        importer: "Sha Maknaji Veerchand, Ph no-8885241706",
+         manufacturer: 'Winix',
+        packer: 'Sha Maknaji Veerchand, S.No.4, H.No.1/18/2, Lane 5, Kakdewasti, Next to Rishi Enclave, Kondhwa Budruk, Pune 411048.',
+        importer: 'Sha Maknaji Veerchand, S.No.4, H.No.1/18/2, Lane 5, Kakdewasti, Next to Rishi Enclave, Kondhwa Budruk, Pune 411048.',
+        contact: '+91 88852 41706',
+        email: 'care@justshop24x7.com',
         itemWeight: "6.71 kg",
         netQuantity: "1.0 count",
 
@@ -2301,10 +2317,11 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       },
 
       additionalInformation: {
-        manufacturer: "Winix",
-        packer: "Sha Maknaji Veerchand, Kamala Nagar, Anantapur. Ph no-08554-356969",
-        importer: "Sha Maknaji Veerchand, Ph no-8885241706",
-
+        manufacturer: 'Winix',
+        packer: 'Sha Maknaji Veerchand, S.No.4, H.No.1/18/2, Lane 5, Kakdewasti, Next to Rishi Enclave, Kondhwa Budruk, Pune 411048.',
+        importer: 'Sha Maknaji Veerchand, S.No.4, H.No.1/18/2, Lane 5, Kakdewasti, Next to Rishi Enclave, Kondhwa Budruk, Pune 411048.',
+        contact: '+91 88852 41706',
+        email: 'care@justshop24x7.com',
         itemWeight: "6.7 Kg",
         netQuantity: "1.0 count",
 
@@ -2628,9 +2645,11 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       },
 
       additionalInformation: {
-        manufacturer: "Winix",
-        packer: "Sha Maknaji Veerchand, Kamala Nagar, Anantapur. Ph no-08554-356969",
-        importer: "Sha Maknaji Veerchand, Ph no-8885241706",
+        manufacturer: 'Winix',
+        packer: 'Sha Maknaji Veerchand, S.No.4, H.No.1/18/2, Lane 5, Kakdewasti, Next to Rishi Enclave, Kondhwa Budruk, Pune 411048.',
+        importer: 'Sha Maknaji Veerchand, S.No.4, H.No.1/18/2, Lane 5, Kakdewasti, Next to Rishi Enclave, Kondhwa Budruk, Pune 411048.',
+        contact: '+91 88852 41706',
+        email: 'care@justshop24x7.com',
 
         itemWeight: "4.7 kg",
         netQuantity: "1.0 count",
@@ -2948,9 +2967,11 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       },
 
       additionalInformation: {
-        manufacturer: "Winix",
-        packer: "Sha Maknaji Veerchand, Kamala Nagar, Anantapur. Ph no-08554-356969",
-        importer: "Sha Maknaji Veerchand, Ph no-8885241706",
+        manufacturer: 'Winix',
+        packer: 'Sha Maknaji Veerchand, S.No.4, H.No.1/18/2, Lane 5, Kakdewasti, Next to Rishi Enclave, Kondhwa Budruk, Pune 411048.',
+        importer: 'Sha Maknaji Veerchand, S.No.4, H.No.1/18/2, Lane 5, Kakdewasti, Next to Rishi Enclave, Kondhwa Budruk, Pune 411048.',
+        contact: '+91 88852 41706',
+        email: 'care@justshop24x7.com',
         itemWeight: "3.1 Kg",
         netQuantity: "1.0 count",
 

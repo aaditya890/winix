@@ -303,6 +303,16 @@
               <div class="value">{{ product.additionalInformation?.importer }}</div>
             </div>
 
+            <div class="row" *ngIf="product.additionalInformation?.contact">
+              <div class="label">• Contact :</div>
+              <div class="value">{{ product.additionalInformation?.contact }}</div>
+            </div>
+
+            <div class="row" *ngIf="product.additionalInformation?.email">
+              <div class="label">• Email :</div>
+              <div class="value">{{ product.additionalInformation?.email }}</div>
+            </div>
+
             <div class="row" *ngIf="product.additionalInformation?.itemWeight">
               <div class="label">• Item Weight :</div>
               <div class="value">{{ product.additionalInformation?.itemWeight }}</div>
