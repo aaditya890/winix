@@ -1866,7 +1866,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       badge: "Premium Choice",
       isAward: true,
       awardType: "Triple Certified (UK Allergy, ECARF, AHAM)",
-      price: "₹13,899",
+      price: "₹14,999",
       mrp: "₹23,990",
       topReview: '39K',
       detailedSpecs: {
@@ -2190,7 +2190,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       badge: "Best Seller",
       isAward: true,
       awardType: "Editor's Choice 2024",
-      price: "₹14,999",
+      price: "₹15,999",
       mrp: "₹24,990",
       topReview: '39k',
       detailedSpecs: {
@@ -2520,7 +2520,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       badge: "Smart Choice",
       isAward: true,
       awardType: "AHAM • CARB • Energy Star • FCC • UL Certified",
-      price: "₹18,999",
+      price: "₹21,999",
       mrp: "₹29,990",
       topReview: '165',
       detailedSpecs: {
