@@ -217,7 +217,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
     {
       id: 6,
       isFilter: true,
-      productUrl: "https://www.amazon.in/Winix-Genuine-116130-Replacement-5500-2/dp/B01JL1TO8R",
+      productUrl: "https://amzn.in/d/7CIFKmW",
       slug: "winix-5500-2-replacement-filter",
       name: "Winix Genuine 116130 Replacement Filter H for 5500-2 Air Purifier",
       shortName: "Winix 5500-2 Filter",
@@ -972,7 +972,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
     {
       id: 9,
       isFilter: true,
-      productUrl: "https://www.amazon.com/dp/B08NSQ91LM",
+      productUrl: "/",
       slug: "winix-t500-replacement-filter",
       name: "Winix Genuine 1712-0110-00 Replacement Filter for T500 Air Purifier",
       shortName: "Winix T500 Filter",
@@ -1236,7 +1236,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
     {
       id: 10,
       isFilter: true,
-      productUrl: "https://www.amazon.com/dp/B08NSQ91LM",
+      productUrl: "/",
       slug: "winix-a231-replacement-filter",
       name: "Winix Genuine 1712-0110-00 Replacement Filter O for A231 Air Purifier",
       shortName: "Winix A231 Filter",
