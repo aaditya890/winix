@@ -7,7 +7,7 @@ import { WinixProductCardComponent } from "../winix-product-card/winix-product-c
 @Component({
   selector: 'app-explore',
   standalone: true,
-  imports: [NgFor, ComparisonComponent, WinixProductCardComponent],
+  imports: [NgFor, WinixProductCardComponent],
   templateUrl: './explore.component.html',
   styleUrl: './explore.component.scss',
 })
@@ -52,7 +52,6 @@ export class ExploreComponent {
 
       gallery: [
         '/assets/products-v2/T500/product-1.webp',
-        '/assets/products-v2/T500/product-2.webp',
         '/assets/products-v2/T500/product-3.webp',
         '/assets/products-v2/T500/product-4.webp',
         '/assets/products-v2/T500/product-5.webp',
