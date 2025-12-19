@@ -2810,7 +2810,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         "360° all-in-one air purifier with WiFi Smart App control, PlasmaWave technology, and 4-stage filtration including fine mesh pre-filter, True HEPA, and activated carbon. AHAM verified for 251 sq ft, capable of cleaning up to 1204 sq ft in 1 hour.",
       images: [
         "assets/products-v2/T500/product-1.webp",
-        "assets/products-v2/T500/product-2.webp",
+        "assets/products-v2/T500/product-2-v2.webp",
         "assets/products-v2/T500/product-3.webp",
         "assets/products-v2/T500/product-4.webp",
         "assets/products-v2/T500/product-5.webp",

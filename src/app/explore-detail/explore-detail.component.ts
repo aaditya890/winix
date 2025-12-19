@@ -193,7 +193,7 @@ export class ExploreDetailComponent implements OnInit {
       url: '/product/winix-t500-air-purifier',
       gallery: [
         '/assets/products-v2/T500/product-1.webp',
-        '/assets/products-v2/T500/product-2.webp',
+        '/assets/products-v2/T500/product-2-v2.webp',
         '/assets/products-v2/T500/product-3.webp',
         '/assets/products-v2/T500/product-4.webp',
         '/assets/products-v2/T500/product-5.webp',
