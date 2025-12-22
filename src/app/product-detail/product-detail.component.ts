@@ -1838,7 +1838,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       name: "WINIX 5300-2 Premium 4-Stage Air Purifier",
       shortName: "Winix 5300-2 Premium",
       userManual: 'assets/manuals/5300-2.pdf',
-      ahamCertificate: null,
+      ahamCertificate: 'assets/manuals/5300-2-aham.pdf',
       description:
         "Premium 4-stage purifier with True HEPA, PlasmaWave, and activated carbon. AHAM-verified coverage up to 1065 sq ft, CADR 390 m³/h, with ultra-quiet 27.8 dB operation.",
       images: [
@@ -2164,7 +2164,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       name: "WINIX 5500-2 True HEPA purifier with PlasmaWave Tech AOC carbon filter AHAM-verified 360 sq ft coverage.",
       shortName: "WINIX 5500-2",
       userManual: 'assets/manuals/5500-2.pdf',
-      ahamCertificate: null,
+      ahamCertificate: 'assets/manuals/5500-2-aham.pdf',
       description:
         "True HEPA purifier with PlasmaWave and washable AOC carbon filter. 360 sq ft coverage, 27.8 dB operation, 70W power.",
       images: [
