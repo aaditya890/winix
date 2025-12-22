@@ -6,6 +6,8 @@ interface Product {
   id: number
   isFilter: boolean
   productUrl: string
+  userManual?: string,
+  ahamCertificate?: string | null,
   name: string
   shortName: string
   slug: string
@@ -1516,6 +1518,8 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       slug: "winix-a231-air-purifier",
       name: "Winix A231 360° All in One 4 Stage True HEPA Air Purifier with PlasmaWave Tech",
       shortName: "A231 Compact",
+      userManual: 'assets/manuals/a231.pdf',
+      ahamCertificate: null,
       description:
         "Compact HEPA purifier for small-to-medium rooms with washable pre-filter, activated carbon, True HEPA, and PlasmaWave. AHAM-verified 230 sq ft coverage; ultra-quiet 20 dB.",
       images: [
@@ -1833,6 +1837,8 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       slug: "winix-5300-2-air-purifier",
       name: "WINIX 5300-2 Premium 4-Stage Air Purifier",
       shortName: "Winix 5300-2 Premium",
+      userManual: 'assets/manuals/5300-2.pdf',
+      ahamCertificate: null,
       description:
         "Premium 4-stage purifier with True HEPA, PlasmaWave, and activated carbon. AHAM-verified coverage up to 1065 sq ft, CADR 390 m³/h, with ultra-quiet 27.8 dB operation.",
       images: [
@@ -2157,6 +2163,8 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       slug: "winix-5500-2-air-purifier",
       name: "WINIX 5500-2 True HEPA purifier with PlasmaWave Tech AOC carbon filter AHAM-verified 360 sq ft coverage.",
       shortName: "WINIX 5500-2",
+      userManual: 'assets/manuals/5500-2.pdf',
+      ahamCertificate: null,
       description:
         "True HEPA purifier with PlasmaWave and washable AOC carbon filter. 360 sq ft coverage, 27.8 dB operation, 70W power.",
       images: [
@@ -2478,6 +2486,8 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       slug: "winix-t800-air-purifier",
       name: "Winix T800 360° True HEPA WiFi Air Purifier with 4-Stage PlasmaWave Tech",
       shortName: "WINIX T800",
+      userManual: 'assets/manuals/t800.pdf',
+      ahamCertificate:'assets/manuals/t800-aham.pdf',
       description:
         "Smart Wi-Fi enabled air purifier with True HEPA, carbon filter, auto mode, and air quality monitor. Covers up to 1968 sq ft in 1 hour with AHAM-verified 410 sq ft rating.",
       images: [
@@ -2806,6 +2816,8 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       slug: "winix-t500-air-purifier",
       name: "WINIX T500 360° 4-Stage True HEPA WiFi Air Purifier with PlasmaWave®",
       shortName: "WINIX T500",
+      userManual: 'assets/manuals/t500.pdf',
+      ahamCertificate: 'assets/manuals/t500-aham.pdf',
       description:
         "360° all-in-one air purifier with WiFi Smart App control, PlasmaWave technology, and 4-stage filtration including fine mesh pre-filter, True HEPA, and activated carbon. AHAM verified for 251 sq ft, capable of cleaning up to 1204 sq ft in 1 hour.",
       images: [
@@ -3373,9 +3385,24 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
     const date = new Date(d)
     return date.toLocaleDateString()
   }
+
   navigateToCheckout(link: string): void {
     if (link) {
       window.open(link, "_blank");
+    }
+  }
+
+    // Open Product Manual
+  openManual() {
+    if (this.product?.userManual) {
+      window.open(this.product.userManual, "_blank");
+    }
+  }
+
+  // Open AHAM Certificate Pdf
+  openAhamCertificate() {
+    if (this.product?.ahamCertificate) {
+      window.open(this.product.ahamCertificate, "_blank");
     }
   }
 }
