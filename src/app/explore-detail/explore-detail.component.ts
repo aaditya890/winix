@@ -46,7 +46,7 @@ export class ExploreDetailComponent implements OnInit {
   allProducts = [
     {
       id: 'a231',
-      ahemCertificate: null,
+      ahamCertificate: null,
       shortTitle: 'WINIX A231',
       name: 'Air Purifier WINIX A231',
       category: 'Air Purifier',
@@ -183,7 +183,7 @@ export class ExploreDetailComponent implements OnInit {
     },
     {
       id: 't500-wifi',
-      ahemCertificate: 'assets/manuals/t500-ahem.pdf',
+      ahamCertificate: 'assets/manuals/t500-aham.pdf',
       shortTitle: 'WINIX T500 WIFI',
       name: 'Air Purifier WINIX T500 WIFI',
       category: 'Air Purifier',
@@ -316,7 +316,7 @@ export class ExploreDetailComponent implements OnInit {
     },
     {
       id: 't800',
-      ahemCertificate: 'assets/manuals/t800-ahem.pdf',
+      ahamCertificate: 'assets/manuals/t800-aham.pdf',
       shortTitle: 'WINIX T800 WIFI',
       name: 'Air Purifier WINIX T800 WIFI',
       category: 'Air Purifier',
@@ -540,10 +540,10 @@ export class ExploreDetailComponent implements OnInit {
     }
   }
 
-  // Open AHEM Certificate Pdf
-  openAhemCertificate() {
-    if (this.product?.ahemCertificate) {
-      window.open(this.product.ahemCertificate, "_blank");
+  // Open AHAM Certificate Pdf
+  openAhamCertificate() {
+    if (this.product?.ahamCertificate) {
+      window.open(this.product.ahamCertificate, "_blank");
     }
   }
 
