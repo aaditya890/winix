@@ -127,7 +127,7 @@
                 </button>
 
                 <!-- AHAM Certificate -->
-                <button (click)="openAhamCertificate()" class="flex items-center gap-1 px-3 py-1 rounded-md bg-[#74236C] text-white text-[11px] md:text-xs font-semibold tracking-tight 
+                <button *ngIf="product.ahamCertificate" (click)="openAhamCertificate()" class="flex items-center gap-1 px-3 py-1 rounded-md bg-[#74236C] text-white text-[11px] md:text-xs font-semibold tracking-tight 
            hover:bg-[#5e1c57] transition-all duration-200 shadow-sm">
                   🛡️ AHAM Certificate
                 </button>

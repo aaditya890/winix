@@ -75,5 +75,5 @@
 
 
 body { font-family: theme('fontFamily.sans'); }
-html { scroll-behavior: smooth; }
+html  { scroll-behavior: smooth;  margin: 0; padding: 0; overflow-x: hidden; /* 🔥 X-axis fix */}
 
