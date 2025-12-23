@@ -1,34 +1,29 @@
-<!-- HERO SLIDER -->
-<section class="w-screen overflow-hidden relative">
-
-  <div
-    class="flex transition-transform duration-700 ease-in-out"
-    [style.transform]="'translateX(-' + currentIndex * 100 + 'vw)'"
-  >
-
-    <div
-      *ngFor="let slide of slides"
-      class="w-screen flex-shrink-0"
-    >
-      <!-- Desktop -->
-      <div
-        class="hidden md:block w-full h-[520px] bg-center bg-cover"
-        [style.backgroundImage]="'url(' + slide.desktop + ')'"
-      ></div>
-
-      <!-- Mobile -->
-      <div
-        class="block md:hidden w-full h-[420px] bg-center bg-cover"
-        [style.backgroundImage]="'url(' + slide.mobile + ')'"
-      ></div>
+<section class="relative overflow-hidden">
+  <!-- Slider Wrapper -->
+  <div class="fixed-hero relative flex justify-center items-center overflow-hidden bg-white w-full">
+    <div class="relative flex transition-transform duration-700 ease-in-out"
+      [style.transform]="'translateX(-' + currentIndex * 100 + '%)'">
+      <div *ngFor="let img of banners" class="w-full flex-shrink-0 flex justify-center items-center p-1 md:p-4">
+        <img [src]="img" alt="WINIX Banner" class="hero-img block rounded md:rounded-md" />
+      </div>
     </div>
-
   </div>
 
+  <div class="absolute inset-0 flex items-center justify-center text-center pointer-events-none">
+    <div class="max-w-2xl mx-auto px-4">
+      <!-- <h1 class="text-white text-3xl md:text-5xl font-bold">Your Message</h1> -->
+    </div>
+  </div>
 </section>
 
-
 <section class="relative overflow-hidden bg-white pb-8">
+  <!-- <div
+    class="pointer-events-none absolute -top-24 -right-16 h-56 w-56 rounded-full bg-gradient-to-br from-[#6a1b6e]/20 to-[#b21e6b]/20 blur-3xl">
+  </div>
+  <div
+    class="pointer-events-none absolute -bottom-24 -left-24 h-72 w-72 rounded-full bg-gradient-to-tr from-[#0e1649]/15 to-[#6a1b6e]/15 blur-3xl">
+  </div> -->
+
   <svg aria-hidden="true" class="pointer-events-none absolute right-0 top-0 h-full w-[50%] opacity-15"
     viewBox="0 0 500 800" fill="none">
     <path d="M30 100 C220 120, 220 220, 30 240" stroke="#0e1649" stroke-opacity=".25" stroke-width="2" />
@@ -96,6 +91,7 @@
 <div id="REELS" class="h-0"></div>
 <app-video-showcase></app-video-showcase>
 
+
 <!-- ===== PRODUCTS ===== -->
 <div id="PRODUCTS" class="h-0"></div>
 @defer (on viewport) {
@@ -114,6 +110,7 @@
   </div>
 </section>
 }
+
 
 <!-- ===== PRODUCTS ===== -->
 <div id="FILTERS" class="h-0"></div>
