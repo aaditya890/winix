@@ -17,7 +17,7 @@ interface FeatureItem {
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, NgOptimizedImage, WinixFilterCardComponent, WinixProductCardComponent, VideoShowcaseComponent, ReviewCardsComponent, ContactUsComponent, RouterLink, VideoShowcaseComponent, VideoSliderSectionComponent],
+  imports: [CommonModule, NgOptimizedImage,WinixFilterCardComponent, WinixProductCardComponent, VideoShowcaseComponent, ReviewCardsComponent, ContactUsComponent, RouterLink, VideoShowcaseComponent, VideoSliderSectionComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
@@ -29,13 +29,15 @@ export class HomeComponent {
   showBar = true;
   isMobileOpen = false;
 
-  // banners: string[] = [
-  //   'assets/winix_hero-v2/1.webp',
-  //   'assets/winix_hero-v2/2.webp',
-  //   'assets/winix_hero-v2/3.webp',
-  //   'assets/winix_hero-v2/4.webp',
-  // ];
+  banners: string[] = [
+    'assets/winix_hero-v2/1.webp',
+    'assets/winix_hero-v2/2.webp',
+    'assets/winix_hero-v2/3.webp',
+    'assets/winix_hero-v2/4.webp',
+  ];
 
+  currentIndex = 0;
+  private intervalId?: any;
 
   // ===== Features =====
   features: FeatureItem[] = [
@@ -44,9 +46,11 @@ export class HomeComponent {
     { img: 'assets/features/3.webp', title: 'True HEPA', desc: 'The True HEPA filter captures 99.97% of airborne particles, ensuring cleaner air.', w: 112, h: 112 },
     { img: 'assets/features/4.webp', title: 'PlasmaWave', desc: 'PlasmaWave Technology purifies air by neutralizing pollutants, bacteria, and viruses.', w: 112, h: 112 },
   ];
-
   featureSkeletonCount = Array(4);
   trackByTitle(_: number, f: FeatureItem) { return f.title; }
+
+
+  constructor(private viewportScroller: ViewportScroller) { }
 
   // Header Menubar Toggle Code
   toggleMobileMenu(open?: boolean) {
@@ -71,6 +75,13 @@ export class HomeComponent {
     { src: 'assets/section-right-scroll/2.webp', alt: 'Unboxing', w: 1200, h: 800 },
   ];
 
+
+  // Announcement Bar Dismiss
+  dismissBar() {
+    this.showBar = false;
+    localStorage.setItem('announce_dismissed', '1');
+  }
+
   scrollTo(id: string) {
     const target = document.getElementById(id);
     if (!target) return;
@@ -82,6 +93,7 @@ export class HomeComponent {
     window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
   }
 
+
   // Function to open WhatsApp chat
   openWhatsApp(): void {
     const message = encodeURIComponent("Hii Winixair!");
@@ -90,39 +102,32 @@ export class HomeComponent {
     window.open(whatsappUrl, '_blank');
   }
 
-
-
-  slides = [
-    {
-      desktop: 'assets/winix_hero-v2/ugv.svg',
-      mobile: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b',
-    },
-    {
-      desktop: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c',
-      mobile: 'https://images.unsplash.com/photo-1598928506311-c55ded91a20c',
-    },
-    {
-      desktop: 'https://images.unsplash.com/photo-1600121848594-d8644e57abab',
-      mobile: 'https://images.unsplash.com/photo-1615873968403-89e068629265',
-    },
-  ];
-
-  currentIndex = 0;
-  intervalId: any;
-
-  ngAfterViewInit() {
+  ngOnInit() {
     this.startAutoSlide();
   }
 
   ngOnDestroy() {
-    clearInterval(this.intervalId);
+    this.stopAutoSlide();
   }
 
-  startAutoSlide() {
+  private startAutoSlide(): void {
     this.intervalId = setInterval(() => {
-      this.currentIndex =
-        (this.currentIndex + 1) % this.slides.length;
+      this.currentIndex = (this.currentIndex + 1) % this.banners.length;
     }, 4000);
+  }
+
+  stopAutoSlide() {
+    if (this.intervalId) clearInterval(this.intervalId);
+  }
+
+  nextSlide() {
+    this.currentIndex = (this.currentIndex + 1) % this.banners.length;
+  }
+
+  goToSlide(index: any) {
+    this.currentIndex = index;
+    this.stopAutoSlide();
+    this.startAutoSlide(); // restart timer after manual change
   }
 
 }
