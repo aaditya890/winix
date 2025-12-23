@@ -1,1 +1,244 @@
-AHAM CERTIFICATE
+<!-- HERO SLIDER -->
+<section class="w-screen overflow-hidden relative">
+
+  <div
+    class="flex transition-transform duration-700 ease-in-out"
+    [style.transform]="'translateX(-' + currentIndex * 100 + 'vw)'"
+  >
+
+    <div
+      *ngFor="let slide of slides"
+      class="w-screen flex-shrink-0"
+    >
+      <!-- Desktop -->
+      <div
+        class="hidden md:block w-full h-[520px] bg-center bg-cover"
+        [style.backgroundImage]="'url(' + slide.desktop + ')'"
+      ></div>
+
+      <!-- Mobile -->
+      <div
+        class="block md:hidden w-full h-[420px] bg-center bg-cover"
+        [style.backgroundImage]="'url(' + slide.mobile + ')'"
+      ></div>
+    </div>
+
+  </div>
+
+</section>
+
+
+
+
+  slides = [
+    {
+      desktop: 'assets/winix_hero-v2/ugv.svg',
+      mobile: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b',
+    },
+    {
+      desktop: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c',
+      mobile: 'https://images.unsplash.com/photo-1598928506311-c55ded91a20c',
+    },
+    {
+      desktop: 'https://images.unsplash.com/photo-1600121848594-d8644e57abab',
+      mobile: 'https://images.unsplash.com/photo-1615873968403-89e068629265',
+    },
+  ];
+
+  currentIndex = 0;
+  intervalId: any;
+
+  ngAfterViewInit() {
+    this.startAutoSlide();
+  }
+
+  ngOnDestroy() {
+    clearInterval(this.intervalId);
+  }
+
+  startAutoSlide() {
+    this.intervalId = setInterval(() => {
+      this.currentIndex =
+        (this.currentIndex + 1) % this.slides.length;
+    }, 4000);
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/////////////////////////////////
+slider --- 
+@keyframes ugc-ticker {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); } /* full width */
+}
+
+.animate-ugc-ticker {
+  animation: ugc-ticker 1ms linear infinite; /* adjust duration for desired speed */
+}
+
+
+
+ts import { Component, OnInit, OnDestroy, ViewChild, ElementRef, HostListener } from '@angular/core';
+import { CommonModule, ViewportScroller } from '@angular/common';
+import { RouterLink } from '@angular/router';
+import { NgOptimizedImage } from '@angular/common';
+import { WinixProductCardComponent } from "../winix-product-card/winix-product-card.component";
+import { ReviewCardsComponent } from "../review-cards/review-cards.component";
+import { VideoShowcaseComponent } from "../video-showcase/video-showcase.component";
+import { ComparisonComponent } from "../comparison/comparison.component";
+import { ContactUsComponent } from "../contact-us/contact-us.component";
+import { VideoSliderSectionComponent } from "../video-slider-section/video-slider-section.component";
+import { WinixFilterCardComponent } from '../winix-filter-card/winix-filter-card.component';
+
+interface FeatureItem {
+  img: string; title: string; desc: string; w: number; h: number;
+}
+
+@Component({
+  selector: 'app-home',
+  standalone: true,
+  imports: [CommonModule, NgOptimizedImage,WinixFilterCardComponent, WinixProductCardComponent, VideoShowcaseComponent, ReviewCardsComponent, ContactUsComponent, RouterLink, VideoShowcaseComponent, VideoSliderSectionComponent],
+  templateUrl: './home.component.html',
+  styleUrl: './home.component.scss',
+})
+export class HomeComponent {
+  // Announcement Bar
+  barTitle = 'Updates';
+  messages = ['No.1 Air Purifier Brand', 'Free shipping on orders over ₹999', 'True HEPA filters back in stock'];
+  speed = 20;
+  showBar = true;
+  isMobileOpen = false;
+
+  banners: string[] = [
+    'assets/winix_hero-v2/1.webp',
+    'assets/winix_hero-v2/2.webp',
+    'assets/winix_hero-v2/3.webp',
+    'assets/winix_hero-v2/4.webp',
+  ];
+
+  currentIndex = 0;
+  private intervalId?: any;
+
+  // ===== Features =====
+  features: FeatureItem[] = [
+    { img: 'assets/features/1.webp', title: 'warranty', desc: 'Comprehensive 2 year warranty covers repairs, replacements, and reliable product protection.', w: 112, h: 112 },
+    { img: 'assets/features/2.webp', title: 'Carbon Filter', desc: 'An activated carbon filter effectively removes impurities, and contaminants from water.', w: 112, h: 112 },
+    { img: 'assets/features/3.webp', title: 'True HEPA', desc: 'The True HEPA filter captures 99.97% of airborne particles, ensuring cleaner air.', w: 112, h: 112 },
+    { img: 'assets/features/4.webp', title: 'PlasmaWave', desc: 'PlasmaWave Technology purifies air by neutralizing pollutants, bacteria, and viruses.', w: 112, h: 112 },
+  ];
+  featureSkeletonCount = Array(4);
+  trackByTitle(_: number, f: FeatureItem) { return f.title; }
+
+
+  constructor(private viewportScroller: ViewportScroller) { }
+
+  // Header Menubar Toggle Code
+  toggleMobileMenu(open?: boolean) {
+    this.isMobileOpen = open ?? !this.isMobileOpen;
+    document.body.classList.toggle('overflow-hidden', this.isMobileOpen); // stop bg scroll
+  }
+
+  // Close on ESC
+  @HostListener('document:keydown.escape')
+  onEsc() { this.toggleMobileMenu(false); }
+
+  // ===== Insider Ticker =====
+  ugcSpeed = 22;
+  ugcTiles = [
+    { src: 'assets/section-right-scroll/1.webp', alt: 'WINIX at desk', w: 1200, h: 800 },
+    { src: 'assets/section-right-scroll/3.webp', alt: 'Reading nook', w: 1200, h: 800 },
+    { src: 'assets/section-right-scroll/4.webp', alt: 'Bedroom corner', w: 1200, h: 800 },
+    { src: 'assets/section-right-scroll/5.webp', alt: 'Pet friendly', w: 1200, h: 800 },
+    { src: 'assets/section-right-scroll/6.webp', alt: 'Minimal shelf', w: 1200, h: 800 },
+    { src: 'assets/section-right-scroll/7.webp', alt: 'Plants + purifier', w: 1200, h: 800 },
+    // { src: 'assets/section-right-scroll/8.webp', alt: 'Cozy study', w: 1200, h: 800 },
+    { src: 'assets/section-right-scroll/2.webp', alt: 'Unboxing', w: 1200, h: 800 },
+  ];
+
+
+  // Announcement Bar Dismiss
+  dismissBar() {
+    this.showBar = false;
+    localStorage.setItem('announce_dismissed', '1');
+  }
+
+  scrollTo(id: string) {
+    const target = document.getElementById(id);
+    if (!target) return;
+    const header = document.querySelector('header') as HTMLElement | null;
+    const headerOffset = header?.offsetHeight ?? 72;
+    const extraGap = 8;
+    const y = target.getBoundingClientRect().top + window.pageYOffset - headerOffset - extraGap;
+
+    window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
+  }
+
+
+  // Function to open WhatsApp chat
+  openWhatsApp(): void {
+    const message = encodeURIComponent("Hii Winixair!");
+    const phone = "+918885241706";
+    const whatsappUrl = `https://api.whatsapp.com/send?phone=${phone}&text=${message}`;
+    window.open(whatsappUrl, '_blank');
+  }
+
+  ngOnInit() {
+    this.startAutoSlide();
+  }
+
+  ngOnDestroy() {
+    this.stopAutoSlide();
+  }
+
+  private startAutoSlide(): void {
+    this.intervalId = setInterval(() => {
+      this.currentIndex = (this.currentIndex + 1) % this.banners.length;
+    }, 4000);
+  }
+
+  stopAutoSlide() {
+    if (this.intervalId) clearInterval(this.intervalId);
+  }
+
+  nextSlide() {
+    this.currentIndex = (this.currentIndex + 1) % this.banners.length;
+  }
+
+  goToSlide(index: any) {
+    this.currentIndex = index;
+    this.stopAutoSlide();
+    this.startAutoSlide(); // restart timer after manual change
+  }
+
+}
+
+
+hml-
+<section class="relative overflow-hidden">
+  <!-- Slider Wrapper -->
+  <div class="fixed-hero relative flex justify-center items-center overflow-hidden bg-white w-full">
+    <div class="relative flex transition-transform duration-700 ease-in-out"
+      [style.transform]="'translateX(-' + currentIndex * 100 + '%)'">
+      <div *ngFor="let img of banners" class="w-full flex-shrink-0 flex justify-center items-center p-1 md:p-4">
+        <img [src]="img" alt="WINIX Banner" class="hero-img block rounded md:rounded-md" />
+      </div>
+    </div>
+  </div>
+
+  <div class="absolute inset-0 flex items-center justify-center text-center pointer-events-none">
+    <div class="max-w-2xl mx-auto px-4">
+      <!-- <h1 class="text-white text-3xl md:text-5xl font-bold">Your Message</h1> -->
+    </div>
+  </div>
+</section>
