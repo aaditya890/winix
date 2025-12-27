@@ -257,7 +257,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       isAward: true,
       awardType: "AHAM • UK Allergy • ECARF Certified",
       price: "₹3,999",
-      mrp: "₹4,999",
+      mrp: "₹7,999",
       topReview: "5,445",
       detailedSpecs: {
         dimensions: "16.25\"L x 12.5\"W x 1.5\"H",
@@ -764,8 +764,8 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       isAward: true,
       awardType: "AHAM • ECARF Certified",
 
-      price: "₹2,499",
-      mrp: "₹3,299",
+      price: "₹3,799",
+      mrp: "₹7,990",
 
       topReview: "8,434",
 
@@ -1009,8 +1009,8 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       badge: "Genuine Replacement",
       isAward: true,
       awardType: "AHAM • Allergy Safe",
-      price: "₹2,290",
-      mrp: "₹2,990",
+      price: "₹2,999",
+      mrp: "₹3,999",
       topReview: "251",
       detailedSpecs: {
         dimensions: "8.3 x 8.3 x 2.5 inches",
@@ -1274,8 +1274,8 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       badge: "Best Seller",
       isAward: true,
       awardType: "AHAM Certified",
-      price: "₹2,299",
-      mrp: "₹3,199",
+      price: "₹2,999",
+      mrp: "₹3,999",
       topReview: "251",
 
       detailedSpecs: {
