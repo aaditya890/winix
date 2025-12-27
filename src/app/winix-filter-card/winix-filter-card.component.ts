@@ -47,7 +47,7 @@ products: Product[] = [
     hoverImageSrc: "/assets/filters/5500-2/2.webp",
     badges: ["GENUINE PART"],
     price: 3999,
-    mrp: 4999,
+    mrp: 7999,
     colors: ["#FFFFFF", "#000000"]
   },
 
@@ -64,8 +64,8 @@ products: Product[] = [
     imageSrc: "/assets/filters/T800/1.webp",
     hoverImageSrc: "/assets/filters/T800/2.jpg",
     badges: ["PREMIUM"],
-    price: 3499,
-    mrp: 4990,
+    price: 4499,
+    mrp: 6999,
     colors: ["#DDDDDD", "#000000"]
   },
 
@@ -82,8 +82,8 @@ products: Product[] = [
     imageSrc: "/assets/filters/5300-2/1.webp",
     hoverImageSrc: "/assets/filters/5300-2/2.webp",
     badges: ["GENUINE PART"],
-    price: 3999,
-    mrp: 34990,
+    price: 3799,
+    mrp: 7990,
     colors: ["#FFFFFF", "#000000"]
   },
 
@@ -101,7 +101,7 @@ products: Product[] = [
     hoverImageSrc: "/assets/filters/A231/1.webp",
     badges: ["POPULAR"],
     price: 2999,
-    mrp: 3990,
+    mrp: 3999,
     colors: ["#CCCCCC", "#000000"]
   },
 
@@ -119,7 +119,7 @@ products: Product[] = [
     hoverImageSrc: "/assets/filters/A231/2.webp",
     badges: ["ALLERGY SAFE"],
     price: 2999,
-    mrp: 3990,
+    mrp: 3999,
     colors: ["#EEEEEE", "#000000"]
   }
 ];
