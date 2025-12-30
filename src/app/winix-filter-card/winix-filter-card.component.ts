@@ -86,7 +86,6 @@ products: Product[] = [
     mrp: 7990,
     colors: ["#FFFFFF", "#000000"]
   },
-
   // 2️⃣ WINIX T500 FILTER
   {
     id: "winix-t500-filter",
