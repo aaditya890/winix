@@ -216,6 +216,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
 
   products: Product[] = [
     /// Filter Products Start
+    // FILTER 5500-2 Product Start
     {
       id: 6,
       isFilter: true,
@@ -470,6 +471,9 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         }
       ]
     },
+    // FILTER 5500-2 Product End
+
+    // FILTER T800 Product Start
     {
       id: 7,
       isFilter: true,
@@ -723,6 +727,9 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         }
       ]
     },
+    // FILTER T800 Product End
+
+    // FILTER 5300-2 Product Start
     {
       id: 8,
       isFilter: true,
@@ -971,6 +978,9 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         }
       ]
     },
+    // FILTER 5300-2 Product End
+
+    // FILTER T500 Product Start
     {
       id: 9,
       isFilter: true,
@@ -1235,6 +1245,9 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       ]
 
     },
+    // FILTER T500 Product End
+    
+    // FILTER T500 Product Start
     {
       id: 10,
       isFilter: true,
@@ -1510,7 +1523,10 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         }
       ]
     },
+
     /// Filter Products End
+
+    // A231 Product Start
     {
       id: 1,
       isFilter: false,
@@ -1830,6 +1846,9 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         },
       ]
     },
+    // A231 Product End
+
+    // 5300-2 Product Start
     {
       id: 2,
       isFilter: false,
@@ -2156,6 +2175,9 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         },
       ]
     },
+    // 5300-2 Product End
+
+    // 5500-2 Product Start
     {
       id: 3,
       isFilter: false,
@@ -2479,6 +2501,9 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         },
       ]
     },
+    // 5500-2 Product End
+
+    // T800 Product Start
     {
       id: 4,
       isFilter: false,
@@ -2809,6 +2834,9 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         },
       ]
     },
+    // T800 Product End
+
+    // T500 Product Start
     {
       id: 5,
       isFilter: false,

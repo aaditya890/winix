@@ -24,11 +24,11 @@ export class VideoShowcaseComponent implements AfterViewInit {
     //   poster: 'assets/thumbnails/6.webp',
     //   title: 'WINIX ZERO COMPACT',
     // },
-    {
-      src: 'assets/reels/3.mp4',
-      poster: 'assets/thumbnails/1.webp',
-      title: 'WINIX T800',
-    },
+    // {
+    //   src: 'assets/reels/3.mp4',
+    //   poster: 'assets/thumbnails/1.webp',
+    //   title: 'WINIX T800',
+    // },
     {
       src: 'assets/reels/4.mp4',
       poster: 'assets/thumbnails/2.webp',
@@ -39,11 +39,11 @@ export class VideoShowcaseComponent implements AfterViewInit {
       poster: 'assets/thumbnails/3.webp',
       title: 'WINIX A231',
     },
-    {
-      src: 'assets/reels/5.mp4',
-      poster: 'assets/thumbnails/5.webp',
-      title: 'WINIX SMART SERIES',
-    },
+    // {
+    //   src: 'assets/reels/5.mp4',
+    //   poster: 'assets/thumbnails/5.webp',
+    //   title: 'WINIX SMART SERIES',
+    // },
     {
       src: 'assets/reels/6.mp4',
       poster: 'assets/thumbnails/4.webp',
