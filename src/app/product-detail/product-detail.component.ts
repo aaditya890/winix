@@ -49,7 +49,7 @@ interface Product {
   }
   productReviews: Review[],
   highlightImages: string[],
-  video?: string,
+  videos?: string[],
   lastImage?: string,
   faqs: FAQ[]
 
@@ -212,7 +212,19 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
     }));
   }
 
+  currentVideoIndex = 0;
 
+  nextVideo(videos: string[]) {
+    if (this.currentVideoIndex < videos.length - 1) {
+      this.currentVideoIndex++;
+    }
+  }
+
+  prevVideo(videos: string[]) {
+    if (this.currentVideoIndex > 0) {
+      this.currentVideoIndex--;
+    }
+  }
 
   products: Product[] = [
     /// Filter Products Start
@@ -373,7 +385,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         "/assets/filters/5500-2/A+/5.webp",
         "/assets/filters/5500-2/A+/6.webp"
       ],
-      video: "/assets/filters/5500-2/5500-2.webm",
+      videos: ["/assets/filters/5500-2/5500-2.webm"],
       lastImage: "assets/winix-product-images/last-image.webp",
       faqs: [
         {
@@ -649,7 +661,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         "/assets/filters/T800/A+/6.webp",
       ],
 
-      video: "assets/filters/T800/T800.webm",
+      videos: ["assets/filters/T800/T800.webm"],
       lastImage: "assets/winix-product-images/last-image.webp",
 
       faqs: [
@@ -900,7 +912,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         "/assets/filters/5500-2/A+/6.webp"
       ],
 
-      video: "/assets/filters/5300-2/5300-2.webm",
+      videos: ["/assets/filters/5300-2/5300-2.webm"],
       lastImage: "assets/winix-product-images/last-image.webp",
 
       faqs: [
@@ -1139,7 +1151,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         "/assets/filters/A231/A+/6.webp"
       ],
 
-      video: "assets/filters/A231/A231.webm",
+      videos: ["assets/filters/A231/A231.webm"],
       lastImage: "assets/winix-product-images/last-image.webp",
 
       faqs: [
@@ -1246,7 +1258,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
 
     },
     // FILTER T500 Product End
-    
+
     // FILTER T500 Product Start
     {
       id: 10,
@@ -1418,7 +1430,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         "/assets/filters/A231/A+/6.webp"
       ],
 
-      video: "assets/filters/A231/A231.webm",
+      videos: ["assets/filters/A231/A231.webm"],
       lastImage: "assets/winix-product-images/last-image.webp",
 
       faqs: [
@@ -1809,7 +1821,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         "assets/winix-product-images/a231/2.png",
         "assets/winix-product-images/a231/3.png",
       ],
-      video: "assets/winix-product-images/a231/Aplus.mp4",
+      videos: ["assets/winix-product-images/a231/Aplus.mp4"],
       lastImage: "assets/winix-product-images/last-image.jpeg",
       faqs: [
         {
@@ -2014,7 +2026,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         "Warranty Description": "2 + 1 On Registration",
       },
       additionalInformation: {
-         manufacturer: 'Winix',
+        manufacturer: 'Winix',
         packer: 'Sha Maknaji Veerchand, S.No.4, H.No.1/18/2, Lane 5, Kakdewasti, Next to Rishi Enclave, Kondhwa Budruk, Pune 411048.',
         importer: 'Sha Maknaji Veerchand, S.No.4, H.No.1/18/2, Lane 5, Kakdewasti, Next to Rishi Enclave, Kondhwa Budruk, Pune 411048.',
         contact: '+91 88852 41706',
@@ -2140,7 +2152,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         "assets/winix-product-images/t5300-2/7.jpg",
         "assets/winix-product-images/t5300-2/8.jpg"
       ],
-      video: "assets/winix-product-images/t5300-2/Aplus.mp4",
+      videos: ["assets/winix-product-images/t5300-2/Aplus.mp4", "assets/winix-product-images/t5300-2/Aplus-2.mp4", "assets/winix-product-images/t5300-2/Aplus-3.mp4"],
       lastImage: "assets/winix-product-images/last-image.jpeg",
       faqs: [
         {
@@ -2466,7 +2478,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         "assets/winix-product-images/t5500-2/4.jpg",
         "assets/winix-product-images/t5500-2/5.jpg",
       ],
-      video: "assets/winix-product-images/t5500-2/Aplus.mp4",
+      videos: ["assets/winix-product-images/t5500-2/Aplus.mp4","assets/winix-product-images/t5500-2/Aplus-2.mp4"],
       lastImage: "assets/winix-product-images/last-image.jpeg",
       faqs: [
         {
@@ -2512,7 +2524,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       name: "Winix T800 360° True HEPA WiFi Air Purifier with 4-Stage PlasmaWave Tech",
       shortName: "WINIX T800",
       userManual: 'assets/manuals/t800.pdf',
-      ahamCertificate:'assets/manuals/t800-aham.pdf',
+      ahamCertificate: 'assets/manuals/t800-aham.pdf',
       description:
         "Smart Wi-Fi enabled air purifier with True HEPA, carbon filter, auto mode, and air quality monitor. Covers up to 1968 sq ft in 1 hour with AHAM-verified 410 sq ft rating.",
       images: [
@@ -2802,7 +2814,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         "assets/winix-product-images/t800/4.jpg",
         "assets/winix-product-images/t800/5.jpg",
       ],
-      video: "assets/winix-product-images/t800/Aplus.mp4",
+      videos: ["assets/winix-product-images/t800/Aplus.mp4","assets/winix-product-images/t800/Aplus-2.mp4"],
       lastImage: "assets/winix-product-images/last-image.jpeg",
       faqs: [
         {
@@ -2860,8 +2872,8 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         "assets/products-v2/T500/6.png",
         "assets/products-v2/T500/7.jpg",
         "assets/products-v2/T500/8.png",
-         "assets/products-v2/T500/9.png",
-          "assets/products-v2/T500/10.png",
+        "assets/products-v2/T500/9.png",
+        "assets/products-v2/T500/10.png",
         "assets/products-v2/28.png"
       ],
       currentImage: "assets/products-v2/T500/product-1.jpg",
@@ -3129,7 +3141,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         "assets/winix-product-images/t500/4.1.jpg",
         "assets/winix-product-images/t500/5.0.jpg",
       ],
-      video: "assets/winix-product-images/t500/Aplus.mp4",
+      videos: ["assets/winix-product-images/t500/Aplus.mp4","assets/winix-product-images/t500/Aplus-2.mp4"],
       lastImage: "assets/winix-product-images/last-image.jpeg",
       faqs: [
         {
@@ -3424,7 +3436,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
     }
   }
 
-    // Open Product Manual
+  // Open Product Manual
   openManual() {
     if (this.product?.userManual) {
       window.open(this.product.userManual, "_blank");
