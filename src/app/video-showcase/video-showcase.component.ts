@@ -1,11 +1,4 @@
-import {
-  AfterViewInit,
-  Component,
-  ElementRef,
-  QueryList,
-  ViewChild,
-  ViewChildren,
-} from '@angular/core';
+import { AfterViewInit, Component, ElementRef, QueryList, ViewChild, ViewChildren, } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 interface VideoItem {
@@ -31,11 +24,11 @@ export class VideoShowcaseComponent implements AfterViewInit {
     //   poster: 'assets/thumbnails/6.webp',
     //   title: 'WINIX ZERO COMPACT',
     // },
-    {
-      src: 'assets/reels/3.mp4',
-      poster: 'assets/thumbnails/1.webp',
-      title: 'WINIX T800',
-    },
+    // {
+    //   src: 'assets/reels/3.mp4',
+    //   poster: 'assets/thumbnails/1.webp',
+    //   title: 'WINIX T800',
+    // },
     {
       src: 'assets/reels/4.mp4',
       poster: 'assets/thumbnails/2.webp',
@@ -46,11 +39,11 @@ export class VideoShowcaseComponent implements AfterViewInit {
       poster: 'assets/thumbnails/3.webp',
       title: 'WINIX A231',
     },
-    {
-      src: 'assets/reels/5.mp4',
-      poster: 'assets/thumbnails/5.webp',
-      title: 'WINIX SMART SERIES',
-    },
+    // {
+    //   src: 'assets/reels/5.mp4',
+    //   poster: 'assets/thumbnails/5.webp',
+    //   title: 'WINIX SMART SERIES',
+    // },
     {
       src: 'assets/reels/6.mp4',
       poster: 'assets/thumbnails/4.webp',
@@ -64,7 +57,7 @@ export class VideoShowcaseComponent implements AfterViewInit {
   private startLeft = 0;
 
 
-   ngAfterViewInit() {
+  ngAfterViewInit() {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -101,14 +94,14 @@ export class VideoShowcaseComponent implements AfterViewInit {
   // }
 
   scroll(dir: 'left' | 'right') {
-  const el = this.trackRef.nativeElement;
-  const by = Math.round(el.clientWidth * 0.65);
+    const el = this.trackRef.nativeElement;
+    const by = Math.round(el.clientWidth * 0.65);
 
-  el.scrollBy({
-    left: dir === 'right' ? by : -by,
-    behavior: 'smooth',
-  });
-}
+    el.scrollBy({
+      left: dir === 'right' ? by : -by,
+      behavior: 'smooth',
+    });
+  }
 
 
   onWheel(e: WheelEvent) {

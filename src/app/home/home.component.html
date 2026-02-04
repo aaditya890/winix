@@ -16,14 +16,9 @@
   </div>
 </section>
 
-
 <section class="relative overflow-hidden bg-white pb-8">
-  <!-- <div
-    class="pointer-events-none absolute -top-24 -right-16 h-56 w-56 rounded-full bg-gradient-to-br from-[#6a1b6e]/20 to-[#b21e6b]/20 blur-3xl">
-  </div>
-  <div
-    class="pointer-events-none absolute -bottom-24 -left-24 h-72 w-72 rounded-full bg-gradient-to-tr from-[#0e1649]/15 to-[#6a1b6e]/15 blur-3xl">
-  </div> -->
+  <!-- <div class="pointer-events-none absolute -top-24 -right-16 h-56 w-56 rounded-full bg-gradient-to-br from-[#6a1b6e]/20 to-[#b21e6b]/20 blur-3xl"></div>
+  <div class="pointer-events-none absolute -bottom-24 -left-24 h-72 w-72 rounded-full bg-gradient-to-tr from-[#0e1649]/15 to-[#6a1b6e]/15 blur-3xl"></div> -->
 
   <svg aria-hidden="true" class="pointer-events-none absolute right-0 top-0 h-full w-[50%] opacity-15"
     viewBox="0 0 500 800" fill="none">
@@ -59,7 +54,6 @@
             </svg>
           </span>
         </button>
-
       </div>
 
       <div class="mt-4 flex items-center gap-4 text-xs text-gray-500">
@@ -89,30 +83,9 @@
     </div>
   </div>
 </section>
-<!-- <section class="relative overflow-hidden">
-  <div class="relative w-full">
-   <video class="w-full h-full object-cover" [autoplay]="true" [muted]="true" [loop]="true" playsinline
-      preload="metadata">
-            <source src="assets/sample.mp4" type="video/mp4">
-    </video>
-  </div>
-
-
-  <div class="absolute inset-0 bg-black/10"></div>
-
-
-  <div
-    class="absolute inset-0 flex items-center justify-center text-center pointer-events-none">
-    <div class="max-w-2xl mx-auto px-4">
-     
-    </div>
-  </div>
-</section> -->
-
 
 <div id="REELS" class="h-0"></div>
 <app-video-showcase></app-video-showcase>
-
 
 
 <!-- ===== PRODUCTS ===== -->
@@ -133,6 +106,12 @@
   </div>
 </section>
 }
+
+
+<!-- ===== PRODUCTS ===== -->
+<div id="FILTERS" class="h-0"></div>
+<app-winix-filter-card></app-winix-filter-card>
+
 
 <!-- Lifestyle / product image slider with smooth animation -->
 @defer (on viewport) {

@@ -46,7 +46,7 @@ export class ExploreDetailComponent implements OnInit {
   allProducts = [
     {
       id: 'a231',
-      ahemCertificate: null,
+      ahamCertificate: null,
       shortTitle: 'WINIX A231',
       name: 'Air Purifier WINIX A231',
       category: 'Air Purifier',
@@ -55,11 +55,14 @@ export class ExploreDetailComponent implements OnInit {
       heroImage: 'assets/explore-images/A231/banner.png',
       url: '/product/winix-a231-air-purifier',
       gallery: [
-        '/assets/products/A231/product-1.webp',
-        '/assets/products/A231/product-2.webp',
-        '/assets/products/A231/product-3.webp',
-        '/assets/products/A231/product-4.webp',
-        '/assets/products/A231/product-5.webp'
+        '/assets/products-v2/A231/product-1.webp',
+        '/assets/products-v2/A231/product-2.webp',
+        '/assets/products-v2/A231/product-3.webp',
+        '/assets/products-v2/A231/product-4.webp',
+        '/assets/products-v2/A231/product-5.webp',
+        '/assets/products-v2/A231/product-6.webp',
+        '/assets/products-v2/A231/product-7.webp',
+        '/assets/products-v2/A231/product-8.webp'
       ],
       aplus: [
         '/assets/winix-product-images/a231/a231-1.webp',
@@ -173,14 +176,14 @@ export class ExploreDetailComponent implements OnInit {
       },
 
       additionalInfo: {
-        manufacturer: 'Phone Number: +91 8885241706, Mail Id: care@justshop24x7.com, Winix',
-        packer: 'Sha Maknaji Veerchand, Kamala Nagar, Anantapur. Ph no-08554-356969',
-        importer: 'Sha Maknaji Veerchand, Ph no-8885241706'
+        manufacturer: 'Winix',
+        packer: 'Sha Maknaji Veerchand, S.No.4, H.No.1/18/2, Lane 5, Kakdewasti, Next to Rishi Enclave, Kondhwa Budruk, Pune 411048.',
+        importer: 'Sha Maknaji Veerchand, S.No.4, H.No.1/18/2, Lane 5, Kakdewasti, Next to Rishi Enclave, Kondhwa Budruk, Pune 411048. Contact: +91 88852 41706, Email: care@justshop24x7.com'
       }
     },
     {
       id: 't500-wifi',
-      ahemCertificate: 'assets/manuals/t500-ahem.pdf',
+      ahamCertificate: 'assets/manuals/t500-aham.pdf',
       shortTitle: 'WINIX T500 WIFI',
       name: 'Air Purifier WINIX T500 WIFI',
       category: 'Air Purifier',
@@ -189,11 +192,14 @@ export class ExploreDetailComponent implements OnInit {
       heroImage: 'assets/explore-images/T500/banner.png',
       url: '/product/winix-t500-air-purifier',
       gallery: [
-        '/assets/products/T500/product-1.webp',
-        '/assets/products/T500/product-2.webp',
-        '/assets/products/T500/product-3.webp',
-        '/assets/products/T500/product-4.webp',
-        '/assets/products/T500/product-5.webp'
+        '/assets/products-v2/T500/product-1.webp',
+        '/assets/products-v2/T500/product-2-v2.webp',
+        '/assets/products-v2/T500/product-3.webp',
+        '/assets/products-v2/T500/product-4.webp',
+        '/assets/products-v2/T500/product-5.webp',
+        '/assets/products-v2/T500/product-6.webp',
+        '/assets/products-v2/T500/product-7.webp',
+        '/assets/products-v2/T500/product-8.webp'
       ],
       aplus: [
         '/assets/winix-product-images/t500/t500-1.webp',
@@ -204,7 +210,6 @@ export class ExploreDetailComponent implements OnInit {
       ],
       vid: "assets/explore-images/T500/vid.webm",
       shortDescription: 'Air purifier WINIX T500 WIFI is a compact, powerful and smart room air purifier that cleans 99.97% of your indoor air quality. WINIX T500 WIFI hepa filter air purifier is ideal for the bedroom and can be used in all rooms up to 50m². With a powerful CADR (Clean Air Delivery Rate) of 250m³ per hour, this air purifier helps you clean your indoor air quality from allergies, pollen, fine dust,  mirco plastics, house dust mites, particulate matter (PM2.5), pet hair, mold spores, household odors (VOCs) and cigarette smoke! You can operate the Air Purifier WINIX T500 WIFI manually or by using the WINIX Smart App, Google Home or Amazon Alexa.',
-
       longDescription: `Air purifier T500 WIFI uses All-in-One <span class="text-[#6c2065] font-semibold">WINIX Filter O</span>, just like the WINIX air purifier A330, air purifier A332 and air purifier <span class="text-[#6c2065] font-semibold">ZERO Compact</span> Air purifier T500 WIFI filters your indoor air quality through 1) a pre-filter, 2) a carbon filter, 3) a HEPA filter (99.97%) and 4) our WINIX PlasmaWave® Technology. Using smart sensor technology, this hepa air purifier pro-actively cleans the indoor air and ensures that you breathe clean air as long as you keep using the best-air-purifier. Air Purifier T500 WIFI with hepa filter has been tested and certified by <span class="text-[#6c2065] font-semibold">ECARF</span> and <span class="text-[#6c2065] font-semibold">Allergy UK.</span>`,
 
       tabs: {
@@ -311,7 +316,7 @@ export class ExploreDetailComponent implements OnInit {
     },
     {
       id: 't800',
-      ahemCertificate: 'assets/manuals/t800-ahem.pdf',
+      ahamCertificate: 'assets/manuals/t800-aham.pdf',
       shortTitle: 'WINIX T800 WIFI',
       name: 'Air Purifier WINIX T800 WIFI',
       category: 'Air Purifier',
@@ -320,11 +325,14 @@ export class ExploreDetailComponent implements OnInit {
       heroImage: 'assets/explore-images/T800/banner.png',
       url: '/product/winix-t800-air-purifier',
       gallery: [
-        '/assets/products/T800/product-1.webp',
-        '/assets/products/T800/product-2.webp',
-        '/assets/products/T800/product-3.webp',
-        '/assets/products/T800/product-4.webp',
-        '/assets/products/T800/product-5.webp',
+        '/assets/products-v2/T800/product-1.webp',
+        '/assets/products-v2/T800/product-2.webp',
+        '/assets/products-v2/T800/product-3.webp',
+        '/assets/products-v2/T800/product-4.webp',
+        '/assets/products-v2/T800/product-5.webp',
+        '/assets/products-v2/T800/product-6.webp',
+        '/assets/products-v2/T800/product-7.webp',
+        '/assets/products-v2/T800/product-8.webp'
       ],
       aplus: [
         '/assets/winix-product-images/t800/1.webp',
@@ -443,9 +451,9 @@ export class ExploreDetailComponent implements OnInit {
       },
 
       additionalInfo: {
-        manufacturer: 'Phone Number: +91 8885241706, Mail Id: care@justshop24x7.com, Winix',
-        packer: 'Sha Maknaji Veerchand, Kamala Nagar, Anantapur. Ph no-08554-356969',
-        importer: 'Sha Maknaji Veerchand, Ph no-8885241706'
+        manufacturer: 'Winix',
+        packer: 'Sha Maknaji Veerchand, S.No.4, H.No.1/18/2, Lane 5, Kakdewasti, Next to Rishi Enclave, Kondhwa Budruk, Pune 411048.',
+        importer: 'Sha Maknaji Veerchand, S.No.4, H.No.1/18/2, Lane 5, Kakdewasti, Next to Rishi Enclave, Kondhwa Budruk, Pune 411048. Contact: +91 88852 41706, Email: care@justshop24x7.com'
       }
     }
   ];
@@ -532,10 +540,10 @@ export class ExploreDetailComponent implements OnInit {
     }
   }
 
-  // Open AHEM Certificate Pdf
-  openAhemCertificate() {
-    if (this.product?.ahemCertificate) {
-      window.open(this.product.ahemCertificate, "_blank");
+  // Open AHAM Certificate Pdf
+  openAhamCertificate() {
+    if (this.product?.ahamCertificate) {
+      window.open(this.product.ahamCertificate, "_blank");
     }
   }
 

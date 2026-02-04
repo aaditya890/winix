@@ -5,9 +5,9 @@ import { NgOptimizedImage } from '@angular/common';
 import { WinixProductCardComponent } from "../winix-product-card/winix-product-card.component";
 import { ReviewCardsComponent } from "../review-cards/review-cards.component";
 import { VideoShowcaseComponent } from "../video-showcase/video-showcase.component";
-import { ComparisonComponent } from "../comparison/comparison.component";
 import { ContactUsComponent } from "../contact-us/contact-us.component";
 import { VideoSliderSectionComponent } from "../video-slider-section/video-slider-section.component";
+import { WinixFilterCardComponent } from '../winix-filter-card/winix-filter-card.component';
 
 interface FeatureItem {
   img: string; title: string; desc: string; w: number; h: number;
@@ -16,10 +16,11 @@ interface FeatureItem {
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, NgOptimizedImage, WinixProductCardComponent, VideoShowcaseComponent, ReviewCardsComponent, ContactUsComponent, RouterLink, VideoShowcaseComponent, VideoSliderSectionComponent],
+  imports: [CommonModule, NgOptimizedImage,WinixFilterCardComponent, WinixProductCardComponent, VideoShowcaseComponent, ReviewCardsComponent, ContactUsComponent, RouterLink, VideoShowcaseComponent, VideoSliderSectionComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
+
 export class HomeComponent {
   // Announcement Bar
   barTitle = 'Updates';
@@ -29,10 +30,10 @@ export class HomeComponent {
   isMobileOpen = false;
 
   banners: string[] = [
-    'assets/winix_hero/1.webp',
-    'assets/winix_hero/2.webp',
-    'assets/winix_hero/3.webp',
-    'assets/winix_hero/4.webp',
+    'assets/winix_hero-v2/1.webp',
+    'assets/winix_hero-v2/2.webp',
+    'assets/winix_hero-v2/3.webp',
+    'assets/winix_hero-v2/4.webp',
   ];
 
   currentIndex = 0;
@@ -47,7 +48,6 @@ export class HomeComponent {
   ];
   featureSkeletonCount = Array(4);
   trackByTitle(_: number, f: FeatureItem) { return f.title; }
-
 
   constructor(private viewportScroller: ViewportScroller) { }
 

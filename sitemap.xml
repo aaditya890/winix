@@ -8,7 +8,7 @@
     <priority>1.0</priority>
   </url>
 
-  <!-- Product Pages -->
+  <!-- Main Product Pages -->
   <url>
     <loc>https://winixindia.in/product/winix-5500-2-air-purifier</loc>
     <lastmod>2025-11-03</lastmod>
@@ -37,6 +37,118 @@
     <loc>https://winixindia.in/product/winix-a231-air-purifier</loc>
     <lastmod>2025-11-03</lastmod>
     <priority>0.8</priority>
+  </url>
+
+  <!-- Filter Product Pages -->
+  <url>
+    <loc>https://winixindia.in/product/winix-5500-2-replacement-filter</loc>
+    <lastmod>2025-11-03</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://winixindia.in/product/winix-t800-replacement-filter</loc>
+    <lastmod>2025-11-03</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://winixindia.in/product/winix-5300-2-replacement-filter</loc>
+    <lastmod>2025-11-03</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://winixindia.in/product/winix-t500-replacement-filter</loc>
+    <lastmod>2025-11-03</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://winixindia.in/product/winix-a231-replacement-filter</loc>
+    <lastmod>2025-11-03</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Article Pages -->
+  <url>
+    <loc>https://winixindia.in/article/air-purifier-allies-flu-cold</loc>
+    <lastmod>2025-11-03</lastmod>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://winixindia.in/article/reduce-dust-home</loc>
+    <lastmod>2025-11-03</lastmod>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://winixindia.in/article/choose-purifier-pollen</loc>
+    <lastmod>2025-11-03</lastmod>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://winixindia.in/article/certified-important</loc>
+    <lastmod>2025-11-03</lastmod>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://winixindia.in/article/air-purification-important</loc>
+    <lastmod>2025-11-03</lastmod>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://winixindia.in/article/choose-right-air-purifier-steps</loc>
+    <lastmod>2025-11-03</lastmod>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://winixindia.in/article/fireplaces-safe-air-purifier</loc>
+    <lastmod>2025-11-03</lastmod>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://winixindia.in/article/cigarette-smoke-help</loc>
+    <lastmod>2025-11-03</lastmod>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Explore Pages -->
+  <url>
+    <loc>https://winixindia.in/explore</loc>
+    <lastmod>2025-11-03</lastmod>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://winixindia.in/explore/a231</loc>
+    <lastmod>2025-11-03</lastmod>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://winixindia.in/explore/t500-wifi</loc>
+    <lastmod>2025-11-03</lastmod>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://winixindia.in/explore/t800</loc>
+    <lastmod>2025-11-03</lastmod>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Contact Page -->
+  <url>
+    <loc>https://winixindia.in/contact-us</loc>
+    <lastmod>2025-11-03</lastmod>
+    <priority>0.5</priority>
   </url>
 
 </urlset>
