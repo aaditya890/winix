@@ -6,7 +6,7 @@ import { VideoSliderSectionComponent } from "./video-slider-section/video-slider
 @Component({
   selector: "app-root",
   standalone: true,
-  imports: [RouterOutlet, RouterLink],
+  imports: [RouterOutlet, RouterLink, VideoSliderSectionComponent],
   templateUrl: "./app.component.html",
   styleUrls: ["./app.component.scss"],
 })
