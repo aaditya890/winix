@@ -229,11 +229,35 @@
             </div>
           </ng-container>
 
-          <!-- VIDEO (FULL WIDTH, NO CROP) -->
-          <div class="w-full flex justify-center bg-white rounded-md mb-3">
-            <video [autoplay]="false" [loop]="true" [attr.src]="product.video" *ngIf="product.video" controls
-              class="w-full max-h-[500px] md:max-h-[650px] object-contain"></video>
+          <div class="relative w-full bg-white rounded-md mb-3 overflow-hidden" *ngIf="product.videos as videos">
+
+            <!-- VIDEO -->
+            <video class="w-full aspect-video object-contain" controls [attr.src]="videos[currentVideoIndex]"></video>
+
+            <!-- LEFT ARROW -->
+            <button *ngIf="videos.length > 1" (click)="prevVideo(videos)" class="absolute transition-all ease-in hover:scale-105 left-2 top-1/2 -translate-y-1/2 
+           bg-black/60 text-white rounded-full p-2 
+           md:p-3 hover:bg-black/40 cursor-pointer" [disabled]="currentVideoIndex === 0">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5"
+                stroke="currentColor" class="size-5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+              </svg>
+
+            </button>
+
+            <!-- RIGHT ARROW -->
+            <button *ngIf="videos.length > 1" (click)="nextVideo(videos)" class="absolute transition-all ease-in hover:scale-105 right-2 top-1/2 -translate-y-1/2 
+           bg-black/60 text-white rounded-full p-2 
+           md:p-3 hover:bg-black/40 cursor-pointer" [disabled]="currentVideoIndex === videos.length - 1">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5"
+                stroke="currentColor" class="size-5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+              </svg>
+
+            </button>
+
           </div>
+
 
           <!-- LAST IMAGE -->
           <div class="w-full justify-center bg-white rounded-md hidden md:flex">
