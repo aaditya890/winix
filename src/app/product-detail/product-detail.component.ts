@@ -1551,7 +1551,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       description:
         "Compact HEPA purifier for small-to-medium rooms with washable pre-filter, activated carbon, True HEPA, and PlasmaWave. AHAM-verified 230 sq ft coverage; ultra-quiet 20 dB.",
       images: [
-        "assets/products-v2/A231/1.png",
+        "assets/products-v2/A231/A231.png",
         "assets/products-v2/A231/2.png",
         "assets/products-v2/A231/3.png",
         "assets/products-v2/A231/4.png",
@@ -2528,7 +2528,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       description:
         "Smart Wi-Fi enabled air purifier with True HEPA, carbon filter, auto mode, and air quality monitor. Covers up to 1968 sq ft in 1 hour with AHAM-verified 410 sq ft rating.",
       images: [
-        "assets/products-v2/T800/1.png",
+        "assets/products-v2/T800/T800.png",
         "assets/products-v2/T800/2.png",
         "assets/products-v2/T800/3.png",
         "assets/products-v2/T800/4.png",
@@ -2864,7 +2864,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       description:
         "360° all-in-one air purifier with WiFi Smart App control, PlasmaWave technology, and 4-stage filtration including fine mesh pre-filter, True HEPA, and activated carbon. AHAM verified for 251 sq ft, capable of cleaning up to 1204 sq ft in 1 hour.",
       images: [
-        "assets/products-v2/T500/1.png",
+        "assets/products-v2/T500/T500.png",
         "assets/products-v2/T500/2 (2).png",
         "assets/products-v2/T500/2.png",
         "assets/products-v2/T500/4.png",

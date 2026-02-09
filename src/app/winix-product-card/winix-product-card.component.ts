@@ -1,4 +1,4 @@
-import { Component,ElementRef,ViewChild,AfterViewInit,} from '@angular/core';
+import { Component, ElementRef, ViewChild, AfterViewInit, } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 
@@ -64,6 +64,21 @@ export class WinixProductCardComponent implements AfterViewInit {
       colors: ["#c9c9c9", "#111111"]
     },
     {
+      id: "A231",
+      title: "WINIX A231",
+      tagline: "WINIX A231 Compact Air",
+      description:
+        "Allergy-certified compact purifier, ideal for study, kids’ rooms and small spaces.",
+      rating: 4.5,
+      ratingCount: '36K',
+      slug: "winix-a231-air-purifier",
+      imageSrc: "assets/products-v2/card-v2/A231-card.png",
+      badges: ["ALLERGY SAFE"],
+      price: 8699,
+      mrp: 18990,
+      colors: ["#f2f2f2", "#111111"]
+    },
+    {
       id: "T800",
       title: "WINIX T800",
       tagline: "WINIX T800 Large Room Air",
@@ -93,21 +108,6 @@ export class WinixProductCardComponent implements AfterViewInit {
       mrp: 19990,
       colors: ["#ffffff", "#111111"]
     },
-    {
-      id: "A231",
-      title: "WINIX A231",
-      tagline: "WINIX A231 Compact Air",
-      description:
-        "Allergy-certified compact purifier, ideal for study, kids’ rooms and small spaces.",
-      rating: 4.5,
-      ratingCount: '36K',
-      slug: "winix-a231-air-purifier",
-      imageSrc: "assets/products-v2/card-v2/A231-card.png",
-      badges: ["ALLERGY SAFE"],
-      price: 8699,
-      mrp: 18990,
-      colors: ["#f2f2f2", "#111111"]
-    }
   ];
 
   private isDown = false;
@@ -146,22 +146,22 @@ export class WinixProductCardComponent implements AfterViewInit {
   }
 
   onPointerMove(e: PointerEvent | TouchEvent) {
-  if (!this.isDown) return;
+    if (!this.isDown) return;
 
-  const el = this.el();
-  if (!el) return;
+    const el = this.el();
+    if (!el) return;
 
-  const clientX = 'touches' in e ? e.touches[0].clientX : e.clientX;
-  const diff = clientX - this.startX;
+    const clientX = 'touches' in e ? e.touches[0].clientX : e.clientX;
+    const diff = clientX - this.startX;
 
-  // if diff is too small → treat as tap, not drag
-  if (Math.abs(diff) < this.dragThreshold) return;
-  const speed = 4; // adjust scroll speed
-  el.scrollLeft = this.startLeft - diff * speed;
+    // if diff is too small → treat as tap, not drag
+    if (Math.abs(diff) < this.dragThreshold) return;
+    const speed = 4; // adjust scroll speed
+    el.scrollLeft = this.startLeft - diff * speed;
 
-  // Prevent scroll locking vertical movement
-  e.preventDefault();
-}
+    // Prevent scroll locking vertical movement
+    e.preventDefault();
+  }
 
 
   onPointerUp() {
