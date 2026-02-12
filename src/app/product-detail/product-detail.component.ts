@@ -2150,9 +2150,12 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
          "assets/winix-product-images/t5300-2/new2.png",
         "assets/winix-product-images/t5300-2/new.png",
         // "assets/winix-product-images/t5300-2/6.jpg",
-        "assets/winix-product-images/t5300-2/new3.png",
-        "assets/winix-product-images/t5300-2/7.jpg",
-        "assets/winix-product-images/t5300-2/8.jpg"
+        // "assets/winix-product-images/t5300-2/new3.png",
+        "assets/winix-product-images/t5300-2/new3.1.png",
+        // "assets/winix-product-images/t5300-2/7.jpg",
+        "assets/winix-product-images/t5300-2/new4.1.png",
+        // "assets/winix-product-images/t5300-2/8.jpg",
+        "assets/winix-product-images/t5300-2/ss.png"
       ],
       videos: ["assets/winix-product-images/t5300-2/Aplus.mp4", "assets/winix-product-images/t5300-2/Aplus-2.mp4", "assets/winix-product-images/t5300-2/Aplus-3.mp4"],
       lastImage: "assets/winix-product-images/last-image.jpeg",
@@ -3140,6 +3143,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         "assets/winix-product-images/t500/1.png",
         "assets/winix-product-images/t500/new.png",
         "assets/winix-product-images/t500/2.png",
+        "assets/winix-product-images/t500/3.png",
         "assets/winix-product-images/t500/new2.png",
         "assets/winix-product-images/t500/new3.png",
       ],

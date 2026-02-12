@@ -33,37 +33,6 @@ export class WinixProductCardComponent implements AfterViewInit {
 
   products: Product[] = [
     {
-      id: "5500-2",
-      title: "WINIX 5500-2",
-      tagline: "WINIX 5500-2 PlasmaWave®",
-      description:
-        "Captures 99.97% particles with True HEPA and tackles VOCs using AOC™ carbon filter.",
-      rating: 4.6,
-      ratingCount: '39K',
-      slug: "winix-5500-2-air-purifier",
-      imageSrc: "/assets/products-v2/card-v2/5500-2-card.png",
-      hoverImageSrc: "/assets/products-v2/5500-2/product-2.jpg",
-      badges: ["POPULAR"],
-      price: 15999,
-      mrp: 24990,
-      colors: ["#111111", "#f5f5f5"] // black, white
-    },
-    {
-      id: "5300-2",
-      title: "WINIX 5300-2",
-      tagline: "WINIX 5300-2 Premium Air",
-      description:
-        "4-stage filtration with True HEPA, deodorization, auto mode and quiet sleep mode.",
-      rating: 4.6,
-      ratingCount: '39K',
-      slug: "winix-5300-2-air-purifier",
-      imageSrc: "/assets/products-v2/card-v2/5300-2-card.png",
-      badges: ["POPULAR"],
-      price: 14999,
-      mrp: 23990,
-      colors: ["#c9c9c9", "#111111"]
-    },
-    {
       id: "A231",
       title: "WINIX A231",
       tagline: "WINIX A231 Compact Air",
@@ -107,6 +76,37 @@ export class WinixProductCardComponent implements AfterViewInit {
       price: 10499,
       mrp: 19990,
       colors: ["#ffffff", "#111111"]
+    },
+    {
+      id: "5500-2",
+      title: "WINIX 5500-2",
+      tagline: "WINIX 5500-2 PlasmaWave®",
+      description:
+        "Captures 99.97% particles with True HEPA and tackles VOCs using AOC™ carbon filter.",
+      rating: 4.6,
+      ratingCount: '39K',
+      slug: "winix-5500-2-air-purifier",
+      imageSrc: "/assets/products-v2/card-v2/5500-2-card.png",
+      hoverImageSrc: "/assets/products-v2/5500-2/product-2.jpg",
+      badges: ["POPULAR"],
+      price: 15999,
+      mrp: 24990,
+      colors: ["#111111", "#f5f5f5"] // black, white
+    },
+    {
+      id: "5300-2",
+      title: "WINIX 5300-2",
+      tagline: "WINIX 5300-2 Premium Air",
+      description:
+        "4-stage filtration with True HEPA, deodorization, auto mode and quiet sleep mode.",
+      rating: 4.6,
+      ratingCount: '39K',
+      slug: "winix-5300-2-air-purifier",
+      imageSrc: "/assets/products-v2/card-v2/5300-2-card.png",
+      badges: ["POPULAR"],
+      price: 14999,
+      mrp: 23990,
+      colors: ["#c9c9c9", "#111111"]
     },
   ];
 
