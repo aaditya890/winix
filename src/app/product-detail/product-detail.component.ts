@@ -226,6 +226,12 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
     }
   }
 
+  isVideo(file: string): boolean {
+  if (!file) return false;
+  return file.toLowerCase().endsWith('.mp4');
+}
+
+
   products: Product[] = [
     /// Filter Products Start
     // FILTER 5500-2 Product Start
@@ -1559,7 +1565,8 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         "assets/products-v2/A231/6.png",
         "assets/products-v2/A231/7.png",
         "assets/products-v2/A231/8.png",
-        "assets/products-v2/28.png"
+        "assets/products-v2/28.png",
+        "assets/winix-product-images/a231/Aplus.mp4",
       ],
       currentImage: "assets/products-v2/A231/product-1.jpg",
       rating: 4.6,
@@ -1880,7 +1887,10 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         "assets/products-v2/5300-2/7.png",
         "assets/products-v2/5300-2/8.png",
         "assets/products-v2/5300-2/9.png",
-        "assets/products-v2/28.png"
+        "assets/products-v2/28.png",
+        "assets/winix-product-images/t5300-2/Aplus.mp4",
+        "assets/winix-product-images/t5300-2/Aplus-2.mp4",
+        "assets/winix-product-images/t5300-2/Aplus-3.mp4",
       ],
       currentImage: "assets/products-v2/5300-2/product-1.jpg",
       rating: 4.6,
@@ -2147,7 +2157,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         "assets/winix-product-images/t5300-2/2.png",
         "assets/winix-product-images/t5300-2/3.png",
         // "assets/winix-product-images/t5300-2/4.jpg",
-         "assets/winix-product-images/t5300-2/new2.png",
+        "assets/winix-product-images/t5300-2/new2.png",
         "assets/winix-product-images/t5300-2/new.png",
         // "assets/winix-product-images/t5300-2/6.jpg",
         // "assets/winix-product-images/t5300-2/new3.png",
@@ -2212,11 +2222,13 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         "assets/products-v2/5500-2/3.png",
         "assets/products-v2/5500-2/5500-2-certificate.png",
         "assets/products-v2/5500-2/4.png",
-         "assets/products-v2/5500-2/6.png",
-          "assets/products-v2/5500-2/7.png",
-          "assets/products-v2/5500-2/8.png",
+        "assets/products-v2/5500-2/6.png",
+        "assets/products-v2/5500-2/7.png",
+        "assets/products-v2/5500-2/8.png",
         "assets/products-v2/5500-2/5.png",
         "assets/products-v2/5500-2/map.png",
+        "assets/winix-product-images/t5500-2/Aplus.mp4",
+        "assets/winix-product-images/t5500-2/Aplus-2.mp4",
       ],
       currentImage: "assets/products-v2/5500-2/product-1.jpg",
       rating: 4.6,
@@ -2483,7 +2495,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         "assets/winix-product-images/t5500-2/new.png",
         "assets/winix-product-images/t5500-2/new2.png",
       ],
-      videos: ["assets/winix-product-images/t5500-2/Aplus.mp4","assets/winix-product-images/t5500-2/Aplus-2.mp4"],
+      videos: ["assets/winix-product-images/t5500-2/Aplus.mp4", "assets/winix-product-images/t5500-2/Aplus-2.mp4"],
       lastImage: "assets/winix-product-images/last-image.jpeg",
       faqs: [
         {
@@ -2542,7 +2554,9 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         "assets/products-v2/T800/7.png",
         "assets/products-v2/T800/8.png",
         "assets/products-v2/T800/9.png",
-        "assets/products-v2/28.png"
+        "assets/products-v2/28.png",
+        "assets/winix-product-images/t800/Aplus.mp4",
+        "assets/winix-product-images/t800/Aplus-2.mp4",
       ],
       currentImage: "assets/products-v2/T800/product-1.jpg",
       rating: 4.4,
@@ -2819,7 +2833,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         "assets/winix-product-images/t800/4.jpg",
         "assets/winix-product-images/t800/5.jpg",
       ],
-      videos: ["assets/winix-product-images/t800/Aplus.mp4","assets/winix-product-images/t800/Aplus-2.mp4"],
+      videos: ["assets/winix-product-images/t800/Aplus.mp4", "assets/winix-product-images/t800/Aplus-2.mp4"],
       lastImage: "assets/winix-product-images/last-image.jpeg",
       faqs: [
         {
@@ -2879,7 +2893,9 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         "assets/products-v2/T500/8.png",
         "assets/products-v2/T500/9.png",
         "assets/products-v2/T500/10.png",
-        "assets/products-v2/28.png"
+        "assets/products-v2/28.png",
+        "assets/winix-product-images/t500/Aplus.mp4",
+        "assets/winix-product-images/t500/Aplus-2.mp4",
       ],
       currentImage: "assets/products-v2/T500/product-1.jpg",
       rating: 0, // no Amazon reviews yet
@@ -3147,7 +3163,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         "assets/winix-product-images/t500/new2.png",
         "assets/winix-product-images/t500/new3.png",
       ],
-      videos: ["assets/winix-product-images/t500/Aplus.mp4","assets/winix-product-images/t500/Aplus-2.mp4"],
+      videos: ["assets/winix-product-images/t500/Aplus.mp4", "assets/winix-product-images/t500/Aplus-2.mp4"],
       lastImage: "assets/winix-product-images/last-image.jpeg",
       faqs: [
         {
