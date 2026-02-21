@@ -33,51 +33,6 @@ export class WinixProductCardComponent implements AfterViewInit {
 
   products: Product[] = [
     {
-      id: "A231",
-      title: "WINIX A231",
-      tagline: "WINIX A231 Compact Air",
-      description:
-        "Allergy-certified compact purifier, ideal for study, kids’ rooms and small spaces.",
-      rating: 4.5,
-      ratingCount: '36K',
-      slug: "winix-a231-air-purifier",
-      imageSrc: "assets/products-v2/card-v2/A231-card.png",
-      badges: ["ALLERGY SAFE"],
-      price: 8699,
-      mrp: 18990,
-      colors: ["#f2f2f2", "#111111"]
-    },
-    {
-      id: "T800",
-      title: "WINIX T800",
-      tagline: "WINIX T800 Large Room Air",
-      description:
-        "WINIX T800 Large Room Air Purifier | 1968 Sq Ft Coverage, Smokers & Dusty Homes",
-      rating: 4.4,
-      ratingCount: '165',
-      slug: "winix-t800-air-purifier",
-      imageSrc: "assets/products-v2/card-v2/T800-card.png",
-      badges: ["NEW"],
-      price: 21999,
-      mrp: 29990,
-      colors: ["#f5f5f5", "#3b3b3b"]
-    },
-    {
-      id: "T500",
-      title: "WINIX T500",
-      tagline: "WINIX T500 Compact Air",
-      description:
-        "Compact design with 360° suction, multi-stage filtration and whisper-quiet night mode.",
-      rating: 4.5,
-      ratingCount: '249',
-      slug: "winix-t500-air-purifier",
-      imageSrc: "assets/products-v2/card-v2/T500-card.png",
-      badges: ["VALUE PICK"],
-      price: 10499,
-      mrp: 19990,
-      colors: ["#ffffff", "#111111"]
-    },
-    {
       id: "5500-2",
       title: "WINIX 5500-2",
       tagline: "WINIX 5500-2 PlasmaWave®",
@@ -107,6 +62,51 @@ export class WinixProductCardComponent implements AfterViewInit {
       price: 14999,
       mrp: 23990,
       colors: ["#c9c9c9", "#111111"]
+    },
+    {
+      id: "T800",
+      title: "WINIX T800",
+      tagline: "WINIX T800 Large Room Air",
+      description:
+        "WINIX T800 Large Room Air Purifier | 1968 Sq Ft Coverage, Smokers & Dusty Homes",
+      rating: 4.4,
+      ratingCount: '165',
+      slug: "winix-t800-air-purifier",
+      imageSrc: "assets/products-v2/T800/T800.png",
+      badges: ["NEW"],
+      price: 21999,
+      mrp: 29990,
+      colors: ["#f5f5f5", "#3b3b3b"]
+    },
+    {
+      id: "T500",
+      title: "WINIX T500",
+      tagline: "WINIX T500 Compact Air",
+      description:
+        "Compact design with 360° suction, multi-stage filtration and whisper-quiet night mode.",
+      rating: 4.5,
+      ratingCount: '249',
+      slug: "winix-t500-air-purifier",
+      imageSrc: "assets/products-v2/T500/T500.png",
+      badges: ["VALUE PICK"],
+      price: 10499,
+      mrp: 19990,
+      colors: ["#ffffff", "#111111"]
+    },
+    {
+      id: "A231",
+      title: "WINIX A231",
+      tagline: "WINIX A231 Compact Air",
+      description:
+        "Allergy-certified compact purifier, ideal for study, kids’ rooms and small spaces.",
+      rating: 4.5,
+      ratingCount: '36K',
+      slug: "winix-a231-air-purifier",
+      imageSrc: "assets/products-v2/A231/A231.png",
+      badges: ["ALLERGY SAFE"],
+      price: 8699,
+      mrp: 18990,
+      colors: ["#f2f2f2", "#111111"]
     },
   ];
 
