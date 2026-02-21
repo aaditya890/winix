@@ -1824,7 +1824,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       ],
 
       highlightImages: [
-        "assets/winix-product-images/a231/1.png",
+        "assets/winix-product-images/a231/a231-1.png",
         "assets/winix-product-images/a231/2.png",
         "assets/winix-product-images/a231/3.png",
       ],
@@ -2212,7 +2212,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       description:
         "True HEPA purifier with PlasmaWave and washable AOC carbon filter. 360 sq ft coverage, 27.8 dB operation, 70W power.",
       images: [
-        "assets/products-v2/5500-2/1.png",
+        "assets/products-v2/5500-2/first.png",
         "assets/products-v2/5500-2/2.png",
         "assets/products-v2/5500-2/3.png",
         "assets/products-v2/5500-2/5500-2-certificate.png",
