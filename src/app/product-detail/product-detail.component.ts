@@ -12,7 +12,11 @@ interface Product {
   shortName: string
   slug: string
   description: string
-  images: string[]
+  images: {
+    type: 'image' | 'video';
+    src: string;
+    thumbnail?: string;
+  }[]
   currentImage: string
   rating: number
   category: string
@@ -227,9 +231,14 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
   }
 
   isVideo(file: string): boolean {
-  if (!file) return false;
-  return file.toLowerCase().endsWith('.mp4');
-}
+    if (!file) return false;
+    return file.toLowerCase().endsWith('.mp4');
+  }
+
+  getVideoThumbnail(videoPath: string): string {
+    return videoPath
+      .replace('.mp4', '-thumb.jpg');
+  }
 
 
   products: Product[] = [
@@ -245,16 +254,16 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       description:
         "Genuine 116130 Replacement Filter H for Winix 5500-2. Includes True HEPA, washable AOC carbon filter, and long-lasting performance for dust, smoke, odours, and allergens.",
       images: [
-        "/assets/filters/5500-2/1.webp",
-        "/assets/filters/5500-2/2.webp",
-        "/assets/filters/5500-2/3.webp",
-        "/assets/filters/5500-2/4.webp",
-        "/assets/filters/5500-2/5.webp",
-        "/assets/filters/5500-2/6.webp",
-        "/assets/filters/5500-2/7.webp",
-        "/assets/filters/5500-2/8.webp",
-        "assets/products-v2/5500-2/5500-2.webp",
-        "assets/products-v2/28.webp"
+        { type: 'image', src: "/assets/filters/5500-2/1.webp" },
+        { type: 'image', src: "/assets/filters/5500-2/2.webp" },
+        { type: 'image', src: "/assets/filters/5500-2/3.webp" },
+        { type: 'image', src: "/assets/filters/5500-2/4.webp" },
+        { type: 'image', src: "/assets/filters/5500-2/5.webp" },
+        { type: 'image', src: "/assets/filters/5500-2/6.webp" },
+        { type: 'image', src: "/assets/filters/5500-2/7.webp" },
+        { type: 'image', src: "/assets/filters/5500-2/8.webp" },
+        { type: 'image', src: "assets/products-v2/5500-2/5500-2.webp" },
+        { type: 'image', src: "assets/products-v2/28.webp" }
       ],
       currentImage: "/assets/filters/5500-2/1.webp",
       rating: 4.7,
@@ -503,16 +512,15 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         "Genuine Winix Filter R for the T800 air purifier. Includes True HEPA, Fine-Mesh Pre-Filter and Activated Carbon Filter for powerful filtration of dust, smoke, odours, and allergens.",
 
       images: [
-        "/assets/filters/T800/1.webp",
-        "/assets/filters/T800/2.webp",
-        "/assets/filters/T800/3.webp",
-        "assets/products-v2/T800/T800.webp",
-        "/assets/filters/T800/4.webp",
-        "/assets/filters/T800/5.webp",
-        "/assets/filters/T800/6.webp",
-        "assets/products-v2/28.webp"
+        { type: 'image', src: "/assets/filters/T800/1.webp" },
+        { type: 'image', src: "/assets/filters/T800/2.webp" },
+        { type: 'image', src: "/assets/filters/T800/3.webp" },
+        { type: 'image', src: "assets/products-v2/T800/T800.webp" },
+        { type: 'image', src: "/assets/filters/T800/4.webp" },
+        { type: 'image', src: "/assets/filters/T800/5.webp" },
+        { type: 'image', src: "/assets/filters/T800/6.webp" },
+        { type: 'image', src: "assets/products-v2/28.webp" }
       ],
-
       currentImage: "/assets/filters/T800/1.webp",
 
       rating: 4.9,
@@ -759,11 +767,11 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         "Original Winix 115115 Replacement Filter A compatible with Winix 5300-2, C535, P300 and other models. Includes True HEPA filter plus four Activated Carbon Pre-Filters for powerful odour, dust, VOC, and allergen removal.",
 
       images: [
-        "/assets/filters/5300-2/1.webp",
-        "/assets/filters/5300-2/2.webp",
-        "/assets/filters/5300-2/3.webp",
-        "assets/products-v2/5300-2/5300-2.webp",
-        "assets/products-v2/28.webp"
+        { type: 'image', src: "/assets/filters/5300-2/1.webp" },
+        { type: 'image', src: "/assets/filters/5300-2/2.webp" },
+        { type: 'image', src: "/assets/filters/5300-2/3.webp" },
+        { type: 'image', src: "assets/products-v2/5300-2/5300-2.webp" },
+        { type: 'image', src: "assets/products-v2/28.webp" }
       ],
 
       currentImage: "/assets/filters/5300-2/1.webp",
@@ -1009,14 +1017,14 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       description:
         "Genuine Replacement Filter for Winix T500 Air Purifier. Includes True HEPA, Activated Carbon, and Pre-filter for long-lasting protection against dust, smoke, odours, and allergens.",
       images: [
-        "/assets/filters/A231/2.webp",
-        "/assets/filters/A231/1.webp",
-        "/assets/filters/A231/3.webp",
-        "assets/products-v2/T500/T500.webp",
-        "/assets/filters/A231/4.webp",
-        "/assets/filters/A231/5.webp",
-        "/assets/filters/A231/6.webp",
-        "assets/products-v2/28.webp"
+        { type: 'image', src: "/assets/filters/A231/2.webp" },
+        { type: 'image', src: "/assets/filters/A231/1.webp" },
+        { type: 'image', src: "/assets/filters/A231/3.webp" },
+        { type: 'image', src: "assets/products-v2/T500/T500.webp" },
+        { type: 'image', src: "/assets/filters/A231/4.webp" },
+        { type: 'image', src: "/assets/filters/A231/5.webp" },
+        { type: 'image', src: "/assets/filters/A231/6.webp" },
+        { type: 'image', src: "assets/products-v2/28.webp" }
       ],
       currentImage: "/assets/filters/A231/2.webp",
       rating: 4.8,
@@ -1276,15 +1284,14 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       description:
         "Genuine Winix 1712-0110-00 Replacement Filter O for A231. Includes True HEPA, activated carbon filter and long-lasting filtration for dust, smoke, odours and allergens.",
       images: [
-        "/assets/filters/A231/1.webp",
-        "/assets/filters/A231/2.webp",
-        "/assets/filters/A231/3.webp",
-        "assets/products-v2/T500/T500.webp",
-        "/assets/filters/A231/4.webp",
-        "/assets/filters/A231/5.webp",
-        "/assets/filters/A231/6.webp",
-        "assets/products-v2/28.webp"
-
+        { type: 'image', src: "/assets/filters/A231/1.webp" },
+        { type: 'image', src: "/assets/filters/A231/2.webp" },
+        { type: 'image', src: "/assets/filters/A231/3.webp" },
+        { type: 'image', src: "assets/products-v2/T500/T500.webp" },
+        { type: 'image', src: "/assets/filters/A231/4.webp" },
+        { type: 'image', src: "/assets/filters/A231/5.webp" },
+        { type: 'image', src: "/assets/filters/A231/6.webp" },
+        { type: 'image', src: "assets/products-v2/28.webp" }
       ],
       currentImage: "/assets/filters/A231/1.webp",
       rating: 4.8,
@@ -1557,16 +1564,31 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       description:
         "Compact HEPA purifier for small-to-medium rooms with washable pre-filter, activated carbon, True HEPA, and PlasmaWave. AHAM-verified 230 sq ft coverage; ultra-quiet 20 dB.",
       images: [
-        "assets/products-v2/A231/A231.png",
-        "assets/products-v2/A231/2.png",
-        "assets/products-v2/A231/3.png",
-        "assets/products-v2/A231/4.png",
-        "assets/products-v2/A231/5.png",
-        "assets/products-v2/A231/6.png",
-        "assets/products-v2/A231/7.png",
-        "assets/products-v2/A231/8.png",
-        "assets/products-v2/28.png",
-        "assets/winix-product-images/a231/Aplus.mp4",
+        { type: 'image', src: "assets/products-v2/A231/A231.png" },
+        { type: 'image', src: "assets/products-v2/A231/2.png" },
+        { type: 'image', src: "assets/products-v2/A231/3.png" },
+        { type: 'image', src: "assets/products-v2/A231/4.png" },
+        { type: 'image', src: "assets/products-v2/A231/5.png" },
+        { type: 'image', src: "assets/products-v2/A231/6.png" },
+        { type: 'image', src: "assets/products-v2/A231/7.png" },
+        { type: 'image', src: "assets/products-v2/A231/8.png" },
+        { type: 'image', src: "assets/products-v2/28.png" },
+
+        {
+          type: 'video',
+          src: "assets/winix-product-images/a231/Aplus.mp4",
+          thumbnail: "assets/winix-product-images/a231/thumbnail/1.png"
+        },
+        {
+          type: 'video',
+          src: "assets/winix-product-images/a231/Aplus-2.mp4",
+          thumbnail: "assets/winix-product-images/a231/thumbnail/2.png"
+        },
+        {
+          type: 'video',
+          src: "assets/winix-product-images/a231/vid.webm",
+          thumbnail: "assets/winix-product-images/a231/thumbnail/3.png"
+        }
       ],
       currentImage: "assets/products-v2/A231/product-1.jpg",
       rating: 4.6,
@@ -1828,7 +1850,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         "assets/winix-product-images/a231/2.png",
         "assets/winix-product-images/a231/3.png",
       ],
-      videos: ["assets/winix-product-images/a231/Aplus.mp4","assets/winix-product-images/a231/vid.webm"],
+      videos: ["assets/winix-product-images/a231/Aplus.mp4", "assets/winix-product-images/a231/Aplus-2.mp4", "assets/winix-product-images/a231/vid.webm"],
       lastImage: "assets/winix-product-images/last-image.jpeg",
       faqs: [
         {
@@ -1878,19 +1900,37 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       description:
         "Premium 4-stage purifier with True HEPA, PlasmaWave, and activated carbon. AHAM-verified coverage up to 1065 sq ft, CADR 390 m³/h, with ultra-quiet 27.8 dB operation.",
       images: [
-        "assets/products-v2/5300-2/1.png",
-        "assets/products-v2/5300-2/2.png",
-        "assets/products-v2/5300-2/3.png",
-        "assets/products-v2/5300-2/4.png",
-        "assets/products-v2/5300-2/5.png",
-        "assets/products-v2/5300-2/6.png",
-        "assets/products-v2/5300-2/7.png",
-        "assets/products-v2/5300-2/8.png",
-        "assets/products-v2/5300-2/9.png",
-        "assets/products-v2/28.png",
-        "assets/winix-product-images/t5300-2/Aplus.mp4",
-        "assets/winix-product-images/t5300-2/Aplus-2.mp4",
-        "assets/winix-product-images/t5300-2/Aplus-3.mp4",
+        { type: 'image', src: "assets/products-v2/5300-2/1.png" },
+        { type: 'image', src: "assets/products-v2/5300-2/2.png" },
+        { type: 'image', src: "assets/products-v2/5300-2/3.png" },
+        { type: 'image', src: "assets/products-v2/5300-2/4.png" },
+        { type: 'image', src: "assets/products-v2/5300-2/5.png" },
+        { type: 'image', src: "assets/products-v2/5300-2/6.png" },
+        { type: 'image', src: "assets/products-v2/5300-2/7.png" },
+        { type: 'image', src: "assets/products-v2/5300-2/8.png" },
+        { type: 'image', src: "assets/products-v2/5300-2/9.png" },
+        { type: 'image', src: "assets/products-v2/28.png" },
+
+        {
+          type: 'video',
+          src: "assets/winix-product-images/t5300-2/Aplus.mp4",
+          thumbnail: "assets/winix-product-images/t5300-2/thumbnail/1.png"
+        },
+        {
+          type: 'video',
+          src: "assets/winix-product-images/t5300-2/Aplus-2.mp4",
+          thumbnail: "assets/winix-product-images/t5300-2/thumbnail/2.png"
+        },
+        {
+          type: 'video',
+          src: "assets/winix-product-images/t5300-2/Aplus-3.mp4",
+          thumbnail: "assets/winix-product-images/t5300-2/thumbnail/3.png"
+        },
+         {
+          type: 'video',
+          src: "assets/winix-product-images/t5300-2/vid.webm",
+          thumbnail: "assets/winix-product-images/t5300-2/thumbnail/4.png"
+        }
       ],
       currentImage: "assets/products-v2/5300-2/product-1.jpg",
       rating: 4.6,
@@ -2162,7 +2202,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         "assets/winix-product-images/t5300-2/7.png",
         "assets/winix-product-images/t5300-2/8.png"
       ],
-      videos: ["assets/winix-product-images/t5300-2/Aplus.mp4", "assets/winix-product-images/t5300-2/Aplus-2.mp4", "assets/winix-product-images/t5300-2/Aplus-3.mp4","assets/winix-product-images/t5300-2/vid.webm"],
+      videos: ["assets/winix-product-images/t5300-2/Aplus.mp4", "assets/winix-product-images/t5300-2/Aplus-2.mp4", "assets/winix-product-images/t5300-2/Aplus-3.mp4", "assets/winix-product-images/t5300-2/vid.webm"],
       lastImage: "assets/winix-product-images/last-image.jpeg",
       faqs: [
         {
@@ -2212,18 +2252,32 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       description:
         "True HEPA purifier with PlasmaWave and washable AOC carbon filter. 360 sq ft coverage, 27.8 dB operation, 70W power.",
       images: [
-        "assets/products-v2/5500-2/first.png",
-        "assets/products-v2/5500-2/2.png",
-        "assets/products-v2/5500-2/3.png",
-        "assets/products-v2/5500-2/5500-2-certificate.png",
-        "assets/products-v2/5500-2/4.png",
-        "assets/products-v2/5500-2/6.png",
-        "assets/products-v2/5500-2/7.png",
-        "assets/products-v2/5500-2/8.png",
-        "assets/products-v2/5500-2/5.png",
-        "assets/products-v2/5500-2/map.png",
-        "assets/winix-product-images/t5500-2/Aplus.mp4",
-        "assets/winix-product-images/t5500-2/Aplus-2.mp4",
+        { type: 'image', src: "assets/products-v2/5500-2/first.png" },
+        { type: 'image', src: "assets/products-v2/5500-2/2.png" },
+        { type: 'image', src: "assets/products-v2/5500-2/5500-2-certificate.png" },
+        { type: 'image', src: "assets/products-v2/5500-2/3.png" },
+        { type: 'image', src: "assets/products-v2/5500-2/4.png" },
+        { type: 'image', src: "assets/products-v2/5500-2/6.png" },
+        { type: 'image', src: "assets/products-v2/5500-2/7.png" },
+        { type: 'image', src: "assets/products-v2/5500-2/8.png" },
+        { type: 'image', src: "assets/products-v2/5500-2/5.png" },
+        { type: 'image', src: "assets/products-v2/5500-2/map.png" },
+
+        {
+          type: 'video',
+          src: "assets/winix-product-images/t5500-2/Aplus.mp4",
+          thumbnail: "assets/winix-product-images/t5500-2/thumbnail/1.png"
+        },
+        {
+          type: 'video',
+          src: "assets/winix-product-images/t5500-2/Aplus-2.mp4",
+          thumbnail: "assets/winix-product-images/t5500-2/thumbnail/2.png"
+        },
+        {
+          type: 'video',
+          src: "assets/winix-product-images/t5500-2/vid.webm",
+          thumbnail: "assets/winix-product-images/t5500-2/thumbnail/3.png"
+        }
       ],
       currentImage: "assets/products-v2/5500-2/product-1.jpg",
       rating: 4.6,
@@ -2490,7 +2544,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         "assets/winix-product-images/t5500-2/4.png",
         "assets/winix-product-images/t5500-2/5.png",
       ],
-      videos: ["assets/winix-product-images/t5500-2/Aplus.mp4", "assets/winix-product-images/t5500-2/Aplus-2.mp4","assets/winix-product-images/t5500-2/vid.webm"],
+      videos: ["assets/winix-product-images/t5500-2/Aplus.mp4", "assets/winix-product-images/t5500-2/Aplus-2.mp4", "assets/winix-product-images/t5500-2/vid.webm"],
       lastImage: "assets/winix-product-images/last-image.jpeg",
       faqs: [
         {
@@ -2540,18 +2594,32 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       description:
         "Smart Wi-Fi enabled air purifier with True HEPA, carbon filter, auto mode, and air quality monitor. Covers up to 1968 sq ft in 1 hour with AHAM-verified 410 sq ft rating.",
       images: [
-        "assets/products-v2/T800/T800.png",
-        "assets/products-v2/T800/2.png",
-        "assets/products-v2/T800/3.png",
-        "assets/products-v2/T800/4.png",
-        "assets/products-v2/T800/5.png",
-        "assets/products-v2/T800/6.png",
-        "assets/products-v2/T800/7.png",
-        "assets/products-v2/T800/8.png",
-        "assets/products-v2/T800/9.png",
-        "assets/products-v2/28.png",
-        "assets/winix-product-images/t800/Aplus.mp4",
-        "assets/winix-product-images/t800/Aplus-2.mp4",
+        { type: 'image', src: "assets/products-v2/T800/T800.png" },
+        { type: 'image', src: "assets/products-v2/T800/2.png" },
+        { type: 'image', src: "assets/products-v2/T800/3.png" },
+        { type: 'image', src: "assets/products-v2/T800/4.png" },
+        { type: 'image', src: "assets/products-v2/T800/5.png" },
+        { type: 'image', src: "assets/products-v2/T800/6.png" },
+        { type: 'image', src: "assets/products-v2/T800/7.png" },
+        { type: 'image', src: "assets/products-v2/T800/8.png" },
+        { type: 'image', src: "assets/products-v2/T800/9.png" },
+        { type: 'image', src: "assets/products-v2/28.png" },
+
+        {
+          type: 'video',
+          src: "assets/winix-product-images/t800/Aplus.mp4",
+          thumbnail: "assets/winix-product-images/t800/thumbnail/1.png"
+        },
+        {
+          type: 'video',
+          src: "assets/winix-product-images/t800/Aplus-2 (2).mp4",
+          thumbnail: "assets/winix-product-images/t800/thumbnail/2.png"
+        },
+        {
+          type: 'video',
+          src: "assets/winix-product-images/t800/vid.webm",
+          thumbnail: "assets/winix-product-images/t800/thumbnail/3.png"
+        }
       ],
       currentImage: "assets/products-v2/T800/product-1.jpg",
       rating: 4.4,
@@ -2828,7 +2896,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         "assets/winix-product-images/t800/4.jpg",
         "assets/winix-product-images/t800/5.jpg",
       ],
-      videos: ["assets/winix-product-images/t800/Aplus.mp4", "assets/winix-product-images/t800/Aplus-2.mp4","assets/winix-product-images/t800/vid.webm"],
+      videos: ["assets/winix-product-images/t800/Aplus.mp4", "assets/winix-product-images/t800/Aplus-2.mp4", "assets/winix-product-images/t800/vid.webm"],
       lastImage: "assets/winix-product-images/last-image.jpeg",
       faqs: [
         {
@@ -2878,19 +2946,33 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       description:
         "360° all-in-one air purifier with WiFi Smart App control, PlasmaWave technology, and 4-stage filtration including fine mesh pre-filter, True HEPA, and activated carbon. AHAM verified for 251 sq ft, capable of cleaning up to 1204 sq ft in 1 hour.",
       images: [
-        "assets/products-v2/T500/T500.png",
-        "assets/products-v2/T500/2 (2).png",
-        "assets/products-v2/T500/2.png",
-        "assets/products-v2/T500/4.png",
-        "assets/products-v2/T500/5.png",
-        "assets/products-v2/T500/6.png",
-        "assets/products-v2/T500/7.jpg",
-        "assets/products-v2/T500/8.png",
-        "assets/products-v2/T500/9.png",
-        "assets/products-v2/T500/10.png",
-        "assets/products-v2/28.png",
-        "assets/winix-product-images/t500/Aplus.mp4",
-        "assets/winix-product-images/t500/Aplus-2.mp4",
+        { type: 'image', src: "assets/products-v2/T500/T500.png" },
+        { type: 'image', src: "assets/products-v2/T500/2 (2).png" },
+        { type: 'image', src: "assets/products-v2/T500/2.png" },
+        { type: 'image', src: "assets/products-v2/T500/10.png" },
+        { type: 'image', src: "assets/products-v2/T500/4.png" },
+        { type: 'image', src: "assets/products-v2/T500/5.png" },
+        { type: 'image', src: "assets/products-v2/T500/6.png" },
+        { type: 'image', src: "assets/products-v2/T500/7.jpg" },
+        { type: 'image', src: "assets/products-v2/T500/8.png" },
+        { type: 'image', src: "assets/products-v2/T500/9.png" },
+        { type: 'image', src: "assets/products-v2/28.png" },
+
+        {
+          type: 'video',
+          src: "assets/winix-product-images/t500/Aplus.mp4",
+          thumbnail: "assets/winix-product-images/t500/thumbnail/1.png"
+        },
+        {
+          type: 'video',
+          src: "assets/winix-product-images/t500/Aplus-2.mp4",
+          thumbnail: "assets/winix-product-images/t500/thumbnail/2.png"
+        },
+        {
+          type: 'video',
+          src: "assets/winix-product-images/t500/vid.webm",
+          thumbnail: "assets/winix-product-images/t500/thumbnail/3.png"
+        }
       ],
       currentImage: "assets/products-v2/T500/product-1.jpg",
       rating: 0, // no Amazon reviews yet
@@ -3158,7 +3240,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         "assets/winix-product-images/t500/5.png",
         "assets/winix-product-images/t500/6.png",
       ],
-      videos: ["assets/winix-product-images/t500/Aplus.mp4", "assets/winix-product-images/t500/Aplus-2.mp4","assets/winix-product-images/t500/vid.webm"],
+      videos: ["assets/winix-product-images/t500/Aplus.mp4", "assets/winix-product-images/t500/Aplus-2.mp4", "assets/winix-product-images/t500/vid.webm"],
       lastImage: "assets/winix-product-images/last-image.jpeg",
       faqs: [
         {
